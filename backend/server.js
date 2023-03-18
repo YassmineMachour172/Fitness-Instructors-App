@@ -1,8 +1,8 @@
 const mysql = require('mysql')
 const express = require('express')
 const cors = require('cors');
-const nodemailer =require('nodemailer');
-const axios = require('axios');
+//const nodemailer =require('nodemailer');
+//const axios = require('axios');
 const { USERS_TABLE, CARS_TABLE } = require('./db')
 
 const app = express() // Create express app
@@ -11,12 +11,24 @@ const port =  process.env.PORT || 8000 // Port to listen on
 app.use(express.json());
 app.use(cors()); 
 
-// Define object with db config data
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "&Yassmine172",
+    database: "workoutin"
+  });
+  
+  con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+  });
+/*// Define object with db config data
 const db_config = {
-    user: "admin1",
-    host: "carservicedb.cj9a9lermuhv.us-east-1.rds.amazonaws.com",
-    password: "12345678",
-    database: "sys",
+    user: "root",
+    host: "localhost",
+    password: "&Yassmine172",
+    database: "workoutin",
+    port:"3306",
 };
 
 let databaseConnection
@@ -49,6 +61,6 @@ function handleDisconnect() {
 handleDisconnect();
 
 /* listen to port */
-app.listen(port, () => {
+/*app.listen(port, () => {
     console.log(`Car-Service server listening on http://localhost:${port}`)
-})
+})*/
