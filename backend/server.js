@@ -1,8 +1,6 @@
 const mysql = require('mysql')
 const express = require('express')
 const cors = require('cors');
-//const nodemailer =require('nodemailer');
-//const axios = require('axios');
 const { USERS_TABLE, CARS_TABLE } = require('./db')
 
 const app = express() // Create express app
@@ -19,7 +17,7 @@ var con = mysql.createConnection({
   });
   
   con.connect(function(err) {
-    if (err) throw err;
+    if (err) throw err; 
     console.log("Connected!");
   });
 /*// Define object with db config data
