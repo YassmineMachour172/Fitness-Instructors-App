@@ -4,22 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Home.css';
 import logo from '../../images/logo.png'
 import pic from '../../images/pic.jpg'
-
-
+/*import{ useHistroy } from 'react-router-dom';*/
 /* Home Component */
 const Home = () => {
     const navigate = useNavigate(); /* define hook to navigate to other pages */
 
     /* function that navigate to the logIn page */
-    const handleClickHome = () => {
-        navigate('/Home');
-    };
-    const handleClickSignIn=()=>{
-
-    }
-    const handleClickAboutUs=()=>{
-
-    }
+    
+    
+    
+    
     return (
         <div className="container">
             <div id='home' className='backgroundcol'>
@@ -48,8 +42,8 @@ const Home = () => {
                             <br/>
                             <br/>
                             <div className="buttons">
-                                <button className='training-plans' onClick={handleClickHome}>Training Plans</button>
-                                <button className='application-manual' onClick={handleClickHome}>Application Manual</button>
+                                <button className='training-plans' onClick={() => navigate('/')}>Training Plans</button>
+                                <button className='application-manual' onClick={() => navigate('AppM')}>Application Manual</button>
                             </div>
                             <br/><br/>
                         </center><br/> <br/> 
@@ -62,9 +56,9 @@ const Home = () => {
                         
                         <center>
                             <div className="down-buttons">
-                                <button className='home' disabled>Home</button>
-                                <button className='sign-in' onClick={handleClickSignIn}>Sign In</button>
-                                <button className='about-us' onClick={handleClickAboutUs}>About Us</button>
+                                <button className='home' disabled >Home</button>
+                                <button className='sign-in' onClick={() => navigate('/')}>Sign In</button>
+                                <button className='about-us' onClick={() => navigate('about')}>About Us</button>
                             </div>
                         </center>
                         
