@@ -1,52 +1,33 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: right;
-}
-.backgroundcol{
-    background-color: #99BADD;
-    background-size: cover;
-    height: 100%;
-    width: 100vw;
-}
 
-.pa{
-    margin-left: 1vw;
-    font-size: 16px;
-}
-.pic{
-    display: flex;
-    height: 35vh;
-    width:75vw;
-    max-width: 500px;
-    max-height: 250px;
-    border: 5px solid #D6A650;
-    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-.logo{
-    display: flex;
-    margin-left:1vw;
-    height:5vh;
-    width:30vw;
-}
-.description{
+.descriptionAboutUs{
+    
     font-size: 30px;
-    text-align: right;
+    text-align: left;
     margin-left:5vw;
     margin-right:5vw;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .picture-Nadeen{
-    align-items: left;
+    position: left;
+    width: 280px;
+    height: 280px;
+    left: 35px;
+    top: 234px;
+    border: 10px solid #D6A650;
+    border-radius: 100px;
+    
 }
 .picture-Yassmine{
-    align-items: left;
+    position: left;
+    width: 280px;
+    height: 280px;
+    left: 35px;
+    top: 234px;
+    border: 10px solid #D6A650;
+    border-radius: 100px;
+    
 }
-.home{
+.home2{
     margin-right: 3vw;
     border: 1px solid #000000;
     border-radius: 30px;
@@ -54,26 +35,15 @@
     height: 45px;
     padding-left:20px ;
     padding-right:20px ;
+    background: #CAAD78;
+   /* background-blend-mode: hard-light;*/
+}
+.about-us2{
+    width: 20vw;
+
+    margin-left: 3vw;
     background: rgba(242, 200, 142, 0.81);
-    background-blend-mode: hard-light;
-}
-.sign-in{
-    width:20vw;
-
-    margin-left: 3vw;
-    margin-right: 3vw;
-    background: #CAAD78;
-    border: 1px solid #000000;
-    border-radius: 30px;
-    height: 45px;
-    padding-left:20px ;
-    padding-right:20px ;
-}
-.about-us{
-    width: 20vw;
-
-    margin-left: 3vw;
-    background: #CAAD78;
+   
     border: 1px solid #000000;
     border-radius: 30px;
     height: 45px;

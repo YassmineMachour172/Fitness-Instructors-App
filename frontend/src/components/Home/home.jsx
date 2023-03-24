@@ -57,8 +57,8 @@ const Home = () => {
                         <center>
                             <div className="down-buttons">
                                 <button className='home' disabled >Home</button>
-                                <button className='sign-in' onClick={() => navigate('/')}>Sign In</button>
-                                <button className='about-us' onClick={() => navigate('about')}>About Us</button>
+                                <button className='sign-in' onClick={() => navigate('../../SignIn')}>Sign In</button>
+                                <button className='about-us' onClick={() => navigate('../../about')}>About Us</button>
                             </div>
                         </center>
                         
