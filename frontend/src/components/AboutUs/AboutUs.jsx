@@ -12,7 +12,7 @@ const AboutUs = () => {
 
     
     return (
-        <div className="container">
+        <div className="container-fluid">
             <div id='about-us' className='backgroundcol'>
                 
                 <div className="path">

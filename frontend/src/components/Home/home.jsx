@@ -15,16 +15,14 @@ const Home = () => {
     
     
     return (
-        <div className="container">
+        <div className="container-fluid">
             <div id='home' className='backgroundcol'>
-                
                 <div className="path">
                     <h5 className='pa'>Home</h5>
                     <hr></hr>
                 </div>
-                
-                <div className="navbar">
-                    <div className="navbar-container">
+                    <div className="header">
+                        <br/><br/>
                         <img src={logo} className="logo"/>
                         <div className='picture-home'>
                             <br /><br />
@@ -53,20 +51,19 @@ const Home = () => {
                         <br/> 
                         <br/>
                         <hr/>
-                        
-                        <center>
-                            <div className="down-buttons">
-                                <button className='home' disabled >Home</button>
-                                <button className='sign-in' onClick={() => navigate('../../SignIn')}>Sign In</button>
-                                <button className='about-us' onClick={() => navigate('../../about')}>About Us</button>
-                            </div>
-                        </center>
-                        
+                        <footer>
+                            <center>
+                                <div className="down-buttons">
+                                    <button className='home' disabled >Home</button>
+                                    <button className='sign-in' onClick={() => navigate('../../SignIn')}>Sign In</button>
+                                    <button className='about-us' onClick={() => navigate('../../about')}>About Us</button>
+                                </div>
+                            </center>
+                        </footer>
                          
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
 

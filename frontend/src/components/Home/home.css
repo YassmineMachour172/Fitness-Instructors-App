@@ -1,17 +1,18 @@
-.container {
+.container-fluid{
+    background-color: #99BADD;
     display: flex;
-    flex-direction: column;
+    height: 100%;
 }
 .backgroundcol{
-    background-color: #99BADD;
+    display: flex;
+    flex-direction: column;
     background-size: cover;
-    height: 100%;
-    width: 100vw;
 }
 
 .pa{
     margin-left: 1vw;
     font-size: 16px;
+    font-weight: bold;
 }
 .pic{
     display: flex;
@@ -48,6 +49,7 @@
     border: 1px solid #000000;
     border-radius: 30px;
     height: 45px;
+    font-weight: bold;
     padding-left:20px ;
     padding-right:20px ;
 }
@@ -56,11 +58,15 @@
     background: #CAAD78;
     border: 1px solid #000000;
     border-radius: 30px;
+    font-weight: bold;
     height: 45px;
     padding-left:20px ;
     padding-right:20px ;
 }
+
 .home{
+    
+    font-weight: bold;
     margin-right: 3vw;
     border: 1px solid #000000;
     border-radius: 30px;
@@ -68,29 +74,30 @@
     height: 45px;
     padding-left:20px ;
     padding-right:20px ;
-    background: rgba(242, 200, 142, 0.81);
     background-blend-mode: hard-light;
+    background: #E3DAE0;
+    
 }
 .sign-in{
     width:20vw;
-
+    font-weight: bold;
     margin-left: 3vw;
     margin-right: 3vw;
-    background: #CAAD78;
     border: 1px solid #000000;
     border-radius: 30px;
     height: 45px;
     padding-left:20px ;
     padding-right:20px ;
+background: #D6A650;
 }
 .about-us{
     width: 20vw;
-
+    font-weight: bold;
     margin-left: 3vw;
-    background: #CAAD78;
-    border: 1px solid #000000;
     border-radius: 30px;
     height: 45px;
     padding-left:20px ;
     padding-right:20px ;
+    background: #D6A650;
+    border: 1px solid #000000;
 }

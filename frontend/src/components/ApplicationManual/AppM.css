@@ -5,3 +5,8 @@
     margin-right:5vw;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+.container-fluid{
+    background-color: #99BADD;
+    display: flex;
+    height: 100%;
+}

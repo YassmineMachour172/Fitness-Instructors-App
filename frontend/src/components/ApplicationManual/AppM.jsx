@@ -23,11 +23,11 @@ const AppM = () => {
     }
     
     return (
-        <div className="container">
+        <div className="container-fluid">
             <div id='ApplicationManual' className='backgroundcol'>
                 
                 <div className="path">
-                    <h5 className='pa'>Home--Application Manual</h5>
+                    <h5 className='pa'>Home--{">"}Application Manual</h5>
                     <hr></hr>
                 </div>
                 
@@ -75,6 +75,8 @@ const AppM = () => {
                         <br/> 
                         <br/> 
                         <br/>
+                        
+                        <footer>
                         <hr/>
                         
                         <center>
@@ -84,7 +86,7 @@ const AppM = () => {
                                 <button className='about-us' onClick={() => navigate('../../about')}>About Us</button>
                             </div>
                         </center>
-                        
+                        </footer>
                          
                     </div>
                 </div>
