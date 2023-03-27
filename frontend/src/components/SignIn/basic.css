@@ -1,17 +1,11 @@
 .container-fluid{
     background-color: #99BADD;
     display: flex;
-    height: 100vh;
-}
-
-.col{
-    align-items: center;
-    height: 100vh;
+    height: 100%;
 }
 hr{
-    width: 100%;
+    width: 100vw;
 }
-
 .picture-SignIn{
     display: flex;
     height: 35vh;
@@ -24,72 +18,71 @@ hr{
     margin-left: auto;
     margin-right: auto;
 }
-.cont{
+.form{
     background-color: #CAAD78;
-    height: 100vh;
+    height: 80vh;
     width:40vw ;
     border-radius:15% ;
     align-items: center;
-    padding-bottom: 2px;
 }
-
-form{
-    padding-top: 5vh;
-
-}
-
-.text-con,.submit-btn{
+.row{
     max-width:100% ;
     align-items: center;
 }
 .inputs{
     max-width: 40%;
-    background: #D9D9D9;
-    border: 2px solid #000000;
-    margin-top: 5vh;
 }
-.doneBtn{
-    max-width: 40%;
-    width: 20vw;
-    font-weight: bold;
-    height: 15%;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    background-blend-mode: hard-light;
-    background: #D9D9D9;
-    border: 2px solid #000000;
-    border-radius: 30px;
+
+
+.doneBtn {
+  background: linear-gradient(to bottom right, #99BADD, #87b8ed);
+  border: 3%;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
 }
-.forgot{
-    padding-top: 5%;
-    padding-bottom: 5%;
+
+.doneBtn:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }
-.forA{
-    margin-left: 50%;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-#new-account{
-    margin-top: 5%;
+
+.doneBtn:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }
 .circle{
-    margin-top: 10%;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
     background: #D9D9D9;
     border: 3px solid #000000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 90px;
-    height: 15vh;
-    height:60%;
-    max-width: 40%;
-    width: 10vw;
+    padding-top: 4%;
+    align-items: center;
 }
-
 .questionMark{
+    font-weight: bold;
     font-family: 'Irish Grover';
-    font-weight: 400;
-    font-size:20vh;
+    font-size: 40px;
+    line-height: 48px;
+    display: flex;
     color: rgba(0, 0, 0, 0.2);
-}
-.down-buttons{
-    margin-top: 5%;
+    padding-left:1vw ;
+    max-width:40px;
+    max-height: 48px;
 }
 .home{
     font-weight: bold;
@@ -97,10 +90,11 @@ form{
     border: 1px solid #000000;
     border-radius: 30px;
     width: 20vw;
-    height: 8vh;
+    height: 45px;
     padding-left:20px ;
     padding-right:20px ;
     background: #D6A650;
+    background-blend-mode: hard-light;
 }
 .sign-in{
     width:20vw;
@@ -109,7 +103,7 @@ form{
     margin-right: 3vw;
     border: 1px solid #000000;
     border-radius: 30px;
-    height: 8vh;
+    height: 45px;
     padding-left:20px ;
     padding-right:20px ;
     background: #E3DAE0;
@@ -117,11 +111,11 @@ form{
 }
 .about-us{
     width: 20vw;
-    height: 8vh;
     font-weight: bold;
     margin-left: 3vw;
     border: 1px solid #000000;
     border-radius: 30px;
+    height: 45px;
     padding-left:20px ;
     padding-right:20px ;
     background: #D6A650;
