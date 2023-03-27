@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate  } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Home.css';
+import './home.css';
 import logo from '../../images/logo.png'
 import pic from '../../images/pic.jpg'
 /*import{ useHistroy } from 'react-router-dom';*/
