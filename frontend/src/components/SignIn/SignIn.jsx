@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate  } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './SignIn.css';
 import logo from '../../images/logo.png'
@@ -51,14 +51,14 @@ const SignIn = () => {
                                                 <center><input type="password" className='inputs' name="pass" required placeholder='Enter a correct password' />**</center>
                                             </div>
                                             <div className="forgot">
-                                                <b><a className="forA" href='#'>Forgot your password?</a></b>
+                                                <b><Link to='/Forgot' className="forA" >Forgot your password?</Link></b>
                                             </div>
                                             <div className="submit-btn">
                                                 <center><input type="submit" className='doneBtn' value='Done'/> </center>
                                             </div>
                                             </form>
                                             <div className="row" id='new-account'>
-                                            <b> <span>Don't Have An Account?</span><br/><a href='#'>Click Here!</a></b>
+                                            <b> <span>Don't Have An Account?</span><br/><Link to='/Register'>Click Here!</Link></b>
                                             </div>
                                         </div>
                                         

@@ -3,6 +3,9 @@ import Home from './components/Home/home';
 import AppM from './components/ApplicationManual/AppM'
 import About from './components/AboutUs/AboutUs'
 import SignIn from './components/SignIn/SignIn'
+import Forgot from './components/ForgotPassword/Forgot'
+import Register from'./components/Register/Register'
+
 import './App.css';
 
 function App() {
@@ -15,6 +18,8 @@ function App() {
                 <Route path="AppM" element={<AppM/>}/>
                 <Route path="about" element={<About/>}/>
                 <Route path="SignIn" element={<SignIn/>}/>
+                <Route path="Forgot" element={<Forgot/>}/>
+                <Route path="Register" element={<Register/>}/>
             </Routes> 
         </Router>  
     </div>

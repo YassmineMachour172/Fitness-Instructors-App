@@ -1,0 +1,13 @@
+.container-fluid{
+    background-color: #99BADD;
+    display: flex;
+    height: 100vh;
+}
+
+.col{
+    align-items: center;
+    height: 100vh;
+}
+hr{
+    width: 100%;
+}
