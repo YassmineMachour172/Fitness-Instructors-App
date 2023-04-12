@@ -1,13 +1,68 @@
-import React from 'react';
-import { Link, useNavigate  } from 'react-router-dom';
+import React, { useRef, useState, useEffect } from 'react';
+import { logInSchema } from '../../Validations/FormsValidation';
+import { useNavigate  } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './SignIn.css';
-import logo from '../../images/logo.png'
-import SignInpic from '../../images/SignInP.png'
-import  { useState } from 'react';
-
+import logo from '../../images/logo.png';
+import SignInpic from '../../images/SignInP.png';
+import { Modal, Button } from "react-bootstrap";
+import { yupResolver } from '@hookform/resolvers/yup';
+import md5 from 'md5';
 const SignIn = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); /* define hook to navigate to other pages */
+    const [msgModal, setMsgModal] = useState('');/*define state for the message modal box */
+
+    const handleClickDashboard = () => {
+        navigate('/Forgot');
+    };
+    /* function that navigates to the forgot password page */
+    const handleClickForgotPassword = () => {
+        navigate('/Forgot');
+    };
+
+    /* function that navigates to the sign up page */
+    const handleClickSignUp = () => {
+        navigate('/Register');
+    };
+
+    /* define useForm for the logIn form */
+    const { register, handleSubmit, formState: { errors }} = useForm({
+        resolver: yupResolver(logInSchema), /* validate the form with the schema */
+        mode: "onChange" /* validate the form on change */
+    });
+
+    /* function that submit the form */
+    const submitForm = async (data, e) => {
+console.log(data);
+        console.log("requesting");
+        /* define the logIn request message */
+        const requestMsg = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(
+                {
+                    title: 'LogIn',
+                    email: data.email,
+                    password: md5(data.password),
+                })
+        };
+
+    console.log("requesting");
+
+
+    const response = await fetch('/logIn', requestMsg);/* send the request to the server */
+console.log(response);
+    if (!response.ok) {/* if the response is not ok, alert the user */
+        setMsgModal('Invalid Login Details');
+        return;
+    }
+    let responseData = await response.json(); /* retrieve the response data */
+    responseData = JSON.parse(responseData.body); /* parse the response data */
+    console.log(responseData)
+    handleClickDashboard()
+        
+    };
     return (
         <div className="container-fluid">
            
@@ -45,26 +100,32 @@ const SignIn = () => {
                                         <br/>
                                     </div>
                                         <div className="row" id='form-con'>
-                                        <form>
+                                        <form onSubmit={handleSubmit(submitForm)}>
                                             <div className="text-con">
-                                                <center><input type="email" className='inputs' name="uname" required placeholder='Enter your email'/>**</center>
-                                                <center><input type="password" className='inputs' name="pass" required placeholder='Enter a correct password' />**</center>
+                                                <center><input id="email" type="email" className="form-control form-control-user"
+                                                    name="email" aria-describedby="emailHelp"
+                                                    placeholder="Enter Email Address..." {...register('email')}/>**</center>
+                                                {errors.email ? <p className='error-msg'>{errors.email?.message}</p> : <br/>} {/* display error message if the email is not valid */}
+                                                <center><input id="password" type="password" className="form-control form-control-user"
+                                                    name="password" placeholder="Password" {...register('password')}/>
+                                                {errors.password ? <p className='error-msg'>{errors.password?.message}</p> : <br/>} {/* display error message if the password is not valid */}**</center>
+                                                
                                             </div>
                                             <div className="forgot">
-                                                <b><Link to='/Forgot' className="forA" >Forgot your password?</Link></b>
+                                                <b><a className="small cursor-pointer" onClick={handleClickForgotPassword}>Forgot your password?</a></b>
                                             </div>
                                             <div className="submit-btn">
                                                 <center><input type="submit" className='doneBtn' value='Done'/> </center>
                                             </div>
                                             </form>
                                             <div className="row" id='new-account'>
-                                            <b> <span>Don't Have An Account?</span><br/><Link to='/Register'>Click Here!</Link></b>
+                                            <b> <span>Don't Have An Account?</span><br/><a className="small cursor-pointer" onClick={handleClickSignUp}>Click me!</a></b>
                                             </div>
                                         </div>
                                         
                             </div>
                             </center>
-                        </div> 
+                        
                     
                     <div className="row" >
                     
@@ -78,9 +139,8 @@ const SignIn = () => {
                         </center>
                     </div>
 
-                </div>
+                </div></div> 
         </div>/*container-fluid*/
     );
 };
-
 export default SignIn;
