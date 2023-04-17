@@ -2,6 +2,10 @@
     background-color: #99BADD;
     display: flex;
     height: 100%;
+    
+}
+html{
+    background-color: #99BADD;
 }
 .backgroundcol{
     display: flex;
@@ -65,7 +69,6 @@
 }
 
 .home{
-    
     font-weight: bold;
     margin-right: 3vw;
     border: 1px solid #000000;
@@ -88,7 +91,7 @@
     height: 45px;
     padding-left:20px ;
     padding-right:20px ;
-background: #D6A650;
+    background: #D6A650;
 }
 .about-us{
     width: 20vw;

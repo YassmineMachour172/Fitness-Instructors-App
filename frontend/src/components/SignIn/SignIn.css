@@ -1,9 +1,13 @@
 .container-fluid{
+    
+    background-color: #99BADD;
+}
+html{
     background-color: #99BADD;
     display: flex;
     height: 100vh;
+    align-items: center;
 }
-
 .col{
     align-items: center;
     height: 100vh;

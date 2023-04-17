@@ -1,0 +1,9 @@
+html{
+    background-color: #99BADD;
+}
+.container-fluid{
+    background-color: #99BADD;
+    display: flex;
+    height: 100%;
+    
+}

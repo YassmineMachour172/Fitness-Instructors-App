@@ -9,6 +9,7 @@ import SignInpic from '../../images/SignInP.png';
 import { Modal, Button } from "react-bootstrap";
 import { yupResolver } from '@hookform/resolvers/yup';
 import md5 from 'md5';
+import axios from 'axios';
 const SignIn = () => {
     const navigate = useNavigate(); /* define hook to navigate to other pages */
     const [msgModal, setMsgModal] = useState('');/*define state for the message modal box */
@@ -31,38 +32,22 @@ const SignIn = () => {
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
         mode: "onChange" /* validate the form on change */
     });
-
-    /* function that submit the form */
-    const submitForm = async (data, e) => {
-console.log(data);
-        console.log("requesting");
-        /* define the logIn request message */
-        const requestMsg = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(
-                {
-                    title: 'LogIn',
-                    email: data.email,
-                    password: md5(data.password),
-                })
-        };
-
-    console.log("requesting");
-
-
-    const response = await fetch('/logIn', requestMsg);/* send the request to the server */
-console.log(response);
-    if (!response.ok) {/* if the response is not ok, alert the user */
-        setMsgModal('Invalid Login Details');
-        return;
-    }
-    let responseData = await response.json(); /* retrieve the response data */
-    responseData = JSON.parse(responseData.body); /* parse the response data */
-    console.log(responseData)
-    handleClickDashboard()
+    
+const submitForm = async (data, e) => {
+    e.preventDefault();
+    try{
+        const email=data.email
+        const password=data.password
         
-    };
+        await axios.post("http://localhost:8000/#/SignIn",{
+            email:email,
+            password:password
+        })
+    }catch(e){
+        console.log(e);
+    }
+    
+}
     return (
         <div className="container-fluid">
            
