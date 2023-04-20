@@ -32,18 +32,44 @@ const database =module.exports=() =>{
 
   })
 }
+/* POST request to sign up */
+app.post('/Register', (req, res) => {
+  console.log("POST Sign-Up")
+
+  if (req.body.title !== "SignUp") { // check if the request is valid
+      res.status(400)
+      res.send("Bad Request.")
+      return
+  }
+
+})
+  /**app.post("/Register",async(req,res)=>{
+    if (req.body.title !== "Register") { // check if the request is valid
+      res.status(400)
+      res.send("Bad Request.")
+      return
+  }
+  /** 
+   * Check if user already exist
+   * 
+   * 
+   * 
+   * 
+   * 
+   *   
+   * */
 
 
+  /**
+   *  Insert new user 
+   */
+   // console.log("insert new user" + req);
 
-  app.post("/",async(req,res)=>{
-
-    console.log("from serverrrrrrrrrrrrrrrrr" + req);
-
-    const d={
+    /**const d={
       email:req.body.email,
-      fName:"String",
-      lName:"String",
-      phone:"String",
+      fName:req.body.fName,
+      lName:req.body.lName,
+      phone:req.body.phone,
       pass:req.body.password,
       age:5,
       gender:"String",
@@ -53,8 +79,21 @@ const database =module.exports=() =>{
     }
     console.log (d);
     await Trainee.insertMany([d])
+    // define the response message
+    /**
+    const signUpMsg = {
+      method: 'GET',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(
+          {
+              title: 'Register',
+              signUpResult: 'OK',
+          })
+    }
 
-  })
+    res.type('application/json')
+    res.send(signUpMsg) // send the response 
+  })*/
 
 database();
 
