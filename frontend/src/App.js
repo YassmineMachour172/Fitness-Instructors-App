@@ -16,6 +16,9 @@ function App() {
     fetch("http://localhost:8000/SignIn")
       .then((res) => res.json())
       .then((data) => setMessage(data.message));
+      fetch("http://localhost:8000/Register")
+      .then((res) => res.json())
+      .then((data) => setMessage(data.message));
   }, []);
   return (
     <div id='App'>

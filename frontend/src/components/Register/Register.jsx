@@ -39,26 +39,20 @@ const Register = () => {
     const submitForm = async (data, e) => {
         console.log(e)
         e.preventDefault();
-
-        const requestMsg = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(
-                {
-                    title:     'Register',
-                    email:     data.email,
-                    firstName: data.firstName,
-                    lastName:  data.lastName,
-                    password:  md5(data.password)
-                })
+        try{
+            const email=data.email
+            const password=data.password
+            await axios.post("../Register",{
+                email:email,
+                password:password
+            })
+        }catch(e){
+            console.log(e)
+        }
+         
         };
 
-        console.log("requesting");
-
-        const response = await fetch('http//:localhost:8000/#/Register', requestMsg) /* send the data to the server to register the user */
-
-        
-    };
+    
     return(
 <div className="container">
 

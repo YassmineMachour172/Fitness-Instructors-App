@@ -23,7 +23,7 @@ const database =module.exports=() =>{
     console.log('success')
   }catch(error){
     console.log(error)
-    console.log('not successful');y
+    console.log('not successful');
   }
  
   // Parse incoming request bodies in a middleware before your handlers
@@ -33,14 +33,23 @@ const database =module.exports=() =>{
   })
 }
 /* POST request to sign up */
-app.post('/Register', (req, res) => {
+app.post('/Register',async (req, res) => {
   console.log("POST Sign-Up")
 
-  if (req.body.title !== "SignUp") { // check if the request is valid
-      res.status(400)
-      res.send("Bad Request.")
-      return
+  const d ={
+    email:req.body.email,
+    fName:"String",
+    lName:"String",
+    phone:"String",
+    pass:req.body.password,
+    age:5,
+    gender:"String",
+    weight:6,
+    height:6,
+    Status:0
   }
+  console.log(d)
+  await Trainee.insertMany([d])
 
 })
   /**app.post("/Register",async(req,res)=>{
