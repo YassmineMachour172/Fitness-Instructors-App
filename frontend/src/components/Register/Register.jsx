@@ -37,11 +37,13 @@ const Register = () => {
         mode: "onChange" /* validate the form on change */
     });
     const submitForm = async (data, e) => {
-        console.log(e)
+        console.log(e);
         e.preventDefault();
         try{
             const email=data.email
+            console.log(email);
             const password=data.password
+            console.log(password);
             await axios.post("../Register",{
                 email:email,
                 password:password

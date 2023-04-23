@@ -32,35 +32,35 @@
     
 }
 .home2{
+    font-weight: bold;
     margin-right: 3vw;
     border: 1px solid #000000;
     border-radius: 30px;
     width: 20vw;
-    height: 45px;
+    height: 8vh;
     padding-left:20px ;
     padding-right:20px ;
     background: #D6A650;
-    background-blend-mode: hard-light;
 }
 .sign-in{
-    margin-right: 3vw;
-    border: 1px solid #000000;
-    border-radius: 30px;
     width: 20vw;
+    font-weight: bold;
+    margin-left: 3vw;
+    border-radius: 30px;
     height: 45px;
     padding-left:20px ;
     padding-right:20px ;
     background: #D6A650;
-    background-blend-mode: hard-light;
+    border: 1px solid #000000;
 }
 .about-us2{
     width: 20vw;
+    font-weight: bold;
     margin-left: 3vw;
-    background: #E3DAE0;
-    background-blend-mode: hard-light;
-    border: 1px solid #000000;
     border-radius: 30px;
     height: 45px;
     padding-left:20px ;
     padding-right:20px ;
+    background: #D6A650;
+    border: 1px solid #000000;
 }

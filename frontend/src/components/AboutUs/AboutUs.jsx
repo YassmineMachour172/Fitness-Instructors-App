@@ -88,7 +88,7 @@ const AboutUs = () => {
                         <center>
                             <div className="down-buttons">
                                 <button className='home2' onClick={() => navigate('../..//')}>Home</button>
-                                <button className='sign-in' onClick={() => navigate('../../SignIn')}>Sign In</button>
+                                <button className='sign-in2' onClick={() => navigate('../../SignIn')}>Sign In</button>
                                 <button className='about-us2' disabled >About Us</button>
                             </div>
                         </center>

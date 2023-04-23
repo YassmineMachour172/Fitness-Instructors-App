@@ -1,10 +1,11 @@
+/*import Register from'./components/Register/Register'*/
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 const  Mongoose  = require('mongodb');
 const { default: mongoose, connect } = require('mongoose');
 const Trainee =require('./db/trainee')
-
+const Register =require('./frontend/src/components/Register')
 const app = express() // Create express app
 const port =  process.env.PORT || 8000 // Port to listen on
 
@@ -28,12 +29,12 @@ const database =module.exports=() =>{
  
   // Parse incoming request bodies in a middleware before your handlers
   //app.use(bodyParser.urlencoded({ extended: false }));
-  app.get("/SignIn",cors(),(req,res)=>{
+  app.get("../SignIn",cors(),(req,res)=>{
 
   })
 }
 /* POST request to sign up */
-app.post('/Register',async (req, res) => {
+app.post('../Register',async (req, res) => {
   console.log("POST Sign-Up")
 
   const d ={

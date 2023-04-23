@@ -118,7 +118,7 @@ const submitForm = async (data, e) => {
                             <div className="down-buttons">
                                 <hr/>
                                 <button className='home' onClick={() => navigate('../..//')}>Home</button>
-                                <button className='sign-in' disabled >Sign In</button>
+                                <button className='sign-in2' disabled >Sign In</button>
                                 <button className='about-us' onClick={() => navigate('../../about')}>About Us</button>
                             </div>
                         </center>

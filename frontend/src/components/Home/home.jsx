@@ -33,14 +33,12 @@ const Home = () => {
                             <p className='description'>
                                 This application represents the perfect combination of workout with an 
                                 instructor and staying at home while performing the training.
-                                This application has a unique feature which is recording the 
-                                performance, sending a note or questions, marking it as done
-                                and getting from the instructor a review on your performance.
+                                
                             </p>
                             <br/>
                             <br/>
                             <div className="buttons">
-                                <button className='training-plans' onClick={() => navigate('/')}>Training Plans</button>
+                                <button className='training-plans' onClick={() => navigate('MainTrainee')}>Training Plans</button>
                                 <button className='application-manual' onClick={() => navigate('AppM')}>Application Manual</button>
                             </div>
                             <br/><br/>
@@ -55,7 +53,7 @@ const Home = () => {
                             <center>
                                 <div className="down-buttons">
                                     <button className='home' disabled >Home</button>
-                                    <button className='sign-in' onClick={() => navigate('../../SignIn')}>Sign In</button>
+                                    <button className='sign-in2' onClick={() => navigate('../../SignIn')}>Sign In</button>
                                     <button className='about-us' onClick={() => navigate('../../about')}>About Us</button>
                                 </div>
                             </center>
