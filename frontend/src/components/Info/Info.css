@@ -1,0 +1,39 @@
+.about-us{
+    width: 20vw;
+    font-weight: bold;
+    margin-left: 3vw;
+    border-radius: 30px;
+    height: 45px;
+    padding-left:20px ;
+    padding-right:20px ;
+    background: #D6A650;
+    border: 1px solid #000000;
+}
+.HelpIcon{
+   
+width: 200px;
+height: 70px;
+left: 4px;
+top: 3px;
+}
+.HelpIcon2{
+   
+    width: 90px;
+    height: 90px;
+    left: 4px;
+    top: 3px;
+    }
+.Icon{
+    width: 44px;
+height: 44px;
+left: 35px;
+top: 234px;
+}
+.menu{
+    width: 90px;
+    height: 90px;
+    left: 4px;
+    top: 3px;
+    
+}
+

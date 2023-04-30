@@ -136,8 +136,8 @@ const Register = () => {
     <div className="row" >               
         <div className="down-buttons">
             <hr/>
-            <button className='home' onClick={() => handleClickHome()}>Home</button>
-            <button className='sign-in' disabled >Sign In</button>
+            <button className='home2' onClick={() => handleClickHome()}>Home</button>
+            <button className='sign-in2' disabled >Sign In</button>
             <button className='about-us' onClick={() => navigate('../../about')}>About Us</button>
         </div>
     </div>

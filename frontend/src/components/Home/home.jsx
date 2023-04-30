@@ -15,6 +15,8 @@ const Home = () => {
     
     
     return (
+        <footer>
+         <center>
         <div className="container-fluid">
             <div id='home' className='backgroundcol'>
                 <div className="path">
@@ -29,7 +31,7 @@ const Home = () => {
                             <img src={pic} className="pic"/>
                         </div>
                         <br />
-                        <center>
+                        
                             <p className='description'>
                                 This application represents the perfect combination of workout with an 
                                 instructor and staying at home while performing the training.
@@ -42,26 +44,28 @@ const Home = () => {
                                 <button className='application-manual' onClick={() => navigate('AppM')}>Application Manual</button>
                             </div>
                             <br/><br/>
-                        </center><br/> <br/> 
+                        <br/> <br/> 
                         <br/> 
                         <br/> 
                         <br/> 
                         <br/> 
                         <br/>
                         <hr/>
-                        <footer>
-                            <center>
+                        
                                 <div className="down-buttons">
                                     <button className='home' disabled >Home</button>
                                     <button className='sign-in2' onClick={() => navigate('../../SignIn')}>Sign In</button>
                                     <button className='about-us' onClick={() => navigate('../../about')}>About Us</button>
                                 </div>
+                                </div>
+                                </div>
+                                </div>
+            
                             </center>
                         </footer>
                          
-                    </div>
-                </div>
-            </div>
+                    
+             
     );
 };
 

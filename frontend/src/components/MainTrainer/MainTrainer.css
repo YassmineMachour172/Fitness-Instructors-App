@@ -1,0 +1,460 @@
+
+.HomeIcone{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 120px;
+    top: 4px;
+}
+.info{
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    left: 182px;
+    top: 5px;
+    
+    
+}
+.logo2{
+    display: flex;
+    margin-left:0.5vw;
+    height:5vh;
+    width:30vw;
+    
+}
+.pList{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 249px;
+    top: 8px;
+    
+}
+.feedBack{
+    position: absolute;
+    width: 44px;
+    height: 41px;
+    left: 312px;
+    top: 8px;
+    
+}
+.profile{
+    position: absolute;
+    width: 35px;
+    height: 49px;
+    left: 382px;
+    top: 1px;
+   
+}
+.Logo{
+    
+position: absolute;
+width: 291px;
+height: 100px;
+left: 7px;
+top: 55px;
+
+font-family: 'Kadwa';
+font-style: normal;
+font-weight: 400;
+font-size: 50px;
+line-height: 100px;
+display: flex;
+align-items: center;
+
+color: #000000;
+}
+.NewWBorderBox{
+    box-sizing: border-box;
+    width: 168px;
+    height: 65px;
+    left: 33px;
+    top: 161px;
+    
+    border: 5px solid #D6A650;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+
+}
+.SwitchBorderBox{
+    box-sizing: border-box;
+width: 168px;
+height: 65px;
+left: 225px;
+top: 161px;
+
+border: 5px solid #D6A650;
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+border-radius: 10px;
+}
+.MyClassesBorderBox{
+    box-sizing: border-box;
+width: 168px;
+height: 65px;
+left: 36px;
+top: 270px;
+
+border: 5px solid #D6A650;
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+border-radius: 10px;
+}
+.infoBorderBox{
+    box-sizing: border-box;
+width: 168px;
+height: 65px;
+left: 228px;
+top: 270px;
+
+border: 5px solid #D6A650;
+filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+border-radius: 10px;
+}
+.NewPrac{
+    position: absolute;
+width: 63px;
+height: 46px;
+left: 36px;
+top: 172px;
+border-radius: 17px;
+}
+.newClass{
+    position: absolute;
+width: 103px;
+height: 17px;
+left: 98px;
+top: 187px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+
+color: #000000;
+
+
+}
+.switchToTrainer{
+    position: absolute;
+width: 73px;
+height: 35px;
+left: 304px;
+top: 177px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+
+color: #000000;
+}
+
+.changeAccount{
+    position: absolute;
+width: 45px;
+height: 45px;
+left: 238px;
+top: 173px;
+
+
+}
+
+.MyClasses{
+    position: absolute;
+width: 103px;
+height: 17px;
+left: 101px;
+top: 294px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+
+color: #000000;
+
+
+}
+.MyListOfClasses{
+    position: absolute;
+width: 43px;
+height: 43px;
+left: 49px;
+top: 281px;
+
+
+}
+
+.help{
+    
+position: absolute;
+width: 84px;
+height: 17px;
+left: 293px;
+top: 294px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 18px;
+
+color: #000000;
+}
+.YourClassesLabel
+{
+    position: absolute;
+    width: 161px;
+    height: 30px;
+    left: 7px;
+    top: 367px;
+    
+    font-family: 'Kadwa';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 30px;
+    
+    color: #000000;
+}
+.ClassesBlock{
+    position: absolute;
+width: 370px;
+height: 332px;
+left: 33px;
+top: 457px;
+
+background: #CAAD78;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+filter: blur(2px);
+}
+.line{
+    position: absolute;
+width: 357px;
+height: 0px;
+left: 36px;
+top: 566.99px;
+
+border: 1px solid #000000;
+
+}
+.leftCornerLabel{
+    
+    position: absolute;
+    width: 49px;
+    height: 17px;
+    left: 41px;
+    top: 464px;
+    
+    font-family: 'Kadwa';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    
+    color: #000000;
+    
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.courseName{
+    position: absolute;
+width: 232px;
+height: 27px;
+left: 121px;
+top: 490px;
+
+font-family: 'JetBrains Mono';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 26px;
+
+
+
+color: #000000;
+}
+
+.TrainerName{
+    position: absolute;
+width: 136px;
+height: 17px;
+left: 139px;
+top: 509px;
+
+font-family: 'Kadwa';
+font-style: normal;
+font-weight: 700;
+font-size: 10px;
+line-height: 20px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #000000;
+
+opacity: 0.5;
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.courseCDesc{
+    position: absolute;
+width: 59px;
+height: 20px;
+left: 67px;
+top: 537px;
+
+font-family: 'Kadwa';
+font-style: normal;
+font-weight: 700;
+font-size: 10px;
+line-height: 20px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #000000;
+
+}
+.courseStat{
+    
+position: absolute;
+width: 43px;
+height: 20px;
+left: 157px;
+top: 537px;
+
+font-family: 'Kadwa';
+font-style: normal;
+font-weight: 700;
+font-size: 10px;
+line-height: 20px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #000000;
+}
+.courseFeedback{
+    
+position: absolute;
+width: 48px;
+height: 20px;
+left: 236px;
+top: 537px;
+
+font-family: 'Kadwa';
+font-style: normal;
+font-weight: 700;
+font-size: 10px;
+line-height: 20px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #000000;
+}
+
+.playButton{
+   position: absolute;
+width: 22.8px;
+height: 22.8px;
+left: 339.43px;
+top: 642.83px;
+
+background: #000AF1;
+border: 2px solid #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+transform: rotate(-30deg);
+}
+#left {    
+    text-align: left;  
+    }  
+#center {    
+    text-align: center;  
+    }  
+#right{    
+    text-align: right;  
+}
+.image-button2 {
+    display: inline-flex;
+    align-items: right;
+    justify-content: center;
+    background-color: #124354;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .image-button1 {
+    display: inline-flex;
+    align-items: left;
+    justify-content: center;
+    background-color: #124354;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .image-button img {
+    height: 20px;
+    margin-right: 10px;
+  }
+  .HomBbox{
+    box-sizing: border-box;
+    width: 62px;
+    height: 54px;
+    left: 108px;
+    top: 0px;
+    border: 5px solid #D6A650;
+    border-radius: 90px;
+  }
+.InfoBbox{
+    box-sizing: border-box;
+width: 62px;
+height: 54px;
+left: 173px;
+top: 0px;
+border: 5px solid #D6A650;
+border-radius: 90px;
+  }
+.pListBbox{
+    box-sizing: border-box;
+width: 62px;
+height: 54px;
+left: 238px;
+top: 0px;
+border: 5px solid #D6A650;
+border-radius: 90px;
+  }
+.feedbackBbox{
+    box-sizing: border-box;
+width: 62px;
+height: 54px;
+left: 303px;
+top: 0px;
+border: 5px solid #D6A650;
+border-radius: 90px;
+  }
+.ProfileBbox{ 
+    box-sizing: border-box;   
+width: 62px;
+height: 54px;
+left: 368px;
+top: 0px;
+border: 5px solid #D6A650;
+border-radius: 90px;
+  }
+  .line2{
+    position: absolute;
+width: 430.04px;
+height: 0px;
+left: 0px;
+top: 57px;
+
+border: 0.5px solid #000000;
+  }

@@ -16,6 +16,11 @@ import MainTrainer from './components/MainTrainer/MainTrainer'
 import Statics from './components/Statics/Statics'
 import StartVideo from './components/StartVideo/StartVideo'
 import Description from './components/Description/Description'
+import MyMessageTrainer from './components/MyMessageTrainer/MyMessageTrainer'
+import MyClassesTrainer from './components/MyClassesTrainer/MyClassesTrainer'
+import CreateNewClass from './components/CreateNewClass/CreateNewClass'
+import MyTainee from './components/MyTrainee/MyTrainee'
+import TrainersLib from './components/TrainersLib/TrainersLib'
 import './App.css';
 import axios from "axios";
 
@@ -62,6 +67,11 @@ function App() {
                 <Route path="StartVideo" element={<StartVideo/>}/>
                 <Route path="Description" element={<Description/>}/>
                 <Route path="TraineeMessage" element={<TraineeMessage/>}/>
+                <Route path="MyMessageTrainer" elemnt={<MyMessageTrainer/>}/>
+                <Route path="MyClassesTrainer" element={<MyClassesTrainer/>}/>
+                <Route path="CreateNewClass" element={<CreateNewClass/>}/>
+                <Route path="MyTainee" element={<MyTainee/>}/>
+                <Route path="TrainersLib" element={<TrainersLib/>}/>
             </Routes> 
         </Router>  
         

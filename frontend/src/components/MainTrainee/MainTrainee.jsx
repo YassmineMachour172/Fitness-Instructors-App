@@ -56,36 +56,40 @@ const MainTrainee = () => {
     const handleClickPlayButton = () => {
         navigate('/StartVideo');
     };
+    const GetCourses=()=>{
+    /*this function is for the database ;the number of courses that the trainee is signed to is i
+    the function must return an array or a list of the  courses that contain the courses detailes which is Courses*/
+                         
+    };
     return (
         <div className="container-fluid">
             <div className="header">
             <div className="navbar">
                     <div className="navbar-container">
             <div id='Main Trainee' className='backgroundcol'>
-            
+            <footer>
+                             <center>
                 <div className="row">
                              <div className="buttons">
-                                <button  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox" float ='right' /></button>
-                                <button  onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button  onClick={() => navigate('../../Info')}><img src={info1} className="InfoBbox"/></button>
                                 <button  onClick={() => navigate('/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
                                 <button  onClick={() => navigate('/Traineemessage')}><img src={feedback} className="feedbackBbox"/></button>
                                 <button  onClick={() => navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                 </div>
-                </div>
+                
                 <br/> 
                 <br/> 
                 <br/> 
-                <br/> 
-                <br/> 
-                <br/> 
-                <br/> 
+                
                 <div className="navbar">
                     <div className="navbar-container">
-                        <br/><br/>
-                        <img src={logo} className="logo"/>
-                        <footer>
-                        <center>
+                        
+                        <img src={logo} className="logo2"/>
+                        <br/> 
+                <br/> 
+                
                        <div className="row">
                            <div className="buttons">
                            
@@ -102,15 +106,37 @@ const MainTrainee = () => {
                               
                               </div>
                               </div>
+                             
+                              
+                              <p className='YourClassesLabel'>            Your active classes :</p>
+                              
+                            <div className='tabel'>
+                                for (const i of GetCourses)
+                                {
+                                    
+                                    <div className='row'>
+                                         <center>
+                                        <div className='ClassesBlock'>
+                                            
+                                        </div>
+                                        </center>
+                                        </div>
+
+                                }
+
+                            
+                            </div>     
+                              </div>
+                              </div>
                               
                         </center>
                         </footer>
-                    </div>
+                        </div>
                 </div>
             </div>
             </div>
         </div>
-        </div>
+        
     );
 };
 

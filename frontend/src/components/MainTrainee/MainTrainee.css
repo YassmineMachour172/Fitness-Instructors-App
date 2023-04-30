@@ -205,12 +205,10 @@ color: #000000;
 }
 .YourClassesLabel
 {
-    position: absolute;
+   
     width: 161px;
     height: 30px;
-    left: 7px;
-    top: 367px;
-    
+    text-align: center;
     font-family: 'Kadwa';
     font-style: normal;
     font-weight: 700;
@@ -405,7 +403,7 @@ transform: rotate(-30deg);
     margin-right: 10px;
   }
   .HomBbox{
-    box-sizing: border-box;
+    
     width: 62px;
     height: 54px;
     left: 108px;

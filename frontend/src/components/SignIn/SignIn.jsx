@@ -49,6 +49,7 @@ const submitForm = async (data, e) => {
     
 }
     return (
+        <footer>
         <div className="container-fluid">
            
                 <div className="col">
@@ -73,7 +74,7 @@ const submitForm = async (data, e) => {
                                 <br/>
                                 <br/>
                                 <center>
-                                <div className='cont' >
+                                <div className='border' >
                                     <div className="row">
                                         <center>
                                             <div className="circle">
@@ -103,9 +104,11 @@ const submitForm = async (data, e) => {
                                                 <center><input type="submit" className='doneBtn' value='Done'/> </center>
                                             </div>
                                             </form>
+                                            <center>
                                             <div className="row" id='new-account'>
                                             <b> <span>Don't Have An Account?</span><br/><a className="small cursor-pointer" onClick={handleClickSignUp}>Click me!</a></b>
                                             </div>
+                                            </center>
                                         </div>
                                         
                             </div>
@@ -117,7 +120,7 @@ const submitForm = async (data, e) => {
                     <center>
                             <div className="down-buttons">
                                 <hr/>
-                                <button className='home' onClick={() => navigate('../..//')}>Home</button>
+                                <button className='home2' onClick={() => navigate('../..//')}>Home</button>
                                 <button className='sign-in2' disabled >Sign In</button>
                                 <button className='about-us' onClick={() => navigate('../../about')}>About Us</button>
                             </div>
@@ -125,7 +128,8 @@ const submitForm = async (data, e) => {
                     </div>
 
                 </div></div> 
-        </div>/*container-fluid*/
+        </div>
+        </footer>
     );
 };
 export default SignIn;
