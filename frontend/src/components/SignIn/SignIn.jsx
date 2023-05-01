@@ -39,7 +39,7 @@ const submitForm = async (data, e) => {
         const email=data.email
         const password=data.password
         
-        await axios.post("http://localhost:8000/#/SignIn",{
+        await axios.post("/SignIn",{
             email:email,
             password:password
         })

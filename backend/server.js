@@ -2,113 +2,100 @@
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
-const  Mongoose  = require('mongodb');
-const { default: mongoose, connect } = require('mongoose');
+const  { MongoClient }  = require('mongodb');
+//const { default: mongoose, connect } = require('mongoose');
 const Trainee =require('./db/trainee')
-const Register =require('./frontend/src/components/Register')
+var path = require('path');
+//var bodyParser = require('body-parser') //parse request parameters
+
+
 const app = express() // Create express app
 const port =  process.env.PORT || 8000 // Port to listen on
 
+
+app.use(express.static(__dirname));  //specifies the root directory from which to serve static assets [images, CSS files and JavaScript files]
+//app.use(bodyParser.urlencoded({extended:true})); //parsing bodies from URL. extended: true specifies that req.body object will contain values of any type instead of just strings.
+//app.use(bodyParser.json()); //for parsing json objects
+
+app.listen(8180);
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cors()); 
 
-//Database
-const database =module.exports=() =>{
+/*const database =module.exports=() =>{
   const connectionParams = {
     useNewUrlParser :true,
     useUnifiedTopology: true,
+  }*/
+  const uri = 'mongodb+srv://yassminemach:Ya123456@cluster0.dxdqjyq.mongodb.net/mydb?retryWrites=true&w=majority';
+  const client = new MongoClient(uri);
+
+  async function connectToDatabase() {
+    try {
+      await client.connect();
+      console.log('Connected to MongoDB Atlas');
+    } catch (err) {
+      console.error(err);
+    }
   }
-  try{
+  /*try{
     mongoose.connect('mongodb+srv://yassminemach:Ya123456@cluster0.dxdqjyq.mongodb.net/mydb?retryWrites=true&w=majority',connectionParams)
     console.log('success')
   }catch(error){
     console.log(error)
     console.log('not successful');
-  }
+  }*/
+
+//}
+connectToDatabase();
+
+/*app.get('/Register',cors(), (req, res) => {
+  
+  //res.sendFile(path.join(__dirname + '/Home.jsx'));
+  console.log("5666666666666")
  
-  // Parse incoming request bodies in a middleware before your handlers
-  //app.use(bodyParser.urlencoded({ extended: false }));
-  app.get("../SignIn",cors(),(req,res)=>{
-
-  })
-}
-/* POST request to sign up */
-app.post('../Register',async (req, res) => {
-  console.log("POST Sign-Up")
-
-  const d ={
+});*/
+app.post('/Register',async (req, res) => {
+  console.log("Register Post Request")
+  
+  const trainee =new Trainee({
     email:req.body.email,
-    fName:"String",
-    lName:"String",
-    phone:"String",
-    pass:req.body.password,
+    fName:req.body.fName,
+    lName:req.body.lName,
+    phone:req.body.phone,
+    pass:req.body.password1,
     age:5,
     gender:"String",
     weight:6,
     height:6,
-    Status:0
-  }
-  console.log(d)
-  await Trainee.insertMany([d])
-
-})
-  /**app.post("/Register",async(req,res)=>{
-    if (req.body.title !== "Register") { // check if the request is valid
-      res.status(400)
-      res.send("Bad Request.")
-      return
-  }
-  /** 
-   * Check if user already exist
-   * 
-   * 
-   * 
-   * 
-   * 
-   *   
-   * */
-
-
-  /**
-   *  Insert new user 
-   */
-   // console.log("insert new user" + req);
-
-    /**const d={
-      email:req.body.email,
-      fName:req.body.fName,
-      lName:req.body.lName,
-      phone:req.body.phone,
-      pass:req.body.password,
-      age:5,
-      gender:"String",
-      weight:6,
-      height:6,
-      Status:0
-    }
-    console.log (d);
-    await Trainee.insertMany([d])
-    // define the response message
-    /**
-    const signUpMsg = {
-      method: 'GET',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(
-          {
-              title: 'Register',
-              signUpResult: 'OK',
-          })
-    }
-
-    res.type('application/json')
-    res.send(signUpMsg) // send the response 
-  })*/
-
-database();
-
-
-
+    Status:0}) 
+  await Trainee.insertMany([trainee]);
+});
+ /*app.post('/Register', function (req, res)  {
+   console.log(req);
+   const trainee=new Trainee({
+     email:req.body.email,
+     fName:req.body.fName,
+     lName:req.body.lname,
+     phone:req.body.phone,
+     pass:req.body.password1,
+     age:0,
+     gender:0,
+     weight:0,
+     height:0,
+     Status:0})  
+     try {
+       const collection = client.db('mydb').collection('trainees');
+       const result = collection.insertOne(trainee);
+       console.log(result);
+       res.status(201).json({ message: 'User created successfully!' });
+     } catch (err) {
+       console.error(err);
+       res.status(500).json({ message: 'Server error' });
+     }
+   // TODO: Create a new user in the database
+   /**res.send("user: " + req.body.user + " password: " + req.body.password);
+ });*/
 /* listen to port */
 app.listen(port, () => {
   console.log(`Fitness-Instructor-App server listening on http://localhost:${port}`)

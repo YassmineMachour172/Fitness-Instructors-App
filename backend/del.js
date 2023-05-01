@@ -59,3 +59,17 @@ app.post('/logIn', (req, res) => {
             res.send(resMsg) // send the response
         })
 })
+
+app.post('/api/signup', async (req, res) => {
+    const { email, password } = req.body;
+  
+    try {
+      const collection = client.db('<database-name>').collection('<collection-name>');
+      const result = await collection.insertOne({ email, password });
+      console.log(result);
+      res.status(201).json({ message: 'User created successfully!' });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Server error' });
+    }
+  });

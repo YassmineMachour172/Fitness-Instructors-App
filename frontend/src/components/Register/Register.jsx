@@ -36,24 +36,53 @@ const Register = () => {
         resolver: yupResolver(signUpSchema), /* validate the form with the schema */
         mode: "onChange" /* validate the form on change */
     });
-    const submitForm = async (data, e) => {
-        console.log(e);
-        e.preventDefault();
-        try{
-            const email=data.email
-            console.log(email);
-            const password=data.password
-            console.log(password);
-            await axios.post("../Register",{
-                email:email,
-                password:password
+    const signUpForm = document.querySelector('#sign-up-form');
+    /**const submitForm = async (data, e) => {
+        const fname = signUpForm.querySelector('#fname').value;
+        const lname = signUpForm.querySelector('#lname').value;
+        const email = signUpForm.querySelector('#email').value;
+        const phone = signUpForm.querySelector('#phone').value;
+        const password1 = signUpForm.querySelector('#password1').value;
+        const password2 = signUpForm.querySelector('#password2').value;
+        console.log(fname + lname + email +phone)
+        const response = await fetch('http://localhost:8000/#/Register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                fname,
+                lname,
+                email,
+                phone,
+                password1,
+                password2
             })
-        }catch(e){
-            console.log(e)
+        });
+        console.log(response+"//////////////////////////")
+        const responseData = await response.json();
+        };*/
+        const submitForm = async ( e) => {
+            e.preventDefault()
+            const fName = signUpForm.querySelector('#fname').value;
+            const lName = signUpForm.querySelector('#lname').value;
+            const email = signUpForm.querySelector('#email').value;
+            const phone = signUpForm.querySelector('#phone').value;
+            const password1 = signUpForm.querySelector('#password1').value;
+            const password2 = signUpForm.querySelector('#password2').value;
+            try{
+                await axios.post("http://localhost:8000/Register",{
+                 fname:fName,
+                 lname:lName,
+                 email:email,
+                 phone:phone,
+                 password1:password1,
+                 password2:password2   
+            })
+            }catch(e){
+                console.log(e)
+            }
         }
-         
-        };
-
     
     return(
 <div className="container">
@@ -67,39 +96,39 @@ const Register = () => {
                     <div className="text-center row" id='title'>
                         <h1 className="h4 text-gray-900 mb-4">Create an Account!</h1>
                     </div>
-                    <form className="user" onSubmit={handleSubmit(submitForm)}>
+                    <form action="POST" id='sign-up-form' className="user" onSubmit={handleSubmit(submitForm)}>
                         <div className="form-group row">
                             <div className="col-sm-6">
                                 <input type="text" className="form-control form-control-user" name="firstName"
-                                    placeholder="First Name" {...register('fName')}/>
+                                    id='fname' placeholder="First Name" {...register('fName')}/>
                                 {errors.fName ? <p className='error-msg'>{errors.fName?.message}</p> : <br/>} {/* display error message if the first name is not valid */}
                             </div>
                             <div className="col-sm-6">
-                                <input type="text" className="form-control form-control-user" name="lastName"
+                                <input type="text" className="form-control form-control-user" name="lastName" id='lname'
                                     placeholder="Last Name" {...register('lName')}/>
                                 {errors.lName ? <p className='error-msg'>{errors.lName?.message}</p> : <p className='space'>{'.'}</p>} {/* display error message if the last name is not valid */}
                             </div>
                         </div>
                         <div className="form-group row" id='email'>
                         <div className="col-sm-6">
-                            <input type="email" className="form-control form-control-user" name="email"
+                            <input type="email" className="form-control form-control-user" name="email" id='email'
                                 placeholder="Email Address" {...register('email')}/>
                             {errors.email ? <p className='error-msg'>{errors.email?.message}</p> : <br/>} {/* display error message if the email is not valid */}
                             </div>
                             <div className="col-sm-6">
-                            <input type="text" className="form-control form-control-user" name="phone"
+                            <input type="text" className="form-control form-control-user" name="phone" id='phone'
                                     placeholder="Phone Number" {...register('phone')}/>
                                 {errors.phone ? <p className='error-msg'>{errors.phone?.message}</p> : <br/>} {/* display error message if the phone number is not valid */}
                             </div>
                         </div>
                         <div className="form-group row">
                             <div className="col-sm-6">
-                                <input type="password" className="form-control form-control-user"
+                                <input type="password" className="form-control form-control-user"id='password1'
                                     name="password" placeholder="Password" {...register('password')}/>
                                 {errors.password ? <p className='error-msg'>{errors.password?.message}</p> : <br/>} {/* display error message if the password is not valid */}
                             </div>
                             <div className="col-sm-6">
-                                <input type="password" className="form-control form-control-user"
+                                <input type="password" className="form-control form-control-user" id='password2'
                                     name="repeatPassword" placeholder="Repeat Password" {...register('repeatPassword')}/>
                                 {errors.repeatPassword ? <p className='error-msg'>errors.repeatPassword.message</p> : <p className='space2'>{'.'}</p>} {/* display error message if the repeat password is not valid */}
                             </div>

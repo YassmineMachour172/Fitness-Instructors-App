@@ -17,27 +17,36 @@ import Statics from './components/Statics/Statics'
 import StartVideo from './components/StartVideo/StartVideo'
 import Description from './components/Description/Description'
 import './App.css';
-import axios from "axios";
 
 function App() {
+  /**
+   * This sends an HTTP GET request from 
+   * React to the npm api to search for all react packages 
+   * using the query q=react, then assigns the total returned 
+   * in the response to the component state property 
+   * totalReactPackages so it can be displayed in the render() method.
+   */
+
     <Router basename="/Register"></Router>
     const [message, setMessage] = useState("");
-    const API_URL= "http://localhost:3000/Register";
+    const API_URL= "/Register";
   useEffect(() => {
-    /*fetch("http://localhost:3000/SignIn")
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message));
-      fetch("http://localhost:3000/Register")
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message));*/
+     
       const fetchItems = async () =>{
         try{
-         const respons=await fetch("http://localhost:3000/Register");
+         const respons=await fetch("http//localhost:8000/");
          const listUsers= await respons.json();
          console.log(listUsers);
         }catch(err){
             console.log(err.stack);
         }
+        try{
+          const respons=await fetch("/Register");
+          const listUsers= await respons.json();
+          console.log(listUsers);
+         }catch(err){
+             console.log(err.stack);
+         }
       } 
       (async()=> await fetchItems())();
   }, []);
