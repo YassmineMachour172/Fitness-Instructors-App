@@ -2,22 +2,31 @@ const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 const  { MongoClient }  = require('mongodb');
-//const { default: mongoose, connect } = require('mongoose');
-const Trainee =require('./db/trainee')
 var path = require('path');
-
-//var bodyParser = require('body-parser') //parse request parameters
+const  mongoose  = require('mongoose');
+const bodyParser = require('body-parser') //parse request parameters
 
 
 
 const app = express() // Create express app
 const port =  process.env.PORT || 8000 // Port to listen on
-
+const Trainee=mongoose.model('trainees',{
+  email:String,
+  fName:String,
+  lName:String,
+  phone:String,
+  pass:String,
+  age:Number,
+  gender:String,
+  weight:Number,
+  height:Number,
+  Status:Number
+})
 
 app.use(express.static(__dirname));  //specifies the root directory from which to serve static assets [images, CSS files and JavaScript files]
 
-//app.use(bodyParser.urlencoded({extended:true})); //parsing bodies from URL. extended: true specifies that req.body object will contain values of any type instead of just strings.
-//app.use(bodyParser.json()); //for parsing json objects
+app.use(bodyParser.urlencoded({extended:true})); //parsing bodies from URL. extended: true specifies that req.body object will contain values of any type instead of just strings.
+app.use(bodyParser.json()); //for parsing json objects
 
 
 app.listen(8180);
@@ -26,59 +35,27 @@ app.use(express.urlencoded({extended:true}))
 app.use(cors()); 
 
 
-/*const database =module.exports=() =>{
-  const connectionParams = {
-    useNewUrlParser :true,
-    useUnifiedTopology: true,
-  }*/
+
+
   const uri = 'mongodb+srv://yassminemach:Ya123456@cluster0.dxdqjyq.mongodb.net/mydb?retryWrites=true&w=majority';
-  const client = new MongoClient(uri);
+  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
   async function connectToDatabase() {
     try {
       await client.connect();
       console.log('Connected to MongoDB Atlas');
+      
+      
     } catch (err) {
       console.error(err);
     }
   }
 
-  /*try{
-    mongoose.connect('mongodb+srv://yassminemach:Ya123456@cluster0.dxdqjyq.mongodb.net/mydb?retryWrites=true&w=majority',connectionParams)
-    console.log('success')
-  }catch(error){
-    console.log(error)
-    console.log('not successful');
-  }*/
-
-//}
 connectToDatabase();
 
-/*app.get('/Register',cors(), (req, res) => {
-  
-  //res.sendFile(path.join(__dirname + '/Home.jsx'));
-  console.log("5666666666666")
- 
-});*/
-app.post('/Register',async (req, res) => {
-  console.log("Register Post Request")
-  
-  const trainee =new Trainee({
-    email:req.body.email,
-    fName:req.body.fName,
-    lName:req.body.lName,
-    phone:req.body.phone,
-    pass:req.body.password1,
-    age:5,
-    gender:"String",
-    weight:6,
-    height:6,
-    Status:0}) 
-  await Trainee.insertMany([trainee]);
-});
- /*app.post('/Register', function (req, res)  {
-   console.log(req);
+ app.post('/Register', function (req, res)  {
+  //console.log(req.body)
    const trainee=new Trainee({
      email:req.body.email,
      fName:req.body.fName,
@@ -91,17 +68,23 @@ app.post('/Register',async (req, res) => {
      height:0,
      Status:0})  
      try {
-       const collection = client.db('mydb').collection('trainees');
-       const result = collection.insertOne(trainee);
-       console.log(result);
-       res.status(201).json({ message: 'User created successfully!' });
+       const collection1 = client.db('mydb').collection('trainees');
+       console.log("line 71")
+
+      const dbName = 'mydb';
+      const db = client.db(dbName);
+      const collection = db.collection('trainees');
+      MongoClient.db('mydb').collection('trainees').find({}).toArray(function(err, docs) {
+    if (err) throw err;
+    console.log(docs);  });
+      
+       const result = collection1.insertOne(trainee);
+       res.send({ data: 'User created successfully!' ,error:null });
      } catch (err) {
-       console.error(err);
-       res.status(500).json({ message: 'Server error' });
+       res.send({ data:null, error: 'Server error' });
      }
-   // TODO: Create a new user in the database
-   /**res.send("user: " + req.body.user + " password: " + req.body.password);
- });*/
+ });
+ 
 /* listen to port */
 
 app.listen(port, () => {

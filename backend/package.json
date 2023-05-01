@@ -467,6 +467,7 @@
     "node-int64": "^0.4.0",
     "node-releases": "^2.0.10",
     "nodemailer": "^6.9.1",
+    "nodemon": "^2.0.22",
     "normalize-path": "^3.0.0",
     "normalize-range": "^0.1.2",
     "normalize-url": "^6.1.0",

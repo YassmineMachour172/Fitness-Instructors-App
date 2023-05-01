@@ -64,24 +64,34 @@ const Register = () => {
         };*/
         const submitForm = async ( e) => {
             e.preventDefault()
+            //usestate
+            //debugger
             const fName = signUpForm.querySelector('#fname').value;
             const lName = signUpForm.querySelector('#lname').value;
-            const email = signUpForm.querySelector('#email').value;
+            const email = signUpForm.querySelector('#emailin').value;
             const phone = signUpForm.querySelector('#phone').value;
             const password1 = signUpForm.querySelector('#password1').value;
             const password2 = signUpForm.querySelector('#password2').value;
             try{
-                await axios.post("http://localhost:8000/Register",{
-                 fname:fName,
-                 lname:lName,
-                 email:email,
-                 phone:phone,
-                 password1:password1,
-                 password2:password2   
+                const res=await axios.post("http://localhost:8000/Register",{
+                 fName,
+                 lName,
+                 email,
+                 phone,
+                 password1,
+                 password2   
             })
+            console.log(res,"hhhhhhhhhhhhhhhh")
+           if(!(res?.error)){
+                console.log("successful")
+           }
+           else{
+            console.log("error",res.error)
+           }
             }catch(e){
                 console.log(e)
             }
+            
         }
     
     return(
@@ -111,7 +121,7 @@ const Register = () => {
                         </div>
                         <div className="form-group row" id='email'>
                         <div className="col-sm-6">
-                            <input type="email" className="form-control form-control-user" name="email" id='email'
+                            <input type="email" className="form-control form-control-user" name="email" id='emailin'
                                 placeholder="Email Address" {...register('email')}/>
                             {errors.email ? <p className='error-msg'>{errors.email?.message}</p> : <br/>} {/* display error message if the email is not valid */}
                             </div>

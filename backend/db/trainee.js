@@ -2,7 +2,7 @@ const { string, integer } = require("check-types")
 const mongoose =require("mongoose")
 const { Str } = require("prelude-ls")
 
-const traineeSchema=new mongoose.Schema({
+const TraineeSchema=new mongoose.Schema({
     email:String,
     fName:String,
     lName:String,
@@ -15,4 +15,5 @@ const traineeSchema=new mongoose.Schema({
     Status:Number
 })
 
-module.exports=mongoose.model("Trainee",traineeSchema)
+module.exports=mongoose.model("trainees",TraineeSchema)
+//traineeSchema;
