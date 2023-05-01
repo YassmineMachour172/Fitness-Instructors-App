@@ -18,7 +18,7 @@ const MainTrainer = () =>  {
     const navigate = useNavigate();
   
     return (
-        <footer>
+        <footer Style="background-color:white;">
         <div className="container-fluid">
             <div className="header">
             <div className="navbar">

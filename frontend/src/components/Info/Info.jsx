@@ -20,7 +20,7 @@ const Info = () => {
     return(
     
     <footer>
-    <div className="container-fluid">
+    <div className="container-fluid" Style="background-color:white;">
             <div id='Info' className='backgroundcol'>
                 <div className="navbar">
                     <div className="navbar-container">

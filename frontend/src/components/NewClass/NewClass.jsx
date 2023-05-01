@@ -1,2 +1,9 @@
-const NewClass = () => {};
-export default NewClass;
+import React from 'react'
+
+export default function NewClass() {
+  return (
+    <div>
+      
+    </div>
+  )
+}

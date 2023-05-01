@@ -12,9 +12,9 @@ const AboutUs = () => {
 
     
     return (
-        <footer>
+        <footer Style="background-color:white;">
          <body>
-        <div className="container-fluid">
+        <div className="container-fluid" Style="background-color:white;">
         
         <div className="navbar">
         <div className="navbar-container">

@@ -1,2 +1,9 @@
-const Profile = () => {};
-export default Profile;
+import React from 'react'
+
+export default function Profile() {
+  return (
+    <div>
+      
+    </div>
+  )
+}

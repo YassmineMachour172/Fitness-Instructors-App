@@ -1,2 +1,9 @@
-const StartVideo = () => {};
-export default StartVideo;
+import React from 'react'
+
+export default function StartVideo() {
+  return (
+    <div>
+      
+    </div>
+  )
+}

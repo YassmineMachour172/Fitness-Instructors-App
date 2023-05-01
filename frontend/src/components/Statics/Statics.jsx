@@ -1,2 +1,9 @@
-const Statics = () => {};
-export default Statics;
+import React from 'react'
+
+export default function Statics() {
+  return (
+    <div>
+      
+    </div>
+  )
+}

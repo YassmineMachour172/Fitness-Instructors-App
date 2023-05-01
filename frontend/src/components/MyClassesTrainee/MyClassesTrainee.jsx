@@ -1,2 +1,9 @@
-const MyClassesTrainee = () => {};
-export default MyClassesTrainee;
+import React from 'react'
+
+export default function MyClassesTrainee() {
+  return (
+    <div>
+      
+    </div>
+  )
+}
