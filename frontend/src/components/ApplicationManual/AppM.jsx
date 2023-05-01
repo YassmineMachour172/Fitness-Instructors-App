@@ -82,7 +82,7 @@ const AppM = () => {
                         <center>
                             <div className="down-buttons">
                                 <button className='home' onClick={() => navigate('../..//')}>Home</button>
-                                <button className='sign-in' onClick={() => navigate('../../SignIn')}>Sign In</button>
+                                <button className='sign-in2' onClick={() => navigate('../../SignIn')}>Sign In</button>
                                 <button className='about-us' onClick={() => navigate('../../about')}>About Us</button>
                             </div>
                         </center>

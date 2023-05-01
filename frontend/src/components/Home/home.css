@@ -1,11 +1,11 @@
 .container-fluid{
-    background-color: #bec9d6;
+    background-color: #e9eff6;
     display: flex;
     height: 100%;
     
 }
 html{
-    background-color: #99BADD;
+    background-color: #e9eff6;
 }
 .backgroundcol{
     display: flex;
