@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const TraineeSchema = require("../db/TraineeSchema");
 const TraineeModel = mongoose.model("trainees", TraineeSchema);
 const { validate } = require("check-email-validation");
-
+const bcrypt = require('bcrypt');
 router.post("/Register", function (req, res) {
     const { email, fName, lName, phone, pass } = req?.body;
     let NewTrainee = new TraineeModel({
@@ -46,8 +46,24 @@ router.post("/Register", function (req, res) {
             });
         }
     } catch (err) {
-        res.send({ data: null, error: "Server error" });
+        res.send({ info: null, error: "Server error" });
     }
+});
+
+
+  
+router.post("/SignIn",  async function (req, res) {
+    const { email, pass } = req?.body;
+    const user = await TraineeModel.findOne({ email });
+    if (!user) {
+        res.send({success:false,error:"Invalid email or password",info:null})
+      }
+      //const validPassword = bcrypt.compare(pass, user.pass);
+    if (!(pass===user.pass)) {
+        res.send({success:false,error:"Invalid email or password",info:null})
+    }
+    
+    res.send({success:true,error:null,info:'Logged in successfully'});
 });
 
 module.exports = router;

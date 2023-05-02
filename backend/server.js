@@ -1,5 +1,3 @@
-/** @format */
-
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
@@ -9,6 +7,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser"); //parse request parameters
 const app = express(); // Create express app
 const port = process.env.PORT || 8000; // Port to listen on
+
+const bcrypt = require('bcrypt');
 const url =
     "mongodb+srv://yassminemach:Ya123456@cluster0.dxdqjyq.mongodb.net/mydb?retryWrites=true&w=majority";
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });

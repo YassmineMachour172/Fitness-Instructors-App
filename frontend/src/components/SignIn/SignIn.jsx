@@ -13,7 +13,7 @@ import axios from 'axios';
 const SignIn = () => {
     const navigate = useNavigate(); /* define hook to navigate to other pages */
     const [msgModal, setMsgModal] = useState('');/*define state for the message modal box */
-
+    const [showModal, setShow] = useState(false);/*define state for the modal box */
     const handleClickDashboard = () => {
         navigate('/Forgot');
     };
@@ -21,32 +21,51 @@ const SignIn = () => {
     const handleClickForgotPassword = () => {
         navigate('/Forgot');
     };
-
+    const handleClose = () =>{
+        setShow(false);
+        setMsgModal('');
+   }
+   /* function that open the modal and displays it*/
+   const handleShow = () =>{
+       setShow(true);
+   }
     /* function that navigates to the sign up page */
     const handleClickSignUp = () => {
         navigate('/Register');
     };
-
+    const handleClickMainTrainee = () => {
+        navigate('/MainTrainee');
+    };
     /* define useForm for the logIn form */
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
         mode: "onChange" /* validate the form on change */
     });
-    
+    const signInForm = document.querySelector('#sign-in-form'); 
 const submitForm = async (data, e) => {
-    e.preventDefault();
+    const email = signInForm.querySelector('#emailin').value;
+    const password = signInForm.querySelector('#password').value;
+
     try{
-        const email=data.email
-        const password=data.password
-        
-        await axios.post("/SignIn",{
-            email:email,
-            password:password
-        })
-    }catch(e){
-        console.log(e);
-    }
+        const res=await axios.post("http://localhost:8000/api/trainees/SignIn",{
+         email,
+         password   
+    })
+    console.log("requesting");
+    console.log(res)
     
+    if(res?.data?.success===false){
+        console.log(res,"Invalid email or password")
+        setMsgModal("Invalid email or password")
+       handleShow()
+    }
+    if((res?.data?.success===true)){
+        console.log("successful")
+        handleClickMainTrainee()
+   }
+}catch(e){
+    console.log(e)
+}
 }
     return (
         <footer>
@@ -86,9 +105,9 @@ const submitForm = async (data, e) => {
                                         <br/>
                                     </div>
                                         <div className="row" id='form-con'>
-                                        <form onSubmit={handleSubmit(submitForm)}>
+                                        <form action="POST" id='sign-in-form' onSubmit={handleSubmit(submitForm)}>
                                             <div className="text-con">
-                                                <center><input id="email" type="email" className="form-control form-control-user"
+                                                <center><input id="emailin" type="email" className="form-control form-control-user"
                                                     name="email" aria-describedby="emailHelp"
                                                     placeholder="Enter Email Address..." {...register('email')}/>**</center>
                                                 {errors.email ? <p className='error-msg'>{errors.email?.message}</p> : <br/>} {/* display error message if the email is not valid */}
@@ -110,7 +129,18 @@ const submitForm = async (data, e) => {
                                             </div>
                                             </center>
                                         </div>
-                                        
+                                        <Modal show={showModal} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title className='msg-modal-title'>ALERT!</Modal.Title>
+                </Modal.Header>
+                <Modal.Body><p className='msg-modal'>{msgModal}</p></Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    
+                </Modal.Footer>
+            </Modal>  
                             </div>
                             </center>
                         

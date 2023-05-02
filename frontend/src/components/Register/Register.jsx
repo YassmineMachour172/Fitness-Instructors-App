@@ -13,7 +13,8 @@ const Register = () => {
     const navigate = useNavigate(); /* define hook to navigate to other pages */
     const [showModal, setShow] = useState(false);/*define state for the modal box */
     const [msgModal, setMsgModal] = useState('');/*define state for the message modal box */
-    const handleClose = () =>{
+     /* function that close the modal and reset the message modal*/
+     const handleClose = () =>{
         setShow(false);
         setMsgModal('');
    }
@@ -26,7 +27,10 @@ const Register = () => {
     const handleClickHome = () => {
         navigate('/');
     };
-
+ /* function that navigates to the MainTrainee page */
+ const handleClickMainTrainee = () => {
+    navigate('/MainTrainee');
+};
 
     /* function that navigates to the log in page */
     const handleClickLogIn = () => {
@@ -37,35 +41,9 @@ const Register = () => {
         mode: "onChange" /* validate the form on change */
     });
     const signUpForm = document.querySelector('#sign-up-form');
-    /**const submitForm = async (data, e) => {
-        const fname = signUpForm.querySelector('#fname').value;
-        const lname = signUpForm.querySelector('#lname').value;
-        const email = signUpForm.querySelector('#email').value;
-        const phone = signUpForm.querySelector('#phone').value;
-        const password1 = signUpForm.querySelector('#password1').value;
-        const password2 = signUpForm.querySelector('#password2').value;
-        console.log(fname + lname + email +phone)
-        const response = await fetch('http://localhost:8000/#/Register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                fname,
-                lname,
-                email,
-                phone,
-                password1,
-                password2
-            })
-        });
-        console.log(response+"//////////////////////////")
-        const responseData = await response.json();
-        };*/
+    
         const submitForm = async ( e) => {
             e.preventDefault()
-            //usestate
-            //debugger
             const fName = signUpForm.querySelector('#fname').value;
             const lName = signUpForm.querySelector('#lname').value;
             const email = signUpForm.querySelector('#emailin').value;
@@ -73,7 +51,7 @@ const Register = () => {
             const password1 = signUpForm.querySelector('#password1').value;
             const password2 = signUpForm.querySelector('#password2').value;
             try{
-                const res=await axios.post("http://localhost:8000/Register",{
+                const res=await axios.post("http://localhost:8000/api/trainees/Register",{
                  fName,
                  lName,
                  email,
@@ -81,9 +59,15 @@ const Register = () => {
                  password1,
                  password2   
             })
-            console.log(res,"hhhhhhhhhhhhhhhh")
-           if(!(res?.error)){
+           
+            if(res?.data?.info==="use exsit"){
+                console.log(res,"the user is already exists")
+                setMsgModal("the user is already exists")
+               handleShow()
+            }
+           if((res?.data?.info===null)){
                 console.log("successful")
+                handleClickMainTrainee()
            }
            else{
             console.log("error",res.error)
@@ -91,12 +75,13 @@ const Register = () => {
             }catch(e){
                 console.log(e)
             }
-            
         }
     
     return(
 <div className="container">
-
+    <div class="alert alert-warning" id='warning'>
+    <strong>Warning!</strong> Indicates a warning that might need attention.
+    </div>
 <div className="card o-hidden border-0 shadow-lg my-5">
     <div className="card-body p-0">
         <div className="row">
@@ -159,18 +144,18 @@ const Register = () => {
     </div>
    
 
-<Modal show={showModal} onHide={handleClose}>
-    <Modal.Header closeButton>
-        <Modal.Title className='msg-modal-title'>ALERT!</Modal.Title>
-    </Modal.Header>
-    <Modal.Body><p className='msg-modal'>{msgModal}</p></Modal.Body>
-    <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
-            Close
-        </Button>
-        
-    </Modal.Footer>
-</Modal>
+    <Modal show={showModal} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title className='msg-modal-title'>ALERT!</Modal.Title>
+                </Modal.Header>
+                <Modal.Body><p className='msg-modal'>{msgModal}</p></Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    
+                </Modal.Footer>
+            </Modal>
 </div>
     <div className="row" >               
         <div className="down-buttons">

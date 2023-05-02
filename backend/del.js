@@ -1,75 +1,38 @@
-app.post('/logIn', (req, res) => {
-    console.log("POST login")
-  
-    if (req.body.title !== "LogIn") { // check if the request is valid
-        res.status(400)
-        res.send("Bad Login Request.")
-        return
-    }
-  
-    /* retrieve user from db */
-    app.post('http://localhost:3000/SignIn', (req, res) => {
-    console.log("POST signin")
+/** @format */
 
-    if (req.body.title !== "SignIn") { // check if the request is valid
-        res.status(400)
-        res.send("Bad Login Request.")
-        return
-    }
+const express = require("express");
+const cors = require("cors");
+const axios = require("axios");
+const { MongoClient } = require("mongodb");
+var path = require("path");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser"); //parse request parameters
+const app = express(); // Create express app
+const port = process.env.PORT || 8000; // Port to listen on
+const url =
+    "mongodb+srv://yassminemach:Ya123456@cluster0.dxdqjyq.mongodb.net/mydb?retryWrites=true&w=majority";
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+//
+//
+// when you wants to trigre trainees API and run trainees schema you shoudld pass this URL /api/trainees/Register
+// you need to replace the /Register  with /api/trainees/
+// evrey API call should start with /api and then the schema name for example if you want to use users schema should be /api/users/...
+//
+//
+//
 
-    /* retrieve user from db */
-    const trainee=new Trainee({
-    email:req.body.email,
-    fName:"String",
-    lName:"String",
-    phone:"String",
-    pass:req.body.password,
-    age:5,
-    gender:"String",
-    weight:6,
-    height:6,
-    Status:0})  
-    databaseConnection.query(trainee, [req.body.email, req.body.password],
-        (err, result) => {
-            if (err) { // check if there is an error
-                res.status(500)//Internal server error
-                res.send(err)
-                return
-            }
+app.use(express.static(__dirname)); //specifies the root directory from which to serve static assets [images, CSS files and JavaScript files]
+app.use(bodyParser.urlencoded({ extended: true })); //parsing bodies from URL. extended: true specifies that req.body object will contain values of any type instead of just strings.
+app.use(bodyParser.json()); //for parsing json objects
+app.listen(8180);
+app.use(cors());
 
-            if (result.length === 0) { 
-                res.status(400)//bad request
-                res.send("Invalid login parameters.")
-                return
-            }
+const userTrainees = require("./routing/trainees");
+app.use("/api/trainees", userTrainees);
 
-            // define the response message
-            const resMsg = {
-                method: 'GET',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(
-                    {
-                        title: 'SignIn',
-                        loginResult: 'OK',
-                        firstName: result[0].fName,
-                        lastName:  result[0].lName,
-                    })
-            }
-            res.type('application/json')
-            res.send(resMsg) // send the response
-        })
-})
-
-app.post('/api/signup', async (req, res) => {
-    const { email, password } = req.body;
-  
-    try {
-      const collection = client.db('<database-name>').collection('<collection-name>');
-      const result = await collection.insertOne({ email, password });
-      console.log(result);
-      res.status(201).json({ message: 'User created successfully!' });
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ message: 'Server error' });
-    }
-  });
+/* listen to port */
+app.listen(port, () => {
+    console.log(
+        `Fitness-Instructor-App server listening on http://localhost:${port}`
+    );
+});
