@@ -19,7 +19,7 @@ const Info = () => {
     const navigate = useNavigate();
     return(
     
-    <footer>
+    <footer >
     <div className="container-fluid" Style="background-color:white;">
             <div id='Info' className='backgroundcol'>
                 <div className="navbar">

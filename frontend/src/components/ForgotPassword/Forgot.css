@@ -11,3 +11,27 @@
 hr{
     width: 100%;
 }
+.RecoverButton{
+    font-weight: bold;
+    margin-right: 3vw;
+    border: 1px solid #000000;
+    border-radius: 30px;
+    width: 20vw;
+    height: 45px;
+    padding-left:20px ;
+    padding-right:20px ;
+    background-blend-mode: hard-light;
+    background: #D6A650;
+}
+.text{
+    width: 120px;
+height: 40px;
+left: 59px;
+font-family: 'Kadwa';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 40px;
+color: #000000;
+
+}

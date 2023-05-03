@@ -62,17 +62,17 @@ const MainTrainee = () => {
                          
     };
     return (
-        <div className="container-fluid" Style="background-color:white;">
+        <div className="container-fluid "Style="background-color:white;">
             <div className="header">
             <div className="navbar">
                     <div className="navbar-container">
             <div id='Main Trainee' className='backgroundcol'>
-            <footer>
+            <footer >
                              <center>
                 <div className="row">
                              <div className="buttons">
                                 <button  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button  onClick={() => navigate('../../Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button  onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
                                 <button  onClick={() => navigate('/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
                                 <button  onClick={() => navigate('/Traineemessage')}><img src={feedback} className="feedbackBbox"/></button>
                                 <button  onClick={() => navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
