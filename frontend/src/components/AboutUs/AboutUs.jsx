@@ -12,9 +12,9 @@ const AboutUs = () => {
 
     
     return (
-        <footer Style="background-color:white;">
-         <body>
-        <div className="container-fluid" Style="background-color:white;">
+        
+         <center>
+        <div className="container-fluid">
         
         <div className="navbar">
         <div className="navbar-container">
@@ -27,54 +27,51 @@ const AboutUs = () => {
                 <div className="header">
                 <br/><br/>
                         <img src={logo} className="logo"/>
-                       <div className="row">
+                       <br/>
+                       <br/>
                         <div className="col">
                         <div className="row">
-                        <div className="col">
                             <img src={nadeen} className="picture-Nadeen" />
                         </div>
-                        <div className="col">
-                        <div className='descriptionAboutUs'>
-                        Nadine Shanan
-                        Software engineer student at ORT BRAUDE COLLEGE
-                        Contact Nadine:
-                        *nadeenmoradsh@gmail.com
-                        *0509408199
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                    </div>
-                       <div className="navbar">
-                         <div className="navbar-container">
-                          
                         <div className="row">
-                           <div className="col">
-                           <div className="row">
-                        <div className="col">
-                           <img src={yassmine} className="picture-Yassmine" />
+                        <div className='descriptionAboutUs'>
+                        Nadine Shanan<br/>
+                        Software engineer student at ORT BRAUDE COLLEGE<br/>
+                        Contact Nadine:<br/>
+                        *nadeenmoradsh@gmail.com<br/>
+                        *0509408199<br/>
                         </div>
-                        <div className="col">
+                        </div>
+                        <div className='row'>
+                        <img src={yassmine} className="picture-Yassmine" />
+                        </div>
+                        <div className="row">
                            <div className='descriptionAboutUs'>
-                           Yassmine Machour 
-                           Software engineer student at ORT BRAUDE COLLEGE
-                           Contact Yassmine : 
-                           *Yassmine.machour@e.braude.ac.il
-                           *0545317545
+                           Yassmine Machour <br/>
+                           Software engineer student at ORT BRAUDE COLLEGE<br/>
+                           Contact Yassmine : <br/>
+                           *Yassmine.machour@e.braude.ac.il<br/>
+                           *0545317545<br/>
                            </div>
                         </div>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
+                        <div className='row'>
                         <center>
                             <div className="down-buttons">
                                 <button className='home2' onClick={() => navigate('../..//')}>Home</button>
                                 <button className='sign-in2' onClick={() => navigate('../../SignIn')}>Sign In</button>
-                                <button className='about-us' disabled >About Us</button>
+                                <button className='about-us2' disabled >About Us</button>
                             </div>
                         </center>
+                        </div>
+                    </div>
+                    
+                        
+                           
+                       
+                        
+                        </div>
+                        
+                       
                         
                          
                     </div>
@@ -82,9 +79,9 @@ const AboutUs = () => {
               
             </div>
         </div>
-        </div>
-        </body>
-        </footer>
+        
+        </center>
+        
     );
 };
 
