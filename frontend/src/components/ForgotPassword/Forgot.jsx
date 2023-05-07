@@ -12,6 +12,9 @@ const Forgot = () => {
     const [showModal, setShow] = useState(false);/*define state for the modal box */
     const [msgModal, setMsgModal] = useState('');/*define state for the message modal box */
      /* function that close the modal and reset the message modal*/
+     const handleClickLogIn=()=>{
+        navigate('/SignIn');
+     }
      const handleClose = () =>{
         setShow(false);
         setMsgModal('');
@@ -40,17 +43,17 @@ const Forgot = () => {
         console.log("requesting");
         console.log(res)
 
-        /*if (res?.data?.error==="Email Doesn't Exist") { /* if the response is not ok, alert the user */
-            //setMsgModal('Invalid Details');/* if the response is not ok, alert the user */
-           // handleShow();
+        if (res?.data?.error==="Email Doesn't Exist") { /* if the response is not ok, alert the user */
+            setMsgModal('Invalid Details');/* if the response is not ok, alert the user */
+            handleShow();
             return;
-       // }
+        }
         /* if the response is ok, alert the user */
-        //const responseData = await response.json();
-       // console.log(responseData);
-        //setMsgModal('Sent! Check your mail.');/* if the response is not ok, alert the user */
-       /* handleShow();
-        handleClickHome();*/
+        const responseData = await res.json();
+       console.log(responseData);
+        setMsgModal('Sent! Check your mail.');/* if the response is not ok, alert the user */
+        handleShow();
+        handleClickLogIn();
     }catch(e){
         console.log(e)
     }

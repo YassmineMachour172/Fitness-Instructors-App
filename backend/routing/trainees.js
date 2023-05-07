@@ -111,7 +111,7 @@ router.post('/Forgot', async (req, res) => {
         from:'Workoutin.Team@hotmail.com',
         to: req.body.email,
         subject: 'Reset Password',
-        text: 'Hello,\n<b>Enter the following link to reset password:<\b>\nhttp://localhost:3000/#/resetPassword'
+        text: 'Hello,\nEnter the following link to reset password:\nhttp://localhost:3000/#/resetPassword'
     };
 
     // send the email
@@ -137,29 +137,34 @@ router.post('/Forgot', async (req, res) => {
         res.send(forgotPasswordMsg) // send the response
     
 });
+
+
+
 router.post('/ResetPassword', async (req, res) => {
     console.log("POST resetPassword")
-console.log(req)
-    /*if (req.body.title !== "ResetPassword") { // check if the request is valid
-        res.status(400)
-        res.send("Bad Reset Password Request.")
-        return
-    }*/
+    console.log(req.body)
+
     try{
-        const user = await TraineeModel.updateOne({ email: req.body.email }, { $set: { pass: req.body.pass1 } }, function(err, result) {
-        if (err) {
-          console.log(err);
-          return;
-        }});
-        console.log(user)
+        const tr=TraineeModel.updateMany({email:req.body.email},{$set:{password1:req.body.password1}},function(err,res){
+            if( err) throw err;
+            console.log(res.result.nModified + " document(s) updated");
+        })
+       /*const user = await TraineeModel.updateOne({ email: req.body.email }, { $set: { password1: req.body.password1 } }, function(err, result) {
+            if (err) {
+              console.log(err);
+              return;
+            }});*/
+        res.send({success:true,error:null,info:'Logged in successfully'});
+        
+        /*console.log(user)
         if (user.affectedRows === 0) {
             res.status(400)//bad request
             res.send("Invalid email parameters.")
             return
-        }
+        }*/
 
         // define the response message
-        const resetPasswordMsg = {
+        /*const resetPasswordMsg = {
             method: 'GET',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(
@@ -169,7 +174,7 @@ console.log(req)
                 })
         }
         res.type('application/json')
-        res.send(resetPasswordMsg) // send the response
+        res.send(resetPasswordMsg) // send the response*/
     }catch(e){
         console.log(e);
     }

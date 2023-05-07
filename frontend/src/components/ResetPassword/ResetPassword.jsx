@@ -42,23 +42,23 @@ const ResetPassword = () => {
 
     const resetForm = document.querySelector('#reset-form'); 
     /* function that submit the form and send the data to the server*/
-    const submitForm = async (data, e) => {
+    const submitForm = async (e) => {
         const email = resetForm.querySelector('#emailin').value;
-        const pass1 = resetForm.querySelector('#pass1').value;
+        const password1 = resetForm.querySelector('#pass1').value;
         const pass2 = resetForm.querySelector('#pass2').value;
-        if(!(pass1===pass2)){
+        if(!(password1===pass2)){
             setMsgModal('the password missmatches');
             handleShow();
         }
         try{
             const res=await axios.post("http://localhost:8000/api/trainees/resetPassword",{
                 email,
-                pass1  
+                password1  
             })
             console.log("requesting");
             console.log(res)
         /* define the request message */
-        }catch(e){ console.log("requesting");
+        }catch(e){ 
         console.log(e)
             console.log(e)
         }
@@ -94,7 +94,7 @@ const ResetPassword = () => {
                                             name="repeatPassword" placeholder="Repeat Password" {...register('repeatPassword')}/>
                                         {errors.repeatPassword ? <p className='error-msg'>{errors.repeatPassword?.message}</p> : <p className='space2'>{'.'}</p>} {/* display error message if the repeat password is not valid */}
                                     </div>
-                                    <input type="submit" className="btn btn-primary btn-user btn-block" value={'Reset Password'}></input>
+                                    <input type="submit" className="btn btn-primary btn-user btn-block" value={'Reset Password'} onClick={submitForm}></input>
                                 </form>
                                 <hr/>
                                 <div className="text-center">
