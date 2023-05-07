@@ -15,9 +15,11 @@ const Home = () => {
     
     
     return (
-        <footer style="background-color:white;">
+
+        <center>
+        <footer >
          <center>
-        <div className="container-fluid" style="background-color:white;">
+        <div className="container-fluid" >
             <div id='home' className='backgroundcol'>
                 <div className="path">
                     <h5 className='pa'>Home</h5>
@@ -63,7 +65,7 @@ const Home = () => {
             
                             </center>
                         </footer>
-                         
+                        </center>
                     
              
     );

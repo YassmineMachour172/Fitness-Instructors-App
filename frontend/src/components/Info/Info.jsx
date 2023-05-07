@@ -14,23 +14,25 @@ import MytraineesIcon from '../../images/MyTrainee.png'
 import MylibIcon from '../../images/uplode.png'
 import HomeIcon from '../../images/Infohome.png'
 import Menu from '../../images/MenuHome.png'
-
+import logo from '../../images/logo.png'
+import HomeIc from '../../images/home1.png'
+import info1 from '../../images/info1.png'
+import info from '../../images/info.jpg'
+import pList from '../../images/pList.png'
+import feedback from '../../images/feedBack.png'
+import profile from '../../images/profile.png'
 const Info = () => {
     const navigate = useNavigate();
     return(
     
     <footer >
-    <div className="container-fluid" Style="background-color:white;">
+    <div className="container-fluid" >
             <div id='Info' className='backgroundcol'>
                 <div className="navbar">
                     <div className="navbar-container">
                         <div className='row'>
-                            <div className='col'>
-                            <div className='HelpIcon2'><img src={InfoIcon} className="HelpIcon2"/></div>
-                            </div>
-                            <div className='col'>
-                            <div className='menu'><img src={Menu} className="menu"/></div>
-                            </div>
+                            <div className='infoInfo'><img src={info1} className="infoInfo"/></div>
+                            
                         </div>
                         
                         
@@ -45,7 +47,6 @@ const Info = () => {
                         <div className='row'>
                             <div className='col'>
                             <div ><img src={InfoIcon} className="HelpIcon"/></div>
-                            <div ><img src={MenuIcon} className="HelpIcon"/></div>
                             <div ><img src={MessagesIcon} className="HelpIcon"/></div>
                             <div ><img src={MyclassesIcon} className="HelpIcon"/></div>
                             <div ><img src={profileIcon} className="HelpIcon"/></div>
@@ -58,6 +59,21 @@ const Info = () => {
                             <div ><img src={HomeIcon} className="HelpIcon"/></div>
                             </div>
                         </div>
+                        
+                            <center>
+                             <div className="buttons">
+                                <button  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button  onClick={() => navigate('/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
+                                <button  onClick={() => navigate('/Traineemessage')}><img src={feedback} className="feedbackBbox"/></button>
+                                <button  onClick={() => navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                              </div>
+                              </center>
+                
+                        <div className="row">
+                            <center>
+                        <img src={logo} className="logo"/>
+                        </center>
+                    </div>
                         
                         
                         
