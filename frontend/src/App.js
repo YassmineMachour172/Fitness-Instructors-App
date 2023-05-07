@@ -21,6 +21,7 @@ import MyClassesTrainer from './components/MyClassesTrainer/MyClassesTrainer'
 import CreateNewClass from './components/CreateNewClass/CreateNewClass'
 import MyTainee from './components/MyTrainee/MyTrainee'
 import TrainersLib from './components/TrainersLib/TrainersLib'
+import ResetPassword from './components/ResetPassword/ResetPassword'
 import './App.css';
 
 function App() {
@@ -81,6 +82,7 @@ function App() {
                 <Route path="CreateNewClass" element={<CreateNewClass/>}/>
                 <Route path="MyTainee" element={<MyTainee/>}/>
                 <Route path="TrainersLib" element={<TrainersLib/>}/>
+                <Route path="ResetPassword" element={<ResetPassword/>}/>
             </Routes> 
         </Router>  
         

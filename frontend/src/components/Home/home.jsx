@@ -15,9 +15,9 @@ const Home = () => {
     
     
     return (
-        <footer Style="background-color:white;">
+        <footer style="background-color:white;">
          <center>
-        <div className="container-fluid" Style="background-color:white;">
+        <div className="container-fluid" style="background-color:white;">
             <div id='home' className='backgroundcol'>
                 <div className="path">
                     <h5 className='pa'>Home</h5>
