@@ -65,7 +65,7 @@ const MainTrainer = () =>  {
                          <div className="row">
                            <div className="buttons">
                            
-                              <button  onClick={() => navigate('/CreateNewClass')}> <img src={NewW2} className="NewWBorderBox"/></button>
+                              <button  onClick={() => navigate('/UploadeNewEx')}> <img src={NewW2} className="NewWBorderBox"/></button>
                               <button onClick={() => navigate('/MainTrainee')}><img src={changAccount2} className="SwitchBorderBox"/></button>
                               
                               

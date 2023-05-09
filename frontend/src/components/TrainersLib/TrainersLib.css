@@ -1,0 +1,18 @@
+.Upload{
+    width: 50vw;
+    font-weight: bold;
+    margin-left: 3vw;
+    border-radius: 30px;
+    height: 45px;
+    padding-left:20px ;
+    padding-right:20px ;
+    background: #D6A650;
+    border: 1px solid #000000;
+}
+.serchIcon{
+    width: 20px;
+height: 20px;
+left: 195px;
+top: 141px;
+
+}

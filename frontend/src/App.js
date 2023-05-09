@@ -21,6 +21,7 @@ import MyClassesTrainer from './components/MyClassesTrainer/MyClassesTrainer'
 import CreateNewClass from './components/CreateNewClass/CreateNewClass'
 import MyTainee from './components/MyTrainee/MyTrainee'
 import TrainersLib from './components/TrainersLib/TrainersLib'
+import UploadeNewEx from './components/UploadNewEx/UploadeNewEx';
 import './App.css';
 
 function App() {
@@ -81,6 +82,8 @@ function App() {
                 <Route path="CreateNewClass" element={<CreateNewClass/>}/>
                 <Route path="MyTainee" element={<MyTainee/>}/>
                 <Route path="TrainersLib" element={<TrainersLib/>}/>
+                <Route path="UploadeNewEx" element={<UploadeNewEx/>}/>
+                
             </Routes> 
         </Router>  
         
