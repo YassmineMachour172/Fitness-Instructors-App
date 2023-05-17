@@ -15,6 +15,7 @@ const Home = () => {
     
     
     return (
+
         <center>
         <footer >
          <center>

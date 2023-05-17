@@ -7,7 +7,7 @@ const TraineeSchema = new mongoose.Schema({
     fName: String,
     lName: String,
     phone: String,
-    pass: String,
+    password1: String,
     age: Number,
     gender: String,
     weight: Number,
