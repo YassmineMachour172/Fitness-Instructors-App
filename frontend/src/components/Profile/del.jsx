@@ -1,4 +1,5 @@
-import { useNavigate ,useParams } from 'react-router-dom';
+import React from 'react';
+import { useNavigate  } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../../images/logo.png'
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -9,76 +10,21 @@ import info1 from '../../images/info1.png'
 import pList from '../../images/pList.png'
 import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
-import React, { useEffect,useState } from 'react';
-import axios from 'axios';
-
-const Profile = () => {
-  const navigate = useNavigate();
-  const { email } = useParams();
-  const [fName, setName] = useState('');
-  const [mail, setMail]=useState({email});
-  const [phone, setPhone] = useState('');
-  const [age, setAge]=useState('');
-  const [gender, setGender] = useState('');
-  const [height, setHeight] = useState('');
-  const [weight, setWeight]=useState('');
-
-  
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        console.log("before axios", email);
-        const response = await axios.get('http://localhost:8000/api/trainees/Profile', {
-          params: { email: email }
-        });
-        if (response.data.success === true) {
-          setName(response.data.info.user.fName);
-          setPhone(response.data.info.user.phone);
-          setAge(response.data.info.user.age);
-          setGender(response.data.info.user.gender);
-          setHeight(response.data.info.user.height);
-          setWeight(response.data.info.user.weight);
-        } else {
-          console.log(response.data.error);
-        }
-        console.log("requesting");
-        console.log(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-  
-    fetchUser();
-  }, []);
-  const handleOptionChange = (e) => {
-    setGender(e.target.value);
-  };
-
+const Profiledel = () => {
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
         mode: "onChange" /* validate the form on change */
     });
-    const profileForm = document.querySelector('#profile-form'); 
-    const submitForm = async ( e) => {
-      e.preventDefault();
-      try {
-        const response = await axios.post("http://localhost:8000/api/trainees/Profile", { fName, email,phone,age,gender,height,weight });
-        console.log("profileeeeeeeeeeeeeeeeeeeee",response.data);
-        //fetchUser();
-      } catch (error) {
-        console.error(error);
-        return;
-      }
-    }
     return (
         <div className="container-fluid">
             <div className="col">
             <div className="row">
-                 <div ><img src={profile} className="infoInfo"/>{fName}</div>
+                 <div ><img src={profile} className="infoInfo"/>The Name of the user</div>
                     </div>
                     <div className='row'>
                     <div className="row" id='form-con'>
-                                        <form action="POST" id='profile-form' onSubmit={handleSubmit(submitForm)}>
+                                        <form action="POST" id='sign-up-form' className="user" >
                                             <div className="text-con">
                                                 <div className='text' Style="color:Black;">Account Information:</div>
                                                 
@@ -87,8 +33,8 @@ const Profile = () => {
                                                     <div className='text' Style="color:Black;">Nick Name:</div>
                                                     </div>
                                                     <div className='row'>
-                                                    <input type="text" name="firstName" onChange={setName}
-                                                id='fname' placeholder={fName} {...register('fName')}/>
+                                                    <input type="text" name="firstName"
+                                                id='fname' placeholder="NickName" {...register('fName')}/>
                                                 {errors.fName ? <p className='error-msg'>{errors.fName?.message}</p> : <br/>} {/* display error message if the first name is not valid */}
                                                     
                                                   </div>
@@ -98,7 +44,7 @@ const Profile = () => {
                                                   <div className='row'>
                                                   <input id="emailin" type="email" 
                                                     name="email" aria-describedby="emailHelp"
-                                                    placeholder="email" {...register('email')} value={email}/>
+                                                    placeholder="Email Address" {...register('email')}/>
                                                 {errors.email ? <p className='error-msg'>{errors.email?.message}</p> : <br/>} {/* display error message if the email is not valid */}
                                                   
                                                   </div>
@@ -107,8 +53,8 @@ const Profile = () => {
                                                   <div className='text' Style="color:Black;">Phone Number:</div>
                                                   </div>
                                                   <div className='row'>
-                                                  <input type="text" name="phone" id='phone' onChange={setPhone}
-                                                placeholder={phone} {...register('phone')}/>
+                                                  <input type="text" name="phone" id='phone'
+                                                placeholder="Phone Number" {...register('phone')}/>
                                                 {errors.phone ? <p className='error-msg'>{errors.phone?.message}</p> : <br/>} {/* display error message if the phone number is not valid */}
                                                    
                                                  
@@ -118,7 +64,7 @@ const Profile = () => {
                                                   <div className='text' Style="color:Black;">Password:</div>
                                                   </div>
                                                   <div className='row'>
-                                                  <input type="password" id='password1' 
+                                                  <input type="password" id='password1'
                                                    name="password" placeholder="Password" {...register('password')}/>
                                                   {errors.password ? <p className='error-msg'>{errors.password?.message}</p> : <br/>} {/* display error message if the password is not valid */}
                                                   
@@ -141,12 +87,12 @@ const Profile = () => {
                                                   
                                                   <div className='row'>
                                                   <div className='text' Style="color:Black;">Age:</div>
-                                                  <input type="number" onChange={setAge} placeholder={age} className='form-control form-control-user' {...register("age", { min: 18, max: 99 })} />
+                                                  <input type="number"classname='form-control form-control-user' {...register("age", { min: 18, max: 99 })} />
                                                   </div>
                                                    <div className='row'>
                                                    <div className='text' Style="color:Black;">Gender:</div>
       
-                                                   <select value={gender}{...register("gender")} onChange={handleOptionChange}>
+                                                   <select {...register("gender")}>
                                                    <option value="female">female</option>
                                                    <option value="male">male</option>
                                                    <option value="other">other</option>
@@ -154,16 +100,16 @@ const Profile = () => {
                                                    </div>
                                                    <div className='row'>
                                                   <div className='text' Style="color:Black;">Height in cm:</div>
-                                                  <input type="number" placeholder={height} onChange={setHeight} className='form-control form-control-user' {...register("height", { min: 100, max: 200 })} />
+                                                  <input type="number"classname='form-control form-control-user' {...register("height", { min: 100, max: 200 })} />
                                                   </div>
                                                   <div className='row'>
                                                   <div className='text' Style="color:Black;">weight in kilograms:</div>
-                                                  <input type="number" placeholder={weight} onChange={setWeight} className='form-control form-control-user' {...register("weight", { min: 30, max: 200 })} />
+                                                  <input type="number"classname='form-control form-control-user' {...register("height", { min: 30, max: 200 })} />
                                                   </div>
                                                   <center>
                                                   <div className='row'>
-                                                  <input type="submit" onClick={submitForm} className='Update' value='Update'/>
                                                   
+                                                  <button type="Update" className='about-us'>Update</button>
                                                   
                                                   </div>
                                                   </center>
@@ -178,7 +124,8 @@ const Profile = () => {
                              <div className="buttons">
                                 <button  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
                                 <button  onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
-
+                                <button  onClick={() => navigate('/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
+                                <button  onClick={() => navigate('/Traineemessage')}><img src={feedback} className="feedbackBbox"/></button>
                                 
                               </div>
                               </center>
@@ -199,4 +146,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default Profiledel;

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { logInSchema } from '../../Validations/FormsValidation';
 import { useNavigate  } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -8,23 +8,26 @@ import logo from '../../images/logo.png';
 import SignInpic from '../../images/SignInP.png';
 import { Modal, Button } from "react-bootstrap";
 import { yupResolver } from '@hookform/resolvers/yup';
-import md5 from 'md5';
 import axios from 'axios';
-const SignIn = () => {
+import MainTrainee from '../MainTrainee/MainTrainee';
+
+const SignIn =() => {
     const navigate = useNavigate(); /* define hook to navigate to other pages */
     const [msgModal, setMsgModal] = useState('');/*define state for the message modal box */
     const [showModal, setShow] = useState(false);/*define state for the modal box */
-    const handleClickDashboard = () => {
-        navigate('/Forgot');
-    };
+    const [email, setMail]=useState('');
+
     /* function that navigates to the forgot password page */
     const handleClickForgotPassword = () => {
         navigate('/Forgot');
     };
+
+    /**/
     const handleClose = () =>{
         setShow(false);
         setMsgModal('');
    }
+
    /* function that open the modal and displays it*/
    const handleShow = () =>{
        setShow(true);
@@ -33,39 +36,55 @@ const SignIn = () => {
     const handleClickSignUp = () => {
         navigate('/Register');
     };
+
     const handleClickMainTrainee = () => {
-        navigate('/MainTrainee');
+        const email=signInForm.querySelector('#emailin').value;
+
+        console.log("calling MMain in Sign In",email);
+        < MainTrainee email={email} />
+        navigate(`/main-trainee/${email}`);
     };
+
+
     /* define useForm for the logIn form */
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
         mode: "onChange" /* validate the form on change */
     });
-    const signInForm = document.querySelector('#sign-in-form'); 
-const submitForm = async (data, e) => {
-    const email = signInForm.querySelector('#emailin').value;
-    const password = signInForm.querySelector('#password').value;
 
+    const signInForm = document.querySelector('#sign-in-form'); 
+    const submitForm = async ( e) => {
+    const email = signInForm.querySelector('#emailin').value;
+    const password1 = signInForm.querySelector('#password').value;
+    setMail(email);
     try{
         const res=await axios.post("http://localhost:8000/api/trainees/SignIn",{
          email,
-         password   
+         password1   
     })
     console.log("requesting");
     console.log(res)
     
     if(res?.data?.success===false){
+
         console.log(res,"Invalid email or password")
-        setMsgModal("Invalid email or password")
+        if(res?.data?.error==="Invalid email")
+            setMsgModal("Invalid email")
+        if(res?.data?.error==="Invalid password")
+            setMsgModal("Invalid password")
+        if(res.data.error==="Already loged In")
+            setMsgModal("Already loged In")
        handleShow()
     }
     if((res?.data?.success===true)){
+    setMail(signInForm.querySelector('#emailin').value)
         console.log("successful")
         handleClickMainTrainee()
+        //history.push(`/main-trainee/${email}`);
    }
-}catch(e){
-    console.log(e)
-}
+    }catch(e){
+        console.log(e)
+    }
 }
     return (
         <footer>
@@ -107,7 +126,7 @@ const submitForm = async (data, e) => {
                                         <div className="row" id='form-con'>
                                         <form action="POST" id='sign-in-form' onSubmit={handleSubmit(submitForm)}>
                                             <div className="text-con">
-                                                <center><input id="emailin" type="email" className="form-control form-control-user"
+                                                <center><input id="emailin" /*onChange={(e) => setMail(e.target.value)}*/  type="email" className="form-control form-control-user"
                                                     name="email" aria-describedby="emailHelp"
                                                     placeholder="Enter Email Address..." {...register('email')}/>**</center>
                                                 {errors.email ? <p className='error-msg'>{errors.email?.message}</p> : <br/>} {/* display error message if the email is not valid */}
@@ -120,7 +139,7 @@ const submitForm = async (data, e) => {
                                                 <b><a className="small cursor-pointer" onClick={handleClickForgotPassword}>Forgot your password?</a></b>
                                             </div>
                                             <div className="submit-btn">
-                                                <center><input type="submit" className='doneBtn' value='Done'/> </center>
+                                                <center><input type="submit" onClick={submitForm} className='doneBtn' value='Done'/> </center>
                                             </div>
                                             </form>
                                             <center>
