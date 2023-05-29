@@ -16,51 +16,7 @@ import MyClasses from '../../images/MyClasses.png'
 const MainTrainee = () => {
     const navigate = useNavigate();
     
-    /* function that navigates to the home page */
-    const handleClickHome = () => {
-        navigate('/');
-    };
-    /* function that navigates to the information page */
-    const handleClickInfo = () => {
-        navigate('/Info');
-    };
-    /* function that navigates to the my classes page */
-    const handleClickMyClasses = () => {
-        navigate('/MyClassesTrainee');
-    };
-    /* function that navigates to the message/ feedback page */
-    const handleClickMessage = () => {
-        navigate('/Traineemessage');
-    };
-    /* function that navigates to the profile page */
-    const handleClickProfile = () => {
-        navigate('/Profile');
-    };
-    /* function that navigates to the New class page */
-    const handleClickNewClass = () => {
-        navigate('/NewClass');
-    };
-    /* function that navigates to the Trainer main page */
-    const handleClickSwitchToTrainer = () => {
-        navigate('/MainTrainer');
-    };
-    /* function that navigates to the description page */
-    const handleClickDescription = () => {
-        navigate('/Description');
-    };
-    /* function that navigates to the statics page */
-    const handleClickStatics = () => {
-        navigate('/Statics');
-    };
-    /* function that navigates to the vidoe of the course page */
-    const handleClickPlayButton = () => {
-        navigate('/StartVideo');
-    };
-    const GetCourses=()=>{
-    /*this function is for the database ;the number of courses that the trainee is signed to is i
-    the function must return an array or a list of the  courses that contain the courses detailes which is Courses*/
-                         
-    };
+    
     return (
         <div className="container-fluid ">
             <div className="header">
@@ -69,12 +25,12 @@ const MainTrainee = () => {
             <div id='Main Trainee' className='backgroundcol'>
             <footer >
                              <center>
-                <div className="row">
+                <div className="row" style={{flexDirection: 'row', height:20, width: 500}}>
                              <div className="buttons">
                                 <button  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
                                 <button  onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
                                 <button  onClick={() => navigate('/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
-                                <button  onClick={() => navigate('/Traineemessage')}><img src={feedback} className="feedbackBbox"/></button>
+                                <button  onClick={() => navigate('/TraineeMessage')}><img src={feedback} className="feedbackBbox"/></button>
                                 <button  onClick={() => navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                 </div>
@@ -86,11 +42,11 @@ const MainTrainee = () => {
                 <div className="navbar">
                     <div className="navbar-container">
                         
-                        <img src={logo} className="logo2"/>
-                        <br/> 
-                <br/> 
+                    <div className='row'style={{flexDirection: 'row', height:60, width: 500}}>
+                                            <img src={logo} className="logo2"/>
+                                            </div>
                 
-                       <div className="row">
+                       <div className="row" style={{flexDirection: 'row', height:80, width: 500}}>
                            <div className="buttons">
                            
                               <button  onClick={() => navigate('/NewClass')}> <img src={NewW} className="NewWBorderBox"/></button>
@@ -99,7 +55,7 @@ const MainTrainee = () => {
                               
                               </div>
                               </div>
-                        <div className="row">
+                        <div className="row" style={{flexDirection: 'row', height:80, width: 500}}>
                            <div className="buttons">
                               <button  onClick={() => navigate('/MyClassesTrainee')}><img src={MyClasses} className="MyClassesBorderBox"/></button>
                               <button onClick={() => navigate('/Info')}><img src={info} className="infoBorderBox"/></button>
@@ -107,25 +63,25 @@ const MainTrainee = () => {
                               </div>
                               </div>
                              
+                              <center>
+                                <div className='row' style={{flexDirection: 'row', height:25, width: 500}}>
+                                    <div style={{ color: 'black' }}>Your active classes :</div>
+                                    </div>
+                               
                               
-                              <p className='YourClassesLabel'>            Your active classes :</p>
+                              <div className='row' style={{flexDirection: 'row', height:600, width: 500}}>
                               
-                            <div className='tabel'>
-                                for (const i of GetCourses)
-                                {
-                                    
-                                    <div className='row'>
-                                         <center>
-                                        <div className='ClassesBlock'>
-                                            
-                                        </div>
-                                        </center>
-                                        </div>
-
-                                }
-
+                              <div className='col'>
                             
-                            </div>     
+                                        
+                                        <div className='NewClassesBox'>           
+                                        </div>
+                                        
+                                        </div>
+                                        
+                                            
+                            </div>
+                            </center>     
                               </div>
                               </div>
                               

@@ -4,7 +4,6 @@ import '../../css/sb-admin-2.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Info.css';
 import InfoIcon from '../../images/info.jpg'
-import MenuIcon from '../../images/InfoMenuHome.png'
 import MessagesIcon from '../../images/InfofeedBack.png'
 import MyclassesIcon from '../../images/MyClasses.png'
 import profileIcon from '../../images/InfoProfile.png'
@@ -31,7 +30,11 @@ const Info = () => {
                 <div className="navbar">
                     <div className="navbar-container">
                         <div className='row'>
-                            <div className='infoInfo'><img src={info1} className="infoInfo"/></div>
+                        <div Style="color:Black;" >
+                    <img src={info1} className="infoInfo"/>
+                       Information
+                </div>
+                            
                             
                         </div>
                         
@@ -44,14 +47,14 @@ const Info = () => {
                         </div>
                         <br/><br/>
                         </center>
-                        <div className='row'>
-                            <div className='col'>
+                        <div className='row'style={{flexDirection: 'row', height:400, width: 500}}>
+                            <div className='col' style={{flexDirection: 'col', height:10, width: 500}}>
                             <div ><img src={InfoIcon} className="HelpIcon"/></div>
                             <div ><img src={MessagesIcon} className="HelpIcon"/></div>
                             <div ><img src={MyclassesIcon} className="HelpIcon"/></div>
                             <div ><img src={profileIcon} className="HelpIcon"/></div>
                             </div>
-                            <div className='col'>
+                            <div className='col'style={{flexDirection: 'col', height:10, width: 500}}>
                             <div ><img src={NewWIcon} className="HelpIcon"/></div>
                             <div ><img src={SwitchaccountIcon} className="HelpIcon"/></div>
                             <div ><img src={MytraineesIcon} className="HelpIcon"/></div>
@@ -59,17 +62,16 @@ const Info = () => {
                             <div ><img src={HomeIcon} className="HelpIcon"/></div>
                             </div>
                         </div>
-                        
+                        <div className='row 'style={{flexDirection: 'row', height:100, width: 500}}>
                             <center>
                              <div className="buttons">
                                 <button  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button  onClick={() => navigate('/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
-                                <button  onClick={() => navigate('/Traineemessage')}><img src={feedback} className="feedbackBbox"/></button>
                                 <button  onClick={() => navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                               </center>
+                              </div>
                 
-                        <div className="row">
+                        <div className="row" style={{flexDirection: 'row', height:50, width: 500}}>
                             <center>
                         <img src={logo} className="logo"/>
                         </center>

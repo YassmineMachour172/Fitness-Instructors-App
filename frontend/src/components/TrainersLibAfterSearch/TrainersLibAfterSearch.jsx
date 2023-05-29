@@ -1,5 +1,4 @@
 import React from 'react';
-import './TrainersLib.css';
 import { useNavigate  } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../../images/logo.png'
@@ -14,7 +13,8 @@ import profile from '../../images/profile.png'
 import searchIcon from '../../images/search.jpg'
 import menu from '../../images/menue.png'
 import {useState} from 'react'
-const TrainersLib=() => {
+import './TrianersLibAfterSearch.css';
+const TrainersLibAfterSearch=()=> {
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -31,7 +31,7 @@ const TrainersLib=() => {
     <center>
         <div className="container-fluid">
             <div className="col">
-            <div className="row">
+            <div className="row" >
                 <center>
                  <div Style="color:Black;" >
                     <img src={menu} className="infoInfo"/>
@@ -42,7 +42,7 @@ const TrainersLib=() => {
                 </center>
                 </div>
                 <center>
-                <div className='row' style={{flexDirection: 'row', height:250, width: 500}}>
+                <div className='row' style={{flexDirection: 'row', height:85, width: 500}}>
                   <div className='col'><input type="text" placeholder="Exercise Name" onChange={handleChange} value={searchInput} />
                   <button onClick={() => navigate('/TrainersLibAfterSearch')}>Search</button> </div>
                 
@@ -52,7 +52,19 @@ const TrainersLib=() => {
                 </div>
                 </div>
                 </center>
-                <div className='row'>
+                <div className='row' style={{flexDirection: 'row', height:800, width: 500}}>
+                <center>
+                <div className='col'>
+                            
+                                        
+                                        <div className='coursesBlock'>           
+                                        </div>
+                                        
+                                        </div>
+                                        </center>
+                                            
+                            </div>
+                <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
                 <center>
                              <div className="buttons">
                                 <button  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
@@ -72,4 +84,4 @@ const TrainersLib=() => {
             </center>
   )
 }
-export default TrainersLib;
+export default TrainersLibAfterSearch ;

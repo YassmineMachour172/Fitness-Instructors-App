@@ -11,17 +11,20 @@ import Info from './components/Info/Info'
 import MyClassesTrainee from './components/MyClassesTrainee/MyClassesTrainee'
 import TraineeMessage from './components/TraineeMessage/TraineeMessage'
 import Profile from './components/Profile/Profile'
-import NewClass from './components/NewClass/NewClass'
+import NewClass from './components/NewClassTrainee/NewClass'
 import MainTrainer from './components/MainTrainer/MainTrainer'
 import Statics from './components/Statics/Statics'
 import StartVideo from './components/StartVideo/StartVideo'
 import Description from './components/Description/Description'
-import MyMessageTrainer from './components/MyMessageTrainer/MyMessageTrainer'
+import TrainerMessage from './components/TrainerMessage/TrainerMessage'
 import MyClassesTrainer from './components/MyClassesTrainer/MyClassesTrainer'
 import CreateNewClass from './components/CreateNewClass/CreateNewClass'
 import MyTainee from './components/MyTrainee/MyTrainee'
 import TrainersLib from './components/TrainersLib/TrainersLib'
 import UploadeNewEx from './components/UploadNewEx/UploadeNewEx';
+import TrainersLibAfterSearch from './components/TrainersLibAfterSearch/TrainersLibAfterSearch'
+import TrainningPlanes from './components/TrainningPlanes/TrainningPlanes'
+import NewCLassAfterSearch from './components/NewClassAfterSearch/NewClassAfterSearch'
 import './App.css';
 
 function App() {
@@ -77,12 +80,15 @@ function App() {
                 <Route path="StartVideo" element={<StartVideo/>}/>
                 <Route path="Description" element={<Description/>}/>
                 <Route path="TraineeMessage" element={<TraineeMessage/>}/>
-                <Route path="MyMessageTrainer" elemnt={<MyMessageTrainer/>}/>
+                <Route path="TrainerMessage" elemnt={<TrainerMessage/>}/>
                 <Route path="MyClassesTrainer" element={<MyClassesTrainer/>}/>
                 <Route path="CreateNewClass" element={<CreateNewClass/>}/>
-                <Route path="MyTainee" element={<MyTainee/>}/>
+                <Route path="MyTrainee" element={<MyTainee/>}/>
                 <Route path="TrainersLib" element={<TrainersLib/>}/>
                 <Route path="UploadeNewEx" element={<UploadeNewEx/>}/>
+                <Route path="TrainersLibAfterSearch" element={<TrainersLibAfterSearch/>}/>
+                <Route path="TrainningPlanes" element={<TrainningPlanes/>}/>
+                <Route path="NewCLassAfterSearch" element={<NewCLassAfterSearch/>}/>
                 
             </Routes> 
         </Router>  

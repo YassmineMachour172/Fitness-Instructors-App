@@ -1,0 +1,10 @@
+.VideoBox{
+    width: 370px;
+height: 332px;
+left: 32px;
+top: 251px;
+
+background: #080808;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+filter: blur(2px);
+}

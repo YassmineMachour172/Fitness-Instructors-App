@@ -1,13 +1,13 @@
 
 .HomeIcone{
-    position: absolute;
+    
     width: 40px;
     height: 40px;
     left: 120px;
     top: 4px;
 }
 .info{
-    position: absolute;
+    
     width: 44px;
     height: 44px;
     left: 182px;
@@ -23,7 +23,7 @@
     
 }
 .pList{
-    position: absolute;
+    
     width: 40px;
     height: 40px;
     left: 249px;
@@ -31,7 +31,7 @@
     
 }
 .feedBack{
-    position: absolute;
+    
     width: 44px;
     height: 41px;
     left: 312px;
@@ -39,7 +39,7 @@
     
 }
 .profile{
-    position: absolute;
+    
     width: 35px;
     height: 49px;
     left: 382px;
@@ -48,7 +48,7 @@
 }
 .Logo{
     
-position: absolute;
+
 width: 291px;
 height: 100px;
 left: 7px;
@@ -161,7 +161,7 @@ top: 173px;
 }
 
 .MyClasses{
-    position: absolute;
+    
 width: 103px;
 height: 17px;
 left: 101px;
@@ -178,7 +178,7 @@ color: #000000;
 
 }
 .MyListOfClasses{
-    position: absolute;
+    
 width: 43px;
 height: 43px;
 left: 49px;
@@ -189,7 +189,7 @@ top: 281px;
 
 .help{
     
-position: absolute;
+
 width: 84px;
 height: 17px;
 left: 293px;
@@ -218,7 +218,7 @@ color: #000000;
     color: #000000;
 }
 .ClassesBlock{
-    position: absolute;
+    
 width: 370px;
 height: 332px;
 left: 33px;
@@ -229,7 +229,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.2
 filter: blur(2px);
 }
 .line{
-    position: absolute;
+    
 width: 357px;
 height: 0px;
 left: 36px;
@@ -240,7 +240,7 @@ border: 1px solid #000000;
 }
 .leftCornerLabel{
     
-    position: absolute;
+    
     width: 49px;
     height: 17px;
     left: 41px;
@@ -259,7 +259,7 @@ border: 1px solid #000000;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .courseName{
-    position: absolute;
+    
 width: 232px;
 height: 27px;
 left: 121px;
@@ -277,7 +277,7 @@ color: #000000;
 }
 
 .TrainerName{
-    position: absolute;
+    
 width: 136px;
 height: 17px;
 left: 139px;
@@ -298,7 +298,7 @@ opacity: 0.5;
 text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .courseCDesc{
-    position: absolute;
+    
 width: 59px;
 height: 20px;
 left: 67px;
@@ -318,7 +318,7 @@ color: #000000;
 }
 .courseStat{
     
-position: absolute;
+
 width: 43px;
 height: 20px;
 left: 157px;
@@ -337,7 +337,7 @@ color: #000000;
 }
 .courseFeedback{
     
-position: absolute;
+
 width: 48px;
 height: 20px;
 left: 236px;
@@ -356,7 +356,7 @@ color: #000000;
 }
 
 .playButton{
-   position: absolute;
+  
 width: 22.8px;
 height: 22.8px;
 left: 339.43px;

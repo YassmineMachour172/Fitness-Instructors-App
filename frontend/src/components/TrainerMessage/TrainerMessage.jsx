@@ -1,5 +1,5 @@
-import React from 'react';
-import './TrainersLib.css';
+import React from 'react'
+import './TrainerMessage.css';
 import { useNavigate  } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../../images/logo.png'
@@ -11,10 +11,9 @@ import info1 from '../../images/info1.png'
 import pList from '../../images/pList.png'
 import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
-import searchIcon from '../../images/search.jpg'
-import menu from '../../images/menue.png'
 import {useState} from 'react'
-const TrainersLib=() => {
+
+const TrainerMessage=()=> {
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -31,28 +30,30 @@ const TrainersLib=() => {
     <center>
         <div className="container-fluid">
             <div className="col">
-            <div className="row">
+            <div className="row" >
                 <center>
                  <div Style="color:Black;" >
-                    <img src={menu} className="infoInfo"/>
-                       My Library 
+                    <img src={feedback} className="infoInfo"/>
+                       My Messages 
                 </div>
                 <br/>
-                <button onClick={() => navigate('/UploadeNewEx')} type="StartRecording" className='Upload'>Uplode New Exercise</button>
+                <div style={{ color: 'black' }}>Your Trainess To Talk To:</div>
                 </center>
                 </div>
+               
+                <div className='row' style={{flexDirection: 'row', height:800, width: 500}}>
                 <center>
-                <div className='row' style={{flexDirection: 'row', height:250, width: 500}}>
-                  <div className='col'><input type="text" placeholder="Exercise Name" onChange={handleChange} value={searchInput} />
-                  <button onClick={() => navigate('/TrainersLibAfterSearch')}>Search</button> </div>
-                
                 <div className='col'>
-                <input type="text" placeholder="KeyWords" onChange={handleChange} value={searchInput} />
-                <button onClick={() => navigate('/TrainersLibAfterSearch')}>Search</button>
-                </div>
-                </div>
-                </center>
-                <div className='row'>
+                            
+                                        
+                                        <div className='MessagesBox'>           
+                                        </div>
+                                        
+                                        </div>
+                                        </center>
+                                            
+                            </div>
+                <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
                 <center>
                              <div className="buttons">
                                 <button  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
@@ -72,4 +73,14 @@ const TrainersLib=() => {
             </center>
   )
 }
-export default TrainersLib;
+
+export default TrainerMessage ;
+
+
+
+
+
+
+
+
+

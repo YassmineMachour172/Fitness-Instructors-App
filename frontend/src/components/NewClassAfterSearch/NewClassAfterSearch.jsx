@@ -1,5 +1,5 @@
-import React from 'react';
-import './TrainersLib.css';
+import React from 'react'
+import './NewClassAfterSearch.css';
 import { useNavigate  } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../../images/logo.png'
@@ -14,7 +14,8 @@ import profile from '../../images/profile.png'
 import searchIcon from '../../images/search.jpg'
 import menu from '../../images/menue.png'
 import {useState} from 'react'
-const TrainersLib=() => {
+import NewClassTrainee from '../../images/CreateNewEx.png'
+const NewCLassAfterSearch=()=> {
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -31,28 +32,40 @@ const TrainersLib=() => {
     <center>
         <div className="container-fluid">
             <div className="col">
-            <div className="row">
+            <div className="row" >
                 <center>
                  <div Style="color:Black;" >
-                    <img src={menu} className="infoInfo"/>
-                       My Library 
+                    <img src={NewClassTrainee} className="infoInfo"/>
+                       New Class
                 </div>
                 <br/>
-                <button onClick={() => navigate('/UploadeNewEx')} type="StartRecording" className='Upload'>Uplode New Exercise</button>
+                <div style={{ color: 'black' }}>Here are the classes we offer, please choose your desired classes :</div>
                 </center>
                 </div>
                 <center>
-                <div className='row' style={{flexDirection: 'row', height:250, width: 500}}>
+                <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
                   <div className='col'><input type="text" placeholder="Exercise Name" onChange={handleChange} value={searchInput} />
-                  <button onClick={() => navigate('/TrainersLibAfterSearch')}>Search</button> </div>
+                  <button onClick={() => navigate('/NewCLassAfterSearch')}>Search</button> </div>
                 
                 <div className='col'>
                 <input type="text" placeholder="KeyWords" onChange={handleChange} value={searchInput} />
-                <button onClick={() => navigate('/TrainersLibAfterSearch')}>Search</button>
+                <button onClick={() => navigate('/NewCLassAfterSearch')}>Search</button>
                 </div>
                 </div>
                 </center>
-                <div className='row'>
+                <div className='row' style={{flexDirection: 'row', height:700, width: 500}}>
+                <center>
+                <div className='col'>
+                            
+                                        
+                                        <div className='NewClassesBox'>           
+                                        </div>
+                                        
+                                        </div>
+                                        </center>
+                                            
+                            </div>
+                <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
                 <center>
                              <div className="buttons">
                                 <button  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
@@ -72,4 +85,8 @@ const TrainersLib=() => {
             </center>
   )
 }
-export default TrainersLib;
+export default NewCLassAfterSearch ;
+
+
+
+

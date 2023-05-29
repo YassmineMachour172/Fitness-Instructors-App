@@ -26,19 +26,16 @@ const MainTrainer = () =>  {
             <div id='Main Trainer' className='backgroundcol'>
             <footer>
                              <center>
-                <div className="row">
-                
+                             <div className="row" style={{flexDirection: 'row', height:20, width: 500}}>
                              <div className="buttons">
-                              
                                 <button  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
                                 <button  onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
                                 <button  onClick={() => navigate('/MyClassesTrainer')}><img src={pList} className="pListBbox"/></button>
-                                <button  onClick={() => navigate('/MyMessageTrainer')}><img src={feedback} className="feedbackBbox"/></button>
+                                <button  onClick={() => navigate('/TrainerMessage')}><img src={feedback} className="feedbackBbox"/></button>
                                 <button  onClick={() => navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
-                               
                               </div>
-                              
-                              </div>
+                </div>
+                
                               <br/>
                               <br/>
                               <br/>
@@ -47,9 +44,11 @@ const MainTrainer = () =>  {
                                    <div className="navbar">
                                       <div className="navbar-container">
                                         <center>
-                                         <img src={logo} className="logo2"/>
-                                         <br/>
-                              <br/>
+                                            <div className='row'style={{flexDirection: 'row', height:60, width: 500}}>
+                                            <img src={logo} className="logo2"/>
+                                            </div>
+                                         
+                                  
                                          </center>
                               </div>
                               </div>
@@ -62,23 +61,23 @@ const MainTrainer = () =>  {
                         
 
                             
-                         <div className="row">
+                         <div className="row" style={{flexDirection: 'row', height:80, width: 500}}>
                            <div className="buttons">
                            
-                              <button  onClick={() => navigate('/UploadeNewEx')}> <img src={NewW2} className="NewWBorderBox"/></button>
+                              <button  onClick={() => navigate('/CreateNewClass')}> <img src={NewW2} className="NewWBorderBox"/></button>
                               <button onClick={() => navigate('/MainTrainee')}><img src={changAccount2} className="SwitchBorderBox"/></button>
                               
                               
                               </div>
                               </div>
-                        <div className="row">
+                        <div className="row" style={{flexDirection: 'row', height:80, width: 500}}>
                            <div className="buttons">
                               <button  onClick={() => navigate('/MyClassesTrainer')}><img src={MyClasses} className="MyClassesBorderBox"/></button>
                               <button onClick={() => navigate('/MyTrainee')}><img src={MyTrianee} className="infoBorderBox"/></button>
                               
                               </div>
                               </div>
-                              <div className="row">
+                              <div className="row" style={{flexDirection: 'row', height:80, width: 500}}>
                            <div className="buttons">
                               <button  onClick={() => navigate('/TrainersLib')}><img src={MyLibrary} className="MyClassesBorderBox"/></button>
                               </div>
