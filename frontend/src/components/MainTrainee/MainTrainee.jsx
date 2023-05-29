@@ -1,5 +1,5 @@
 import React, { useRef,useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 import '../../css/sb-admin-2.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './MainTrainee.css';
@@ -13,9 +13,23 @@ import profile from '../../images/profile.png'
 import NewW from '../../images/NewW.jpg'
 import changAccount from '../../images/changeAcc.png'
 import MyClasses from '../../images/MyClasses.png'
+import { useParams } from 'react-router-dom';
+import { render } from '@testing-library/react';
+import Profile from '../Profile/Profile';
+
+
 const MainTrainee = () => {
-    const navigate = useNavigate();
+
+    //const [mail,setMail]=useState(email);
+    const { email } = useParams();
+    const [mail, setMail]=useState('');
     
+    console.log("main",{email})
+
+    const navigate = useNavigate();
+    const location = useLocation();
+  //setMail(location.state?.data);
+    //console.log("main",mail)
     /* function that navigates to the home page */
     const handleClickHome = () => {
         navigate('/');
@@ -34,8 +48,9 @@ const MainTrainee = () => {
     };
     /* function that navigates to the profile page */
     const handleClickProfile = () => {
-        navigate('/Profile');
-    };
+        < Profile email={email} />
+        navigate(`/profile/${email}`);   
+     };
     /* function that navigates to the New class page */
     const handleClickNewClass = () => {
         navigate('/NewClass');
@@ -75,7 +90,7 @@ const MainTrainee = () => {
                                 <button  onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
                                 <button  onClick={() => navigate('/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
                                 <button  onClick={() => navigate('/Traineemessage')}><img src={feedback} className="feedbackBbox"/></button>
-                                <button  onClick={() => navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button  onClick={handleClickProfile}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                 </div>
                 

@@ -1,5 +1,7 @@
 import { HashRouter as Router, Routes , Route } from 'react-router-dom';
-import React, { useState, useEffect } from "react";
+//import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
+
+import React, { useState, useEffect, Component } from "react";
 import Home from './components/Home/home';
 import AppM from './components/ApplicationManual/AppM'
 import About from './components/AboutUs/AboutUs'
@@ -23,8 +25,12 @@ import MyTainee from './components/MyTrainee/MyTrainee'
 import TrainersLib from './components/TrainersLib/TrainersLib'
 import ResetPassword from './components/ResetPassword/ResetPassword'
 import './App.css';
+import { SIGN_IN } from './actions';
+import { useSelector,useDispatch } from 'react-redux';
 
 function App() {
+    
+  const dispatch = useDispatch();
   /**
    * This sends an HTTP GET request from 
    * React to the npm api to search for all react packages 
@@ -33,10 +39,11 @@ function App() {
    * totalReactPackages so it can be displayed in the render() method.
    */
 
-    <Router basename="/Register"></Router>
+   /* <Router basename="/Register"></Router>
     const [message, setMessage] = useState("");
-    const API_URL= "/Register";
-  useEffect(() => {
+    let API_URL= "/Register";
+     ;*/
+  /*useEffect(() => {
      
       const fetchItems = async () =>{
         try{
@@ -55,22 +62,23 @@ function App() {
          }
       } 
       (async()=> await fetchItems())();
-  }, []);
+      
+  }, []);*/
+
   return (
     <div id='App'>
-        {/* Router is the parent component of all other components. It is used to route the user to the desired component. */}
         <Router>
             <Routes>
-                <Route path="/" element={<Home/>}/>
+                <Route  path="SignIn" element={<SignIn/>} />
+                <Route path="/main-trainee/:email" element={<MainTrainee/>} />
+                <Route path="/profile/:email" element={<Profile />}/>
+                <Route path="/" element={<Home />}/>
                 <Route path="AppM" element={<AppM/>}/>
                 <Route path="about" element={<About/>}/>
-                <Route path="SignIn" element={<SignIn/>}/>
                 <Route path="Forgot" element={<Forgot/>}/>
                 <Route path="Register" element={<Register/>}/>
-                <Route path="MainTrainee" element={<MainTrainee/>}/>
                 <Route path="Info" element={<Info/>}/>
                 <Route path="MyClassesTrainee" element={<MyClassesTrainee/>}/>
-                <Route path="Profile" element={<Profile/>}/>
                 <Route path="NewClass" element={<NewClass/>}/>
                 <Route path="MainTrainer" element={<MainTrainer/>}/>
                 <Route path="Statics" element={<Statics/>}/>
@@ -88,8 +96,7 @@ function App() {
         
     </div>
 );
-}
-
+};
 
   
 export default App;
