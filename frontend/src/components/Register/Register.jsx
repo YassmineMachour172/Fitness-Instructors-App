@@ -51,7 +51,7 @@ const Register = () => {
             const password1 = signUpForm.querySelector('#password1').value;
             const password2 = signUpForm.querySelector('#password2').value;
             try{
-                const res=await axios.post("http://localhost:8000/api/trainees/Register",{
+                const res=await axios.post("https://back-e.vercel.app/api/trainees/Register",{
                  fName,
                  lName,
                  email,

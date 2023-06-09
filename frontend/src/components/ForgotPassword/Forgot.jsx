@@ -37,7 +37,7 @@ const Forgot = () => {
         /* send the request to the server */
         console.log("before post")
 
-        const res=await axios.post("http://localhost:8000/api/trainees/Forgot",{
+        const res=await axios.post("https://back-e.vercel.app/api/trainees/Forgot",{
          email 
         })
         console.log("requesting");
