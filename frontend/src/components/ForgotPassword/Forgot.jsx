@@ -13,7 +13,7 @@ const Forgot = () => {
     const [msgModal, setMsgModal] = useState('');/*define state for the message modal box */
      /* function that close the modal and reset the message modal*/
      const handleClickLogIn=()=>{
-        navigate('/SignIn');
+        navigate('https://front-omega-nine.vercel.app/#/SignIn');
      }
      const handleClose = () =>{
         setShow(false);

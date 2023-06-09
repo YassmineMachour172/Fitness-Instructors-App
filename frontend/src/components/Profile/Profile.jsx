@@ -176,8 +176,8 @@ const Profile = () => {
                                                    
                                                   <center>
                              <div className="buttons">
-                                <button  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button  onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
 
                                 
                               </div>

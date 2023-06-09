@@ -9,7 +9,7 @@
             "type": "msedge",
             "request": "launch",
             "name": "Launch msedge against localhost",
-            "url": "http://localhost:3000",
+            "url": "https://front-omega-nine.vercel.app/",
             "webRoot": "${workspaceFolder}"
         }
     ]

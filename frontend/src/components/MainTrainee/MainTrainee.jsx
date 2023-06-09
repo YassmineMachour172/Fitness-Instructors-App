@@ -35,44 +35,44 @@ const MainTrainee = () => {
     //console.log("main",mail)
     /* function that navigates to the home page */
     const handleClickHome = () => {
-        navigate('/');
+        navigate('https://front-omega-nine.vercel.app/');
     };
     /* function that navigates to the information page */
     const handleClickInfo = () => {
-        navigate('/Info');
+        navigate('https://front-omega-nine.vercel.app/#/Info');
     };
     /* function that navigates to the my classes page */
     const handleClickMyClasses = () => {
-        navigate('/MyClassesTrainee');
+        navigate('https://front-omega-nine.vercel.app/#/MyClassesTrainee');
     };
     /* function that navigates to the message/ feedback page */
     const handleClickMessage = () => {
-        navigate('/Traineemessage');
+        navigate('https://front-omega-nine.vercel.app/#/Traineemessage');
     };
     /* function that navigates to the profile page */
     const handleClickProfile = () => {
         < Profile email={email} />
-        navigate(`/profile/${email}`);   
+        navigate(`https://front-omega-nine.vercel.app/#/profile/${email}`);   
      };
     /* function that navigates to the New class page */
     const handleClickNewClass = () => {
-        navigate('/NewClass');
+        navigate('https://front-omega-nine.vercel.app/#/NewClass');
     };
     /* function that navigates to the Trainer main page */
     const handleClickSwitchToTrainer = () => {
-        navigate('/MainTrainer');
+        navigate('https://front-omega-nine.vercel.app/#/MainTrainer');
     };
     /* function that navigates to the description page */
     const handleClickDescription = () => {
-        navigate('/Description');
+        navigate('https://front-omega-nine.vercel.app/#/Description');
     };
     /* function that navigates to the statics page */
     const handleClickStatics = () => {
-        navigate('/Statics');
+        navigate('https://front-omega-nine.vercel.app/#/Statics');
     };
     /* function that navigates to the vidoe of the course page */
     const handleClickPlayButton = () => {
-        navigate('/StartVideo');
+        navigate('https://front-omega-nine.vercel.app/#/StartVideo');
     };
     const GetCourses=()=>{
     /*this function is for the database ;the number of courses that the trainee is signed to is i
@@ -90,12 +90,12 @@ const MainTrainee = () => {
                              <center>
                 <div className="row" style={{flexDirection: 'row', height:20, width: 500}}>
                              <div className="buttons">
-                                <button  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button  onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button  onClick={() => navigate('/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
+                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
 
 
-                                <button  onClick={() => navigate('/Traineemessage')}><img src={feedback} className="feedbackBbox"/></button>
+                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Traineemessage')}><img src={feedback} className="feedbackBbox"/></button>
                                 <button  onClick={handleClickProfile}><img src={profile} className="ProfileBbox"/></button>
 
                               </div>

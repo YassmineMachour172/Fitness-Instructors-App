@@ -69,7 +69,7 @@ const UploadeNewEx = () => {
                                                 <center>
                                                   <div className='row'>
                                                   
-                                                  <button onClick={() => navigate('/StartVideo')} type="StartRecording" className='about-us'>Start Recording</button>
+                                                  <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/StartVideo')} type="StartRecording" className='about-us'>Start Recording</button>
                                                   
                                                   </div>
                                                   <div className='row'>
@@ -81,9 +81,9 @@ const UploadeNewEx = () => {
                                                 </div>
                                                   <center>
                              <div className="buttons">
-                                <button  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button  onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button  onClick={() => navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                               </center>
                 
