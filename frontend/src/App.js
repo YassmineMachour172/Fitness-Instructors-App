@@ -97,6 +97,7 @@ function App() {
                 <Route path="TrainersLibAfterSearch" element={<TrainersLibAfterSearch/>}/>
                 <Route path="TrainningPlanes" element={<TrainningPlanes/>}/>
                 <Route path="NewCLassAfterSearch" element={<NewCLassAfterSearch/>}/>
+                <Route path="MainTrainee" element={<MainTrainee/>}/>
                 
             </Routes> 
         </Router>  
