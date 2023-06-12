@@ -91,42 +91,42 @@ const CreateNewClass = () => {
                                                 </div>
                                                 <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
                                                     <div className='col'>
-                                                        <button onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder' ></img></button>
+                                                        <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder' ></img></button>
                                                     
                                                     </div>
                                                     <div className='col'>
-                                                        <button onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
+                                                        <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
                                                     </div>
                                                     <div className='col'>
-                                                        <button onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
+                                                        <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
                                                     </div>
                                                 </div>
                                                 <div className='row' style={{flexDirection: 'row', height:150, width: 500}}>
                                                     <div className='col'>
-                                                        <button onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder' ></img></button>
+                                                        <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder' ></img></button>
                                                     
                                                     </div>
                                                     <div className='col'>
-                                                        <button onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
+                                                        <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
                                                     </div>
                                                     <div className='col'>
-                                                        <button onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
+                                                        <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
                                                     </div>
                                                 </div>
                                                 <div className='row' style={{flexDirection: 'row', height:100, width: 850}} >
                                                   <div className='col'>
-                                                  <button onClick={() => navigate('/MyClassesTrainer')} type="StartRecording" className='about-us'>Publish and Save</button>
+                                                  <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/MyClassesTrainer')} type="StartRecording" className='about-us'>Publish and Save</button>
                                                   </div>
                                                   <div className='col'>
-                                                  <button onClick={() => navigate('/MyClassesTrainer')} type="Uplode" className='about-us'>Save</button>
+                                                  <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/MyClassesTrainer')} type="Uplode" className='about-us'>Save</button>
                                                   </div>
                                                   </div>
                                                
                                                     <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
                              <div className="buttons">
-                                <button  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button  onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button  onClick={() => navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                               </div>
                               

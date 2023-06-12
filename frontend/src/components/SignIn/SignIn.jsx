@@ -19,7 +19,7 @@ const SignIn =() => {
 
     /* function that navigates to the forgot password page */
     const handleClickForgotPassword = () => {
-        navigate('/Forgot');
+        navigate('https://front-omega-nine.vercel.app/#/Forgot');
     };
 
     /**/
@@ -34,7 +34,7 @@ const SignIn =() => {
    }
     /* function that navigates to the sign up page */
     const handleClickSignUp = () => {
-        navigate('/Register');
+        navigate('https://front-omega-nine.vercel.app/#/Register');
     };
 
     const handleClickMainTrainee = () => {
@@ -42,7 +42,7 @@ const SignIn =() => {
 
         console.log("calling MMain in Sign In",email);
         < MainTrainee email={email} />
-        navigate(`/main-trainee/${email}`);
+        navigate(`https://front-omega-nine.vercel.app/#/main-trainee/${email}`);
     };
 
 
@@ -58,7 +58,7 @@ const SignIn =() => {
     const password1 = signInForm.querySelector('#password').value;
     setMail(email);
     try{
-        const res=await axios.post("http://localhost:8000/api/trainees/SignIn",{
+        const res=await axios.post("https://back-e.vercel.app/api/trainees/SignIn",{
          email,
          password1   
     })
@@ -169,9 +169,9 @@ const SignIn =() => {
                     <center>
                             <div className="down-buttons">
                                 <hr/>
-                                <button className='home2' onClick={() => navigate('../..//')}>Home</button>
+                                <button className='home2' onClick={() => navigate('https://front-omega-nine.vercel.app/')}>Home</button>
                                 <button className='sign-in2' disabled >Sign In</button>
-                                <button className='about-us' onClick={() => navigate('../../about')}>About Us</button>
+                                <button className='about-us' onClick={() => navigate('https://front-omega-nine.vercel.app/#/about')}>About Us</button>
                             </div>
                         </center>
                     </div>

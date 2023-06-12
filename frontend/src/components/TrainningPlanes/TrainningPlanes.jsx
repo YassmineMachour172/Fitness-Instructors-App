@@ -42,11 +42,11 @@ const TrainningPlanes=()=> {
                 <center>
                 <div className='row' style={{flexDirection: 'row', height:85, width: 500}}>
                   <div className='col'><input type="text" placeholder="Exercise Name" onChange={handleChange} value={searchInput} />
-                  <button onClick={() => navigate('/TrainersLibAfterSearch')}>Search</button> </div>
+                  <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLibAfterSearch')}>Search</button> </div>
                 
                 <div className='col'>
                 <input type="text" placeholder="KeyWords" onChange={handleChange} value={searchInput} />
-                <button onClick={() => navigate('/TrainersLibAfterSearch')}>Search</button>
+                <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLibAfterSearch')}>Search</button>
                 </div>
                 </div>
                 </center>
@@ -66,9 +66,9 @@ const TrainningPlanes=()=> {
                 <center>
                 <div className="down-buttons">
                                 <hr/>
-                                <button className='home2' onClick={() => navigate('../..//')}>Home</button>
-                                <button className='sign-in2' onClick={() => navigate('../../SignIn')}>Sign In</button>
-                                <button className='about-us' onClick={() => navigate('../../about')}>About Us</button>
+                                <button className='home2' onClick={() => navigate('https://front-omega-nine.vercel.app/')}>Home</button>
+                                <button className='sign-in2' onClick={() => navigate('https://front-omega-nine.vercel.app/#/SignIn')}>Sign In</button>
+                                <button className='about-us' onClick={() => navigate('https://front-omega-nine.vercel.app/#/about')}>About Us</button>
                             </div>
                               </center>
                              
