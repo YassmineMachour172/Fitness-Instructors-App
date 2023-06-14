@@ -2,7 +2,7 @@
 
 const mongoose = require("mongoose");
 
-const TraineeSchema = new mongoose.Schema({
+const trainerSchema = new mongoose.Schema({
     email: {
         primary: true,
         type:String
@@ -18,4 +18,4 @@ const TraineeSchema = new mongoose.Schema({
     Status: Number,
 });
 { _id: false }
-module.exports = TraineeSchema;
+module.exports = trainerSchema;
