@@ -70,12 +70,20 @@ const UploadeNewEx = () => {
                                                 <center>
                                                   <div className='row'>
                                                   
+<<<<<<< Updated upstream
                                                   <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/StartVideo')} type="StartRecording" className='about-us'>Upload video</button>
+=======
+                                                  <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/Upload')} type="Upload" className='about-us'>Start Recording</button>
+>>>>>>> Stashed changes
                                                   
                                                   </div>
                                                   <div className='row'>
                                                   
+<<<<<<< Updated upstream
                                                   <button type="Uplode" className='about-us'>Uplode the exercise</button>
+=======
+                                                  <button type="Upload" className='about-us'>Uplode</button>
+>>>>>>> Stashed changes
                                                   
                                                   </div>
                                                   </center>

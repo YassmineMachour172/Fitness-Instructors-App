@@ -2,8 +2,9 @@ import { HashRouter as Router, Routes , Route } from 'react-router-dom';
 //import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
 
 import React, { useState, useEffect, Component } from "react";
-import Home from './components/Home/home';
+import Home from './components/Home/home'
 import AppM from './components/ApplicationManual/AppM'
+import Upload from './components/Upload/Upload'
 import About from './components/AboutUs/AboutUs'
 import SignIn from './components/SignIn/SignIn'
 import Forgot from './components/ForgotPassword/Forgot'
@@ -97,7 +98,11 @@ function App() {
                 <Route path="TrainersLibAfterSearch" element={<TrainersLibAfterSearch/>}/>
                 <Route path="TrainningPlanes" element={<TrainningPlanes/>}/>
                 <Route path="NewCLassAfterSearch" element={<NewCLassAfterSearch/>}/>
+<<<<<<< Updated upstream
                 <Route path="MainTrainee" element={<MainTrainee/>}/>
+=======
+                <Route path="Upload" element={<Upload/>}/>
+>>>>>>> Stashed changes
                 
             </Routes> 
         </Router>  
