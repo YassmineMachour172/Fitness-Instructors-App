@@ -38,26 +38,26 @@ const TrainersLib=() => {
                        My Library 
                 </div>
                 <br/>
-                <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/UploadeNewEx')} type="StartRecording" className='Upload'>Uplode New Exercise</button>
+                <button onClick={() => navigate('/UploadeNewEx')} type="StartRecording" className='Upload'>Uplode New Exercise</button>
                 </center>
                 </div>
                 <center>
                 <div className='row' style={{flexDirection: 'row', height:250, width: 500}}>
-                  <div className='col'><input type="text" placeholder="Exercise Name" onChange={handleChange} value={searchInput} />
-                  <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLibAfterSearch')}>Search</button> </div>
+                  <div className='col'><input Style="color: Black;background-color: transparent;border-radius: 12px;"type="text" placeholder="Exercise Name" onChange={handleChange} value={searchInput} />
+                  <button Style="color: Black;background-color: transparent;border-radius: 12px;"  onClick={() => navigate('/TrainersLibAfterSearch')}>Search</button> </div>
                 
                 <div className='col'>
-                <input type="text" placeholder="KeyWords" onChange={handleChange} value={searchInput} />
-                <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLibAfterSearch')}>Search</button>
+                <input Style="color: Black;background-color: transparent;border-radius: 12px;"type="text" placeholder="KeyWords" onChange={handleChange} value={searchInput} />
+                <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLibAfterSearch')}>Search</button>
                 </div>
                 </div>
                 </center>
                 <div className='row'>
                 <center>
                              <div className="buttons">
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"  onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                               </center>
                               </div>

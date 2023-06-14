@@ -34,7 +34,7 @@ const SignIn =() => {
    }
     /* function that navigates to the sign up page */
     const handleClickSignUp = () => {
-        navigate('https://front-omega-nine.vercel.app/#/Register');
+        navigate('/Register');
     };
 
     const handleClickMainTrainee = () => {
@@ -124,13 +124,13 @@ const SignIn =() => {
                                         <br/>
                                     </div>
                                         <div className="row" id='form-con'>
-                                        <form action="POST" id='sign-in-form' onSubmit={handleSubmit(submitForm)}>
+                                        <form Style="color: Black;background-color: transparent;border-radius: 12px;" action="POST" id='sign-in-form' onSubmit={handleSubmit(submitForm)}>
                                             <div className="text-con">
-                                                <center><input id="emailin" /*onChange={(e) => setMail(e.target.value)}*/  type="email" className="form-control form-control-user"
+                                                <center><input Style="color: Black;background-color: transparent;border-radius: 12px;" id="emailin" /*onChange={(e) => setMail(e.target.value)}*/  type="email" className="form-control form-control-user"
                                                     name="email" aria-describedby="emailHelp"
                                                     placeholder="Enter Email Address..." {...register('email')}/>**</center>
                                                 {errors.email ? <p className='error-msg'>{errors.email?.message}</p> : <br/>} {/* display error message if the email is not valid */}
-                                                <center><input id="password" type="password" className="form-control form-control-user"
+                                                <center><input Style="color: Black;background-color: transparent;border-radius: 12px;"  id="password" type="password" className="form-control form-control-user"
                                                     name="password" placeholder="Password" {...register('password')}/>
                                                 {errors.password ? <p className='error-msg'>{errors.password?.message}</p> : <br/>} {/* display error message if the password is not valid */}**</center>
                                                 
@@ -139,7 +139,7 @@ const SignIn =() => {
                                                 <b><a className="small cursor-pointer" onClick={handleClickForgotPassword}>Forgot your password?</a></b>
                                             </div>
                                             <div className="submit-btn">
-                                                <center><input type="submit" onClick={submitForm} className='doneBtn' value='Done'/> </center>
+                                                <center><input Style="color: Black;background-color: transparent;border-radius: 12px;" type="submit" onClick={submitForm} className='doneBtn' value='Done'/> </center>
                                             </div>
                                             </form>
                                             <center>

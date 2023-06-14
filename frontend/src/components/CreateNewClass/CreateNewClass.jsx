@@ -43,7 +43,7 @@ const CreateNewClass = () => {
                                                     <div className='row'>
                                                     <div className='text' Style="color:Black;">Name Of The Class:</div>
                                                    
-                                                    <input type="text" name="NameOfC"
+                                                    <input Style="color: Black;background-color: transparent;border-radius: 12px;" type="text" name="NameOfC"
                                                 id='NameOfC'  {...register('NameOfC')}/>
                                                 {errors.fName ? <p className='error-msg'>{errors.NameOfC?.message}</p> : <br/>} {/* display error message if the first name is not valid */}
                                                     
@@ -51,7 +51,7 @@ const CreateNewClass = () => {
                                                   <div className='row'>
                                                   <div className='text' Style="color:Black;">Type Of The Class:</div>
                                                    
-                                                  <Dropdown>
+                                                  <Dropdown Style="color: Black;background-color: transparent;border-radius: 12px;" >
                                                   <Dropdown.Toggle id="dropdown-button-dark-example1" variant="secondary">
                                                    Type of class
                                                   </Dropdown.Toggle>
@@ -72,7 +72,7 @@ const CreateNewClass = () => {
                                                   <div className='row'>
                                                   <div className='text' Style="color:Black;">Description:</div>
                                                   
-                                                  <input id="descrpition" type="textBox" 
+                                                  <input Style="color: Black;background-color: transparent;border-radius: 12px;" id="descrpition" type="textBox" 
                                                     name="descrpition"
                                                     placeholder="please descripe the class" {...register('Description')}/>
                                                   
@@ -81,7 +81,7 @@ const CreateNewClass = () => {
                                                   
                                                   <div className='text' Style="color:Black;">Key Words:</div>
                                                   
-                                                  <input type="text" name="KeyWords" id='KeyWords'
+                                                  <input Style="color: Black;background-color: transparent;border-radius: 12px;" type="text" name="KeyWords" id='KeyWords'
                                                 placeholder="#" {...register('KeyWords')}/>
                                                 
                                                  
@@ -91,26 +91,26 @@ const CreateNewClass = () => {
                                                 </div>
                                                 <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
                                                     <div className='col'>
-                                                        <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder' ></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder' ></img></button>
                                                     
                                                     </div>
                                                     <div className='col'>
-                                                        <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
                                                     </div>
                                                     <div className='col'>
-                                                        <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
                                                     </div>
                                                 </div>
                                                 <div className='row' style={{flexDirection: 'row', height:150, width: 500}}>
                                                     <div className='col'>
-                                                        <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder' ></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder' ></img></button>
                                                     
                                                     </div>
                                                     <div className='col'>
-                                                        <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
                                                     </div>
                                                     <div className='col'>
-                                                        <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
                                                     </div>
                                                 </div>
                                                 <div className='row' style={{flexDirection: 'row', height:100, width: 850}} >
@@ -124,9 +124,9 @@ const CreateNewClass = () => {
                                                
                                                     <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
                              <div className="buttons">
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://front-omega-nine.vercel.app/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                               </div>
                               

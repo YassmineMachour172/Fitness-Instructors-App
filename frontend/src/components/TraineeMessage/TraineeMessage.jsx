@@ -14,6 +14,11 @@ import profile from '../../images/profile.png'
 import {useState} from 'react'
 
 const TraineeMessage=()=> {
+  const data = [
+    { className: "Aerobice level 1", traineesName: "Nadeen Shanan" },
+    { className: "Aerobice level 1", traineesName:"Yassmine Machour"},
+    { className: "Aerobice level 1", traineesName:"Anan Shanan" },
+]
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -46,8 +51,24 @@ const TraineeMessage=()=> {
                 <div className='col'>
                             
                                         
-                                        <div className='MessagesBox'>           
-                                        </div>
+                <table className='table2' Style="color:Black;text-align: center;">
+                <tr Style="color: #D66850;">
+                    <th>Class's Name</th>
+                    <th>Trainee's Name</th>
+                    <th>Chat</th>
+                    
+                </tr>
+                {data.map((val, key) => {
+                    return (
+                        <tr key={key}>
+                            <td>{val.className}</td>
+                            <td>{val.traineesName}</td>
+                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/TraineeMessage')} >Chat</button></td>
+                                                   
+                        </tr>
+                    )
+                })}
+            </table>
                                         
                                         </div>
                                         </center>
@@ -57,9 +78,9 @@ const TraineeMessage=()=> {
                             <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
                 <center>
                              <div className="buttons">
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://front-omega-nine.vercel.app/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                               </center>
                               </div>

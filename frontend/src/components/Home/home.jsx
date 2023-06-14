@@ -42,8 +42,8 @@ const Home = () => {
                             <br/>
                             <br/>
                             <div className="buttons">
-                                <button className='training-plans' onClick={() => navigate('https://front-omega-nine.vercel.app/#/SignIn')}>Training Plans</button>
-                                <button className='application-manual' onClick={() => navigate('https://front-omega-nine.vercel.app/#/AppM')}>Application Manual</button>
+                                <button className='training-plans' onClick={() => navigate('/TrainningPlanes')}>Training Plans</button>
+                                <button className='application-manual' onClick={() => navigate('/AppM')}>Application Manual</button>
                             </div>
                             <br/><br/>
                         <br/> <br/> 
@@ -56,7 +56,7 @@ const Home = () => {
                         
                                 <div className="down-buttons">
                                     <button className='home' disabled >Home</button>
-                                    <button className='sign-in2' onClick={() => navigate('https://front-omega-nine.vercel.app/#/SignIn')}>Sign In</button>
+                                    <button className='sign-in2' onClick={() => navigate('/SignIn')}>Sign In</button>
                                     <button className='about-us' onClick={() => navigate('https://front-omega-nine.vercel.app/#/about')}>About Us</button>
                                 </div>
                                 </div>

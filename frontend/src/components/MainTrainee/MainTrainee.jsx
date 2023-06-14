@@ -16,10 +16,15 @@ import MyClasses from '../../images/MyClasses.png'
 import { useParams } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import Profile from '../Profile/Profile';
-
-
+import Description from '../../images/description.png'
+import Feedbackbutton from '../../images/Feedbackbutton.png'
+import images from '../../images/images.png'
 const MainTrainee = () => {
-
+    const data = [
+        { className: "Aerobice level 1", trainerName: "Lina Abu" },
+        { className: "Aerobice level 1", trainerName:"Sandra Leve"},
+        { className: "Aerobice level 1", trainerName:"Lina Abu" },
+    ]
     //const [mail,setMail]=useState(email);
     const { email } = useParams();
     const [mail, setMail]=useState('');
@@ -90,13 +95,13 @@ const MainTrainee = () => {
                              <center>
                 <div className="row" style={{flexDirection: 'row', height:20, width: 500}}>
                              <div className="buttons">
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
 
 
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Traineemessage')}><img src={feedback} className="feedbackBbox"/></button>
-                                <button  onClick={handleClickProfile}><img src={profile} className="ProfileBbox"/></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/Traineemessage')}><img src={feedback} className="feedbackBbox"/></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/profile/:email')}><img src={profile} className="ProfileBbox"/></button>
 
                               </div>
                 </div>
@@ -115,38 +120,58 @@ const MainTrainee = () => {
                        <div className="row" style={{flexDirection: 'row', height:80, width: 500}}>
                            <div className="buttons">
                            
-                              <button  onClick={() => navigate('/NewClass')}> <img src={NewW} className="NewWBorderBox"/></button>
-                              <button onClick={() => navigate('/MainTrainer')}><img src={changAccount} className="SwitchBorderBox"/></button>
+                              <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/NewClass')}> <img src={NewW} className="NewWBorderBox"/></button>
+                              <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/MainTrainer')}><img src={changAccount} className="SwitchBorderBox"/></button>
                               
                               
                               </div>
                               </div>
                         <div className="row" style={{flexDirection: 'row', height:80, width: 500}}>
                            <div className="buttons">
-                              <button  onClick={() => navigate('/MyClassesTrainee')}><img src={MyClasses} className="MyClassesBorderBox"/></button>
-                              <button onClick={() => navigate('/Info')}><img src={info} className="infoBorderBox"/></button>
+                              <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/MyClassesTrainee')}><img src={MyClasses} className="MyClassesBorderBox"/></button>
+                              <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Info')}><img src={info} className="infoBorderBox"/></button>
                               
                               </div>
                               </div>
                              
                               <center>
-                                <div className='row' style={{flexDirection: 'row', height:25, width: 500}}>
-                                    <div style={{ color: 'black' }}>Your active classes :</div>
+                                <div className='row' style={{flexDirection: 'row', height:45, width: 500}}>
+                                    <div style={{ color: 'black', fontSize: 20 ,textAlign: "center"}}>Your active classes :</div>
+                                    
+                                             
                                     </div>
                                
+                                    <table className='table2' Style="color:Black;text-align: center;">
+                <tr Style="color: #D66850;">
+                    <th>Class's Name</th>
+                    <th>Trainer's Name</th>
+                    <th>Class's Description</th>
+                    <th>Feedback</th>
+                    <th>Start Class</th>
+                </tr>
+                {data.map((val, key) => {
+                    return (
+                        <tr key={key}>
+                            <td>{val.className}</td>
+                            <td>{val.trainerName}</td>
+                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Description')} >Description</button></td>
+                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/TraineeMessage')} >Feedback</button></td>
+                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/StartVideo')} >Start The Class</button></td>                        
+                        </tr>
+                    )
+                })}
+            </table>
+                                    
+                             
                               
-                              <div className='row' style={{flexDirection: 'row', height:600, width: 500}}>
                               
-                              <div className='col'>
-                            
+                                             
                                         
-                                        <div className='NewClassesBox'>           
-                                        </div>
                                         
-                                        </div>
+                                        
                                         
                                             
-                            </div>
+                            
                             </center>     
                               </div>
                               </div>

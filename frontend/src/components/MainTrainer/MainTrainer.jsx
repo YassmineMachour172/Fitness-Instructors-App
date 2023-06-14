@@ -28,11 +28,11 @@ const MainTrainer = () =>  {
                              <center>
                              <div className="row" style={{flexDirection: 'row', height:20, width: 500}}>
                              <div className="buttons">
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/MyClassesTrainer')}><img src={pList} className="pListBbox"/></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainerMessage')}><img src={feedback} className="feedbackBbox"/></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://front-omega-nine.vercel.app/#/MyClassesTrainer')}><img src={pList} className="pListBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainerMessage')}><img src={feedback} className="feedbackBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                 </div>
                 
@@ -64,22 +64,22 @@ const MainTrainer = () =>  {
                          <div className="row" style={{flexDirection: 'row', height:80, width: 500}}>
                            <div className="buttons">
                            
-                              <button  onClick={() => navigate('/CreateNewClass')}> <img src={NewW2} className="NewWBorderBox"/></button>
-                              <button onClick={() => navigate('/MainTrainee')}><img src={changAccount2} className="SwitchBorderBox"/></button>
+                              <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/CreateNewClass')}> <img src={NewW2} className="NewWBorderBox"/></button>
+                              <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/MainTrainee')}><img src={changAccount2} className="SwitchBorderBox"/></button>
                               
                               
                               </div>
                               </div>
                         <div className="row" style={{flexDirection: 'row', height:80, width: 500}}>
                            <div className="buttons">
-                              <button  onClick={() => navigate('/MyClassesTrainer')}><img src={MyClasses} className="MyClassesBorderBox"/></button>
-                              <button onClick={() => navigate('/MyTrainee')}><img src={MyTrianee} className="infoBorderBox"/></button>
+                              <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/MyClassesTrainer')}><img src={MyClasses} className="MyClassesBorderBox"/></button>
+                              <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/MyTrainee')}><img src={MyTrianee} className="infoBorderBox"/></button>
                               
                               </div>
                               </div>
                               <div className="row" style={{flexDirection: 'row', height:80, width: 500}}>
                            <div className="buttons">
-                              <button  onClick={() => navigate('/TrainersLib')}><img src={MyLibrary} className="MyClassesBorderBox"/></button>
+                              <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/TrainersLib')}><img src={MyLibrary} className="MyClassesBorderBox"/></button>
                               </div>
                               </div>
                               </center>

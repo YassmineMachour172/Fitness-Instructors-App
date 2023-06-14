@@ -40,7 +40,7 @@ const AppM = () => {
                         </div>
                         <br />
                         <center>
-                            <p className='descriptionApp'>
+                            <p className='descriptionApp'Style="color: Black;">
                             Each interface has its own functionality, to start the application the user chooses if he wants to only look at the training plans or to participate in some groups, in order to participate in a group he must have an account.
                             On the one hand if he chooses to sign up then he will be asked to enter his personal data such as :name, ID,age, cell number,email and of course he will be asked to allow access to the camera and microphone ,he will be asked to set a strong password to his account in case and he would like to open it from another computer.
                             If everything he entered is correct( ID contains exactly 9 numbers ,cell number contains 10 numbers exactly ,age is reasonable, email has .com at the end..) he will get a confirmation that the account is successfully created and he can sign in.

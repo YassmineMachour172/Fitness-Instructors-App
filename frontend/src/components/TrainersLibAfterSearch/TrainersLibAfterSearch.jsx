@@ -14,7 +14,14 @@ import searchIcon from '../../images/search.jpg'
 import menu from '../../images/menue.png'
 import {useState} from 'react'
 import './TrianersLibAfterSearch.css';
+import play from '../../images/play.jpg';
 const TrainersLibAfterSearch=()=> {
+  const data = [
+    { className: "Aerobice level 1"},
+        { className: "Aerobice level 1"},
+        { className: "Aerobice level 1" },
+    
+]
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -43,12 +50,12 @@ const TrainersLibAfterSearch=()=> {
                 </div>
                 <center>
                 <div className='row' style={{flexDirection: 'row', height:85, width: 500}}>
-                  <div className='col'><input type="text" placeholder="Exercise Name" onChange={handleChange} value={searchInput} />
-                  <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLibAfterSearch')}>Search</button> </div>
+                  <div className='col'><input Style="color: Black;background-color: transparent;border-radius: 12px;" type="text" placeholder="Exercise Name" onChange={handleChange} value={searchInput} />
+                  <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLibAfterSearch')}>Search</button> </div>
                 
                 <div className='col'>
-                <input type="text" placeholder="KeyWords" onChange={handleChange} value={searchInput} />
-                <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLibAfterSearch')}>Search</button>
+                <input Style="color: Black;background-color: transparent;border-radius: 12px;" type="text" placeholder="KeyWords" onChange={handleChange} value={searchInput} />
+                <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainersLibAfterSearch')}>Search</button>
                 </div>
                 </div>
                 </center>
@@ -57,9 +64,22 @@ const TrainersLibAfterSearch=()=> {
                 <div className='col'>
                             
                                         
-                                        <div className='coursesBlock'>           
-                                        </div>
-                                        
+                <table className='table3' Style="color:Black;text-align: center;">
+                <tr Style="color: #D66850;">
+                   
+                    
+                </tr>
+                {data.map((val, key) => {
+                    return (
+                        <tr key={key}>
+                            <td>{val.className}</td>
+                            <td><button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/StartVideo')} ><img src={play} className="HomBbox"></img></button></td>
+                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;"  >Remove</button></td>
+                                                   
+                        </tr>
+                    )
+                })}
+            </table>
                                         </div>
                                         </center>
                                             
@@ -67,9 +87,9 @@ const TrainersLibAfterSearch=()=> {
                 <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
                 <center>
                              <div className="buttons">
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                               </center>
                               </div>

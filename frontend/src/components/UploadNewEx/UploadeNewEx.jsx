@@ -18,6 +18,7 @@ const UploadeNewEx = () => {
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
         mode: "onChange" /* validate the form on change */
     });
+    
     return (
         <center>
         <div className="container-fluid">
@@ -40,7 +41,7 @@ const UploadeNewEx = () => {
                                                     <div className='text' Style="color:Black;">Name Of The Exercise:</div>
                                                     </div>
                                                     <div className='row'>
-                                                    <input type="text" name="NameOfEx"
+                                                    <input Style="color: Black;background-color: transparent;border-radius: 12px;" type="text" name="NameOfEx"
                                                 id='NameOfEx'  {...register('NameOfEx')}/>
                                                 {errors.fName ? <p className='error-msg'>{errors.NameOfEx?.message}</p> : <br/>} {/* display error message if the first name is not valid */}
                                                     
@@ -49,7 +50,7 @@ const UploadeNewEx = () => {
                                                   <div className='text' Style="color:Black;">Description:</div>
                                                   </div>
                                                   <div className='row'>
-                                                  <input id="descrpition" type="textBox" 
+                                                  <input Style="color: Black;background-color: transparent;border-radius: 12px;" id="descrpition" type="textBox" 
                                                     name="descrpition"
                                                     placeholder="please descripe the exercise" {...register('Description')}/>
                                                   
@@ -59,7 +60,7 @@ const UploadeNewEx = () => {
                                                   <div className='text' Style="color:Black;">Key Words:</div>
                                                   </div>
                                                   <div className='row'>
-                                                  <input type="text" name="KeyWords" id='KeyWords'
+                                                  <input Style="color: Black;background-color: transparent;border-radius: 12px;" type="text" name="KeyWords" id='KeyWords'
                                                 placeholder="#" {...register('KeyWords')}/>
                                                 
                                                  
@@ -69,21 +70,21 @@ const UploadeNewEx = () => {
                                                 <center>
                                                   <div className='row'>
                                                   
-                                                  <button onClick={() => navigate('https://front-omega-nine.vercel.app/#/StartVideo')} type="StartRecording" className='about-us'>Start Recording</button>
+                                                  <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/StartVideo')} type="StartRecording" className='about-us'>Upload video</button>
                                                   
                                                   </div>
                                                   <div className='row'>
                                                   
-                                                  <button type="Uplode" className='about-us'>Uplode</button>
+                                                  <button type="Uplode" className='about-us'>Uplode the exercise</button>
                                                   
                                                   </div>
                                                   </center>
                                                 </div>
                                                   <center>
                              <div className="buttons">
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                               </center>
                 

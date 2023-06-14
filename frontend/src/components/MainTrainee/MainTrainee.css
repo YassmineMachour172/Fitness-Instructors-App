@@ -66,8 +66,8 @@ color: #000000;
 }
 .NewWBorderBox{
     box-sizing: border-box;
-    width: 168px;
-    height: 65px;
+    width: 150px;
+    height: 50px;
     left: 33px;
     top: 161px;
     
@@ -76,10 +76,15 @@ color: #000000;
     border-radius: 10px;
 
 }
+.table2 {
+    border: 2px solid#D66850;
+    width: 700px;
+    height: 200px;
+}
 .SwitchBorderBox{
     box-sizing: border-box;
-width: 168px;
-height: 65px;
+width: 150px;
+height: 50px;
 left: 225px;
 top: 161px;
 
@@ -89,8 +94,8 @@ border-radius: 10px;
 }
 .MyClassesBorderBox{
     box-sizing: border-box;
-width: 168px;
-height: 65px;
+width: 150px;
+height: 50px;
 left: 36px;
 top: 270px;
 
@@ -100,8 +105,8 @@ border-radius: 10px;
 }
 .infoBorderBox{
     box-sizing: border-box;
-width: 168px;
-height: 65px;
+width: 150px;
+height: 50px;
 left: 228px;
 top: 270px;
 
@@ -299,60 +304,31 @@ text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .courseCDesc{
     
-width: 59px;
-height: 20px;
-left: 67px;
-top: 537px;
-
-font-family: 'Kadwa';
-font-style: normal;
-font-weight: 700;
-font-size: 10px;
-line-height: 20px;
-display: flex;
-align-items: center;
-text-align: center;
-
-color: #000000;
-
+    width: 168px;
+    height: 65px;
+    
 }
 .courseStat{
     
 
-width: 43px;
-height: 20px;
-left: 157px;
-top: 537px;
-
-font-family: 'Kadwa';
-font-style: normal;
-font-weight: 700;
-font-size: 10px;
-line-height: 20px;
-display: flex;
-align-items: center;
-text-align: center;
-
-color: #000000;
+    width: 20vw;
+    font-weight: bold;
+    margin-left: 3vw;
+    border-radius: 30px;
+    height: 45px;
+    padding-left:20px ;
+    padding-right:20px ;
+    background: #b0ed65;
+   
 }
 .courseFeedback{
     
 
-width: 48px;
-height: 20px;
-left: 236px;
-top: 537px;
+    border-radius: 70px;
+    background: #b0ed65;
+    
 
-font-family: 'Kadwa';
-font-style: normal;
-font-weight: 700;
-font-size: 10px;
-line-height: 20px;
-display: flex;
-align-items: center;
-text-align: center;
 
-color: #000000;
 }
 
 .playButton{
