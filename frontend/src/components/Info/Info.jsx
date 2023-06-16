@@ -43,7 +43,7 @@ const Info = () => {
                       
                         <center>
                         <div className='buttons'>
-                           <button className='about-us' onClick={() => navigate('https://localhost:3000/#/about')}>About Us</button>
+                           <button className='about-us' onClick={() => navigate('/about')}>About Us</button>
                         </div>
                         <br/><br/>
                         </center>
@@ -65,8 +65,8 @@ const Info = () => {
                         <div className='row 'style={{flexDirection: 'row', height:100, width: 500}}>
                             <center>
                              <div className="buttons">
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"  onClick={() => navigate('https://localhost:3000/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://localhost:3000/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                               </center>
                               </div>

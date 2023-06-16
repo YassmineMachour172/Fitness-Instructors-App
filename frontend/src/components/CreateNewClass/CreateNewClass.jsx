@@ -95,38 +95,38 @@ const CreateNewClass = () => {
                                                     
                                                     </div>
                                                     <div className='col'>
-                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://localhost:3000/#/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
                                                     </div>
                                                     <div className='col'>
-                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://localhost:3000/#/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
                                                     </div>
                                                 </div>
                                                 <div className='row' style={{flexDirection: 'row', height:150, width: 500}}>
                                                     <div className='col'>
-                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://localhost:3000/#/TrainersLib')} ><img src ={addVideo} className='videoBorder' ></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder' ></img></button>
                                                     
                                                     </div>
                                                     <div className='col'>
-                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://localhost:3000/#/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
                                                     </div>
                                                     <div className='col'>
-                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://localhost:3000/#/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
                                                     </div>
                                                 </div>
                                                 <div className='row' style={{flexDirection: 'row', height:100, width: 850}} >
                                                   <div className='col'>
-                                                  <button onClick={() => navigate('https://localhost:3000/#/MyClassesTrainer')} type="StartRecording" className='about-us'>Publish and Save</button>
+                                                  <button onClick={() => navigate('/MyClassesTrainer')} type="StartRecording" className='about-us'>Publish and Save</button>
                                                   </div>
                                                   <div className='col'>
-                                                  <button onClick={() => navigate('https://localhost:3000/#/MyClassesTrainer')} type="Uplode" className='about-us'>Save</button>
+                                                  <button onClick={() => navigate('/MyClassesTrainer')} type="Uplode" className='about-us'>Save</button>
                                                   </div>
                                                   </div>
                                                
                                                     <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
                              <div className="buttons">
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://localhost:3000/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://localhost:3000/#/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://localhost:3000/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                               </div>
                               

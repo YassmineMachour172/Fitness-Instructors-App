@@ -19,7 +19,7 @@ const SignIn =() => {
 
     /* function that navigates to the forgot password page */
     const handleClickForgotPassword = () => {
-        navigate('https://localhost:3000/#/Forgot');
+        navigate('/Forgot');
     };
 
     /**/
@@ -42,7 +42,7 @@ const SignIn =() => {
 
         console.log("calling MMain in Sign In",email);
         < MainTrainee email={email} />
-        navigate(`https://localhost:3000/#/main-trainee/${email}`);
+        navigate(`/main-trainee/${email}`);
     };
 
 
@@ -171,7 +171,7 @@ const SignIn =() => {
                                 <hr/>
                                 <button className='home2' onClick={() => navigate('https://localhost:3000/')}>Home</button>
                                 <button className='sign-in2' disabled >Sign In</button>
-                                <button className='about-us' onClick={() => navigate('https://localhost:3000/#/about')}>About Us</button>
+                                <button className='about-us' onClick={() => navigate('/about')}>About Us</button>
                             </div>
                         </center>
                     </div>

@@ -40,44 +40,44 @@ const MainTrainee = () => {
     //console.log("main",mail)
     /* function that navigates to the home page */
     const handleClickHome = () => {
-        navigate('https://localhost:3000/');
+        navigate('/');
     };
     /* function that navigates to the information page */
     const handleClickInfo = () => {
-        navigate('https://localhost:3000/#/Info');
+        navigate('/Info');
     };
     /* function that navigates to the my classes page */
     const handleClickMyClasses = () => {
-        navigate('https://localhost:3000/#/MyClassesTrainee');
+        navigate('/MyClassesTrainee');
     };
     /* function that navigates to the message/ feedback page */
     const handleClickMessage = () => {
-        navigate('https://localhost:3000/#/Traineemessage');
+        navigate('/Traineemessage');
     };
     /* function that navigates to the profile page */
     const handleClickProfile = () => {
         < Profile email={email} />
-        navigate(`https://localhost:3000/#/profile/${email}`);   
+        navigate(`/profile/${email}`);   
      };
     /* function that navigates to the New class page */
     const handleClickNewClass = () => {
-        navigate('https://localhost:3000/#/NewClass');
+        navigate('/NewClass');
     };
     /* function that navigates to the Trainer main page */
     const handleClickSwitchToTrainer = () => {
-        navigate('https://localhost:3000/#/MainTrainer');
+        navigate('/MainTrainer');
     };
     /* function that navigates to the description page */
     const handleClickDescription = () => {
-        navigate('https://localhost:3000/#/Description');
+        navigate('/Description');
     };
     /* function that navigates to the statics page */
     const handleClickStatics = () => {
-        navigate('https://localhost:3000/#/Statics');
+        navigate('/Statics');
     };
     /* function that navigates to the vidoe of the course page */
     const handleClickPlayButton = () => {
-        navigate('https://localhost:3000/#/StartVideo');
+        navigate('/StartVideo');
     };
     const GetCourses=()=>{
     /*this function is for the database ;the number of courses that the trainee is signed to is i
@@ -95,9 +95,9 @@ const MainTrainee = () => {
                              <center>
                 <div className="row" style={{flexDirection: 'row', height:20, width: 500}}>
                              <div className="buttons">
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://localhost:3000/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://localhost:3000/#/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://localhost:3000/#/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
 
 
                                 <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/Traineemessage')}><img src={feedback} className="feedbackBbox"/></button>

@@ -11,7 +11,7 @@ const AppM = () => {
 
     /* function that navigate to the home page */
     const handleClickHome = () => {
-        navigate('https://localhost:3000/#/Home');
+        navigate('/Home');
     };
     /* function that navigate to the SignIn page */
     const handleClickSignIn=()=>{
@@ -81,9 +81,9 @@ const AppM = () => {
                         
                         <center>
                             <div className="down-buttons">
-                                <button className='home' onClick={() => navigate('https://localhost:3000/')}>Home</button>
-                                <button className='sign-in2' onClick={() => navigate('https://localhost:3000/#/SignIn')}>Sign In</button>
-                                <button className='about-us' onClick={() => navigate('https://localhost:3000/#/about')}>About Us</button>
+                                <button className='home' onClick={() => navigate('/')}>Home</button>
+                                <button className='sign-in2' onClick={() => navigate('/SignIn')}>Sign In</button>
+                                <button className='about-us' onClick={() => navigate('/about')}>About Us</button>
                             </div>
                         </center>
                         </footer>

@@ -29,12 +29,12 @@ const Register = () => {
     };
  /* function that navigates to the MainTrainee page */
  const handleClickMainTrainee = () => {
-    navigate('https://localhost:3000/#/MainTrainee');
+    navigate('/MainTrainee');
 };
 
     /* function that navigates to the log in page */
     const handleClickLogIn = () => {
-        navigate('https://localhost:3000/#/SignIn');
+        navigate('/SignIn');
     };
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(signUpSchema), /* validate the form with the schema */
@@ -162,7 +162,7 @@ const Register = () => {
             <hr/>
             <button className='home2' onClick={() => handleClickHome()}>Home</button>
             <button className='sign-in2' disabled >Sign In</button>
-            <button className='about-us' onClick={() => navigate('https://localhost:3000/#/about')}>About Us</button>
+            <button className='about-us' onClick={() => navigate('/about')}>About Us</button>
         </div>
     </div>
 </div>

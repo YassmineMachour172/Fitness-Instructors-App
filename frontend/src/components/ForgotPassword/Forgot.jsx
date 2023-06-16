@@ -13,7 +13,7 @@ const Forgot = () => {
     const [msgModal, setMsgModal] = useState('');/*define state for the message modal box */
      /* function that close the modal and reset the message modal*/
      const handleClickLogIn=()=>{
-        navigate('https://localhost:3000/#/SignIn');
+        navigate('/SignIn');
      }
      const handleClose = () =>{
         setShow(false);
