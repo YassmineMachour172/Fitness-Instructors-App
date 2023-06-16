@@ -54,3 +54,4 @@ router.post("/Register", function (req, res) {
 });
 
 module.exports = router;
+    //"start": "node server.js"
