@@ -14,7 +14,7 @@ const StartVideo = () => {
 
     /* function that navigate to the home page */
     const handleClickHome = () => {
-        navigate('https://front-omega-nine.vercel.app/#/Home');
+        navigate('https://localhost:3000/#/Home');
     };
     /* function that navigate to the SignIn page */
     const handleClickSignIn=()=>{
@@ -51,17 +51,17 @@ const StartVideo = () => {
                             <center>
                               <div className='row'style={{flexDirection: 'row', height:200, width: 1000}}>
                             <div className="down-buttons">
-                                <button className='home' onClick={() => navigate('https://front-omega-nine.vercel.app/')}>Start Recording</button>
-                                <button className='sign-in2' onClick={() => navigate('https://front-omega-nine.vercel.app/#/TraineeMessage')}>Ask Question</button>
-                                <button className='about-us' onClick={() => navigate('https://front-omega-nine.vercel.app/#/Description')}>Description</button>
+                                <button className='home' onClick={() => navigate('https://localhost:3000/')}>Start Recording</button>
+                                <button className='sign-in2' onClick={() => navigate('https://localhost:3000/#/TraineeMessage')}>Ask Question</button>
+                                <button className='about-us' onClick={() => navigate('https://localhost:3000/#/Description')}>Description</button>
                             </div>
                             </div>
                         </center>
                         <center>
                              <div className="buttons">
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
-                                <button  onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button  onClick={() => navigate('https://localhost:3000/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button  onClick={() => navigate('https://localhost:3000/#/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
+                                <button  onClick={() => navigate('https://localhost:3000/#/Info')}><img src={info1} className="InfoBbox"/></button>
                                 
                               </div>
                               </center>

@@ -29,10 +29,10 @@ const MainTrainer = () =>  {
                              <div className="row" style={{flexDirection: 'row', height:20, width: 500}}>
                              <div className="buttons">
                                 <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://front-omega-nine.vercel.app/#/MyClassesTrainer')}><img src={pList} className="pListBbox"/></button>
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/TrainerMessage')}><img src={feedback} className="feedbackBbox"/></button>
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://localhost:3000/#/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('https://localhost:3000/#/MyClassesTrainer')}><img src={pList} className="pListBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://localhost:3000/#/TrainerMessage')}><img src={feedback} className="feedbackBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://localhost:3000/#/Profile')}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                 </div>
                 

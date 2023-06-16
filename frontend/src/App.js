@@ -98,11 +98,9 @@ function App() {
                 <Route path="TrainersLibAfterSearch" element={<TrainersLibAfterSearch/>}/>
                 <Route path="TrainningPlanes" element={<TrainningPlanes/>}/>
                 <Route path="NewCLassAfterSearch" element={<NewCLassAfterSearch/>}/>
-<<<<<<< Updated upstream
-                <Route path="MainTrainee" element={<MainTrainee/>}/>
-=======
+
                 <Route path="Upload" element={<Upload/>}/>
->>>>>>> Stashed changes
+
                 
             </Routes> 
         </Router>  

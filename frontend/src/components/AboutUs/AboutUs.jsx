@@ -57,8 +57,8 @@ const AboutUs = () => {
                         <div className='row'>
                         <center>
                             <div className="down-buttons">
-                                <button className='home2' onClick={() => navigate('https://front-omega-nine.vercel.app/')}>Home</button>
-                                <button className='sign-in2' onClick={() => navigate('https://front-omega-nine.vercel.app/#/SignIn')}>Sign In</button>
+                                <button className='home2' onClick={() => navigate('https://localhost:3000/')}>Home</button>
+                                <button className='sign-in2' onClick={() => navigate('https://localhost:3000/#/SignIn')}>Sign In</button>
                                 <button className='about-us2' disabled >About Us</button>
                             </div>
                         </center>

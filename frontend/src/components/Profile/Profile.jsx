@@ -28,7 +28,7 @@ const Profile = () => {
     const fetchUser = async () => {
       try {
         console.log("before axios", email);
-        const response = await axios.get('https://back-e.vercel.app/api/trainees/Profile', {
+        const response = await axios.get('https://localhost:8000/api/trainees/Profile', {
           params: { email: email }
         });
         if (response.data.success === true) {
@@ -62,7 +62,7 @@ const Profile = () => {
     const submitForm = async ( e) => {
       e.preventDefault();
       try {
-        const response = await axios.post("https://back-e.vercel.app/api/trainees/Profile", { fName, email,phone,age,gender,height,weight });
+        const response = await axios.post("https://localhost:8000/api/trainees/Profile", { fName, email,phone,age,gender,height,weight });
         console.log("profileeeeeeeeeeeeeeeeeeeee",response.data);
         //fetchUser();
       } catch (error) {
@@ -176,8 +176,8 @@ const Profile = () => {
                                                    
                                                   <center>
                              <div className="buttons">
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://localhost:3000/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://localhost:3000/#/Info')}><img src={info1} className="InfoBbox"/></button>
 
                                 
                               </div>

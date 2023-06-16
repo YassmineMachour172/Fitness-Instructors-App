@@ -40,44 +40,44 @@ const MainTrainee = () => {
     //console.log("main",mail)
     /* function that navigates to the home page */
     const handleClickHome = () => {
-        navigate('https://front-omega-nine.vercel.app/');
+        navigate('https://localhost:3000/');
     };
     /* function that navigates to the information page */
     const handleClickInfo = () => {
-        navigate('https://front-omega-nine.vercel.app/#/Info');
+        navigate('https://localhost:3000/#/Info');
     };
     /* function that navigates to the my classes page */
     const handleClickMyClasses = () => {
-        navigate('https://front-omega-nine.vercel.app/#/MyClassesTrainee');
+        navigate('https://localhost:3000/#/MyClassesTrainee');
     };
     /* function that navigates to the message/ feedback page */
     const handleClickMessage = () => {
-        navigate('https://front-omega-nine.vercel.app/#/Traineemessage');
+        navigate('https://localhost:3000/#/Traineemessage');
     };
     /* function that navigates to the profile page */
     const handleClickProfile = () => {
         < Profile email={email} />
-        navigate(`https://front-omega-nine.vercel.app/#/profile/${email}`);   
+        navigate(`https://localhost:3000/#/profile/${email}`);   
      };
     /* function that navigates to the New class page */
     const handleClickNewClass = () => {
-        navigate('https://front-omega-nine.vercel.app/#/NewClass');
+        navigate('https://localhost:3000/#/NewClass');
     };
     /* function that navigates to the Trainer main page */
     const handleClickSwitchToTrainer = () => {
-        navigate('https://front-omega-nine.vercel.app/#/MainTrainer');
+        navigate('https://localhost:3000/#/MainTrainer');
     };
     /* function that navigates to the description page */
     const handleClickDescription = () => {
-        navigate('https://front-omega-nine.vercel.app/#/Description');
+        navigate('https://localhost:3000/#/Description');
     };
     /* function that navigates to the statics page */
     const handleClickStatics = () => {
-        navigate('https://front-omega-nine.vercel.app/#/Statics');
+        navigate('https://localhost:3000/#/Statics');
     };
     /* function that navigates to the vidoe of the course page */
     const handleClickPlayButton = () => {
-        navigate('https://front-omega-nine.vercel.app/#/StartVideo');
+        navigate('https://localhost:3000/#/StartVideo');
     };
     const GetCourses=()=>{
     /*this function is for the database ;the number of courses that the trainee is signed to is i
@@ -95,9 +95,9 @@ const MainTrainee = () => {
                              <center>
                 <div className="row" style={{flexDirection: 'row', height:20, width: 500}}>
                              <div className="buttons">
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://front-omega-nine.vercel.app/#/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://localhost:3000/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://localhost:3000/#/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('https://localhost:3000/#/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
 
 
                                 <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/Traineemessage')}><img src={feedback} className="feedbackBbox"/></button>

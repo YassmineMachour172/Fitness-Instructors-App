@@ -25,16 +25,16 @@ const Register = () => {
 
     /* function that navigates to the home page */
     const handleClickHome = () => {
-        navigate('https://front-omega-nine.vercel.app/');
+        navigate('https://localhost:3000/');
     };
  /* function that navigates to the MainTrainee page */
  const handleClickMainTrainee = () => {
-    navigate('https://front-omega-nine.vercel.app/#/MainTrainee');
+    navigate('https://localhost:3000/#/MainTrainee');
 };
 
     /* function that navigates to the log in page */
     const handleClickLogIn = () => {
-        navigate('https://front-omega-nine.vercel.app/#/SignIn');
+        navigate('https://localhost:3000/#/SignIn');
     };
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(signUpSchema), /* validate the form with the schema */
@@ -51,7 +51,7 @@ const Register = () => {
             const password1 = signUpForm.querySelector('#password1').value;
             const password2 = signUpForm.querySelector('#password2').value;
             try{
-                const res=await axios.post("https://back-e.vercel.app/api/trainees/Register",{
+                const res=await axios.post("https://localhost:8000/api/trainees/Register",{
                  fName,
                  lName,
                  email,
@@ -162,7 +162,7 @@ const Register = () => {
             <hr/>
             <button className='home2' onClick={() => handleClickHome()}>Home</button>
             <button className='sign-in2' disabled >Sign In</button>
-            <button className='about-us' onClick={() => navigate('https://front-omega-nine.vercel.app/#/about')}>About Us</button>
+            <button className='about-us' onClick={() => navigate('https://localhost:3000/#/about')}>About Us</button>
         </div>
     </div>
 </div>
