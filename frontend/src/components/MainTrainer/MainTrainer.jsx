@@ -1,5 +1,5 @@
-import React, { useRef,useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+//import React, { useRef,useState, } from 'react';
+import { useNavigate,useParams  } from 'react-router-dom';
 import '../../css/sb-admin-2.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './MainTrainer.css';
@@ -13,10 +13,19 @@ import NewW2 from '../../images/NewW2.png'
 import changAccount2 from '../../images/changeAcc2.png'
 import MyClasses from '../../images/MyClasses.png'
 import MyTrianee from '../../images/MyTrainee.png'
+import React, { useEffect,useState } from 'react';
+import axios from 'axios';
 import MyLibrary from '../../images/uplode.png'
 const MainTrainer = () =>  {
     const navigate = useNavigate();
-  
+    //const { email } = useParams();
+   
+    useEffect(()=>{
+        const savedEmail =  localStorage.getItem('saved');
+        console.log({savedEmail});
+    },[]);
+    
+   
     return (
         <footer Style="background-color:white;">
         <div className="container-fluid">

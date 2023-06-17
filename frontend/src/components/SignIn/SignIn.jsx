@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { logInSchema } from '../../Validations/FormsValidation';
 import { useNavigate  } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -16,12 +16,14 @@ const SignIn =() => {
     const [msgModal, setMsgModal] = useState('');/*define state for the message modal box */
     const [showModal, setShow] = useState(false);/*define state for the modal box */
     const [email, setMail]=useState('');
-
+    const [saved, setSave] = useState('');/* define state for the email */
     /* function that navigates to the forgot password page */
     const handleClickForgotPassword = () => {
         navigate('/Forgot');
     };
-
+    useEffect(()=>{
+        localStorage.setItem('saved',JSON.stringify(email));
+    },[]);
     /**/
     const handleClose = () =>{
         setShow(false);
@@ -77,6 +79,9 @@ const SignIn =() => {
        handleShow()
     }
     if((res?.data?.success===true)){
+        const save = signInForm.querySelector('#emailin').value;
+        localStorage.setItem('saved', JSON.stringify({save}));
+        
     setMail(signInForm.querySelector('#emailin').value)
         console.log("successful")
         handleClickMainTrainee()
