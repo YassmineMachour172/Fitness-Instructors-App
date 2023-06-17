@@ -12,6 +12,7 @@ const uuid = require('uuid/v4');
 const open=require('open');
 const multer =require('multer');
 const fs = require('fs');
+//const uuid = uuidv4();
 const url =
     "mongodb+srv://yassminemach:Ya123456@cluster0.dxdqjyq.mongodb.net/mydb?retryWrites=true&w=majority";
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -33,7 +34,7 @@ app.use(cors());
 const userTrainees = require("./routing/trainees");
 const userExercise = require("./routing/exercise");
 app.use("/api/trainees", userTrainees);const storage= multer.diskStorage({
-    destination:'/',
+    destination:'/uploads',
     filename(req,file,cb){
         const newFileName = `${uuid()}-${file.originalname}`
 
@@ -45,7 +46,7 @@ const uploadVideoFilel = multer({
     storage:storage
 }).single("videoFile");
 
-app.post('/Upload',uploadVideoFile,(req,res)=>{
+app.post('./',uploadVideoFile,(req,res)=>{
     if(req.file){
         const filename=req.file.filename;
         const{title,description}=req.body;
@@ -90,7 +91,7 @@ const oAuth = youtube.authenticate({
     type:'oauth',
     client_id:credentials.web.client_id,
     client_secret: credentials.web.client_secret,
-    redirect_uri:credentials.web.redirect_uris[0]
+    redirect_url:credentials.web.redirect_uris[0]
 })
 
 
