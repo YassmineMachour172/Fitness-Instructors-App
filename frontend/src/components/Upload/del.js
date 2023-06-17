@@ -46,7 +46,9 @@ export default function Upload() {
         <div>
           <textarea onChange={handleChange} type="text" name="description" autoComplete='off' placeholder='Discription'/>
         </div>
-       
+        <div>
+          <input onChange={handleChange} accept='video/mp4' type="file" name="file"  placeholder='Add Your File'/>
+        </div>
         <button type='submit'>Upload Video</button>
       </form>
     </div>
