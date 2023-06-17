@@ -33,7 +33,8 @@ app.use(cors());
 
 const userTrainees = require("./routing/trainees");
 const userExercise = require("./routing/exercise");
-app.use("/api/trainees", userTrainees);const storage= multer.diskStorage({
+app.use("/api/trainees", userTrainees);
+const storage= multer.diskStorage({
     destination:'/uploads',
     filename(req,file,cb){
         const newFileName = `${uuid()}-${file.originalname}`
