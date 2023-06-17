@@ -752,7 +752,7 @@
     "util.promisify": "^1.0.1",
     "utila": "^0.4.0",
     "utils-merge": "^1.0.1",
-    "uuid": "^8.3.2",
+    "uuidv4": "^6.2.13",
     "v8-to-istanbul": "^8.1.1",
     "vary": "^1.1.2",
     "w3c-hr-time": "^1.0.2",
