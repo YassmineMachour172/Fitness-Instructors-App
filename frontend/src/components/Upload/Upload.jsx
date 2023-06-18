@@ -35,7 +35,7 @@ export default function Upload() {
       const discription=form.describtion;
 
       try{
-        const res=await axios.post("http://localhost:8000/api/exercise/Upload",{title,location,discription,email})
+        const res=await axios.post("http://localhost:8000/api/exercises/Upload",{title,location,discription,email})
         /*
         if(res?.data?.info==="use exsit"){
           console.log(res,"the user is already exists")

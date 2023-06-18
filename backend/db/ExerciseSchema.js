@@ -1,22 +1,14 @@
 /** @format */
-const { string, integer } = require("check-types")
 const mongoose =require("mongoose")
-const { Str } = require("prelude-ls")
-const trainerSchema = require("./trainerSchema");
+//const { Str } = require("prelude-ls")
+//const trainerSchema = require("./trainerSchema");
 
 const ExerciseSchema = new mongoose.Schema({
-    title:{
-            primary: true,
-            type:String
-            },
+    title:String,
     location: String,
     description: String,
-    email: {
-        type: String,
-        ref: 'Trainer',
-      }
+    email: String
 });
-{ _id: false }
-const Trainer = mongoose.model('Trainer', trainerSchema);
+//const Trainer = mongoose.model('Trainer', trainerSchema);
 //module.exports=mongoose.model("exercises",{ExerciseSchema})
 module.exports = ExerciseSchema;
