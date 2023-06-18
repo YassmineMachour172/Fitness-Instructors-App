@@ -35,20 +35,22 @@ export default function Upload() {
   }
   return (
     <div>
-      <h1>Upload Youtube Video</h1>
+      <h1 Style="color: Black">Upload Youtube Video</h1>
+      <center>
       <form action="" onSubmit={handleSubmit}>
         <div>
-          <input onChange={handleChange} type="text" name="title" autoComplete='off' placeholder='Title'/>
+          <input Style="color: Black;background-color: transparent;border-radius: 12px;" onChange={handleChange} type="text" name="title" autoComplete='off' placeholder='Title'/>
         </div>
         <div>
-          <input onChange={handleChange} type="text" name="location" autoComplete='off' placeholder='Location'/>
+          <input Style="color: Black;background-color: transparent;border-radius: 12px;"onChange={handleChange} type="text" name="location" autoComplete='off' placeholder='Location'/>
         </div>
         <div>
-          <textarea onChange={handleChange} type="text" name="description" autoComplete='off' placeholder='Discription'/>
+          <textarea Style="color: Black;background-color: transparent;border-radius: 12px;"onChange={handleChange} type="text" name="description" autoComplete='off' placeholder='Discription'/>
         </div>
        
-        <button type='submit'>Upload Video</button>
+        <button Style="color: Black;border-radius: 12px;" type='submit' className="about-us">Upload Video</button>
       </form>
+      </center>
     </div>
   )
 }

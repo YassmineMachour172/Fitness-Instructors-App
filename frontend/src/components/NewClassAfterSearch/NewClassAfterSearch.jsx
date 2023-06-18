@@ -63,11 +63,12 @@ const NewCLassAfterSearch=()=> {
                 </div>
                 </center>        
                                             
-                <table className='table2' Style="color:Black;text-align: center;">
+                <table className='table3' Style="color:Black;text-align: center;">
                 <tr Style="color: #D66850;">
                     <th>Class's Name</th>
                     <th>Trainer's Name</th>
-                    <th>Chat</th>
+                    <th>Class's Description</th>
+                    <th>Select</th>
                     
                 </tr>
                 {data.map((val, key) => {
@@ -75,7 +76,8 @@ const NewCLassAfterSearch=()=> {
                         <tr key={key}>
                             <td>{val.className}</td>
                             <td>{val.trainersName}</td>
-                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/TraineeMessage')} >Chat</button></td>
+                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Description')} >Description</button></td>
+                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" >Select</button></td>
                                                    
                         </tr>
                     )
