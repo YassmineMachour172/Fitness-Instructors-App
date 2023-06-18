@@ -1,4 +1,4 @@
-import React, { useRef,useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import { useNavigate,useLocation } from 'react-router-dom';
 import '../../css/sb-admin-2.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,10 +16,22 @@ import MyClasses from '../../images/MyClasses.png'
 import { useParams } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import Profile from '../Profile/Profile';
+import MainTrainer from '../MainTrainer/MainTrainer';
+import NewClass from '../NewClassTrainee/NewClass';
+
+
 import Description from '../../images/description.png'
 import Feedbackbutton from '../../images/Feedbackbutton.png'
 import images from '../../images/images.png'
 const MainTrainee = () => {
+    const [U,setU]=useState([]);
+    useEffect(()=>{
+        const storedSession = localStorage.getItem('session');
+            //print the session
+            const session = JSON.parse(storedSession);
+            console.log({session});
+    },[]);
+    console.log( "Main")
     const data = [
         { className: "Aerobice level 2", trainerName: "Lina Abu" },
         { className: "Pilates", trainerName:"Sandra Leve"},
@@ -61,11 +73,13 @@ const MainTrainee = () => {
      };
     /* function that navigates to the New class page */
     const handleClickNewClass = () => {
-        navigate('/NewClass');
+        < NewClass email={email} />
+        navigate(`/NewClass/${email}`);
     };
     /* function that navigates to the Trainer main page */
     const handleClickSwitchToTrainer = () => {
-        navigate('/MainTrainer');
+        < MainTrainer email={email} />
+        navigate(`/MainTrainer/${email}`);
     };
     /* function that navigates to the description page */
     const handleClickDescription = () => {

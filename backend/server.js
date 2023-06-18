@@ -5,6 +5,10 @@ const { MongoClient } = require("mongodb");
 var path = require("path");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser"); //parse request parameters
+
+const userTrainees = require("./routing/trainees");
+const userExercise = require("./routing/exercise");
+
 const app = express(); // Create express app
 const port = process.env.PORT || 8000; // Port to listen on
 
@@ -26,9 +30,8 @@ app.use(bodyParser.json()); //for parsing json objects
 app.listen(8180);
 app.use(cors());
 
-const userTrainees = require("./routing/trainees");
 app.use("/api/trainees", userTrainees);
-
+app.use("/api/exercise", userExercise);
 
 /* listen to port */
 app.listen(port, () => {

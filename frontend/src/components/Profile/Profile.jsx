@@ -53,7 +53,7 @@ const Profile = () => {
   const handleOptionChange = (e) => {
     setGender(e.target.value);
   };
-
+ 
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
         mode: "onChange" /* validate the form on change */
