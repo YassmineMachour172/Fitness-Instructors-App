@@ -15,7 +15,15 @@ import menu from '../../images/menue.png'
 import {useState} from 'react'
 import './TrianersLibAfterSearch.css';
 import play from '../../images/play.jpg';
+import axios from 'axios';
+
 const TrainersLibAfterSearch=()=> {
+  
+  const [email, setMail]=useState('');
+  const [form,setForm]=React.useState({
+    ExName:"",
+    Keywords:""
+  })
   const data = [
     { className: "Aerobice level 1"},
         { className: "Aerobice level 1"},
@@ -31,7 +39,30 @@ const TrainersLibAfterSearch=()=> {
       e.preventDefault();
       setSearchInput(e.target.value);
     };
-    
+    const handleSearch1 = async (e) => {
+      e.preventDefault();
+      
+      //console.log({email},"Search");
+      const ex = form.ExName;
+       try{
+        const res=await axios.post("http://localhost:8000/api/exercise/TrainersLib",{ex,email})
+        console.log("gooood");
+      }catch(e){
+        console.log(e)
+    }
+ }
+    const handleSearch2 = async (e) => {
+      e.preventDefault();
+      console.log({email},"Search");
+      const Keywords = form.Keywords;
+       try{
+        const res=await axios.post("http://localhost:8000/api/exercise/TrainersLib",{email,Keywords})
+        console.log("gooood");
+      }catch(e){
+        console.log(" not gooood");
+        console.log(e)
+    }
+}
     
     const [searchInput, setSearchInput] = useState("");
   return (
@@ -48,14 +79,16 @@ const TrainersLibAfterSearch=()=> {
                 <button onClick={() => navigate('/UploadeNewEx')} type="StartRecording" className='Upload'>Uplode New Exercise</button>
                 </center>
                 </div>
+                <form >
                 <center>
+                
                 <div className='row' style={{flexDirection: 'row', height:85, width: 500}}>
-                  <div className='col'><input Style="color: Black;background-color: transparent;border-radius: 12px;" type="text" placeholder="Exercise Name" onChange={handleChange} value={searchInput} />
-                  <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/TrainersLibAfterSearch')}>Search</button> </div>
+                  <div className='col'><input Style="color: Black;background-color: transparent;border-radius: 12px;" name='ExName'type="text" placeholder="Exercise Name" onChange={handleChange} value={searchInput} />
+                  <button type='submit' Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={handleSearch1} >Search</button> </div>
                 
                 <div className='col'>
-                <input Style="color: Black;background-color: transparent;border-radius: 12px;" type="text" placeholder="KeyWords" onChange={handleChange} value={searchInput} />
-                <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/TrainersLibAfterSearch')}>Search</button>
+                <input Style="color: Black;background-color: transparent;border-radius: 12px;" name='KeyWords' type="text" placeholder="KeyWords" onChange={handleChange} value={searchInput} />
+                <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={handleSearch2}>Search</button>
                 </div>
                 </div>
                 </center>
@@ -65,6 +98,7 @@ const TrainersLibAfterSearch=()=> {
                             
                                         
                 <table className='table3' Style="color:Black;text-align: center;">
+                <tbody>
                 <tr Style="color: #D66850;">
                    
                     
@@ -79,11 +113,13 @@ const TrainersLibAfterSearch=()=> {
                         </tr>
                     )
                 })}
+                </tbody>
             </table>
                                         </div>
                                         </center>
                                             
                             </div>
+                            </form>
                 <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
                 <center>
                              <div className="buttons">

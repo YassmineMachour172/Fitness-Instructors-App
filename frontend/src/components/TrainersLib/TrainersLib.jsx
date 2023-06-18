@@ -14,7 +14,13 @@ import profile from '../../images/profile.png'
 import searchIcon from '../../images/search.jpg'
 import menu from '../../images/menue.png'
 import {useState} from 'react'
+import axios from 'axios';
 const TrainersLib=() => {
+  const [email, setMail]=useState('');
+  const [form,setForm]=React.useState({
+    ExName:"",
+    Keywords:""
+  })
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -24,6 +30,31 @@ const TrainersLib=() => {
       e.preventDefault();
       setSearchInput(e.target.value);
     };
+   
+    const handleSearch1 = async (e) => {
+      e.preventDefault();
+      
+      //console.log({email},"Search");
+      const ex = searchInput;
+       try{
+        console.log("gooood");
+        const res=await axios.post("http://localhost:8000/api/exercise/TrainersLib",{ex,email})
+      }catch(e){
+        console.log(e)
+    }
+ }
+    const handleSearch2 = async (e) => {
+      e.preventDefault();
+      console.log({email},"Search");
+      const Keywords = searchInput;
+       try{
+        const res=await axios.post("http://localhost:8000/api/exercise/TrainersLib",{Keywords,email})
+        console.log("gooood");
+      }catch(e){
+        console.log(" not gooood");
+        console.log(e)
+    }
+}
     
     
     const [searchInput, setSearchInput] = useState("");
@@ -43,12 +74,12 @@ const TrainersLib=() => {
                 </div>
                 <center>
                 <div className='row' style={{flexDirection: 'row', height:250, width: 500}}>
-                  <div className='col'><input Style="color: Black;background-color: transparent;border-radius: 12px;"type="text" placeholder="Exercise Name" onChange={handleChange} value={searchInput} />
-                  <button Style="color: Black;background-color: transparent;border-radius: 12px;"  onClick={() => navigate('/TrainersLibAfterSearch')}>Search</button> </div>
+                  <div className='col'><input Style="color: Black;background-color: transparent;border-radius: 12px;" name='ExName'type="text" placeholder="Exercise Name" onChange={handleChange} value={searchInput} />
+                  <button Style="color: Black;background-color: transparent;border-radius: 12px;"  onClick={handleSearch1}>Search</button> </div>
                 
                 <div className='col'>
-                <input Style="color: Black;background-color: transparent;border-radius: 12px;"type="text" placeholder="KeyWords" onChange={handleChange} value={searchInput} />
-                <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/TrainersLibAfterSearch')}>Search</button>
+                <input Style="color: Black;background-color: transparent;border-radius: 12px;" name='KeyWords'type="text" placeholder="KeyWords" onChange={handleChange} value={searchInput} />
+                <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={handleSearch2}>Search</button>
                 </div>
                 </div>
                 </center>

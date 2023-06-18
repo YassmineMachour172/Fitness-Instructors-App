@@ -17,6 +17,6 @@ const ExerciseSchema = new mongoose.Schema({
       }
 });
 { _id: false }
-const Trainer = mongoose.model('Trainer', trainerSchema);
-//module.exports=mongoose.model("exercises",{ExerciseSchema})
+//const Trainer = mongoose.model('Trainer', trainerSchema);
+module.exports=mongoose.model('exercises',ExerciseSchema)
 module.exports = ExerciseSchema;
