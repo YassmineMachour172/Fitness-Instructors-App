@@ -25,7 +25,7 @@ const Register = () => {
 
     /* function that navigates to the home page */
     const handleClickHome = () => {
-        navigate('https://localhost:3000/');
+        navigate('http://localhost:3000/');
     };
  /* function that navigates to the MainTrainee page */
  const handleClickMainTrainee = () => {
@@ -51,7 +51,8 @@ const Register = () => {
             const password1 = signUpForm.querySelector('#password1').value;
             const password2 = signUpForm.querySelector('#password2').value;
             try{
-                const res=await axios.post("https://localhost:8000/api/trainees/Register",{
+                console.log("54")
+                const res=await axios.post("http://localhost:8000/api/trainees/Register",{
                  fName,
                  lName,
                  email,
@@ -59,6 +60,8 @@ const Register = () => {
                  password1,
                  password2   
             })
+            console.log("63")
+
            
             if(res?.data?.info==="use exsit"){
                 console.log(res,"the user is already exists")

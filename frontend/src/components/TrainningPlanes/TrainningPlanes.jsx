@@ -80,7 +80,7 @@ const TrainningPlanes=()=> {
             <div className="down-buttons">
             
               <div className='row'><center>
-              <button  className='home2' onClick={() => navigate('https://localhost:3000/')}>Home</button>
+              <button  className='home2' onClick={() => navigate('http://localhost:3000/')}>Home</button>
                                 <button className='sign-in2' onClick={() => navigate('/SignIn')}>Sign In</button>
                                 </center>
               </div>

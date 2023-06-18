@@ -19,7 +19,7 @@ router.post("/Upload", async function (req, res) {
     });
     try {
                     const user = await TraineeModel.insertMany([{ title:"123",
-                        location:"C:\Users\yassmine machour\Downloads\5 MIN HOME WORKOUT YOU CAN DO EVERY MORNING l 매일 아침 5분 전신 홈트레이닝.mp4",
+                        location:"location",
                         description:"123546",
                         email}])
                     //NewTrainee.save().then((docs) => {

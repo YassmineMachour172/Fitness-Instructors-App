@@ -1,12 +1,9 @@
 /** @format */
 
 const mongoose = require("mongoose");
-
+console.log("traineeSchema")
 const TraineeSchema = new mongoose.Schema({
-    email: {
-        primary: true,
-        type:String
-    },
+    email: String,
     fName: String,
     lName: String,
     phone: String,
@@ -17,5 +14,4 @@ const TraineeSchema = new mongoose.Schema({
     height: Number,
     Status: Number,
 });
-{ _id: false }
 module.exports = TraineeSchema;
