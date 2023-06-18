@@ -33,9 +33,9 @@ const MainTrainee = () => {
     },[]);
     console.log( "Main")
     const data = [
-        { className: "Aerobice level 1", trainerName: "Lina Abu" },
-        { className: "Aerobice level 1", trainerName:"Sandra Leve"},
-        { className: "Aerobice level 1", trainerName:"Lina Abu" },
+        { className: "Aerobice level 2", trainerName: "Lina Abu" },
+        { className: "Pilates", trainerName:"Sandra Leve"},
+        { className: "FireWork", trainerName:"Lina Abu" },
     ]
     //const [mail,setMail]=useState(email);
     const { email } = useParams();
@@ -155,7 +155,7 @@ const MainTrainee = () => {
                                              
                                     </div>
                                
-                                    <table className='table2' Style="color:Black;text-align: center;">
+                                    <table className='table3' Style="color:Black;text-align: center;">
                 <tr Style="color: #D66850;">
                     <th>Class's Name</th>
                     <th>Trainer's Name</th>

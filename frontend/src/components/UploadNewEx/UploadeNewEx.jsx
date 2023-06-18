@@ -70,7 +70,7 @@ const UploadeNewEx = () => {
                                                 <center>
                                                   <div className='row'>
                                                   
-                                                  <button onClick={() => navigate('/Upload')} type="Upload" className='about-us'>Start Recording</button>
+                                                  <button onClick={() => navigate('/Upload')} type="Upload" className='about-us'>Uplode the video </button>
                                                   
                                                   </div>
                                                   <div className='row'>

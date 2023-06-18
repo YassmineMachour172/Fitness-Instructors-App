@@ -51,7 +51,7 @@ const StartVideo = () => {
                             <center>
                               <div className='row'style={{flexDirection: 'row', height:200, width: 1000}}>
                             <div className="down-buttons">
-                                <button className='home' onClick={() => navigate('https://localhost:3000/')}>Start Recording</button>
+                                <button className='home' onClick={() => navigate('https://localhost:3000/')}>uplode a video</button>
                                 <button className='sign-in2' onClick={() => navigate('/TraineeMessage')}>Ask Question</button>
                                 <button className='about-us' onClick={() => navigate('/Description')}>Description</button>
                             </div>

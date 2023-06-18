@@ -20,9 +20,9 @@ import images from '../../images/images.png'
 
 const MyClassesTrainee=()=> {
   const data = [
-    { className: "Aerobice level 1", trainerName: "Lina Abu" },
-    { className: "Aerobice level 1", trainerName:"Sandra Leve"},
-    { className: "Aerobice level 1", trainerName:"Lina Abu" },
+    { className: "Aerobice level 2", trainerName: "Lina Abu" },
+        { className: "Pilates", trainerName:"Sandra Leve"},
+        { className: "FireWork", trainerName:"Lina Abu" },
 ]
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
@@ -64,7 +64,7 @@ const MyClassesTrainee=()=> {
                                         
                 
                  <center>                  
-                <table className='table2' Style="color:Black;text-align: center;margin: auto;">
+                <table className='table3' Style="color:Black;text-align: center;margin: auto;">
                 <tr Style="color: #D66850;">
                     <th>Class's Name</th>
                     <th>Trainer's Name</th>

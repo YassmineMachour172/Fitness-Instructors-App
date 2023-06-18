@@ -9,6 +9,12 @@ const ExerciseSchema = new mongoose.Schema({
     description: String,
     email: String
 });
+
 //const Trainer = mongoose.model('Trainer', trainerSchema);
 //module.exports=mongoose.model("exercises",{ExerciseSchema})
+
+{ _id: false }
+//const Trainer = mongoose.model('Trainer', trainerSchema);
+//module.exports=mongoose.model('exercises',ExerciseSchema)
+
 module.exports = ExerciseSchema;
