@@ -80,7 +80,7 @@ const SignIn =() => {
     }
     if((res?.data?.success===true)){
         const save = signInForm.querySelector('#emailin').value;
-        localStorage.setItem('saved', JSON.stringify({save}));
+        localStorage.setItem('saved', JSON.stringify(save));
         
     setMail(signInForm.querySelector('#emailin').value)
         console.log("successful")

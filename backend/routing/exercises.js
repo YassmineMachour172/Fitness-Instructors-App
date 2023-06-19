@@ -11,16 +11,12 @@ const ExerciseModel = mongoose.model("exercises", ExerciseSchema);
 router.post("/Upload", async function (req, res) {
     const { title, location, description, email } = req?.body;
     console.log(req.body)
-    let NewExercise = new ExerciseModel({
-        title,
-        location,
-        description,
-        email
-    });
+    const mail=email;
+    
     try {
-                    const user = await TraineeModel.insertMany([{ title:"123",
-                        location:"location",
-                        description:"123546",
+                    const user = await ExerciseModel.insertMany([{ title,
+                        location,
+                        description,
                         email}])
                     //NewTrainee.save().then((docs) => {
                         console.log("save to DB");
@@ -28,7 +24,7 @@ router.post("/Upload", async function (req, res) {
                     res.send({ success: true, error: null, info: null });
                
     } catch (err) {
-        res.send({ info: null, error: "Server error" });
+        res.send({ success: false, info: null, error: "Server error" });
     }
 });
 

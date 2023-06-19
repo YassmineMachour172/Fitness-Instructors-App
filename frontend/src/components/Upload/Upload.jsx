@@ -1,11 +1,13 @@
 import React from 'react';
+import { useNavigate  } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import {BrowserRouter,Switch,Route} from 'react-router-dom'
 import { useEffect,useState } from 'react';
 
 export default function Upload() {
+  const navigate = useNavigate(); /* define hook to navigate to other pages */
   const [email, setMail]=useState('');
+
   const [form,setForm]=React.useState({
     title:"",
     describtion:"",
@@ -24,32 +26,33 @@ export default function Upload() {
       [event.target.name]: inputValue
     })
   }
+  const handleClickUploadNewEx = () => {
+    navigate('/UploadeNewEx');
+
+};
 
   async function handleSubmit(event){
     event.preventDefault();
-    console.log({email},"UPLOAAAAAAAAAAAAAAAAAAd");
+    console.log(email,"UPLOAAAAAAAAAAAAAAAAAAd");
     console.log({form});
     const videoData =new FormData();
       const title=form.title;
       const location=form.location;
-      const discription=form.describtion;
+      localStorage.setItem('loc',JSON.stringify(location));
+      const description=form.describtion;
 
       try{
-        const res=await axios.post("http://localhost:8000/api/exercises/Upload",{title,location,discription,email})
-        /*
-        if(res?.data?.info==="use exsit"){
-          console.log(res,"the user is already exists")
-          setMsgModal("the user is already exists")
-        handleShow()
-        }
-        if((res?.data?.info===null)){
+        const res=await axios.post("http://localhost:8000/api/exercises/Upload",{title,location,description,email})
+        
+        
+        if((res?.data?.success===true)){
               console.log("successful")
-              handleClickMainTrainee()
+              handleClickUploadNewEx()
         }
         else{
           console.log("error",res.error)
         }
-        */
+        
       }catch(e){
           console.log(e)
       }
@@ -66,7 +69,7 @@ export default function Upload() {
           <input Style="color: Black;background-color: transparent;border-radius: 12px;"onChange={handleChange} type="text" name="location" autoComplete='off' placeholder='Location'/>
         </div>
         <div>
-          <textarea Style="color: Black;background-color: transparent;border-radius: 12px;"onChange={handleChange} type="text" name="description" autoComplete='off' placeholder='Discription'/>
+          <textarea Style="color: Black;background-color: transparent;border-radius: 12px;"onChange={handleChange} type="text" name="description" autoComplete='off' placeholder='Description'/>
         </div>
        
         <button Style="color: Black;border-radius: 12px;" type='submit' className="about-us">Upload Video</button>
