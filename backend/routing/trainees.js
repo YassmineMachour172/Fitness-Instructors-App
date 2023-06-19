@@ -9,6 +9,7 @@ const nodemailer =require('nodemailer');
 const bcrypt = require('bcrypt');
 
 router.post("/Register", function (req, res) {
+    console.log("register  Post Server")
     const { email, fName, lName, phone, password1 } = req?.body;
     console.log(req.body)
     let NewTrainee = new TraineeModel({
@@ -29,7 +30,7 @@ router.post("/Register", function (req, res) {
                 email: email,
             }).then(async function (doc) {
                 if (doc?.length === 0 || doc?.length === [] || !doc) {
-                    const user = await TraineeModel.insertMany([{ email,
+                    const user = await TraineeModel.insertOne([{ email,
                         fName,
                         lName,
                         phone,
@@ -40,6 +41,7 @@ router.post("/Register", function (req, res) {
                         height: 0,
                         Status: 1,}])
                     //NewTrainee.save().then((docs) => {
+                        //await NewTrainee.save();
                         console.log("save to DB");
                    // });*/
                     res.send({ success: true, error: null, info: null });

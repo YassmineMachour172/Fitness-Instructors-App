@@ -51,7 +51,7 @@ const ResetPassword = () => {
             handleShow();
         }
         try{
-            const res=await axios.post("https://localhost:8000/api/trainees/resetPassword",{
+            const res=await axios.post("http://localhost:8000/api/trainees/resetPassword",{
                 email,
                 password1  
             })

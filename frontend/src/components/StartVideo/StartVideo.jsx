@@ -51,7 +51,7 @@ const StartVideo = () => {
                             <center>
                               <div className='row'style={{flexDirection: 'row', height:200, width: 1000}}>
                             <div className="down-buttons">
-                                <button className='home' onClick={() => navigate('https://localhost:3000/')}>uplode a video</button>
+                                <button className='home' onClick={() => navigate('http://localhost:3000/')}>uplode a video</button>
                                 <button className='sign-in2' onClick={() => navigate('/TraineeMessage')}>Ask Question</button>
                                 <button className='about-us' onClick={() => navigate('/Description')}>Description</button>
                             </div>
@@ -59,7 +59,7 @@ const StartVideo = () => {
                         </center>
                         <center>
                              <div className="buttons">
-                                <button  onClick={() => navigate('https://localhost:3000/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button  onClick={() => navigate('http://localhost:3000/')}><img src={HomeIc} className="HomBbox"  /></button>
                                 <button  onClick={() => navigate('/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
                                 <button  onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
                                 
