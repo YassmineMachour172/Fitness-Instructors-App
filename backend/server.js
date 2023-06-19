@@ -36,7 +36,7 @@ app.use(cors());
 app.use("/api/trainees", userTrainees);
 app.use("/api/exercises", userExercise);
 app.use("/api/classes", userClass);
-app.use("/api/trainers", userTrainer)
+app.use("/api/trainers", userTrainer);
 
 /* listen to port */
 app.listen(port, () => {
