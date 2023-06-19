@@ -12,13 +12,40 @@ import pList from '../../images/pList.png'
 import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
 import {useState} from 'react'
-
+import {useEffect} from 'react'
+import Profile from '../Profile/Profile';
+import axios from 'axios';
+import Mess from './Mess';
+import { useParams } from 'react-router-dom';
 const TraineeMessage=()=> {
-  const data = [
-    { className: "Aerobice level 1", traineesName: "Nadeen Shanan" },
-    { className: "Aerobice level 1", traineesName:"Yassmine Machour"},
-    { className: "Aerobice level 1", traineesName:"Anan Shanan" },
-]
+  const [U,setU]=useState([]);
+    const { email } = useParams();
+    const [mail, setMail]=useState('');
+    const [Messages, setMessages]=useState();
+    console.log("main",{email})
+    useEffect(() => {
+        const fetchUser = async () => {
+          try {
+            console.log(email);
+            console.log("before axios", email);
+            const response = await axios.get('http://localhost:8000/api/trainees/TraineeMessage', {email});
+            if (response.data.success === true) {
+              const dataTable= response.json();
+                console.log(dataTable);
+                if(dataTable.length>0)
+                {
+                  setMessages(dataTable);
+                }
+            } else {
+              console.log(response.data.error);
+            }
+            console.log("requesting");
+            console.log(response.data);
+          } catch (error) {
+            console.error(error);
+          }
+        };fetchUser();
+      }, []);
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -28,7 +55,10 @@ const TraineeMessage=()=> {
       e.preventDefault();
       setSearchInput(e.target.value);
     };
-    
+    const handleClickProfile = () => {
+      < Profile email={email} />
+      navigate(`/profile/${email}`);   
+   };
     
     const [searchInput, setSearchInput] = useState("");
   return (
@@ -49,26 +79,20 @@ const TraineeMessage=()=> {
                 <div className='row' style={{flexDirection: 'row', height:400, width: 500}}>
                 <center>
                 <div className='col'>
-                            
-                                        
-                <table className='table2' Style="color:Black;text-align: center;">
+                           
+                <table className='table3' Style="color:Black;text-align: center;margin: auto;">
+                <tbody>
                 <tr Style="color: #D66850;">
-                    <th>Class's Name</th>
+                <   th>Class's Name</th>
                     <th>Trainee's Name</th>
                     <th>Chat</th>
-                    
                 </tr>
-                {data.map((val, key) => {
-                    return (
-                        <tr key={key}>
-                            <td>{val.className}</td>
-                            <td>{val.traineesName}</td>
-                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/TraineeMessage')} >Chat</button></td>
-                                                   
-                        </tr>
-                    )
-                })}
-            </table>
+                
+                  <Mess Messages={Messages}></Mess>
+                </tbody>
+            </table> 
+                                        
+                
                                         
                                         </div>
                                         </center>
@@ -80,7 +104,7 @@ const TraineeMessage=()=> {
                              <div className="buttons">
                                 <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('http://localhost:3000/')}><img src={HomeIc} className="HomBbox"  /></button>
                                 <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={handleClickProfile}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                               </center>
                               </div>

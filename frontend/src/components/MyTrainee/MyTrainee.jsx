@@ -8,19 +8,44 @@ import { logInSchema } from '../../Validations/FormsValidation';
 import { useForm } from 'react-hook-form';
 import HomeIc from '../../images/home1.png'
 import info1 from '../../images/info1.png'
-import pList from '../../images/pList.png'
-import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
-import searchIcon from '../../images/search.jpg'
-import menu from '../../images/menue.png'
 import {useState} from 'react'
 import MyTrainee2 from '../../images/MyTrainee2.png'
+import Trainees from './Trainees';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import {useEffect} from 'react'
 const MyTrainee=()=> {
-  const data = [
-    { name: "Nadeen", className: "Aerobice level 1" },
-    { name: "Yassmine", className:"Aerobice level 1"},
-    { name: "Anan", className:"Aerobice level 1" },
-]
+  const [U,setU]=useState([]);
+    const { email } = useParams();
+    const [mail, setMail]=useState('');
+    const [Trainer, setTrainer]=useState();
+    console.log("main",{email})
+    useEffect(() => {
+        const fetchUser = async () => {
+          try {
+            console.log(email);
+            console.log("before axios", email);
+            //const trainersName= await axios.get('http://localhost:8000/api/trainers/MyName', {email});
+            //console.log("helllooo",trainersName);
+            const response = await axios.get('http://localhost:8000/api/trainers/MyTrainee', {email});
+            if (response.data.success === true) {
+              const dataTable= response.json();
+                console.log(dataTable);
+                if(dataTable.length>0)
+                {
+                  setTrainer(dataTable);
+                }
+            } else {
+              console.log(response.data.error);
+            }
+            console.log("requesting");
+            console.log(response.data);
+          } catch (error) {
+            console.error(error);
+          }
+        };fetchUser();
+      }, []);
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -52,23 +77,19 @@ const MyTrainee=()=> {
                 <center>
                 <div className='col'>
                             
-                                        
-                <table className='table 'Style="color:Black;text-align: center;">
+                <table className='table3' Style="color:Black;text-align: center;margin: auto;">
+                <tbody>
                 <tr Style="color: #D66850;">
-                    <th>Name</th>
+                 <th>Name</th>
                     <th>Class Name</th>
                     <th>State</th>
+                    
                 </tr>
-                {data.map((val, key) => {
-                    return (
-                        <tr key={key}>
-                            <td>{val.name}</td>
-                            <td>{val.className}</td>
-                            <td><button Style="color: Black;border-radius: 12px;" onClick={() => navigate('/TrainerMessage')} >Chat</button></td>
-                        </tr>
-                    )
-                })}
-            </table>
+                
+                  <Trainees Trainer={Trainer}></Trainees>
+                </tbody>
+            </table>              
+                
                                         
                                         </div>
                                         </center>

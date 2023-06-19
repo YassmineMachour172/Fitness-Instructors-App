@@ -20,7 +20,14 @@ import info from '../../images/info.jpg'
 import pList from '../../images/pList.png'
 import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
+import { useParams } from 'react-router-dom';
+import Profile from '../Profile/Profile';
 const Info = () => {
+    const { email } = useParams();
+    const handleClickProfile = () => {
+        < Profile email={email} />
+        navigate(`/profile/${email}`);   
+     };
     const navigate = useNavigate();
     return(
     
@@ -66,7 +73,7 @@ const Info = () => {
                             <center>
                              <div className="buttons">
                                 <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={handleClickProfile}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                               </center>
                               </div>

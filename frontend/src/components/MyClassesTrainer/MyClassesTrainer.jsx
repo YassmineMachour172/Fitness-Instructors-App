@@ -14,13 +14,36 @@ import profile from '../../images/profile.png'
 import searchIcon from '../../images/search.jpg'
 import menu from '../../images/menue.png'
 import {useState} from 'react'
-
+import {useEffect} from 'react'
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import MyClasses from './MyClasses';
 const MyClassesTrainer=()=> {
-  const data = [
-    { className: "Aerobice level 1" },
-    { className: "Aerobice level 1"},
-    { className: "Aerobice level 1" },
-]
+  const { email } = useParams();
+  const [classes, setClasses]=useState();
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        console.log(email);
+        console.log("before axios", email);
+        const response = await axios.get('http://localhost:8000/api/trainers/MyClassesTrainer', {email});
+        if (response.data.success === true) {
+          const dataTable= response.json();
+            console.log(dataTable);
+            if(dataTable.length>0)
+            {
+              setClasses(dataTable);
+            }
+        } else {
+          console.log(response.data.error);
+        }
+        console.log("requesting");
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };fetchUser();
+  }, []);
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -52,23 +75,19 @@ const MyClassesTrainer=()=> {
                 <center>
                 <div className='col'>
                             
-                                        
-                <table className='table3' Style="color:Black;text-align: center;margin: auto;">
+                <table className='table2' Style="color:Black;text-align: center;margin: auto;">
+                <tbody>
                 <tr Style="color: #D66850;">
-                    
+                    <th>Class's Name</th>
+                    <th>list Of Trainees</th>
+                    <th>Cancele Class</th>
+                    <th>Edit Class</th>
+                    <th>Publish Class</th>
                 </tr>
-                {data.map((val, key) => {
-                    return (
-                        <tr key={key}>
-                            <td>{val.className}</td>
-                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/MyTrainee')} >Trainees</button></td>
-                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;"  >Cancel</button></td>
-                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/CreateNewClass')} >Edit</button></td>
-                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" >Publish</button></td>                        
-                        </tr>
-                    )
-                })}
-            </table>
+                
+                  <MyClasses classes={classes}></MyClasses>
+                </tbody>
+                </table>
                                         
                                         </div>
                                         </center>

@@ -9,27 +9,21 @@ import { useForm } from 'react-hook-form';
 import HomeIc from '../../images/home1.png'
 import info1 from '../../images/info1.png'
 import pList from '../../images/pList.png'
-import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
-import searchIcon from '../../images/search.jpg'
-import menu from '../../images/menue.png'
 import {useEffect,useState} from 'react'
-import Description from '../../images/description.png'
-import Feedbackbutton from '../../images/Feedbackbutton.png'
-import images from '../../images/images.png';
 import axios from 'axios';
 import Classes from './Classes';
-
+import { useParams } from 'react-router-dom';
+import Profile from '../Profile/Profile';
 const MyClassesTrainee=()=> {
-  const [email, setMail]=useState('');
+  const { email } = useParams();
   const [classes, setClasses]=useState();
   useEffect(() => {
     const fetchUser = async () => {
       try {
+        console.log(email);
         console.log("before axios", email);
-        const response = await axios.get('https://localhost:8000/api/trainees/MyClasses', {
-          params: { email: email }
-        });
+        const response = await axios.get('http://localhost:8000/api/trainees/MyClassesTrainee', {email});
         if (response.data.success === true) {
           const dataTable= response.json();
             console.log(dataTable);
@@ -57,7 +51,10 @@ const MyClassesTrainee=()=> {
       e.preventDefault();
       setSearchInput(e.target.value);
     };
-   
+    const handleClickProfile = () => {
+      < Profile email={email} />
+      navigate(`/profile/${email}`);   
+   };
     
     const [searchInput, setSearchInput] = useState("");
   return (
@@ -113,7 +110,7 @@ const MyClassesTrainee=()=> {
                 <div className="buttons">
                                 <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
                                 <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={handleClickProfile}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                              
                               </center>

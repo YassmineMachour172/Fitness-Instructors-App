@@ -18,33 +18,48 @@ import { render } from '@testing-library/react';
 import Profile from '../Profile/Profile';
 import MainTrainer from '../MainTrainer/MainTrainer';
 import NewClass from '../NewClassTrainee/NewClass';
-
-
-import Description from '../../images/description.png'
-import Feedbackbutton from '../../images/Feedbackbutton.png'
-import images from '../../images/images.png'
+import TraineeMessage from '../TraineeMessage/TraineeMessage';
+import axios from 'axios';
+import MyClassesTrainee from '../MyClassesTrainee/MyClassesTrainee';
+import Classes from '../../components/MyClassesTrainee/Classes';
 const MainTrainee = () => {
     const [U,setU]=useState([]);
-    useEffect(()=>{
-        const storedSession = localStorage.getItem('session');
-            //print the session
-            const session = JSON.parse(storedSession);
-            console.log({session});
-    },[]);
-    console.log( "Main")
-    const data = [
-        { className: "Aerobice level 2", trainerName: "Lina Abu" },
-        { className: "Pilates", trainerName:"Sandra Leve"},
-        { className: "FireWork", trainerName:"Lina Abu" },
-    ]
-    //const [mail,setMail]=useState(email);
     const { email } = useParams();
     const [mail, setMail]=useState('');
-    
-
-    
-
+    const [classes, setClasses]=useState();
     console.log("main",{email})
+    useEffect(() => {
+        const fetchUser = async () => {
+          try {
+            console.log(email);
+            console.log("before axios", email);
+            const response = await axios.get('http://localhost:8000/api/trainees/MyClassesTrainee', {email});
+            if (response.data.success === true) {
+              const dataTable= response.json();
+                console.log(dataTable);
+                if(dataTable.length>0)
+                {
+                  setClasses(dataTable);
+                }
+            } else {
+              console.log(response.data.error);
+            }
+            console.log("requesting");
+            console.log(response.data);
+          } catch (error) {
+            console.error(error);
+          }
+        };fetchUser();
+        const storedSession = localStorage.getItem('session');
+        //print the session
+        const session = JSON.parse(storedSession);
+        console.log({session});
+      }, []);
+   
+    console.log( "Main")
+   
+    //const [mail,setMail]=useState(email);
+   
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -59,12 +74,16 @@ const MainTrainee = () => {
         navigate('/Info');
     };
     /* function that navigates to the my classes page */
-    const handleClickMyClasses = () => {
-        navigate('/MyClassesTrainee');
+    const handleClickMyClasses  = () => {
+        
+        < MyClassesTrainee email={email} />
+        navigate(`/MyClassesTrainee/${email}`);
     };
     /* function that navigates to the message/ feedback page */
     const handleClickMessage = () => {
-        navigate('/Traineemessage');
+    
+        <TraineeMessage email={email} />
+        navigate(`/Traineemessage/${email}`);
     };
     /* function that navigates to the profile page */
     const handleClickProfile = () => {
@@ -75,29 +94,15 @@ const MainTrainee = () => {
     const handleClickNewClass = () => {
         < NewClass email={email} />
         navigate(`/NewClass/${email}`);
+        
     };
     /* function that navigates to the Trainer main page */
     const handleClickSwitchToTrainer = () => {
         < MainTrainer email={email} />
         navigate(`/MainTrainer/${email}`);
     };
-    /* function that navigates to the description page */
-    const handleClickDescription = () => {
-        navigate('/Description');
-    };
-    /* function that navigates to the statics page */
-    const handleClickStatics = () => {
-        navigate('/Statics');
-    };
-    /* function that navigates to the vidoe of the course page */
-    const handleClickPlayButton = () => {
-        navigate('/StartVideo');
-    };
-    const GetCourses=()=>{
-    /*this function is for the database ;the number of courses that the trainee is signed to is i
-    the function must return an array or a list of the  courses that contain the courses detailes which is Courses*/
-                         
-    };
+    
+    
 
     return (
         <div className="container-fluid ">
@@ -111,11 +116,11 @@ const MainTrainee = () => {
                              <div className="buttons">
                                 <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
                                 <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={handleClickMyClasses}><img src={pList} className="pListBbox"/></button>
 
 
-                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/Traineemessage')}><img src={feedback} className="feedbackBbox"/></button>
-                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/profile/:email')}><img src={profile} className="ProfileBbox"/></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={handleClickMessage}><img src={feedback} className="feedbackBbox"/></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={handleClickProfile}><img src={profile} className="ProfileBbox"/></button>
 
                               </div>
                 </div>
@@ -134,15 +139,15 @@ const MainTrainee = () => {
                        <div className="row" style={{flexDirection: 'row', height:80, width: 500}}>
                            <div className="buttons">
                            
-                              <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/NewClass')}> <img src={NewW} className="NewWBorderBox"/></button>
-                              <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/MainTrainer')}><img src={changAccount} className="SwitchBorderBox"/></button>
+                              <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={handleClickNewClass}> <img src={NewW} className="NewWBorderBox"/></button>
+                              <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={handleClickSwitchToTrainer}><img src={changAccount} className="SwitchBorderBox"/></button>
                               
                               
                               </div>
                               </div>
                         <div className="row" style={{flexDirection: 'row', height:80, width: 500}}>
                            <div className="buttons">
-                              <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/MyClassesTrainee')}><img src={MyClasses} className="MyClassesBorderBox"/></button>
+                              <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={handleClickMyClasses}><img src={MyClasses} className="MyClassesBorderBox"/></button>
                               <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Info')}><img src={info} className="infoBorderBox"/></button>
                               
                               </div>
@@ -155,7 +160,8 @@ const MainTrainee = () => {
                                              
                                     </div>
                                
-                                    <table className='table3' Style="color:Black;text-align: center;">
+                                    <table className='table3' Style="color:Black;text-align: center;margin: auto;">
+                <tbody>
                 <tr Style="color: #D66850;">
                     <th>Class's Name</th>
                     <th>Trainer's Name</th>
@@ -163,17 +169,9 @@ const MainTrainee = () => {
                     <th>Feedback</th>
                     <th>Start Class</th>
                 </tr>
-                {data.map((val, key) => {
-                    return (
-                        <tr key={key}>
-                            <td>{val.className}</td>
-                            <td>{val.trainerName}</td>
-                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Description')} >Description</button></td>
-                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/TraineeMessage')} >Feedback</button></td>
-                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/StartVideo')} >Start The Class</button></td>                        
-                        </tr>
-                    )
-                })}
+                
+                  <Classes classes={classes}></Classes>
+                </tbody>
             </table>
                                     
                              

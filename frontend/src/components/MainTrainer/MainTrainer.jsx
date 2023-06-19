@@ -16,16 +16,57 @@ import MyTrianee from '../../images/MyTrainee.png'
 import React, { useEffect,useState } from 'react';
 import axios from 'axios';
 import MyLibrary from '../../images/uplode.png'
+import MyClassesTrainer from '../MyClassesTrainer/MyClassesTrainer';
+import Profile from '../Profile/Profile';
+import CreateNewClass from '../CreateNewClass/CreateNewClass';
+import TrainersLib from '../TrainersLib/TrainersLib';
+import TrainerMessage from '../TrainerMessage/TrainerMessage';
+import MyTrainee from '../MyTrainee/MyTrainee';
+import MainTrainee from '../MainTrainee/MainTrainee';
 const MainTrainer = () =>  {
     const navigate = useNavigate();
     //const { email } = useParams();
-   
+    const { email } = useParams();
+    const [mail, setMail]=useState('');
+    console.log("main",{email})
     useEffect(()=>{
         const savedEmail =  localStorage.getItem('saved');
         console.log({savedEmail});
     },[]);
+    const handleClickMyClasses  = () => {
+        
+        < MyClassesTrainer email={email} />
+        navigate(`/MyClassesTrainer/${email}`);
+    };
+    /* function that navigates to the message/ feedback page */
+    const handleClickMessage = () => {
     
-   
+        <TrainerMessage email={email} />
+        navigate(`/Trainermessage/${email}`);
+    };
+    /* function that navigates to the profile page */
+    const handleClickProfile = () => {
+        < Profile email={email} />
+        navigate(`/profile/${email}`);   
+     };
+    /* function that navigates to the New class page */
+    const handleClickNewClass = () => {
+        < CreateNewClass email={email} />
+        navigate(`/CreateNewClass/${email}`);
+        
+    };
+    /* function that navigates to the Trainer main page */
+    const handleClickSwitchToTrainee = () => {
+        < MainTrainee email={email} />
+        navigate(`/main-trainee/${email}`);
+    };
+    const handleClicktrianersLib = () => {
+        < TrainersLib email={email} />
+        navigate(`/TrainersLib/${email}`);
+    };const handleClickMyTrainees = () => {
+        < MyTrainee email={email} />
+        navigate(`/MyTrainee/${email}`);
+    };
     return (
         <footer Style="background-color:white;">
         <div className="container-fluid">
@@ -39,9 +80,9 @@ const MainTrainer = () =>  {
                              <div className="buttons">
                                 <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
                                 <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/MyClassesTrainer')}><img src={pList} className="pListBbox"/></button>
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/TrainerMessage')}><img src={feedback} className="feedbackBbox"/></button>
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={handleClickMyClasses}><img src={pList} className="pListBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={handleClickMessage}><img src={feedback} className="feedbackBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={handleClickProfile}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                 </div>
                 
@@ -73,22 +114,22 @@ const MainTrainer = () =>  {
                          <div className="row" style={{flexDirection: 'row', height:80, width: 500}}>
                            <div className="buttons">
                            
-                              <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/CreateNewClass')}> <img src={NewW2} className="NewWBorderBox"/></button>
-                              <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/MainTrainee')}><img src={changAccount2} className="SwitchBorderBox"/></button>
+                              <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={handleClickNewClass}> <img src={NewW2} className="NewWBorderBox"/></button>
+                              <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={handleClickSwitchToTrainee}><img src={changAccount2} className="SwitchBorderBox"/></button>
                               
                               
                               </div>
                               </div>
                         <div className="row" style={{flexDirection: 'row', height:80, width: 500}}>
                            <div className="buttons">
-                              <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/MyClassesTrainer')}><img src={MyClasses} className="MyClassesBorderBox"/></button>
-                              <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/MyTrainee')}><img src={MyTrianee} className="infoBorderBox"/></button>
+                              <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={handleClickMyClasses}><img src={MyClasses} className="MyClassesBorderBox"/></button>
+                              <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={handleClickMyTrainees}><img src={MyTrianee} className="infoBorderBox"/></button>
                               
                               </div>
                               </div>
                               <div className="row" style={{flexDirection: 'row', height:80, width: 500}}>
                            <div className="buttons">
-                              <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/TrainersLib')}><img src={MyLibrary} className="MyClassesBorderBox"/></button>
+                              <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={handleClicktrianersLib}><img src={MyLibrary} className="MyClassesBorderBox"/></button>
                               </div>
                               </div>
                               </center>

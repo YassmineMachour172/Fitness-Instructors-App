@@ -16,8 +16,11 @@ import menu from '../../images/menue.png'
 import {useState} from 'react'
 import NewClassTrainee from '../../images/CreateNewEx.png'
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import Profile from '../Profile/Profile';
 const NewClass=()=> {
-  const [email, setMail]=useState('');
+  const { email } = useParams();
+    const [mail, setMail]=useState('');
   const [form,setForm]=React.useState({
     ClassN:"",
     KeyWords:""
@@ -31,12 +34,17 @@ const NewClass=()=> {
       e.preventDefault();
       setSearchInput(e.target.value);
     };
+    const handleClickProfile = () => {
+      < Profile email={email} />
+      navigate(`/profile/${email}`);   
+   };
+    
     const handleSearch1 = async (e) => {
       e.preventDefault();
       
-      //console.log({email},"Search");
       const ClassN = searchInput;
        try{
+        console.log(email);
         console.log("gooood");
         console.log(ClassN);
         const res=await axios.post("http://localhost:8000/api/exercise/NewClass",{ClassN})
@@ -91,7 +99,7 @@ const NewClass=()=> {
                              <div className="buttons">
                                 <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('http://localhost:3000/')}><img src={HomeIc} className="HomBbox"  /></button>
                                 <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={handleClickProfile}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                               </center>
                               </div>

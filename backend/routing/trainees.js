@@ -9,7 +9,6 @@ const nodemailer =require('nodemailer');
 const bcrypt = require('bcrypt');
 
 router.post("/Register", function (req, res) {
-    console.log("register  Post Server")
     const { email, fName, lName, phone, password1 } = req?.body;
     console.log(req.body)
     let NewTrainee = new TraineeModel({
@@ -30,7 +29,7 @@ router.post("/Register", function (req, res) {
                 email: email,
             }).then(async function (doc) {
                 if (doc?.length === 0 || doc?.length === [] || !doc) {
-                    const user = await TraineeModel.insertOne([{ email,
+                    const user = await TraineeModel.insertMany([{ email,
                         fName,
                         lName,
                         phone,
@@ -41,7 +40,6 @@ router.post("/Register", function (req, res) {
                         height: 0,
                         Status: 1,}])
                     //NewTrainee.save().then((docs) => {
-                        //await NewTrainee.save();
                         console.log("save to DB");
                    // });*/
                     res.send({ success: true, error: null, info: null });
@@ -247,7 +245,7 @@ router.get('/Profile', async (req, res) => {
     }
   });
 
-  router.post('/MyClasses',async(req,res)=>{
+  router.post('/MyClassesTrainee',async(req,res)=>{
 
     const email = req.query.email;
 
@@ -256,7 +254,8 @@ router.get('/Profile', async (req, res) => {
         const user = await classesTraineeSchema.findOne({ email: email }).exec();
         
         if(user){
-            res.send({ success: true, error: null, NewClass: { classN } });
+            res.send({ success: true, error: null, MyClassesTrainee: { user } });
+            
         } 
         else{
             console.error(error);
@@ -268,5 +267,26 @@ router.get('/Profile', async (req, res) => {
         res.status(500).send({ success: false, error: 'An error occurred', info: null });
       }
 })
+router.post('/TraineeMessage',async(req,res)=>{
 
+    const email = req.query.email;
+
+    try {
+        
+        const user = await messageSchema.findOne({ email: email }).exec();
+        
+        if(user){
+            res.send({ success: true, error: null, TraineeMessage: { user } });
+            
+        } 
+        else{
+            console.error(error);
+            res.status(500).send({ success: false, error: 'no results found', info: null });
+            }
+       
+      } catch (error) {
+        console.error(error);
+        res.status(500).send({ success: false, error: 'An error occurred', info: null });
+      }
+})
 module.exports = router;

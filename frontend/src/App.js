@@ -82,23 +82,23 @@ function App() {
                 <Route path="Forgot" element={<Forgot/>}/>
                 <Route path="Register" element={<Register/>}/>
                 <Route path="Info" element={<Info/>}/>
-                <Route path="MyClassesTrainee" element={<MyClassesTrainee/>}/>
-                <Route path="NewClass" element={<NewClass/>}/>
+                <Route path="MyClassesTrainee/:email" element={<MyClassesTrainee/>}/>
+                <Route path="NewClass/:email" element={<NewClass/>}/>
                 <Route path="MainTrainer" element={<MainTrainer/>}/>
                 <Route path="Statics" element={<Statics/>}/>
                 <Route path="StartVideo" element={<StartVideo/>}/>
                 <Route path="Description" element={<Description/>}/>
-                <Route path="TraineeMessage" element={<TraineeMessage/>}/>
-                <Route path="TrainerMessage" elemnt={<TrainerMessage/>}/>
-                <Route path="MyClassesTrainer" element={<MyClassesTrainer/>}/>
-                <Route path="CreateNewClass" element={<CreateNewClass/>}/>
-                <Route path="MyTrainee" element={<MyTainee/>}/>
-                <Route path="TrainersLib" element={<TrainersLib/>}/>
-                <Route path="UploadeNewEx" element={<UploadeNewEx/>}/>
+                <Route path="TraineeMessage/:email" element={<TraineeMessage/>}/>
+                <Route path="TrainerMessage/:email" elemnt={<TrainerMessage/>}/>
+                <Route path="MyClassesTrainer/:email" element={<MyClassesTrainer/>}/>
+                <Route path="CreateNewClass/:email" element={<CreateNewClass/>}/>
+                <Route path="MyTrainee/:email" element={<MyTainee/>}/>
+                <Route path="TrainersLib/:email" element={<TrainersLib/>}/>
+                <Route path="UploadeNewEx/:email" element={<UploadeNewEx/>}/>
                 <Route path="TrainersLibAfterSearch" element={<TrainersLibAfterSearch/>}/>
                 <Route path="TrainningPlanes" element={<TrainningPlanes/>}/>
                 <Route path="NewCLassAfterSearch" element={<NewCLassAfterSearch/>}/>
-                <Route path="MainTrainee" element={<MainTrainee/>}/>
+                <Route path="MainTrainer/:email" element={<MainTrainer/>}/>
                 <Route path="Upload" element={<Upload/>}/>
 
                 
