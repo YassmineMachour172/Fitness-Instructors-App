@@ -13,17 +13,41 @@ import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
 import searchIcon from '../../images/search.jpg'
 import menu from '../../images/menue.png'
-import {useState} from 'react'
+import {useEffect,useState} from 'react'
 import Description from '../../images/description.png'
 import Feedbackbutton from '../../images/Feedbackbutton.png'
-import images from '../../images/images.png'
+import images from '../../images/images.png';
+import axios from 'axios';
+import Classes from './Classes';
 
 const MyClassesTrainee=()=> {
-  const data = [
-    { className: "Aerobice level 2", trainerName: "Lina Abu" },
-        { className: "Pilates", trainerName:"Sandra Leve"},
-        { className: "FireWork", trainerName:"Lina Abu" },
-]
+  const [email, setMail]=useState('');
+  const [classes, setClasses]=useState();
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        console.log("before axios", email);
+        const response = await axios.get('https://localhost:8000/api/trainees/MyClasses', {
+          params: { email: email }
+        });
+        if (response.data.success === true) {
+          const dataTable= response.json();
+            console.log(dataTable);
+            if(dataTable.length>0)
+            {
+              setClasses(dataTable);
+            }
+        } else {
+          console.log(response.data.error);
+        }
+        console.log("requesting");
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };fetchUser();
+  }, []);
+  
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -33,7 +57,7 @@ const MyClassesTrainee=()=> {
       e.preventDefault();
       setSearchInput(e.target.value);
     };
-    
+   
     
     const [searchInput, setSearchInput] = useState("");
   return (
@@ -65,6 +89,7 @@ const MyClassesTrainee=()=> {
                 
                  <center>                  
                 <table className='table3' Style="color:Black;text-align: center;margin: auto;">
+                <tbody>
                 <tr Style="color: #D66850;">
                     <th>Class's Name</th>
                     <th>Trainer's Name</th>
@@ -72,17 +97,9 @@ const MyClassesTrainee=()=> {
                     <th>Feedback</th>
                     <th>Start Class</th>
                 </tr>
-                {data.map((val, key) => {
-                    return (
-                        <tr key={key}>
-                            <td>{val.className}</td>
-                            <td>{val.trainerName}</td>
-                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Description')} >Description</button></td>
-                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/TraineeMessage')} >Feedback</button></td>
-                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/StartVideo')} >Start The Class</button></td>                        
-                        </tr>
-                    )
-                })}
+                
+                  <Classes classes={classes}></Classes>
+                </tbody>
             </table>
             </center> 
                                         
