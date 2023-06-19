@@ -1,22 +1,18 @@
 /** @format */
 const express = require("express");
+const cors = require('cors');
 const router = express.Router();
 const mongoose = require("mongoose");
-const TraineeSchema = require("../db/trainerSchema");
-const myTraineeSchema= require("../db/myTraineeSchema");
-const TraineeModel = mongoose.model("trainers", TraineeSchema);
-const { validate } = require("check-email-validation");
-const nodemailer =require('nodemailer');
-const bcrypt = require('bcrypt');
-const { default: MyTrainee } = require("../../frontend/src/components/MyTrainee/MyTrainee");
+const TrainerSchema = require("../db/trainerSchema");
+const TrainerModel = mongoose.model("trainer", TrainerSchema);
 
 router.get('/MyClassesTrainer',async(req,res)=>{
-
+    //shows all the trainers
     const email = req.query.email;
 
     try {
         
-        const user = await classesTrainerSchema.findOne({ email: email }).exec();
+        const user = await TrainerModel.findOne({ email: email });
         
         if(user){
             res.send({ success: true, error: null, MyClassesTrainer: { user } });
@@ -32,6 +28,7 @@ router.get('/MyClassesTrainer',async(req,res)=>{
         res.status(500).send({ success: false, error: 'An error occurred', info: null });
       }
 })
+
 router.get('/TraineeMessage',async(req,res)=>{
 
     const email = req.query.email;

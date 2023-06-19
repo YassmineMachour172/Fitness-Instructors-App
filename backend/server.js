@@ -8,9 +8,8 @@ const bodyParser = require("body-parser"); //parse request parameters
 
 const userTrainees = require("./routing/trainees");
 const userExercise = require("./routing/exercises");
-
-
 const userClass = require("./routing/classes");
+const userTrainer = require("./routing/trainers");
 
 
 const app = express(); // Create express app
@@ -36,11 +35,8 @@ app.use(cors());
 
 app.use("/api/trainees", userTrainees);
 app.use("/api/exercises", userExercise);
-
-
-
 app.use("/api/classes", userClass);
-
+app.use("/api/trainers", userTrainer)
 
 /* listen to port */
 app.listen(port, () => {
