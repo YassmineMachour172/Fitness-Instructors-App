@@ -26,10 +26,8 @@ const MyTrainee=()=> {
           try {
             console.log(email);
             console.log("before axios", email);
-            //const trainersName= await axios.get('http://localhost:8000/api/trainers/MyName', {email});
-            //console.log("helllooo",trainersName);
-            const response = await axios.get('http://localhost:8000/api/trainers/MyTrainee', {email});
-            if (response.data.success === true) {
+            const response = await axios.get('http://localhost:8000/api/myTrainees/MyTrainee', {email});
+            if (response?.data.success === true) {
               const dataTable= response.json();
                 console.log(dataTable);
                 if(dataTable.length>0)
@@ -44,7 +42,7 @@ const MyTrainee=()=> {
           } catch (error) {
             console.error(error);
           }
-        };fetchUser();
+        };
       }, []);
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({

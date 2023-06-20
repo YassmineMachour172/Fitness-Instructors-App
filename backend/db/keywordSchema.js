@@ -7,6 +7,7 @@ const keywordSchema = new mongoose.Schema({
         primary: true,
         type:String
     }
+    ,email: String
 });
 { _id: false }
 module.exports = keywordSchema;

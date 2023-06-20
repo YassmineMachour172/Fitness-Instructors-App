@@ -14,8 +14,9 @@ const classesTrainersSchema = new mongoose.Schema({
         type: String,
         ref: 'Class',
       }
+      ,email: String
 });
 { _id: false }
-const Trainee= mongoose.model('Trainer', trainerSchema);
+//const Trainee= mongoose.model('Trainer', trainerSchema);
 const Class= mongoose.model('Class', classSchema);
 module.exports = classesTrainersSchema;

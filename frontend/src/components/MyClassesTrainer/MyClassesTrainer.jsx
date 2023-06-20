@@ -26,7 +26,7 @@ const MyClassesTrainer=()=> {
       try {
         console.log(email);
         console.log("before axios", email);
-        const response = await axios.get('http://localhost:8000/api/trainers/MyClassesTrainer', {email});
+        const response = await axios.get('http://localhost:8000/api/classes/MyClassesTrainer', {email});
         if (response.data.success === true) {
           const dataTable= response.json();
             console.log(dataTable);
@@ -42,7 +42,7 @@ const MyClassesTrainer=()=> {
       } catch (error) {
         console.error(error);
       }
-    };fetchUser();
+    };
   }, []);
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
