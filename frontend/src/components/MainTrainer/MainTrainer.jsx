@@ -42,7 +42,7 @@ const MainTrainer = () =>  {
     const handleClickMessage = () => {
     
         <TrainerMessage email={email} />
-        navigate(`/Trainermessage/${email}`);
+        navigate(`/TrainerMessage/${email}`);
     };
     /* function that navigates to the profile page */
     const handleClickProfile = () => {

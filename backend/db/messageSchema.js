@@ -16,10 +16,12 @@ const messageSchema = new mongoose.Schema({
     trainee: {
         type:String,
         ref:'Trainee'
+        ,email: String
       },
       trainer: {
           type: String,
           ref: 'Trainer',
+          email: String
         }
 });
 { _id: false }

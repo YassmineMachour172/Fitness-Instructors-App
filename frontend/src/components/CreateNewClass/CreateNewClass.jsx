@@ -8,10 +8,7 @@ import { logInSchema } from '../../Validations/FormsValidation';
 import { useForm } from 'react-hook-form';
 import HomeIc from '../../images/home1.png'
 import info1 from '../../images/info1.png'
-import pList from '../../images/pList.png'
-import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
-import Uplode from '../../images/upload1.png'
 import CreateNewEx from '../../images/CreateNewEx.png'
 import Dropdown from 'react-bootstrap/Dropdown';
 import addVideo from '../../images/AddVideo.png';
