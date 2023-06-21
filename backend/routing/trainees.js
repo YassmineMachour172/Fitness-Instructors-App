@@ -203,9 +203,9 @@ router.post('/ResetPassword', async (req, res) => {
 
 //profile get
 router.get('/Profile', async (req, res) => {
-    const email = req.query.email;
-    console.log(email, "gettttttt");
-  
+    const savedEmail = req.query.savedEmail;
+    console.log(req.query, "gettttttt",savedEmail);
+    const email= savedEmail;
     try {
       const user = await TraineeModel.findOne({ email: email }).exec();
       res.send({ success: true, error: null, info: { user } });
@@ -218,16 +218,16 @@ router.get('/Profile', async (req, res) => {
 
   router.post('/Profile', async (req, res) => {
     console.log("POST resetPassword");
-    console.log(req.body);
-    const { fName, email, phone, age, gender, height, weight } = req.body;
+    console.log(req.query);
+    const { fName, mail, phone, age, gender, height, weight } = req.query;
   
     try {
       const tr = await TraineeModel.updateOne(
-        { email: email }, // Use email directly from req.body
+        { email: mail }, // Use email directly from req.body
         {
           $set: {
             fName: fName,
-            email: email,
+            email: mail,
             phone: phone,
             age: age,
             gender: gender,

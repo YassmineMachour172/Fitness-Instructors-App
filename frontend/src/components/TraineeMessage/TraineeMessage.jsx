@@ -56,13 +56,12 @@ const TraineeMessage=()=> {
       setSearchInput(e.target.value);
     };
     const handleClickProfile = () => {
-      < Profile email={email} />
-      navigate(`/profile/${email}`);   
+      navigate('/Profile');   
    };
     
     const [searchInput, setSearchInput] = useState("");
   return (
-    <center>
+    
         <div className="container-fluid">
             <div className="col">
             <div className="row" >
@@ -101,10 +100,10 @@ const TraineeMessage=()=> {
                  
                             <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
                 <center>
-                             <div className="buttons">
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('http://localhost:3000/')}><img src={HomeIc} className="HomBbox"  /></button>
+                             <div class="btn-group">
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"/></button>
                                 <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
-                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={handleClickProfile}><img src={profile} className="ProfileBbox"/></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={()=>navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                               </center>
                               </div>
@@ -116,7 +115,6 @@ const TraineeMessage=()=> {
             
             </div>
             </div>
-            </center>
   )
 }
 export default TraineeMessage ;

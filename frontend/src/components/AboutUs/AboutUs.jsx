@@ -10,7 +10,7 @@ import yassmine from '../../images/yassmine.jpeg'
 const AboutUs = () => {
     const navigate = useNavigate(); /* define hook to navigate to other pages */
 
-    
+    localStorage.removeItem('saved');
     return (
         
          <center>

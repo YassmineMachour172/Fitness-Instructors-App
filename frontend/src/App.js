@@ -76,7 +76,7 @@ function App() {
             <Routes>
                 <Route  path="SignIn" element={<SignIn/>} />
                 <Route path="/main-trainee/:email" element={<MainTrainee/>} />
-                <Route path="/profile/:email" element={<Profile />}/>
+                <Route path="Profile" element={<Profile />}/>
                 <Route path="/" element={<Home />}/>
                 <Route path="AppM" element={<AppM/>}/>
                 <Route path="about" element={<About/>}/>
