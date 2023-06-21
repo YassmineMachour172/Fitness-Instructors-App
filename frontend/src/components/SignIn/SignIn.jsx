@@ -174,7 +174,7 @@ const SignIn =() => {
                     <center>
                             <div className="down-buttons">
                                 <hr/>
-                                <button className='home2' onClick={() => navigate('http://localhost:3000/')}>Home</button>
+                                <button className='home2' onClick={() => navigate('/')}>Home</button>
                                 <button className='sign-in2' disabled >Sign In</button>
                                 <button className='about-us' onClick={() => navigate('/about')}>About Us</button>
                             </div>

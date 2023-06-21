@@ -61,6 +61,7 @@ const Profile = () => {
     const profileForm = document.querySelector('#profile-form'); 
     const submitForm = async ( e) => {
       e.preventDefault();
+
       try {
         const response = await axios.post("http://localhost:8000/api/trainees/Profile", { fName, email,phone,age,gender,height,weight });
         console.log("profileeeeeeeeeeeeeeeeeeeee",response.data);
