@@ -65,42 +65,7 @@ router.get('/TrainersLib',async(req,res)=>{
         res.status(500).send({ success: false, error: 'An error occurred', info: null });
       }
 })
-router.post('/NewClass',async(req,res)=>{
 
-    const name= req.query.ClassName;
-    const keywords= req.query.Keywords;
-
-    try {
-        if(name!=null){
-            const classN = await TraineeModel.findOne({ className: name }).exec();
-        
-        if(classN){
-            res.send({ success: true, error: null, NewClass: { classN } });
-        } else{
-            console.error(error);
-            res.status(500).send({ success: false, error: 'no results found', info: null });
-            }
-        }
-        if(Keywords!=null)
-        {
-            const key = await keywordSchema.findOne({ keyword: keywords }).exec();
-            
-            if(key){
-                res.send({ success: true, error: null, NewClass: { user } });
-            }
-            else{
-            console.error(error);
-            res.status(500).send({ success: false, error: 'no results found', info: null });
-            }
-        }
-        
-        
-       
-      } catch (error) {
-        console.error(error);
-        res.status(500).send({ success: false, error: 'An error occurred', info: null });
-      }
-})
 
 
 module.exports = router;

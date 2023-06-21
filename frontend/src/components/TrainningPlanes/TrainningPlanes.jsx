@@ -10,8 +10,10 @@ import './TrainningPlanes.css';
 const TrainningPlanes=()=> {
   const data = [
     { className: "Aerobice level 1", traineesName: "Nadeen Shanan" },
-    { className: "Aerobice level 1", traineesName:"Yassmine Machour"},
-    { className: "Aerobice level 1", traineesName:"Anan Shanan" },
+    { className: "Pilates", traineesName:"Yassmine Machour"},
+    { className: "FireWork", traineesName:"Anan Shanan" },
+    { className: "Aerobice level 3", traineesName:"Sandra Leve" },
+    { className: "Yoga", traineesName:"Sarah Shanan" },
 ]
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
@@ -45,21 +47,13 @@ const TrainningPlanes=()=> {
                 </center>
                 </div>
                 <center>
-                <div className='row' style={{flexDirection: 'row', height:85, width: 500}}>
-                  <div className='col'><input Style="color: Black;background-color: transparent;border-radius: 12px;" type="text" placeholder="Exercise Name" onChange={handleChange} value={searchInput} />
-                  <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/TrainersLibAfterSearch')}>Search</button> </div>
-                
-                <div className='col'>
-                <input Style="color: Black;background-color: transparent;border-radius: 12px;" type="text" placeholder="KeyWords" onChange={handleChange} value={searchInput} />
-                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/TrainersLibAfterSearch')}>Search</button>
-                </div>
-                </div>
+              
                 </center>
                 <div className='row' style={{flexDirection: 'row', height:800, width: 500}}>
                 <center>
                 <div className='col'>
                             
-                <table className='table3' Style="color:Black;text-align: center;">
+                <table className='table4' Style="color:Black;text-align: center;">
                 <tr Style="color: #D66850;">
                
                     
@@ -71,7 +65,7 @@ const TrainningPlanes=()=> {
                             <td>{val.className}</td>
                             <td>{val.traineesName}</td>
                             <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/SignIn')} >Select</button></td>
-                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Description')} >Description</button></td>                       
+                            <td><button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/SignIn')} >Description</button></td>                       
                         </tr>
                     )
                 })}

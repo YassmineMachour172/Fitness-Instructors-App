@@ -15,12 +15,16 @@ import searchIcon from '../../images/search.jpg'
 import menu from '../../images/menue.png'
 import {useState} from 'react'
 import axios from 'axios';
+import Ex from './Ex';
+import { useParams } from 'react-router-dom';
 const TrainersLib=() => {
-  const [email, setMail]=useState('');
+  const [setMail]=useState('');
   const [form,setForm]=React.useState({
     ExName:"",
     Keywords:""
   })
+  const [exercise, setEx]=useState();
+  const { email } = useParams();
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -38,11 +42,24 @@ const TrainersLib=() => {
       const ex = searchInput;
        try{
         console.log("gooood");
-        const res=await axios.get("http://localhost:8000/api/exercises/TrainersLib",{email,ex})
-      }catch(e){
-        console.log(e)
-    }
- }
+        const response=await axios.get("http://localhost:8000/api/exercises/TrainersLib",{email,ex})
+        if (response.data.success === true) {
+          const dataTable= response.json();
+            console.log(dataTable);
+            if(dataTable.length>0)
+            {
+              setEx(dataTable);
+            }
+        } else {
+          console.log(response.data.error);
+        }
+        console.log("requesting");
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
     const handleSearch2 = async (e) => {
       e.preventDefault();
       console.log({email},"Search");
@@ -82,6 +99,16 @@ const TrainersLib=() => {
                 <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={handleSearch2}>Search</button>
                 </div>
                 </div>
+                <table className='table2' Style="color:Black;text-align: center;margin: auto;">
+                <tbody>
+                <tr Style="color: #D66850;">
+                    <th>Exercise's Name</th>
+                  
+                </tr>
+                
+                  <Ex exercise={exercise}></Ex>
+                </tbody>
+                </table>
                 </center>
                 <div className='row'>
                 <center>

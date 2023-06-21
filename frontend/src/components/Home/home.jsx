@@ -42,7 +42,7 @@ const Home = () => {
                             <br/>
                             <br/>
                             <div className="buttons">
-                                <button className='training-plans' onClick={() => navigate('/MainTrainee')}>Training Plans</button>
+                                <button className='training-plans' onClick={() => navigate('/TrainningPlanes')}>Training Plans</button>
                                 <button className='application-manual' onClick={() => navigate('/AppM')}>Application Manual</button>
                             </div>
                             <br/><br/>

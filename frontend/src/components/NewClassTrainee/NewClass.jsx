@@ -18,6 +18,7 @@ import NewClassTrainee from '../../images/CreateNewEx.png'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Profile from '../Profile/Profile';
+import Classes from '../../components/MyClassesTrainer/Classes';
 const NewClass=()=> {
   const { email } = useParams();
     const [mail, setMail]=useState('');
@@ -25,6 +26,7 @@ const NewClass=()=> {
     ClassN:"",
     KeyWords:""
   })
+  const [classes, setClasses]=useState();
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -47,24 +49,48 @@ const NewClass=()=> {
         console.log(email);
         console.log("gooood");
         console.log(ClassN);
-        const res=await axios.post("http://localhost:8000/api/exercise/NewClass",{ClassN})
-        console.log(res);
-      }catch(e){
-        console.log(e)
-    }
- }
+        const response=await axios.post("http://localhost:8000/api/classes/NewClass",{ClassN})
+        if (response.data.success === true) {
+          const dataTable= response.json();
+            console.log(dataTable);
+            if(dataTable.length>0)
+            {
+              setClasses(dataTable);
+            }
+        } else {
+          console.log(response.data.error);
+        }
+        console.log("requesting");
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+  
+ 
     const handleSearch2 = async (e) => {
       e.preventDefault();
       
       const Keywords = searchInput;
        try{
-        const res=await axios.post("http://localhost:8000/api/exercise/NewClass",{Keywords})
-        console.log("gooood");
-      }catch(e){
-        console.log(" not gooood");
-        console.log(e)
-    }
-}
+        const response=await axios.post("http://localhost:8000/api/classes/NewClass",{Keywords})
+        if (response.data.success === true) {
+          const dataTable= response.json();
+            console.log(dataTable);
+            if(dataTable.length>0)
+            {
+              setClasses(dataTable);
+            }
+        } else {
+          console.log(response.data.error);
+        }
+        console.log("requesting");
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
     
     const [searchInput, setSearchInput] = useState("");
   return (
@@ -92,6 +118,18 @@ const NewClass=()=> {
                 <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={handleSearch2}>Search</button>
                 </div>
                 </div>
+                <table className='table2' Style="color:Black;text-align: center;margin: auto;">
+                <tbody>
+                <tr Style="color: #D66850;">
+                    <th>Class's Name</th>
+                    <th>Trainer's Name</th>
+                    <th>Class's Description</th>
+                    <th>Select</th>
+                </tr>
+                
+                  <Classes classes={classes}></Classes>
+                </tbody>
+                </table>
                 </center>
                 </form>
                 <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>

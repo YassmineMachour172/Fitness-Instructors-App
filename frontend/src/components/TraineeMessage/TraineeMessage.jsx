@@ -28,7 +28,7 @@ const TraineeMessage=()=> {
           try {
             console.log(email);
             console.log("before axios", email);
-            const response = await axios.get('http://localhost:8000/api/trainees/TraineeMessage', {email});
+            const response = await axios.get('http://localhost:8000/api/messages/TraineeMessage', {email});
             if (response.data.success === true) {
               const dataTable= response.json();
                 console.log(dataTable);

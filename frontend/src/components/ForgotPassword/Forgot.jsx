@@ -81,7 +81,13 @@ const Forgot = () => {
                                                     placeholder="Email Address" {...register('email')}/>**</center>
                                                 {errors.email ? <p className='error-msg'>{errors.email?.message}</p> : <br/>} {/* display error message if the email is not valid */}
                                                 <center><input type="submit" className="btn btn-primary btn-user btn-block" value={'Recover'} onClick={submitForm}/></center>
-                                              
+                                                <center>
+                                                <div className="down-buttons">
+                                                <button className='home' disabled >Home</button>
+                                                <button className='sign-in2' onClick={() => navigate('/SignIn')}>Sign In</button>
+                                                <button className='about-us' onClick={() => navigate('/about')}>About Us</button>
+                                                </div>
+                                                </center>
                                                 </div>
                                                 </form>
                     </div>
@@ -100,6 +106,8 @@ const Forgot = () => {
                 </Modal.Footer>
             </Modal>
         </div>
+              
+        
     );
 };
 
