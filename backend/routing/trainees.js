@@ -245,28 +245,7 @@ router.get('/Profile', async (req, res) => {
     }
   });
 
-  router.post('/MyClassesTrainee',async(req,res)=>{
-
-    const email = req.query.email;
-
-    try {
-        
-        const user = await classesTraineeSchema.findOne({ email: email }).exec();
-        
-        if(user){
-            res.send({ success: true, error: null, MyClassesTrainee: { user } });
-            
-        } 
-        else{
-            console.error(error);
-            res.status(500).send({ success: false, error: 'no results found', info: null });
-            }
-       
-      } catch (error) {
-        console.error(error);
-        res.status(500).send({ success: false, error: 'An error occurred', info: null });
-      }
-})
+ 
 router.post('/TraineeMessage',async(req,res)=>{
 
     const email = req.query.email;

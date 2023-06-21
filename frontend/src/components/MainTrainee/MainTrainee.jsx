@@ -33,7 +33,7 @@ const MainTrainee = () => {
           try {
             console.log(email);
             console.log("before axios", email);
-            const response = await axios.get('http://localhost:8000/api/trainees/MyClassesTrainee', {email});
+            const response = await axios.get('http://localhost:8000/api/classes/MainTrainee', {email});
             if (response.data.success === true) {
               const dataTable= response.json();
                 console.log(dataTable);
