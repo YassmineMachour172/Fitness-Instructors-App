@@ -14,7 +14,7 @@ export default function Upload() {
     file:null
   })
  useEffect(()=>{
-    const savedEmail =  localStorage.getItem('saved');
+    const savedEmail =  localStorage.getItem('saved').replace(/"/g, '');
     console.log({savedEmail});
     setMail(savedEmail)
 },[]);

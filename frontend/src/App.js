@@ -27,6 +27,7 @@ import TrainersLib from './components/TrainersLib/TrainersLib'
 import UploadeNewEx from './components/UploadNewEx/UploadeNewEx';
 import TrainersLibAfterSearch from './components/TrainersLibAfterSearch/TrainersLibAfterSearch'
 import TrainningPlanes from './components/TrainningPlanes/TrainningPlanes'
+import ResetPassword from './components/ResetPassword/ResetPassword'
 import NewCLassAfterSearch from './components/NewClassAfterSearch/NewClassAfterSearch'
 import './App.css';
 import { SIGN_IN } from './actions';
@@ -81,6 +82,7 @@ function App() {
                 <Route path="about" element={<About/>}/>
                 <Route path="Forgot" element={<Forgot/>}/>
                 <Route path="Register" element={<Register/>}/>
+                <Route path="ResetPassword" element={<ResetPassword/>}/>
                 <Route path="Info" element={<Info/>}/>
                 <Route path="MyClassesTrainee/:email" element={<MyClassesTrainee/>}/>
                 <Route path="NewClass/:email" element={<NewClass/>}/>

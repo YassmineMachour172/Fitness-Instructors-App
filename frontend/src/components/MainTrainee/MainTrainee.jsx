@@ -24,6 +24,7 @@ import MyClassesTrainee from '../MyClassesTrainee/MyClassesTrainee';
 import Classes from '../../components/MyClassesTrainee/Classes';
 const MainTrainee = () => {
     const [U,setU]=useState([]);
+    ///*******************///
     const { email } = useParams();
     const [mail, setMail]=useState('');
     const [classes, setClasses]=useState();

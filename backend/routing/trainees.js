@@ -125,7 +125,7 @@ router.post('/Forgot', async (req, res) => {
         from:'Workoutin.Team@hotmail.com',
         to: req.body.email,
         subject: 'Reset Password',
-        text: 'Hello,\nEnter the following link to reset password:\nhttps://front-omega-nine.vercel.app/#/resetPassword'
+        text: 'Hello,\nEnter the following link to reset password:\nhttps://localhost:3000/#/ResetPassword'
     };
 
     // send the email
