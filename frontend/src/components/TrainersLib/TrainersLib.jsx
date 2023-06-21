@@ -38,7 +38,7 @@ const TrainersLib=() => {
       const ex = searchInput;
        try{
         console.log("gooood");
-        const res=await axios.post("http://localhost:8000/api/exercise/TrainersLib",{ex,email})
+        const res=await axios.get("http://localhost:8000/api/exercises/TrainersLib",{email,ex})
       }catch(e){
         console.log(e)
     }
@@ -48,7 +48,7 @@ const TrainersLib=() => {
       console.log({email},"Search");
       const Keywords = searchInput;
        try{
-        const res=await axios.post("http://localhost:8000/api/exercise/TrainersLib",{Keywords,email})
+        const res=await axios.get("http://localhost:8000/api/exercises/TrainersLib",{email,Keywords})
         console.log("gooood");
       }catch(e){
         console.log(" not gooood");

@@ -1,5 +1,5 @@
-import React from 'react';
-import { useNavigate  } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate,useParams  } from 'react-router-dom';
 import './CreateNewClass.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../../images/logo.png'
@@ -8,14 +8,18 @@ import { logInSchema } from '../../Validations/FormsValidation';
 import { useForm } from 'react-hook-form';
 import HomeIc from '../../images/home1.png'
 import info1 from '../../images/info1.png'
-import pList from '../../images/pList.png'
-import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
-import Uplode from '../../images/upload1.png'
 import CreateNewEx from '../../images/CreateNewEx.png'
 import Dropdown from 'react-bootstrap/Dropdown';
-import addVideo from '../../images/AddVideo.png'
+import addVideo from '../../images/AddVideo.png';
+import TrainersLib from '../TrainersLib/TrainersLib';
 const CreateNewClass = () => {
+    const { email } = useParams();
+    const [mail, setMail]=useState('');
+    const handleClicktrianersLib = () => {
+        < TrainersLib email={email} />
+        navigate(`/TrainersLib/${email}`);
+    };
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -91,26 +95,26 @@ const CreateNewClass = () => {
                                                 </div>
                                                 <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
                                                     <div className='col'>
-                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder' ></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={handleClicktrianersLib} ><img src ={addVideo} className='videoBorder' ></img></button>
                                                     
                                                     </div>
                                                     <div className='col'>
-                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={handleClicktrianersLib} ><img src ={addVideo} className='videoBorder'></img></button>
                                                     </div>
                                                     <div className='col'>
-                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={handleClicktrianersLib} ><img src ={addVideo} className='videoBorder'></img></button>
                                                     </div>
                                                 </div>
                                                 <div className='row' style={{flexDirection: 'row', height:150, width: 500}}>
                                                     <div className='col'>
-                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder' ></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={handleClicktrianersLib} ><img src ={addVideo} className='videoBorder' ></img></button>
                                                     
                                                     </div>
                                                     <div className='col'>
-                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={handleClicktrianersLib} ><img src ={addVideo} className='videoBorder'></img></button>
                                                     </div>
                                                     <div className='col'>
-                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/TrainersLib')} ><img src ={addVideo} className='videoBorder'></img></button>
+                                                        <button Style="color: Black;background-color: transparent;border-radius: 12px;"onClick={handleClicktrianersLib} ><img src ={addVideo} className='videoBorder'></img></button>
                                                     </div>
                                                 </div>
                                                 <div className='row' style={{flexDirection: 'row', height:100, width: 850}} >

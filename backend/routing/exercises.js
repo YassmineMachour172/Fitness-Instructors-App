@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const ExerciseSchema = require("../db/ExerciseSchema");
 const keywordSchema = require("../db/keywordSchema");
 const ExerciseModel = mongoose.model("exercises", ExerciseSchema);
+const KeywordModel = mongoose.model("keyword", keywordSchema);
 
 
 router.post("/Upload", async function (req, res) {
@@ -28,28 +29,27 @@ router.post("/Upload", async function (req, res) {
     }
 });
 
-router.post('/TrainersLib',async(req,res)=>{
+router.get('/TrainersLib',async(req,res)=>{
 
     const email = req.query.email;
     const name= req.query.ex;
     const keywords= req.query.Keywords;
 
     try {
-        if(name!=null){
-            const user = await TraineeModel.findOne({ email: email }).exec();
-        const EX =await ExerciseModel.find({ex:name}).exec();
-        if(EX){
+        if(name){
+        const user =await ExerciseModel.find({email:email},{title:name});
+        if(user){
             res.send({ success: true, error: null, TrainersLib: { user } });
         } else{
             console.error(error);
             res.status(500).send({ success: false, error: 'no results found', info: null });
             }
         }
-        if(keywords!=null)
+        if(keywords)
         {
-            const user = await TraineeModel.findOne({ email: email }).exec();
-            const key =await keywordSchema.find({keyword:keywords}).exec();
-            if(key){
+            
+            const user =await KeywordModel.find({email:email},{keyword:keywords});
+            if(user){
                 res.send({ success: true, error: null, TrainersLib: { user } });
             }
             else{

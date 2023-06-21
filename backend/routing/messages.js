@@ -3,18 +3,18 @@ const express = require("express");
 const cors = require('cors');
 const router = express.Router();
 const mongoose = require("mongoose");
-const classesTrainersSch= require("../db/classesTrainersSchema");
-const classesTrainersModel=mongoose.model("MyClassesTrainer",classesTrainersSch);
-router.get('/MyClassesTrainer',async(req,res)=>{
-    //shows all the trainers
+const messageSchema = require("../db/messageSchema");
+const messageModel = mongoose.model("messages", messageSchema);
+router.get('/TrainerMessage',async(req,res)=>{
+    
     const email = req.query.email;
 
     try {
         
-        const user = await classesTrainersModel.findOne({ email: email });
+        const user = await messageModel.findOne({ email: email });
         
         if(user){
-            res.send({ success: true, error: null, MyClassesTrainer: { user } });
+            res.send({ success: true, error: null, MyMessagesTrainer: { user } });
             
         } 
         else{
@@ -29,3 +29,4 @@ router.get('/MyClassesTrainer',async(req,res)=>{
 })
 
 module.exports = router;
+

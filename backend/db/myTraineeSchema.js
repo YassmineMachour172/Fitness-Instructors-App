@@ -18,7 +18,7 @@ const myTraineeSchema = new mongoose.Schema({
         type: String,
         ref: 'Trainer',
       }
-
+      ,email: String
 });
 { _id: false }
 const Trainer = mongoose.model('Trainer', trainerSchema);

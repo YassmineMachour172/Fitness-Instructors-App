@@ -3,18 +3,21 @@ const express = require("express");
 const cors = require('cors');
 const router = express.Router();
 const mongoose = require("mongoose");
-const classesTrainersSch= require("../db/classesTrainersSchema");
-const classesTrainersModel=mongoose.model("MyClassesTrainer",classesTrainersSch);
-router.get('/MyClassesTrainer',async(req,res)=>{
-    //shows all the trainers
+const myTraineeSchema = require("../db/myTraineeSchema");
+const myTraineeModel = mongoose.model("myTrainees", myTraineeSchema);
+
+
+
+router.get('/MyTrainee',async(req,res)=>{
+
     const email = req.query.email;
 
     try {
         
-        const user = await classesTrainersModel.findOne({ email: email });
+        const user = await myTraineeModel.find({ email: email });
         
         if(user){
-            res.send({ success: true, error: null, MyClassesTrainer: { user } });
+            res.send({ success: true, error: null, MyTrainee: { user } });
             
         } 
         else{
@@ -27,5 +30,6 @@ router.get('/MyClassesTrainer',async(req,res)=>{
         res.status(500).send({ success: false, error: 'An error occurred', info: null });
       }
 })
+
 
 module.exports = router;
