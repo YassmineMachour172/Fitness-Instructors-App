@@ -1,18 +1,18 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { useNavigate  } from 'react-router-dom';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../../images/logo.png'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { resetPasswordSchema } from '../../Validations/FormsValidation';
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 import axios from 'axios';
-
+import { useNavigate  } from 'react-router-dom';
 import { Modal, Button } from "react-bootstrap";
 const ResetPassword = () => {
     //const navigate = useNavigate(); /* define hook to navigate to other pages */
     const [showModal, setShow] = useState(false);/*define state for the modal box */
     const [msgModal, setMsgModal] = useState('');/*define state for the message modal box */
-
+    const navigate = useNavigate();
     /* function that close the modal and reset the message modal*/
     const handleClose = () =>{
         setShow(false);
@@ -69,7 +69,8 @@ const ResetPassword = () => {
   
   return (
     <div className="container">
-
+        <div className="navbar">
+<center>
     <div className="row justify-content-center">
         <div className="col-xl-10 col-lg-12 col-md-9">
             <div className="card o-hidden border-0 shadow-lg my-5">
@@ -100,6 +101,15 @@ const ResetPassword = () => {
                                 <div className="text-center">
                                     <a className="small cursor-pointer" onClick={handleClickHome}>Disscare</a>
                                 </div>
+                                <center>
+                                <div className='row' style={{flexDirection: 'row', height:250, width: 500}}>
+                                                <div className="down-buttons">
+                                                <button className='home' onClick={() => navigate('/SignIn')} >Home</button>
+                                                <button className='sign-in2' onClick={() => navigate('/SignIn')}>Sign In</button>
+                                                <button className='about-us' onClick={() => navigate('/about')}>About Us</button>
+                                                </div>
+                                                </div>
+                                                </center>
                             </div>
                         </div>
                     </div>
@@ -108,6 +118,8 @@ const ResetPassword = () => {
 
         </div>
 
+    </div>
+    </center>
     </div>
     <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>
