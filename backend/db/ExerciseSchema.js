@@ -13,7 +13,7 @@ const ExerciseSchema = new mongoose.Schema({
 //const Trainer = mongoose.model('Trainer', trainerSchema);
 //module.exports=mongoose.model("exercises",{ExerciseSchema})
 
-{ _id: false }
+
 //const Trainer = mongoose.model('Trainer', trainerSchema);
 //module.exports=mongoose.model('exercises',ExerciseSchema)
 

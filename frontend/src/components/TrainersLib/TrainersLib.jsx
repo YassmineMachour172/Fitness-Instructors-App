@@ -86,7 +86,7 @@ const TrainersLib=() => {
                        My Library 
                 </div>
                 <br/>
-                <button onClick={() => navigate('/UploadeNewEx')} type="StartRecording" className='Upload'>Uplode New Exercise</button>
+                <button onClick={() => navigate('/UploadeNewEx')} type="button" className='Upload'>Uplode New Exercise</button>
                 </center>
                 </div>
                 <center>

@@ -19,7 +19,7 @@ export default function Upload() {
     setMail(savedEmail)
 },[]);
   function handleChange(event){
-    const inputValue = event.target.name=== "file" ? event.target.files[0] : event.target.value;
+    const inputValue =event.target.value;
     
     setForm({
       ...form,
@@ -66,10 +66,10 @@ export default function Upload() {
           <input Style="color: Black;background-color: transparent;border-radius: 12px;" onChange={handleChange} type="text" name="title" autoComplete='off' placeholder='Title'/>
         </div>
         <div>
-          <input Style="color: Black;background-color: transparent;border-radius: 12px;"onChange={handleChange} type="text" name="location" autoComplete='off' placeholder='Location'/>
+          <input Style="color: Black;background-color: transparent;border-radius: 12px;" onChange={handleChange} type="text" name="location" autoComplete='off' placeholder='Location'/>
         </div>
         <div>
-          <textarea Style="color: Black;background-color: transparent;border-radius: 12px;"onChange={handleChange} type="text" name="description" autoComplete='off' placeholder='Description'/>
+          <textarea Style="color: Black;background-color: transparent;border-radius: 12px;" onChange={handleChange} type="text" name="description" autoComplete='off' placeholder='Description'/>
         </div>
        
         <button Style="color: Black;border-radius: 12px;" type='submit' className="about-us">Upload Video</button>

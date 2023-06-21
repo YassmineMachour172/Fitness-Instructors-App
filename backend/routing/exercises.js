@@ -28,7 +28,20 @@ router.post("/Upload", async function (req, res) {
         res.send({ success: false, info: null, error: "Server error" });
     }
 });
+router.get("/UploadeNewEx", async function (req, res) {
+    const { savedlocation,savedEmail } = req?.query;
+    const location=req?.query?.savedlocation.replace('\ ' , '\\');
+    const email=req?.query?.savedEmail;
 
+    console.log(savedlocation,savedEmail,location,email)
+    try {
+    const user = await ExerciseModel.find({location:location}).exec();
+    console.log({user})
+    } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" }); // Handling any error that occurs
+  }
+});
 router.get('/TrainersLib',async(req,res)=>{
 
     const email = req.query.email;
