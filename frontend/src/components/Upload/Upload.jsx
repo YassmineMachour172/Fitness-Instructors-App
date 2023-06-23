@@ -3,7 +3,7 @@ import { useNavigate  } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { useEffect,useState } from 'react';
-
+ 
 export default function Upload() {
   const navigate = useNavigate(); /* define hook to navigate to other pages */
   const [email, setMail]=useState('');

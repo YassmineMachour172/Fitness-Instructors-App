@@ -4,43 +4,43 @@ const cors = require('cors');
 const router = express.Router();
 const mongoose = require("mongoose");
 const ExerciseSchema = require("../db/ExerciseSchema");
-const keywordSchema = require("../db/keywordSchema");
+const keywordSchema = require("../db/ExerciseKeywordSchema");
 const ExerciseModel = mongoose.model("exercises", ExerciseSchema);
-const KeywordModel = mongoose.model("keyword", keywordSchema);
+const KeywordModel = mongoose.model("Exercisekeyword", keywordSchema);
 
 
 router.post("/Upload", async function (req, res) {
-    const { title, location, description, email } = req?.body;
+    const {title,location,description,email,keywords}  = req?.body;
     console.log(req.body)
-    const mail=email;
-    
     try {
                     const user = await ExerciseModel.insertMany([{ title,
                         location,
                         description,
                         email}])
-                    //NewTrainee.save().then((docs) => {
-                        console.log("save to DB");
-                   // });*/
+                        console.log("save  exercise to DB");
+                    const key=await KeywordModel.insertMany([{listNum:1,keywords,title}])
+                    console.log("save  exercise to DB")
                     res.send({ success: true, error: null, info: null });
-               
     } catch (err) {
-        res.send({ success: false, info: null, error: "Server error" });
+        //res.send({ success: false, info: null, error: "Server error" });
+        console.log(err)
     }
 });
-router.get("/UploadeNewEx", async function (req, res) {
-    const { savedlocation,savedEmail } = req?.query;
-    const location=req?.query?.savedlocation.replace('\ ' , '\\');
-    const email=req?.query?.savedEmail;
-
-    console.log(savedlocation,savedEmail,location,email)
+router.post("/UploadeNewEx", async function (req, res) {
+    const {title,location,description,email,keywords}  = req?.body;
+    console.log(req.body)
     try {
-    const user = await ExerciseModel.find({location:location}).exec();
-    console.log({user})
-    } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal server error" }); // Handling any error that occurs
-  }
+                    const user = await ExerciseModel.insertMany([{ title,
+                        location,
+                        description,
+                        email,keywords}])
+                        console.log("save  exercise to DB");
+                  
+                    res.send({ success: true, error: null, info: null });
+    } catch (err) {
+        //res.send({ success: false, info: null, error: "Server error" });
+        console.log(err)
+    }
 });
 router.get('/TrainersLib',async(req,res)=>{
 
