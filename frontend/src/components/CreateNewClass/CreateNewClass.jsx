@@ -29,7 +29,7 @@ const CreateNewClass = () => {
         <footer>
         <center>
         <div className="container-fluid">
-            <div className="col">
+            <div className='backgroundcol'>
             <div className="row">
                 
                  <div Style="color:Black;" >

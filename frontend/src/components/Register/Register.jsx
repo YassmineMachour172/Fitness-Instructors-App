@@ -82,6 +82,7 @@ const Register = () => {
     
     return(
 <div className="container">
+    <div className='backgroundcol'>
     <div class="alert alert-warning" id='warning'>
     <strong>Warning!</strong> Indicates a warning that might need attention.
     </div>
@@ -168,6 +169,7 @@ const Register = () => {
             <button className='about-us' onClick={() => navigate('/about')}>About Us</button>
         </div>
     </div>
+</div>
 </div>
     );
     };

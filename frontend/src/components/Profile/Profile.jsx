@@ -73,7 +73,7 @@ const Profile = () => {
     }
     return (
         <div className="container-fluid">
-            <div className="col">
+            <div className='backgroundcol'>
             <div className="row">
                  <div ><img src={profile} className="infoInfo"/>{fName}</div>
                     </div>

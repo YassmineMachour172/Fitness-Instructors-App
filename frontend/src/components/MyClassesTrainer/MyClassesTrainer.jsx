@@ -59,7 +59,7 @@ const MyClassesTrainer=()=> {
   return (
     <center>
         <div className="container-fluid">
-            <div className="col">
+            <div className='backgroundcol'>
             <div className="row" >
                 <center>
                  <div Style="color:Black;" >

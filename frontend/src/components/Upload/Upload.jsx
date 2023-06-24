@@ -59,6 +59,7 @@ export default function Upload() {
   }
   return (
     <div>
+      <div className='backgroundcol'>
       <h1 Style="color: Black">Upload Youtube Video</h1>
       <center>
       <form action="" onSubmit={handleSubmit}>
@@ -75,6 +76,7 @@ export default function Upload() {
         <button Style="color: Black;border-radius: 12px;" type='submit' className="about-us">Upload Video</button>
       </form>
       </center>
+    </div>
     </div>
   )
 }

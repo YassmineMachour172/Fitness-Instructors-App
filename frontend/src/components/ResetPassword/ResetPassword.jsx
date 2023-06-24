@@ -70,6 +70,7 @@ const ResetPassword = () => {
   return (
     <div className="container">
         <div className="navbar">
+            <div className='backgroundcol'>
 <center>
     <div className="row justify-content-center">
         <div className="col-xl-10 col-lg-12 col-md-9">
@@ -120,6 +121,7 @@ const ResetPassword = () => {
 
     </div>
     </center>
+    </div>
     </div>
     <Modal show={showModal} onHide={handleClose}>
         <Modal.Header closeButton>

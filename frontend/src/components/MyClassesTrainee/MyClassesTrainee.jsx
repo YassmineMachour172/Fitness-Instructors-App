@@ -60,7 +60,7 @@ const MyClassesTrainee=()=> {
   return (
     <center>
         <div className="container-fluid">
-            <div className="col">
+            <div className='backgroundcol'>
             <div className="row" >
                 <center>
                  <div style={{ color: 'black' , fontSize: 20 }} >

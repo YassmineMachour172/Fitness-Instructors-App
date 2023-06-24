@@ -60,7 +60,7 @@ const Forgot = () => {
     };
     return (
         <div className="container-fluid">
-            <div className="col">
+            <div className='backgroundcol'>
             <div className="row">
                         <div className="path-con">
                             <h5 className='pa'>Sign In --{'>'} Forgot Password</h5>

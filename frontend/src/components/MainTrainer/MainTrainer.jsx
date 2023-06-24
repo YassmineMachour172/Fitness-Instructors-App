@@ -68,7 +68,7 @@ const MainTrainer = () =>  {
         navigate(`/MyTrainee/${email}`);
     };
     return (
-        <footer Style="background-color:white;">
+        <footer className='backgroundcol'>
         <div className="container-fluid">
             <div className="header">
             <div className="navbar">
