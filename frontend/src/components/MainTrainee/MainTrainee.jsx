@@ -86,10 +86,6 @@ const MainTrainee = () => {
         <TraineeMessage email={email} />
         navigate(`/Traineemessage/${email}`);
     };
-    /* function that navigates to the profile page */
-    const handleClickProfile = () => {
-        navigate('/Profile');   
-     };
     /* function that navigates to the New class page */
     const handleClickNewClass = () => {
         < NewClass email={email} />

@@ -8,23 +8,75 @@ import { logInSchema } from '../../Validations/FormsValidation';
 import { useForm } from 'react-hook-form';
 import HomeIc from '../../images/home1.png'
 import info1 from '../../images/info1.png'
+import imageStart from '../../images/info1.png'
+
 import pList from '../../images/pList.png'
 import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
 import searchIcon from '../../images/search.jpg'
 import menu from '../../images/menue.png'
-import {useState} from 'react'
+import {useState,useMemo,useEffect} from 'react'
+import ReactTable from '../ReactTable/ReactTable';
 import axios from 'axios';
 import Ex from './Ex';
 import { useParams } from 'react-router-dom';
 const TrainersLib=() => {
   const [setMail]=useState('');
+  const [userTableData, setUserTableData] = useState([]); /* define state to save the exercise data */
+  useEffect(() => {
+    
+    /* else get the cars data from the server */
+    async function fetchData() {
+        const response = await axios.get("http://localhost:8000/api/exercises/TrainersLib",{email}); /* send request to the server */
+        const json = await response.json(); /* get the response from the server */
+        setUserTableData(json); /* save the cars data in the carsTableData state */
+        console.log(json);
+    }
+    fetchData();
+}, []); // Only run this effect once
+const tableColumns = useMemo(
+  () => [
+      {
+          Header: 'Title',
+          accessor: 'title',
+      },
+      {
+        Header: 'description',
+        accessor: 'description',
+    },
+    {
+      Header: 'location',
+      accessor: 'location',
+    },
+    {
+      Header: 'keywords',
+      accessor: 'keywords',
+    },
+    {
+          Header: 'Start',
+          accessor: 'action',
+          Cell: row => (
+              <div>
+                  <button onClick={() => onClickStart(row.title)} className='button-image'> {/* define the edit button */}
+                      <img src={imageStart} alt="image-button" style={{ width: '30px', height: '30px' }}/>
+                  </button>
+              </div>     
+          )
+      }
+  ],
+  [],
+);
+const onClickStart = (title) => {
+localStorage.setItem('start',title);
+navigate('/StartVideo');
+};
   const [form,setForm]=React.useState({
     ExName:"",
     Keywords:""
   })
   const [exercise, setEx]=useState();
-  const { email } = useParams();
+  //const { email } = useParams();
+  const email =  localStorage.getItem('saved').replace(/"/g, '');
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -37,13 +89,12 @@ const TrainersLib=() => {
    
     const handleSearch1 = async (e) => {
       e.preventDefault();
-      
-      //console.log({email},"Search");
       const ex = searchInput;
        try{
         console.log("gooood");
-        const response=await axios.get("http://localhost:8000/api/exercises/TrainersLib",{email,ex})
-        if (response.data.success === true) {
+        console.log(email,ex)
+        const response=await axios.get("http://localhost:8000/api/exercises/TrainersLib",{ params: {email,ex}})
+       /* if (response.data.success === true) {
           const dataTable= response.json();
             console.log(dataTable);
             if(dataTable.length>0)
@@ -54,7 +105,7 @@ const TrainersLib=() => {
           console.log(response.data.error);
         }
         console.log("requesting");
-        console.log(response.data);
+        console.log(response.data);*/
       } catch (error) {
         console.error(error);
       }
@@ -110,6 +161,11 @@ const TrainersLib=() => {
                 </tbody>
                 </table>
                 </center>
+                <div>
+                <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <ReactTable columns={tableColumns} data={userTableData} />
+                </table>
+                </div>
                 <div className='row'>
                 <center>
                              <div class="btn-group">
