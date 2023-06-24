@@ -105,7 +105,8 @@ const MainTrainee = () => {
     
 
     return (
-        <div className="container-fluid ">
+        <div className="container-fluid " >
+          <div className='backgroundcol'>
             <div className="header">
             <div className="navbar">
                     <div className="navbar-container">
@@ -160,9 +161,9 @@ const MainTrainee = () => {
                                              
                                     </div>
                                
-                                    <table className='table3' Style="color:Black;text-align: center;margin: auto;">
+                                    <table className='table5' Style="color:Black;text-align: center;margin: auto;">
                 <tbody>
-                <tr Style="color: #D66850;">
+                <tr Style="color: #63456b;">
                     <th>Class's Name</th>
                     <th>Trainer's Name</th>
                     <th>Class's Description</th>
@@ -195,7 +196,7 @@ const MainTrainee = () => {
             </div>
             </div>
         </div>
-        
+        </div>
     );
 };
 

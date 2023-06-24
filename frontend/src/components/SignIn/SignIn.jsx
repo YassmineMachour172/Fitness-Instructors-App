@@ -95,7 +95,7 @@ const SignIn =() => {
         <footer>
         <div className="container-fluid">
            
-                <div className="col">
+                <div className='backgroundcol'>
 
                     <div className="row">
                         <div className="path-con">
