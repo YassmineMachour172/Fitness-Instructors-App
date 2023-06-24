@@ -94,6 +94,9 @@ const TrainersLib=() => {
         }
         console.log("requesting");
         console.log(response.data);
+<<<<<<< HEAD
+>>>>>>> parent of 41107597 (325)
+=======
 >>>>>>> parent of 41107597 (325)
       } catch (error) {
         console.error(error);
