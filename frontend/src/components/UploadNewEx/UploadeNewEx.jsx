@@ -47,7 +47,6 @@ const UploadeNewEx = () => {
     const handleClose = () =>{
       setShow(false);
       setMsgModal('');
-      navigate(`/MainTrainer/${email}`)
  }
 
  /* function that open the modal and displays it*/
@@ -71,7 +70,7 @@ const UploadeNewEx = () => {
           
           if((res?.data?.success===true)){
                 console.log("successful")
-                setMsgModal("Uploaded the ",title," video successfully!")
+                setMsgModal("Uploaded successfully!")
                handleShow();
           }
           else{
@@ -139,7 +138,7 @@ const UploadeNewEx = () => {
                                                   <div className='row'>
                                                   
 
-                                                  <button type="Upload" className='about-us' onClick={()=>{navigate(`/MainTrainer/${email}`)}}>MainTrainer</button>
+                                                  <button type="Upload" className='about-us'>Uplode</button>
 
                                                   
                                                   </div>
