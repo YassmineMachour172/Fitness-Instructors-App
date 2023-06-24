@@ -14,10 +14,10 @@ import {useEffect,useState} from 'react'
 import axios from 'axios';
 import Classes from './Classes';
 import { useParams } from 'react-router-dom';
-import Profile from '../Profile/Profile';
 const MyClassesTrainee=()=> {
   const { email } = useParams();
   const [classes, setClasses]=useState();
+   /* define what will disappear imeditally on the screen once the trainee log in  */
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -47,15 +47,7 @@ const MyClassesTrainee=()=> {
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
         mode: "onChange" /* validate the form on change */
     });
-    const handleChange = (e) => {
-      e.preventDefault();
-      setSearchInput(e.target.value);
-    };
-    const handleClickProfile = () => {
-      navigate('/Profile');    
-   };
-    
-    const [searchInput, setSearchInput] = useState("");
+    /*define what the My classes trainee page will contain, a table of all the classes that the trainee has registered to and down buttons */
   return (
     <center>
         <div className="container-fluid">

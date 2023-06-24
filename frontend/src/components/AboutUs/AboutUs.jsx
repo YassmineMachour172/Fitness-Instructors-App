@@ -10,7 +10,8 @@ import yassmine from '../../images/yassmine.jpeg'
 const AboutUs = () => {
     const navigate = useNavigate(); /* define hook to navigate to other pages */
 
-    localStorage.removeItem('saved');
+    localStorage.removeItem('saved');/* save the email in the local storage*/ 
+    /*in the follwoing section the about us will be displayed that contains the names and titles of the founders of the app and also two photos */
     return (
         
          <center>

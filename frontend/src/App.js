@@ -25,11 +25,8 @@ import CreateNewClass from './components/CreateNewClass/CreateNewClass'
 import MyTainee from './components/MyTrainee/MyTrainee'
 import TrainersLib from './components/TrainersLib/TrainersLib'
 import UploadeNewEx from './components/UploadNewEx/UploadeNewEx';
-import TrainersLibAfterSearch from './components/TrainersLibAfterSearch/TrainersLibAfterSearch'
 import TrainningPlanes from './components/TrainningPlanes/TrainningPlanes'
 import ResetPassword from './components/ResetPassword/ResetPassword'
-import NewCLassAfterSearch from './components/NewClassAfterSearch/NewClassAfterSearch'
-//import UploadeNewEx from'./components/UploadNewEx/UploadeNewEx'
 import './App.css';
 import { SIGN_IN } from './actions';
 import { useSelector,useDispatch } from 'react-redux';
@@ -98,9 +95,7 @@ function App() {
                 <Route path="MyTrainee/:email" element={<MyTainee/>}/>
                 <Route path="TrainersLib/:email" element={<TrainersLib/>}/>
                 <Route path="UploadeNewEx" element={<UploadeNewEx/>}/>
-                <Route path="TrainersLibAfterSearch" element={<TrainersLibAfterSearch/>}/>
                 <Route path="TrainningPlanes" element={<TrainningPlanes/>}/>
-                <Route path="NewCLassAfterSearch" element={<NewCLassAfterSearch/>}/>
                 <Route path="MainTrainer/:email" element={<MainTrainer/>}/>
                 <Route path="Upload" element={<Upload/>}/>
 

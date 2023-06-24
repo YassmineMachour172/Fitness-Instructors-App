@@ -4,27 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import HomeIc from '../../images/home1.png'
 import info1 from '../../images/info1.png'
 import pList from '../../images/pList.png'
-import feedback from '../../images/feedBack.png'
-import profile from '../../images/profile.png'
 
 
-/* Application manual Component */
+
+/*  Start video Component */
 const StartVideo = () => {
     const navigate = useNavigate(); /* define hook to navigate to other pages */
 
-    /* function that navigate to the home page */
-    const handleClickHome = () => {
-        navigate('/Home');
-    };
-    /* function that navigate to the SignIn page */
-    const handleClickSignIn=()=>{
-
-    };
-    /* function that navigate to the AboutUs page */
-    const handleClickAboutUs=()=>{
-
-    }
     
+    /* the follwoing will display the content of the start video */
     return (
         <div className="container-fluid">
             <div id='ApplicationManual' className='backgroundcol'>

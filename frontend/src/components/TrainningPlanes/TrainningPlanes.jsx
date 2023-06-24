@@ -20,13 +20,7 @@ const TrainningPlanes=()=> {
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
         mode: "onChange" /* validate the form on change */
     });
-    const handleChange = (e) => {
-      e.preventDefault();
-      setSearchInput(e.target.value);
-    };
-    
-    
-    const [searchInput, setSearchInput] = useState("");
+   
   return (
     <center>
         <div className="container-fluid">

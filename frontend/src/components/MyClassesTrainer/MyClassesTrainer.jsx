@@ -9,10 +9,7 @@ import { useForm } from 'react-hook-form';
 import HomeIc from '../../images/home1.png'
 import info1 from '../../images/info1.png'
 import pList from '../../images/pList.png'
-import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
-import searchIcon from '../../images/search.jpg'
-import menu from '../../images/menue.png'
 import {useState} from 'react'
 import {useEffect} from 'react'
 import axios from 'axios';
@@ -21,6 +18,7 @@ import MyClasses from './MyClasses';
 const MyClassesTrainer=()=> {
   const { email } = useParams();
   const [classes, setClasses]=useState();
+  /* define what will disappear imeditally on the screen once the trainer log in  */
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -57,6 +55,7 @@ const MyClassesTrainer=()=> {
     
     
     const [searchInput, setSearchInput] = useState("");
+    /*define what the My classes trainer page will contain, a table of all the classes that the trainer has opened and down buttons */
   return (
     <center>
         <div className="container-fluid">

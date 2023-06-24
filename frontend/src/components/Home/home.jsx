@@ -4,18 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './home.css';
 import logo from '../../images/logo.png'
 import pic from '../../images/pic.jpg'
-/*import{ useHistroy } from 'react-router-dom';*/
 /* Home Component */
 const Home = () => {
     const navigate = useNavigate(); /* define hook to navigate to other pages */
-
-    /* function that navigate to the logIn page */
-    
-    
-
         localStorage.removeItem('saved');
 
-    
+    /*define the home display: five buttons that navigate to : trainning plans , application manual, Sign in , about us and Home */
     return (
 
         <center>

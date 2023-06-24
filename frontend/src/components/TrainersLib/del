@@ -25,22 +25,22 @@ const TrainersLib=() => {
   const { email } = useParams();
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }} = useForm({
-      resolver: yupResolver(logInSchema), /* validate the form with the schema */
-      mode: "onChange" /* validate the form on change */
-    });
-    const handleChange = (e) => {
-      e.preventDefault();
-      setSearchInput(e.target.value);
-    };
-   
-    const handleSearch1 = async (e) => {
-      e.preventDefault();
-      
-      //console.log({email},"Search");
-      const ex = searchInput;
-       try{
-        console.log("gooood");
-        const response=await axios.get("http://localhost:8000/api/exercises/TrainersLib",{email,ex})
+    resolver: yupResolver(logInSchema), /* validate the form with the schema */
+    mode: "onChange" /* validate the form on change */
+  });
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearchInput(e.target.value);
+  };
+ 
+  const handleSearch1 = async (e) => {
+    e.preventDefault();
+    
+    //console.log({email},"Search");
+    const ex = searchInput;
+     try{
+      console.log("gooood");
+            const response=await axios.get("http://localhost:8000/api/exercises/TrainersLib",{email,ex})
         if (response.data.success === true) {
           const dataTable= response.json();
           console.log(dataTable);
@@ -72,7 +72,7 @@ const TrainersLib=() => {
 }
   
   
-  const [searchInput, setSearchInput] = useState("");
+const [searchInput, setSearchInput] = useState("");
 return (
   <center>
       <div className="container-fluid">
@@ -80,7 +80,7 @@ return (
             <div className="row">
                 <center>
                  <div Style="color:Black;" >
-                    <img src={menu} className="infoInfo"/>
+                 <img src={menu} className="infoInfo"/>
                        My Library 
                 </div>
                 <br/>

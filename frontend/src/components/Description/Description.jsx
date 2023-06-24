@@ -8,18 +8,7 @@ import logo from '../../images/logo.png'
 const Description = () => {
     const navigate = useNavigate(); /* define hook to navigate to other pages */
 
-    /* function that navigate to the home page */
-    const handleClickHome = () => {
-        navigate('/Home');
-    };
-    /* function that navigate to the SignIn page */
-    const handleClickSignIn=()=>{
-
-    };
-    /* function that navigate to the AboutUs page */
-    const handleClickAboutUs=()=>{
-
-    }
+    /* the following section will display the description for each class  */
     
     return (
         <div className="container-fluid">

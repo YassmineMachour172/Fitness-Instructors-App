@@ -6,15 +6,12 @@ import { logInSchema } from '../../Validations/FormsValidation';
 import { useForm } from 'react-hook-form';
 import HomeIc from '../../images/home1.png'
 import info1 from '../../images/info1.png'
-import pList from '../../images/pList.png'
-import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
 import React, { useEffect,useState } from 'react';
 import axios from 'axios';
 
 const Profile = () => {
   const navigate = useNavigate();
-  //const { email } = useParams();
   const [fname, setname] = useState('');
   const [mail, setMail]=useState('');
   const [phone, setPhone] = useState('');
@@ -23,7 +20,7 @@ const Profile = () => {
   const [height, setHeight] = useState('');
   const [weight, setWeight]=useState('');
 
-  
+  /* define what will disappear imeditally on the screen once the user log in  */
   useEffect(() => {
 
       const savedEmail =  localStorage.getItem('saved').replace(/"/g, '');
@@ -80,6 +77,7 @@ const Profile = () => {
         return;
       }
     }
+    /* the profile page will display the information for the user in order to edit it's data */
     return (
         <div className="container-fluid">
             <div className='backgroundcol'>

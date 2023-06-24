@@ -12,22 +12,15 @@ import SwitchaccountIcon from '../../images/InfochangeAcc.png'
 import MytraineesIcon from '../../images/MyTrainee.png'
 import MylibIcon from '../../images/uplode.png'
 import HomeIcon from '../../images/Infohome.png'
-import Menu from '../../images/MenuHome.png'
 import logo from '../../images/logo.png'
 import HomeIc from '../../images/home1.png'
 import info1 from '../../images/info1.png'
-import info from '../../images/info.jpg'
-import pList from '../../images/pList.png'
-import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
 import { useParams } from 'react-router-dom';
-import Profile from '../Profile/Profile';
 const Info = () => {
-    const { email } = useParams();
-    const handleClickProfile = () => {
-        navigate('/Profile');     
-     };
-    const navigate = useNavigate();
+    const { email } = useParams();/*Take the email */
+    const navigate = useNavigate();/* define hook to navigate to other pages */
+    /* define the Info display whict contains photos of simpoles used in the application and explain each one */
     return(
     
     <footer >

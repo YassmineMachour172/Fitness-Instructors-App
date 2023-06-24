@@ -16,15 +16,16 @@ import TrainersLib from '../TrainersLib/TrainersLib';
 const CreateNewClass = () => {
     const { email } = useParams();
     const [mail, setMail]=useState('');
-    const handleClicktrianersLib = () => {
+    const handleClicktrianersLib = () => {/*this function directs the user to the library */
         < TrainersLib email={email} />
         navigate(`/TrainersLib/${email}`);
     };
-    const navigate = useNavigate();
+    const navigate = useNavigate();/* define hook to navigate to other pages */
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
         mode: "onChange" /* validate the form on change */
     });
+    /*the following section displays the Create new class page for the trainer , which contains feilds to fill and videos to upload from the library */
     return (
         <footer>
         <center>
