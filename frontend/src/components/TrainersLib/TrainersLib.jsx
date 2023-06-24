@@ -5,7 +5,6 @@ import './try.css';
 import imageDelete from'../../images/delete.png';
 import imageEdit from '../../images/edit.png';
 import { useNavigate  } from 'react-router-dom';
-
 import { useParams } from 'react-router-dom';
 
 const TrainersLib = () => {
