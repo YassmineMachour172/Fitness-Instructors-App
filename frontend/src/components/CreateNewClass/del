@@ -10,6 +10,8 @@ import HomeIc from '../../images/home1.png'
 import info1 from '../../images/info1.png'
 import profile from '../../images/profile.png'
 import CreateNewEx from '../../images/CreateNewEx.png'
+import Dropdown from 'react-bootstrap/Dropdown';
+import addVideo from '../../images/AddVideo.png';
 import TrainersLib from '../TrainersLib/TrainersLib';
 import { Modal, Button } from "react-bootstrap";
 import axios from 'axios';
@@ -19,8 +21,13 @@ import ReactTable from '../ReactTable/ReactTable';
 
 const CreateNewClass = () => {
     const { email } = useParams();
+    const trainerEmail=localStorage.getItem('saved').replace(/"/g, '');
     const [showModal, setShow] = useState(false);/*define state for the modal box */
     const [msgModal, setMsgModal] = useState('');/*define state for the message modal box */
+    const [imgSRC, setSRC] = useState('');
+    const [btnOnClick, setOnClick] = useState('handleClicktrianersLib');
+    const [isFButtonVisible, setIsFButtonVisible] = useState(true);
+    const [isSButtonVisible, setIsSButtonVisible] = useState(false);
     const [TableData, setTableData] = useState([]);
 
 
@@ -33,13 +40,15 @@ const CreateNewClass = () => {
       try {
         const trainingNum = localStorage.getItem('trainingNum').replace(/"/g, '');
         console.log("before")
-        const response = await axios.get('http://localhost:8000/api/trainingPlans/CreateNewClass', { params: { trainingNum } });
+        const response = await axios.get('http://localhost:8000/api/trainingPlas/CreateNewClass', { params: { trainingNum } });
         console.log("after")
+
         setTableData(response.data.TrainersLib.user);
       } catch (error) {
         console.error("catch ",error);
       }
     }
+
     fetchData();
   }, []);
   const tableColumns = React.useMemo(
@@ -77,9 +86,12 @@ const CreateNewClass = () => {
         keywords:""
       }) 
 
-   
+    const handleClicktrianersLib = () => {
+        < TrainersLib email={email} />
+        navigate(`/TrainersLib/${email}`);
+    };
     const navigate = useNavigate();
-    const {  formState: { errors }} = useForm({
+    const { register, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
         mode: "onChange" /* validate the form on change */
     });
@@ -98,8 +110,12 @@ const CreateNewClass = () => {
         const description=form.description;
         const cType=form.cType;
         const keywords=form.keywords;
+        
+  
         try{
           const res=await axios.post("http://localhost:8000/api/classes/CreateNewClass",{NameOfC,description,cType,email,keywords})
+          
+          
           if((res?.data?.success===true)){
                 console.log("successful")
                 localStorage.setItem('className', JSON.stringify(NameOfC));
@@ -118,13 +134,22 @@ const CreateNewClass = () => {
         }
       }
     return (
-        <div className='container'>
-            <div id="page-top">
-                <div className="row">
-                    <h1 className="h3 mb-2 text-gray-800">Create New Class</h1>
+        <footer>
+        <center>
+        <div className="container-fluid">
+            <div className='backgroundcol'>
+            <div className="row">
+                
+                 <div Style="color:Black;" >
+                    <img src={CreateNewEx} className="infoInfo"/>
+                       Create New Class
                 </div>
-                <div className="row">
-                <form action=""  onSubmit={handleSubmit} className="user" >
+                
+            </div>
+           
+                    <div className='row'>
+                    <div className="row" id='form-con'>
+                        <form action=""  onSubmit={handleSubmit} className="user" >
                             <div className="text-con">
                                                   <div className='col'>
                                                     <div className='row'>
@@ -163,16 +188,16 @@ const CreateNewClass = () => {
                                                 
                                                  
                                                 </div>
-                                                <div className='row' >
+                                                <div className='row' style={{flexDirection: 'row', height:50, width: 400}}>
                                                 <div style={{ color: 'black' }}>Please choose from the library the exercises you wish to add to this class:</div>
                                                 </div>
                                                 
-                                                <div className='row'>
-                                                    <button type="button" onClick={()=>{navigate('/TrainersLibSelect')}} placeholder='first' ></button>
+                                                <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
+                                                    <button Style="color: Black;background-color: transparent;border-radius: 12px;" onClick={()=>{navigate('/TrainersLibSelect')}} value='first' type='button'></button>
                                                    
                                                     
                                                 </div>
-                                                <div className='row'>
+                                                <div className='row' style={{flexDirection: 'row', height:100, width: 850}} >
                                                   <div className='col'>
                                                   <button  type="submit" className='about-us'>Publish and Save</button>
                                                   </div>
@@ -184,52 +209,53 @@ const CreateNewClass = () => {
                                                   
                                                   </div>
                                                  </form>
-                </div>
-            {/* Page Wrapper */}
-            <div id="wrapper">
 
-                {/* Content Wrapper */}
-                <div id="content-wrapper" className="d-flex flex-column">
-
-                    {/* Main Content */}
-                    <div id="content">
-                    
-                        
-
-                        {/* Begin Page Content */}
-                        <div className="container-fluid">
-
-                            {/* Page Heading */}
-                            
-                            <div className="row">
-                                <button className="mb-4 btn btn-primary" onClick={()=>{navigate('/TrainersLibSelect')}}>Choose from my library</button>
-                            </div>
-                            <div className="card shadow mb-4">
-                                <div className="card-body">
-                                    <div className="table-responsive">
-                                        <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                            <ReactTable columns={tableColumns} data={TableData} />
-                                        </table>
-                                    </div>
+                                                 <div className="row">
+                        {/* Page Heading */}
+                        <h1 className="h3 mb-2 text-gray-800">TrainingPlans  <br/><br/></h1>
+                        </div><div className="row">
+                        <div className="card shadow mb-4">
+                            <div className="card-body">
+                                <div className="table-responsive">
+                                    <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <ReactTable columns={tableColumns} data={TableData} />
+                                    </table>
                                 </div>
                             </div>
-                        </div>
-                        {/* /.container-fluid */}
+                        </div></div>
+                                                 <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
+                                                 <div class="btn-group">
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={()=>navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                              </div><div className="row" style={{flexDirection: 'row', height:10, width: 500}}>
+                            <center>
+                        <img src={logo} className="logo"/>
+                        </center>
                     </div>
-                    {/* End of Main Content */}
-
-                </div>
-                {/* End of Content Wrapper */}
-
-            </div>
-            {/* End of Page Wrapper */}
-
-            {/* Scroll to Top Button*/}
-            <a className="scroll-to-top rounded" href="#page-top">
-                <i className="fas fa-angle-up"></i>
-            </a>
-    </div>
-</div>
+                    </div>
+                                                 <Modal show={showModal} onHide={handleClose}>
+                                                    <Modal.Header closeButton>
+                                                    <Modal.Title className='msg-modal-title'>ALERT!</Modal.Title>
+                                                    </Modal.Header>
+                                                    <Modal.Body><p className='msg-modal'>{msgModal}</p></Modal.Body>
+                                                    <Modal.Footer>
+                                                      <Button variant="secondary" onClick={handleClose}>
+                                                          Close
+                                                      </Button>
+                      
+                                                    </Modal.Footer>
+                                                  </Modal> 
+                                                 </div>
+                                                 
+                                                 </div>
+                                                
+                                                 </div>
+                    
+                      </div>
+                      </center>
+                      </footer>
+        
     );
 };
 

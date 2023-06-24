@@ -83,7 +83,26 @@ router.get('/TrainersLib',async(req,res)=>{
         res.status(500).send({ success: false, error: 'An error occurred', info: null });
       }
 });
-
+router.get('/TrainersLibSelect',async(req,res)=>{
+    console.log(req?.query.email)
+    const email = req.query.email;
+    try {
+        
+        const user =await ExerciseModel.find({email:email});
+        if(user){
+            console.log(user);
+            res.send({ success: true, error: null, TrainersLib: { user } });
+        } else{
+            console.error(error);
+            res.status(500).send({ success: false, error: 'no results found', info: null });
+            }
+        
+        
+      } catch (error) {
+        console.error(error);
+        res.status(500).send({ success: false, error: 'An error occurred', info: null });
+      }
+});
 router.delete('/TrainersLib',async(req,res)=>{
     console.log(req?.query.title)
     const title = req.query.title;

@@ -29,7 +29,7 @@ import TrainersLibAfterSearch from './components/TrainersLibAfterSearch/Trainers
 import TrainningPlanes from './components/TrainningPlanes/TrainningPlanes'
 import ResetPassword from './components/ResetPassword/ResetPassword'
 import NewCLassAfterSearch from './components/NewClassAfterSearch/NewClassAfterSearch'
-//import UploadeNewEx from'./components/UploadNewEx/UploadeNewEx'
+import TrainersLibSelect from'./components/TrainersLibSelect/TrainersLibSelect'
 import './App.css';
 import { SIGN_IN } from './actions';
 import { useSelector,useDispatch } from 'react-redux';
@@ -103,7 +103,7 @@ function App() {
                 <Route path="NewCLassAfterSearch" element={<NewCLassAfterSearch/>}/>
                 <Route path="MainTrainer/:email" element={<MainTrainer/>}/>
                 <Route path="Upload" element={<Upload/>}/>
-
+                <Route path="TrainersLibSelect" element={<TrainersLibSelect/>}/>
                 
             </Routes> 
         </Router>  

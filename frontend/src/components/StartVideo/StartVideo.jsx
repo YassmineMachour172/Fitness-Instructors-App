@@ -12,7 +12,7 @@ import ReactPlayer from 'react-player';
 /* Application manual Component */
 const StartVideo = () => {
     const navigate = useNavigate(); /* define hook to navigate to other pages */
-
+    const email=localStorage.getItem('saved').replace(/"/g, '');
     /* function that navigate to the home page */
     const handleClickHome = () => {
         navigate('/Home');
@@ -62,7 +62,7 @@ const StartVideo = () => {
                         <center>
                              <div class="btn-group">
                                 <button  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
-                                <button  onClick={() => navigate('/MyClassesTrainee')}><img src={pList} className="pListBbox"/></button>
+                                <button  onClick={() => navigate(`/MainTrainer/${email}`)}><img src={pList} className="pListBbox"/></button>
                                 <button  onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
                                 
                               </div>

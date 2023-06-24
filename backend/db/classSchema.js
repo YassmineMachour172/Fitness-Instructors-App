@@ -9,17 +9,14 @@ const classSchema = new mongoose.Schema({
         type:String
     },
     cType: String,
-    discription: String,
+    description: String,
     classStatus:{
         type: String,
         enum: ['published', 'saved'],
         default: 'saved',
       },
-    trainer: {
-        type: String,
-        ref: 'Trainer',
-      }
+    trainerEmail: String,
+    keywords:String
 });
 { _id: false }
-const Trainer = mongoose.model('Trainer', trainerSchema);
 module.exports = classSchema;

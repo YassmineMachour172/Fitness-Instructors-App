@@ -31,19 +31,19 @@ const ReactTable = ({
 
     const { globalFilter } = state;
     const { pageIndex } = state;
-    const onClickDelete = async (row) => {
+   /* const onClickDelete = async (row) => {
         console.log('Delete button clicked for car with treatment number: ', row.original.treatmentNumber);
         
-        /* send request to the server to delete the specific car service */
-        await fetch('/deleteCar', {
+        /* send request to the server to delete the specific ex */
+       /* await fetch('/deleteCar', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 treatmentNumber:   row.original.treatmentNumber,
             })
         })
-       window.location.reload(false) /* reload the page after delete car service*/
-    }
+       window.location.reload(false) /* reload the page after delete car service
+    }*/
     // Listen for input changes outside
     useEffect(() => {
         setGlobalFilter(filterString);
