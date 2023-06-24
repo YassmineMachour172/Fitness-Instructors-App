@@ -34,7 +34,7 @@ const ReactTable = ({
     const onClickDelete = async (row) => {
         console.log('Delete button clicked for car with treatment number: ', row.original.treatmentNumber);
         
-        /* send request to the server to delete the specific car service */
+        
         await fetch('/deleteCar', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -42,7 +42,7 @@ const ReactTable = ({
                 treatmentNumber:   row.original.treatmentNumber,
             })
         })
-       window.location.reload(false) /* reload the page after delete car service*/
+       window.location.reload(false) 
     }
     // Listen for input changes outside
     useEffect(() => {
