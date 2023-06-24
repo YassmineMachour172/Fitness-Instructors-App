@@ -1,42 +1,3 @@
-<<<<<<< HEAD
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import ReactTable from '../ReactTable/ReactTable';
-import './try.css';
-import imageDelete from'../../images/delete.png';
-import imageEdit from '../../images/edit.png';
-import imageStart from '../../images/start.png';
-import { useNavigate  } from 'react-router-dom';
-import e from 'express';
-
-
-const TrainersLib = () => {
-  const [carsTableData, setCarsTableData] = useState([]);
-  const navigate = useNavigate();
-
-  const onClickEdit = (row) => {
-  /*  console.log('Edit button clicked for car with treatment number: ', row.original.treatmentNumber);
-    localStorage.setItem('carService', JSON.stringify(row.original)); /* save the car service data that choose to edit in local storage */
-    //navigate('/editCarService'); /* navigate to the editCarService page */
-}
-const onClickDelete = async (row) => {
-        //console.log('Delete button clicked for car with treatment number: ', row.original.title);
-        //const title=row.original.title
-       // const response = await axios.get('http://localhost:8000/api/exercises/TrainersLib', { params: { title } });
-          //window.location.reload(false)
-        
-    }
-    const onClickStart =async (row) => {
-      //localStorage.setItem('video',JSON.stringify(row));
-     // navigate('/StartVideo');
-  };
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const email = localStorage.getItem('saved').replace(/"/g, '');
-        const response = await axios.get('http://localhost:8000/api/exercises/TrainersLib', { params: { email } });
-        setCarsTableData(response.data.TrainersLib.user);
-=======
 import React from 'react';
 import './TrainersLib.css';
 import { useNavigate  } from 'react-router-dom';
@@ -46,13 +7,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { logInSchema } from '../../Validations/FormsValidation';
 import { useForm } from 'react-hook-form';
 import HomeIc from '../../images/home1.png'
-import info1 from '../../images/info1.png'
+import info1 from '../../images/info1.png';
 import pList from '../../images/pList.png'
 import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
 import searchIcon from '../../images/search.jpg'
 import menu from '../../images/menue.png'
-import {useState} from 'react'
+import {useState} from 'react' 
 import axios from 'axios';
 import Ex from './Ex';
 import { useParams } from 'react-router-dom';
@@ -65,9 +26,9 @@ const TrainersLib=() => {
   const [exercise, setEx]=useState();
   const { email } = useParams();
   const navigate = useNavigate();
-    const { register, handleSubmit, formState: { errors }} = useForm({
-        resolver: yupResolver(logInSchema), /* validate the form with the schema */
-        mode: "onChange" /* validate the form on change */
+  const { register, handleSubmit, formState: { errors }} = useForm({
+      resolver: yupResolver(logInSchema), /* validate the form with the schema */
+      mode: "onChange" /* validate the form on change */
     });
     const handleChange = (e) => {
       e.preventDefault();
@@ -84,88 +45,40 @@ const TrainersLib=() => {
         const response=await axios.get("http://localhost:8000/api/exercises/TrainersLib",{email,ex})
         if (response.data.success === true) {
           const dataTable= response.json();
-            console.log(dataTable);
-            if(dataTable.length>0)
-            {
-              setEx(dataTable);
-            }
-        } else {
-          console.log(response.data.error);
-        }
-        console.log("requesting");
-        console.log(response.data);
-<<<<<<< HEAD
->>>>>>> parent of 41107597 (325)
-=======
->>>>>>> parent of 41107597 (325)
-      } catch (error) {
-        console.error(error);
+          console.log(dataTable);
+          if(dataTable.length>0)
+          {
+            setEx(dataTable);
+          }
+      } else {
+        console.log(response.data.error);
       }
+      console.log("requesting");
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
     }
+  };
 
-    fetchData();
-  }, []);
-
-  const tableColumns = React.useMemo(
-    () => [
-      {
-        Header: 'Title',
-        accessor: 'title',
-      },
-      {
-        Header: 'Description',
-        accessor: 'description',
-      },
-      {
-        Header: 'Location',
-        accessor: 'location',
-      },
-      {
-        Header: 'Keywords',
-        accessor: 'keywords',
-      },{
-        Header: 'Action',
-        accessor: 'action',
-        Cell: row => (
-            <div>
-                <button onClick={() => onClickEdit(row.row)} className='button-image'> {/* define the edit button */}
-                    <img src={imageEdit} alt="image-button" style={{ width: '30px', height: '30px' }}/>
-                </button>
-                <button onClick={(e) => onClickDelete(row.row)} className='button-image'> {/* define the delete button */}
-                    <img src={imageDelete} alt="image-button" style={{ width: '30px', height: '30px' }}/>
-                </button>
-                <button onClick={(e) => onClickStart(row.row)} className='button-image'> {/* define the delete button */}
-                    <img src={imageStart} alt="image-button" style={{ width: '30px', height: '30px' }}/>
-                </button>
-            </div>     
-        )
-    }
-    ],
-    []
-  );
-
-  return (
-<<<<<<< HEAD
-    <div className='container'>
-    <div id="page-top">
-
-        {/* Page Wrapper */}
-        <div id="wrapper">
-
-            {/* Content Wrapper */}
-            <div id="content-wrapper" className="d-flex flex-column">
-
-                {/* Main Content */}
-                <div id="content">
-
-                    
-
-                    {/* Begin Page Content */}
-                    <div className="container-fluid">
-=======
-    <center>
-        <div className="container-fluid">
-            <div className="col">
+  const handleSearch2 = async (e) => {
+    e.preventDefault();
+    console.log({email},"Search");
+    const Keywords = searchInput;
+     try{
+      const res=await axios.get("http://localhost:8000/api/exercises/TrainersLib",{email,Keywords})
+      console.log("gooood");
+    }catch(e){
+      console.log(" not gooood");
+      console.log(e)
+  }
+}
+  
+  
+  const [searchInput, setSearchInput] = useState("");
+return (
+  <center>
+      <div className="container-fluid">
+      <div className="col">
             <div className="row">
                 <center>
                  <div Style="color:Black;" >
@@ -206,38 +119,15 @@ const TrainersLib=() => {
                               </div>
                               </center>
                               </div>
->>>>>>> parent of 41107597 (325)
                         <div className="row">
-                        {/* Page Heading */}
-                        <h1 className="h3 mb-2 text-gray-800">Library  <br/></h1>
-                        </div><div className="row">
-                        <div className="card shadow mb-4">
-                            <div className="card-body">
-                                <div className="table-responsive">
-                                    <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <ReactTable columns={tableColumns} data={carsTableData} />
-                                    </table>
-                                </div>
-                            </div>
-                        </div></div>
+                            <center>
+                        <img src={logo} className="logo"/>
+                        </center>
                     </div>
-                    {/* /.container-fluid */}
-                </div>
-                {/* End of Main Content */}
-
+            
             </div>
-            {/* End of Content Wrapper */}
-
-        </div>
-        {/* End of Page Wrapper */}
-
-        {/* Scroll to Top Button*/}
-        <a className="scroll-to-top rounded" href="#page-top">
-            <i className="fas fa-angle-up"></i>
-        </a>
-</div>
-</div>
-  );
-};
-
+            </div>
+            </center>
+  )
+}
 export default TrainersLib;
