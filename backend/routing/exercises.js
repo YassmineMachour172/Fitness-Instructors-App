@@ -84,7 +84,26 @@ router.get('/TrainersLib',async(req,res)=>{
       }
 });
 
-
+router.delete('/TrainersLib',async(req,res)=>{
+    console.log(req?.query.title)
+    const title = req.query.title;
+    try {
+        
+        const user =await ExerciseModel.deleteOne({title:title});
+        if(user){
+            console.log(user);
+            res.send({ success: true, error: null, TrainersLib: { user } });
+        } else{
+            console.error(error);
+            res.status(500).send({ success: false, error: 'no results found', info: null });
+            }
+        
+        
+      } catch (error) {
+        console.error(error);
+        res.status(500).send({ success: false, error: 'An error occurred', info: null });
+      }
+});
 
 
 module.exports = router;

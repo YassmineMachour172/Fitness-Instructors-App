@@ -138,7 +138,7 @@ const UploadeNewEx = () => {
                                                   <div className='row'>
                                                   
 
-                                                  <button type="Upload" className='about-us'>Uplode</button>
+                                                  <button type="button" className='about-us' onClick={()=>{navigate( `/MainTrainer/${email}`)}}>Main Trainer</button>
 
                                                   
                                                   </div>
