@@ -6,6 +6,7 @@ import info1 from '../../images/info1.png'
 import pList from '../../images/pList.png'
 import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
+import ReactPlayer from 'react-player';
 
 
 /* Application manual Component */
@@ -41,7 +42,8 @@ const StartVideo = () => {
                 <div className='col'>
                             
                                         
-                                        <div className='VideoBox'>           
+                                        <div className='VideoBox'> 
+                                            <ReactPlayer url="C:\Users\yassmine machour\Downloads\5 MIN HOME WORKOUT YOU CAN DO EVERY MORNING l 매일 아침 5분 전신 홈트레이닝.mp4" controls={true} />          
                                         </div>
                                         
                                         </div>
