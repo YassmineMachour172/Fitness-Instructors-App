@@ -46,8 +46,7 @@ const MainTrainer = () =>  {
     };
     /* function that navigates to the profile page */
     const handleClickProfile = () => {
-        < Profile email={email} />
-        navigate(`/profile/${email}`);   
+        navigate('/Profile');    
      };
     /* function that navigates to the New class page */
     const handleClickNewClass = () => {
@@ -82,7 +81,7 @@ const MainTrainer = () =>  {
                                 <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
                                 <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={handleClickMyClasses}><img src={pList} className="pListBbox"/></button>
                                 <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={handleClickMessage}><img src={feedback} className="feedbackBbox"/></button>
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={handleClickProfile}><img src={profile} className="ProfileBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={()=>navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
                               </div>
                 </div>
                 

@@ -25,7 +25,7 @@ const Register = () => {
 
     /* function that navigates to the home page */
     const handleClickHome = () => {
-        navigate('http://localhost:3000/');
+        navigate('/');
     };
  /* function that navigates to the MainTrainee page */
  const handleClickMainTrainee = () => {

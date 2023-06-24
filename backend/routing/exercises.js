@@ -4,67 +4,86 @@ const cors = require('cors');
 const router = express.Router();
 const mongoose = require("mongoose");
 const ExerciseSchema = require("../db/ExerciseSchema");
-const keywordSchema = require("../db/keywordSchema");
+const keywordSchema = require("../db/ExerciseKeywordSchema");
 const ExerciseModel = mongoose.model("exercises", ExerciseSchema);
-const KeywordModel = mongoose.model("keyword", keywordSchema);
+const KeywordModel = mongoose.model("Exercisekeyword", keywordSchema);
 
 
 router.post("/Upload", async function (req, res) {
-    const { title, location, description, email } = req?.body;
+    const {title,location,description,email,keywords}  = req?.body;
     console.log(req.body)
-    const mail=email;
-    
     try {
                     const user = await ExerciseModel.insertMany([{ title,
                         location,
                         description,
                         email}])
-                    //NewTrainee.save().then((docs) => {
-                        console.log("save to DB");
-                   // });*/
+                        console.log("save  exercise to DB");
+                    const key=await KeywordModel.insertMany([{listNum:1,keywords,title}])
+                    console.log("save  exercise to DB")
                     res.send({ success: true, error: null, info: null });
-               
     } catch (err) {
-        res.send({ success: false, info: null, error: "Server error" });
+        //res.send({ success: false, info: null, error: "Server error" });
+        console.log(err)
     }
 });
 
-router.get('/TrainersLib',async(req,res)=>{
-
-    const email = req.query.email;
-    const name= req.query.ex;
-    const keywords= req.query.Keywords;
-
+router.post("/UploadeNewEx", async function (req, res) {
+    const {title,location,description,email,keywords}  = req?.body;
+    console.log(req.body)
     try {
-        if(name){
-        const user =await ExerciseModel.find({email:email},{title:name});
+                    const user = await ExerciseModel.insertMany([{ title,
+                        location,
+                        description,
+                        email,keywords}])
+                        console.log("save  exercise to DB");
+                  
+                    res.send({ success: true, error: null, info: null });
+    } catch (err) {
+        //res.send({ success: false, info: null, error: "Server error" });
+        console.log(err)
+    }
+});
+
+
+router.post("/UploadeNewEx", async function (req, res) {
+    const {title,location,description,email,keywords}  = req?.body;
+    console.log(req.body)
+    try {
+                    const user = await ExerciseModel.insertMany([{ title,
+                        location,
+                        description,
+                        email,keywords}])
+                        console.log("save  exercise to DB");
+                  
+                    res.send({ success: true, error: null, info: null });
+    } catch (err) {
+        //res.send({ success: false, info: null, error: "Server error" });
+        console.log(err)
+    }
+});
+
+
+router.get('/TrainersLib',async(req,res)=>{
+    console.log(req?.query.email)
+    const email = req.query.email;
+    try {
+        
+        const user =await ExerciseModel.find({email:email});
         if(user){
+            console.log(user);
             res.send({ success: true, error: null, TrainersLib: { user } });
         } else{
             console.error(error);
             res.status(500).send({ success: false, error: 'no results found', info: null });
             }
-        }
-        if(keywords)
-        {
-            
-            const user =await KeywordModel.find({email:email},{keyword:keywords});
-            if(user){
-                res.send({ success: true, error: null, TrainersLib: { user } });
-            }
-            else{
-            console.error(error);
-            res.status(500).send({ success: false, error: 'no results found', info: null });
-            }
-        }
         
         
-       
       } catch (error) {
         console.error(error);
         res.status(500).send({ success: false, error: 'An error occurred', info: null });
       }
-})
+});
+
 
 
 

@@ -39,6 +39,7 @@ app.use("/api/classes", userClass);
 app.use("/api/trainers", userTrainer);
 app.use("/api/myTrainees",userMyTrainee);
 app.use("/api/messages",userMessages)
+
 /* listen to port */
 app.listen(port, () => {
     console.log(

@@ -11,13 +11,9 @@ const ExerciseKeywordSchema = new mongoose.Schema({
       type:String,
       ref:'Keyword'
     },
-    exercise: {
-      type:String,
-      ref:'Exercise'
-    },
+    title: String
     
 });
-{ _id: false }
 const Keyword = mongoose.model('Keyword', keywordSchema);
 const Exercise = mongoose.model('Exercise', ExerciseSchema);
 module.exports = ExerciseKeywordSchema;

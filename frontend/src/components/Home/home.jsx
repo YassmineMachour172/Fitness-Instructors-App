@@ -12,7 +12,9 @@ const Home = () => {
     /* function that navigate to the logIn page */
     
     
-    
+
+        localStorage.removeItem('saved');
+
     
     return (
 

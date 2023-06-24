@@ -14,9 +14,9 @@ import axios from 'axios';
 
 const Profile = () => {
   const navigate = useNavigate();
-  const { email } = useParams();
-  const [fName, setName] = useState('');
-  const [mail, setMail]=useState({email});
+  //const { email } = useParams();
+  const [fname, setname] = useState('');
+  const [mail, setMail]=useState('');
   const [phone, setPhone] = useState('');
   const [age, setAge]=useState('');
   const [gender, setGender] = useState('');
@@ -25,14 +25,18 @@ const Profile = () => {
 
   
   useEffect(() => {
+
+      const savedEmail =  localStorage.getItem('saved').replace(/"/g, '');
+      console.log({savedEmail});
+      setMail(savedEmail)
     const fetchUser = async () => {
       try {
-        console.log("before axios", email);
-        const response = await axios.get('http://localhost:8000/api/trainees/Profile', {
-          params: { email: email }
-        });
+        
+        console.log("before axios", savedEmail);
+        const response = await axios.get('http://localhost:8000/api/trainees/Profile', { params: { savedEmail } });
+        //params: { email: email }
         if (response.data.success === true) {
-          setName(response.data.info.user.fName);
+          setname(response.data.info.user.fName);
           setPhone(response.data.info.user.phone);
           setAge(response.data.info.user.age);
           setGender(response.data.info.user.gender);
@@ -61,11 +65,16 @@ const Profile = () => {
     const profileForm = document.querySelector('#profile-form'); 
     const submitForm = async ( e) => {
       e.preventDefault();
-
+      const fName=profileForm.querySelector('#fname').value;
+      const phone=profileForm.querySelector('#phone').value;
+      const age=profileForm.querySelector('#age').value;
+      const gender=profileForm.querySelector('#gender').value;
+      const height=profileForm.querySelector('#height').value;
+      const weight=profileForm.querySelector('#weight').value;
       try {
-        const response = await axios.post("http://localhost:8000/api/trainees/Profile", { fName, email,phone,age,gender,height,weight });
+        
+        const response = await axios.post("http://localhost:8000/api/trainees/Profile", { fName,mail,phone,age,gender,height,weight });
         console.log("profileeeeeeeeeeeeeeeeeeeee",response.data);
-        //fetchUser();
       } catch (error) {
         console.error(error);
         return;
@@ -75,7 +84,7 @@ const Profile = () => {
         <div className="container-fluid">
             <div className='backgroundcol'>
             <div className="row">
-                 <div ><img src={profile} className="infoInfo"/>{fName}</div>
+                 <div ><img src={profile} className="infoInfo"/>{fname}</div>
                     </div>
                     <div className='row'>
                     <div className="row" id='form-con'>
@@ -88,8 +97,8 @@ const Profile = () => {
                                                     <div className='text' Style="color:Black;">Nick Name:</div>
                                                     </div>
                                                     <div className='row'>
-                                                    <input Style="color: Black;background-color: transparent;border-radius: 12px;"type="text" name="firstName" onChange={setName}
-                                                id='fname' placeholder={fName} {...register('fName')}/>
+                                                    <input Style="color: Black;background-color: transparent;border-radius: 12px;"type="text" name="firstName" onChange={setname}
+                                                id='fname' placeholder={fname} {...register('fname')}/>
                                                 {errors.fName ? <p className='error-msg'>{errors.fName?.message}</p> : <br/>} {/* display error message if the first name is not valid */}
                                                     
                                                   </div>
@@ -99,7 +108,7 @@ const Profile = () => {
                                                   <div className='row'>
                                                   <input Style="color: Black;background-color: transparent;border-radius: 12px;"id="emailin" type="email" 
                                                     name="email" aria-describedby="emailHelp"
-                                                    placeholder="email" {...register('email')} value={email}/>
+                                                    placeholder="email" {...register('email')} value={mail} disabled/>
                                                 {errors.email ? <p className='error-msg'>{errors.email?.message}</p> : <br/>} {/* display error message if the email is not valid */}
                                                   
                                                   </div>
@@ -120,7 +129,7 @@ const Profile = () => {
                                                   </div>
                                                   <div className='row'>
                                                   <input Style="color: Black;background-color: transparent;border-radius: 12px;"type="password" id='password1' 
-                                                   name="password" placeholder="Password" {...register('password')}/>
+                                                   name="password" placeholder="Password" {...register('password')}disabled/>
                                                   {errors.password ? <p className='error-msg'>{errors.password?.message}</p> : <br/>} {/* display error message if the password is not valid */}
                                                   
                                                   
@@ -131,7 +140,7 @@ const Profile = () => {
                                                   </div>
                                                   <div className='row'> 
                                                   <input Style="color: Black;background-color: transparent;border-radius: 12px;" type="password"  id='password2'
-                                                  name="repeatPassword" placeholder="Repeat Password" {...register('repeatPassword')}/>
+                                                  name="repeatPassword" placeholder="Repeat Password" {...register('repeatPassword')} disabled/>
                                                   {errors.repeatPassword ? <p className='error-msg'>errors.repeatPassword.message</p> : <p className='space2'>{'.'}</p>} {/* display error message if the repeat password is not valid */}
                             
                                                  
@@ -142,12 +151,12 @@ const Profile = () => {
                                                   
                                                   <div className='row'>
                                                   <div className='text' Style="color:Black;">Age:</div>
-                                                  <input Style="color: Black;background-color: transparent;border-radius: 12px;"type="number" onChange={setAge} placeholder={age} className='form-control form-control-user' {...register("age", { min: 18, max: 99 })} />
+                                                  <input Style="color: Black;background-color: transparent;border-radius: 12px;" id="age"type="number" onChange={setAge} placeholder={age} className='form-control form-control-user' {...register("age", { min: 18, max: 99 })} />
                                                   </div>
                                                    <div className='row'>
                                                    <div className='text' Style="color:Black;">Gender:</div>
       
-                                                   <select Style="color: Black;background-color: transparent;border-radius: 12px;" value={gender}{...register("gender")} onChange={handleOptionChange}>
+                                                   <select Style="color: Black;background-color: transparent;border-radius: 12px;" id="gender"value={gender}{...register("gender")} onChange={handleOptionChange}>
                                                    <option value="female">female</option>
                                                    <option value="male">male</option>
                                                    <option value="other">other</option>
@@ -155,11 +164,11 @@ const Profile = () => {
                                                    </div>
                                                    <div className='row'>
                                                   <div className='text' Style="color:Black;">Height in cm:</div>
-                                                  <input Style="color: Black;background-color: transparent;border-radius: 12px;"type="number" placeholder={height} onChange={setHeight} className='form-control form-control-user' {...register("height", { min: 100, max: 200 })} />
+                                                  <input Style="color: Black;background-color: transparent;border-radius: 12px;"type="number" id="height"placeholder={height} onChange={setHeight} className='form-control form-control-user' {...register("height", { min: 100, max: 200 })} />
                                                   </div>
                                                   <div className='row'>
                                                   <div className='text' Style="color:Black;">weight in kilograms:</div>
-                                                  <input Style="color: Black;background-color: transparent;border-radius: 12px;"type="number" placeholder={weight} onChange={setWeight} className='form-control form-control-user' {...register("weight", { min: 30, max: 200 })} />
+                                                  <input Style="color: Black;background-color: transparent;border-radius: 12px;"type="number" id="weight" placeholder={weight} onChange={setWeight} className='form-control form-control-user' {...register("weight", { min: 30, max: 200 })} />
                                                   </div>
                                                   <center>
                                                   <div className='row'>
@@ -176,8 +185,8 @@ const Profile = () => {
                                       
                                                    
                                                   <center>
-                             <div className="buttons">
-                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('http://localhost:3000/')}><img src={HomeIc} className="HomBbox"  /></button>
+                             <div class="btn-group">
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
                                 <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
 
                                 
