@@ -19,7 +19,7 @@ const AboutUs = () => {
         
         <div className="navbar">
         <div className="navbar-container">
-            <div id='about-us' className='backgroundcol'>
+            <div id='about-us' className='col'>
                 
                 <div className="path">
                     <h5 className='pa'>Home--About us</h5>

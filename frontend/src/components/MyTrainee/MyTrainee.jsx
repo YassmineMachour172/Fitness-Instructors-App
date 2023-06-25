@@ -54,7 +54,7 @@ const MyTrainee=()=> {
   return (
     <center>
         <div className="container-fluid">
-            <div className='backgroundcol'>
+            <div className='col'>
             <div className="row" >
                 <center>
                  <div Style="color:Black;" >
