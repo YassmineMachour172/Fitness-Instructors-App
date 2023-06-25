@@ -9,6 +9,10 @@ const classesTraineesSch= require("../db/classesTraineesSchema");
 const classesTraineesModel=mongoose.model("MyClassesTrainee",classesTraineesSch);
 const keywordSchema = require("../db/keywordSchema");
 const KeywordModel = mongoose.model("keyword", keywordSchema);
+const classesSch= require("../db/classSchema");
+const classesModel=mongoose.model("Classes",classesSch);
+
+
 router.get('/MyClassesTrainer',async(req,res)=>{
     //shows all the trainers
     const email = req.query.email;
@@ -111,4 +115,21 @@ router.post('/NewClass',async(req,res)=>{
         res.status(500).send({ success: false, error: 'An error occurred', info: null });
       }
 })
+
+
+
+router.post("/CreateNewClass", async function (req, res) {
+    const {NameOfC,description,cType,email,keywords}  = req?.body;
+    console.log(req.body)
+    try {
+                    const user = await classesModel.insertMany([{ className:NameOfC,description,cType,email,keywords}])
+                        console.log("save  exercise to DB",{user});
+                  
+                    res.send({ success: true, error: null, info: null });
+    } catch (err) {
+        res.send({ success: false, info: null, error: "Server error" });
+        console.log(err)
+    }
+});
+
 module.exports = router;

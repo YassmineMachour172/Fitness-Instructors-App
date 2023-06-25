@@ -34,6 +34,9 @@ const ReactTable = ({
     const onClickDelete = async (row) => {
         console.log('Delete button clicked for car with treatment number: ', row.original.treatmentNumber);
         
+
+        /* send request to the server to delete the specific ex */
+
         
         await fetch('/deleteCar', {
             method: 'POST',
@@ -44,6 +47,7 @@ const ReactTable = ({
         })
        window.location.reload(false) 
     }
+
     // Listen for input changes outside
     useEffect(() => {
         setGlobalFilter(filterString);
