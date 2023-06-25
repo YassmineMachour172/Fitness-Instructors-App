@@ -16,11 +16,10 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import {useEffect} from 'react'
 const MyTrainee=()=> {
-  const [U,setU]=useState([]);
     const { email } = useParams();
-    const [mail, setMail]=useState('');
     const [Trainer, setTrainer]=useState();
     console.log("main",{email})
+    /* define what will disappear imeditally on the screen once the trainer log in  */
     useEffect(() => {
         const fetchUser = async () => {
           try {
@@ -49,13 +48,8 @@ const MyTrainee=()=> {
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
         mode: "onChange" /* validate the form on change */
     });
-    const handleChange = (e) => {
-      e.preventDefault();
-      setSearchInput(e.target.value);
-    };
-    
-    
-    const [searchInput, setSearchInput] = useState("");
+  
+/*define what the My  trainees page will contain, a table of all the trainees that belonge to the trainer and down buttons */
   return (
     <center>
         <div className="container-fluid">

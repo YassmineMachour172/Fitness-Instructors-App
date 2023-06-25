@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from '../../images/logo.png'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { resetPasswordSchema } from '../../Validations/FormsValidation';
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";

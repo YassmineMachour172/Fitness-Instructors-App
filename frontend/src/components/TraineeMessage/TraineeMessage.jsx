@@ -8,21 +8,20 @@ import { logInSchema } from '../../Validations/FormsValidation';
 import { useForm } from 'react-hook-form';
 import HomeIc from '../../images/home1.png'
 import info1 from '../../images/info1.png'
-import pList from '../../images/pList.png'
 import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
 import {useState} from 'react'
 import {useEffect} from 'react'
-import Profile from '../Profile/Profile';
 import axios from 'axios';
 import Mess from './Mess';
 import { useParams } from 'react-router-dom';
 const TraineeMessage=()=> {
   const [U,setU]=useState([]);
     const { email } = useParams();
-    const [mail, setMail]=useState('');
-    const [Messages, setMessages]=useState();
+    const [mail, setMail]=useState('');/*define state for the email */
+    const [Messages, setMessages]=useState();/*define state for the message modal box */
     console.log("main",{email})
+    /*the follwoing will display the messages foe the trainee imedatlly after accessing this page */
     useEffect(() => {
         const fetchUser = async () => {
           try {

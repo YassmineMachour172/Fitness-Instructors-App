@@ -85,7 +85,7 @@ const SignIn =() => {
     setMail(signInForm.querySelector('#emailin').value)
         console.log("successful")
         handleClickMainTrainee()
-        //history.push(`/main-trainee/${email}`);
+        
    }
     }catch(e){
         console.log(e)

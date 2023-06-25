@@ -9,7 +9,8 @@ import profile from '../../images/profile.png'
 import ReactPlayer from 'react-player';
 
 
-/* Application manual Component */
+
+/*  Start video Component */
 const StartVideo = () => {
     const navigate = useNavigate(); /* define hook to navigate to other pages */
     const email=localStorage.getItem('saved').replace(/"/g, '');
@@ -26,6 +27,7 @@ const StartVideo = () => {
 
     }
     
+    /* the follwoing will display the content of the start video */
     return (
         <div className="container-fluid">
             <div id='ApplicationManual' className='backgroundcol'>

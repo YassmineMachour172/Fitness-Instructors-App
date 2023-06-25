@@ -28,6 +28,7 @@ const UploadeNewEx = () => {
     location:"",
     keywords:""
   })
+  /* this function will storage the email in the right place */
   useEffect(()=>{
     const savedEmail =  localStorage.getItem('saved').replace(/"/g, '');
     console.log({savedEmail});
@@ -140,7 +141,6 @@ const UploadeNewEx = () => {
                                                   
 
                                                   <button type="button" className='about-us' onClick={()=>{navigate( `/MainTrainer/${email}`)}}>Main Trainer</button>
-
                                                   
                                                   </div>
                                                   </center>

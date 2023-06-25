@@ -14,10 +14,8 @@ import changAccount2 from '../../images/changeAcc2.png'
 import MyClasses from '../../images/MyClasses.png'
 import MyTrianee from '../../images/MyTrainee.png'
 import React, { useEffect,useState } from 'react';
-import axios from 'axios';
 import MyLibrary from '../../images/uplode.png'
 import MyClassesTrainer from '../MyClassesTrainer/MyClassesTrainer';
-import Profile from '../Profile/Profile';
 import CreateNewClass from '../CreateNewClass/CreateNewClass';
 import TrainersLib from '../TrainersLib/TrainersLib';
 import TrainerMessage from '../TrainerMessage/TrainerMessage';
@@ -29,10 +27,12 @@ const MainTrainer = () =>  {
     const { email } = useParams();
     const [mail, setMail]=useState('');
     console.log("main",{email})
+    /* define what will disappear imeditally on the screen once the trainer log in  */
     useEffect(()=>{
         const savedEmail =  localStorage.getItem('saved');
         console.log({savedEmail});
     },[]);
+    /* function that navigates to my classes page */
     const handleClickMyClasses  = () => {
         
         < MyClassesTrainer email={email} />
@@ -44,28 +44,29 @@ const MainTrainer = () =>  {
         <TrainerMessage email={email} />
         navigate(`/TrainerMessage/${email}`);
     };
-    /* function that navigates to the profile page */
-    const handleClickProfile = () => {
-        navigate('/Profile');    
-     };
+    
     /* function that navigates to the New class page */
     const handleClickNewClass = () => {
         < CreateNewClass email={email} />
         navigate(`/CreateNewClass/${email}`);
         
     };
-    /* function that navigates to the Trainer main page */
+    /* function that navigates to the Trainee main page */
     const handleClickSwitchToTrainee = () => {
         < MainTrainee email={email} />
         navigate(`/main-trainee/${email}`);
     };
+    /* function that navigates to the trainer's library page */
     const handleClicktrianersLib = () => {
         < TrainersLib email={email} />
         navigate(`/TrainersLib/${email}`);
-    };const handleClickMyTrainees = () => {
+    };
+    /* function that navigates to the My trainees page */
+    const handleClickMyTrainees = () => {
         < MyTrainee email={email} />
         navigate(`/MyTrainee/${email}`);
     };
+    /*define the maintrainee contant that contains : upper buttons and five main buttons  */ 
     return (
         <footer className='backgroundcol'>
         <div className="container-fluid">

@@ -14,8 +14,6 @@ import NewW from '../../images/NewW.jpg'
 import changAccount from '../../images/changeAcc.png'
 import MyClasses from '../../images/MyClasses.png'
 import { useParams } from 'react-router-dom';
-import { render } from '@testing-library/react';
-import Profile from '../Profile/Profile';
 import MainTrainer from '../MainTrainer/MainTrainer';
 import NewClass from '../NewClassTrainee/NewClass';
 import TraineeMessage from '../TraineeMessage/TraineeMessage';
@@ -24,11 +22,11 @@ import MyClassesTrainee from '../MyClassesTrainee/MyClassesTrainee';
 import Classes from '../../components/MyClassesTrainee/Classes';
 const MainTrainee = () => {
     const [U,setU]=useState([]);
-    ///*******************///
     const { email } = useParams();
     const [mail, setMail]=useState('');
     const [classes, setClasses]=useState();
     console.log("main",{email})
+    /* define what will disappear imeditally on the screen once the trainee log in  */
     useEffect(() => {
         const fetchUser = async () => {
           try {
@@ -59,21 +57,12 @@ const MainTrainee = () => {
    
     console.log( "Main")
    
-    //const [mail,setMail]=useState(email);
+    
    
 
     const navigate = useNavigate();
     const location = useLocation();
-  //setMail(location.state?.data);
-    //console.log("main",mail)
-    /* function that navigates to the home page */
-    const handleClickHome = () => {
-        navigate('/');
-    };
-    /* function that navigates to the information page */
-    const handleClickInfo = () => {
-        navigate('/Info');
-    };
+
     /* function that navigates to the my classes page */
     const handleClickMyClasses  = () => {
         
@@ -86,10 +75,7 @@ const MainTrainee = () => {
         <TraineeMessage email={email} />
         navigate(`/Traineemessage/${email}`);
     };
-    /* function that navigates to the profile page */
-    const handleClickProfile = () => {
-        navigate('/Profile');   
-     };
+  
     /* function that navigates to the New class page */
     const handleClickNewClass = () => {
         < NewClass email={email} />
@@ -103,7 +89,7 @@ const MainTrainee = () => {
     };
     
     
-
+/* define the maintrainee contant that contains : upper buttons and four main buttons and the list of the registered class */
     return (
         <div className="container-fluid " >
           <div className='backgroundcol'>

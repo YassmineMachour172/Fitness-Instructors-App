@@ -8,7 +8,6 @@ import { logInSchema } from '../../Validations/FormsValidation';
 import { useForm } from 'react-hook-form';
 import HomeIc from '../../images/home1.png'
 import info1 from '../../images/info1.png'
-import pList from '../../images/pList.png'
 import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
 import {useState} from 'react'
@@ -22,6 +21,7 @@ const TrainerMessage=()=> {
     const [mail, setMail]=useState('');
     const [Messages, setMessages]=useState();
     console.log("main",{email})
+    /*the follwoing will display the messages for the trainer imedatlly after accessing this page */
     useEffect(() => {
         const fetchUser = async () => {
           try {

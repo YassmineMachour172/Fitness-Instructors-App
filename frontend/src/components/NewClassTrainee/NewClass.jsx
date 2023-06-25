@@ -8,26 +8,16 @@ import { logInSchema } from '../../Validations/FormsValidation';
 import { useForm } from 'react-hook-form';
 import HomeIc from '../../images/home1.png'
 import info1 from '../../images/info1.png'
-import pList from '../../images/pList.png'
-import feedback from '../../images/feedBack.png'
 import profile from '../../images/profile.png'
-import searchIcon from '../../images/search.jpg'
-import menu from '../../images/menue.png'
 import {useState} from 'react'
 import NewClassTrainee from '../../images/CreateNewEx.png'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import Profile from '../Profile/Profile';
 import Classes from '../../components/MyClassesTrainer/Classes';
 const NewClass=()=> {
   const { email } = useParams();
-    const [mail, setMail]=useState('');
-  const [form,setForm]=React.useState({
-    ClassN:"",
-    KeyWords:""
-  })
   const [classes, setClasses]=useState();
-  const navigate = useNavigate();
+  const navigate = useNavigate();/*define hook to navigate between pages*/
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
         mode: "onChange" /* validate the form on change */
@@ -36,10 +26,7 @@ const NewClass=()=> {
       e.preventDefault();
       setSearchInput(e.target.value);
     };
-    const handleClickProfile = () => {
-      navigate('/Profile');   
-   };
-    
+     
     const handleSearch1 = async (e) => {
       e.preventDefault();
       
@@ -92,6 +79,7 @@ const NewClass=()=> {
     };
     
     const [searchInput, setSearchInput] = useState("");
+    /*define what the New class page will contain, search box to search classes and register to  and down buttons */
   return (
     <center>
         <div className="container-fluid">

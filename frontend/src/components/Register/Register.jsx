@@ -3,7 +3,6 @@ import { useNavigate  } from 'react-router-dom';
 import { signUpSchema } from '../../Validations/FormsValidation';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import md5 from 'md5';
 import { Modal, Button } from "react-bootstrap";
 import '../../css/sb-admin-2.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
