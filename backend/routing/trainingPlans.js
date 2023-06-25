@@ -5,18 +5,14 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const trainingPlansSchema = require("../db/trainingPlansSchema");
 const TrainingPlansModel = mongoose.model("trainingPlans", trainingPlansSchema);
-var count=0;
-function increase(){
-    count++;
-}
+
+
 router.post("/TrainersLibSelect", async function (req, res) {
-    const {exercisetitle,className,description,trainerEmail }  = req?.body;
-    console.log(req.body)
+    const {exercisetitle,className,description,trainerEmail }  = req?.body?.params;
     try {
-                    const user = await TrainingPlansModel.insertMany([{exercisetitle,className,description,trainerEmail}])
-                        console.log("save  training to DB");
-                        increase();
-                    res.send({ success: true, error: null, info: user. trainingNum});
+                    const user = await TrainingPlansModel.insertMany([{trainingName:className,exercisetitle,className,description,trainerEmail}])
+                        console.log("save  training to DB",{trainingName:className,exercisetitle,className,description,trainerEmail});
+                    res.send({ success: true, error: null, info: null});
     } catch (err) {
         res.send({ success: false, info: null, error: "Server error" });
         console.log(err)

@@ -25,7 +25,6 @@ const onClickSelect = async (row) => {
         if((res?.data?.success===true)){
           console.log("successful")
           /*IT RETURNS THE TRAINING NUMBER*/
-          localStorage.setItem('trainingNum', JSON.stringify(res.data.info));
           navigate(`/CreateNewClass/${email}`);
     }
     else{

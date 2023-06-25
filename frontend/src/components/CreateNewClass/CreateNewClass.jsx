@@ -40,7 +40,7 @@ const CreateNewClass = () => {
         setShow(false);
         setMsgModal('');
    }
-   useEffect(() => {
+   /*useEffect(() => {
     async function fetchData() {
       try {
         const className = localStorage.getItem('className').replace(/"/g, '');
@@ -53,7 +53,7 @@ const CreateNewClass = () => {
       }
     }
     fetchData();
-  }, []);
+  }, []);*/
   const tableColumns = React.useMemo(
     () => [
       {
