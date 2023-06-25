@@ -17,7 +17,7 @@ import { useParams } from 'react-router-dom';
 import Classes from '../../components/MyClassesTrainer/Classes';
 import goback from '../../images/return.png'
 import ReactTable from '../ReactTable/ReactTable';
-import imageDelete from'../../images/delete.png';
+import imageDelete from'../../images/click.png';
 import { render } from '@testing-library/react';
 
 const NewClass=()=> {

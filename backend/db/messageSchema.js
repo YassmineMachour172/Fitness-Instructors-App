@@ -7,26 +7,9 @@ const trainerSchema = require("./trainerSchema");
 
 
 const messageSchema = new mongoose.Schema({
-    messageNum: {
-        primary: true,
-        type:number
-    },
+    sender: String,
+    reciever: String,
     message: String,
-    TimeAndDate: Date,
-    trainee: {
-        type:String,
-        ref:'Trainee'
-        
-      },
-      trainer: {
-          type: String,
-          ref: 'Trainer'
-        }
-        ,emailTrainer: String,
-        emailTrainee: String
 });
-{ _id: false }
-const Trainee = mongoose.model('Trainee', TraineeSchema);
-const Trainer = mongoose.model('Trainer', trainerSchema);
 
 module.exports = messageSchema;

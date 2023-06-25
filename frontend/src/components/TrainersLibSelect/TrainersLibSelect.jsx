@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReactTable from '../ReactTable/ReactTable';
 import './try.css';
 import imageDelete from'../../images/delete.png';
-import imageEdit from '../../images/edit.png';
+import imageSelect from '../../images/click.png';
 import { useNavigate  } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
@@ -71,7 +71,7 @@ const onClickSelect = async (row) => {
         accessor: 'action',
         Cell: row => (
             <div>
-                <button onClick={(e) => onClickSelect(row.row)} className='button-image' >  <img src={imageDelete} alt="image-button" style={{ width: '30px', height: '30px' }}/>
+                <button onClick={(e) => onClickSelect(row.row)} className='button-image' >  <img src={imageSelect} alt="image-button" style={{ width: '30px', height: '30px' }}/>
                 </button>
             </div>     
         )

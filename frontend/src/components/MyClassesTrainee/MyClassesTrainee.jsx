@@ -53,7 +53,9 @@ const MyClassesTrainee=()=> {
   }
   const onClickDelete = async (row) => {
       const className =  row.original.className;
-      const res = await axios.post('http://localhost:8000/api/traineesClass/MyClassesTrainee', { params: {className } });
+      const traineeEmail =  localStorage.getItem('saved').replace(/"/g, '');
+
+      const res = await axios.post('http://localhost:8000/api/traineesClass/MyClassesTrainee', { params: {className, traineeEmail} });
       if((res?.data?.success===true)){
         console.log("successful")
   }
@@ -130,7 +132,7 @@ const MyClassesTrainee=()=> {
                
                 </div>
                 <center>
-                <div className='row' style={{flexDirection: 'row', height:500, width: 500}}>
+                <div className='row' style={{flexDirection: 'row', height:700, width: 650 }}>
                 
                 <div className='col'>
                             

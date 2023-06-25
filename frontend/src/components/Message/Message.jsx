@@ -8,9 +8,9 @@ export default function Upload() {
   const [email, setMail]=useState('');
 
   const [form,setForm]=React.useState({
-    title:"",
-    describtion:"",
-    file:null
+    sender:"",
+    reciever:"",
+    message:""
   })
  useEffect(()=>{
     const savedEmail =  localStorage.getItem('saved').replace(/"/g, '');
@@ -25,28 +25,23 @@ export default function Upload() {
       [event.target.name]: inputValue
     })
   }
-  const handleClickUploadNewEx = () => {
-    navigate('/UploadeNewEx');
 
-};
 
   async function handleSubmit(event){
     event.preventDefault();
     console.log(email,"UPLOAAAAAAAAAAAAAAAAAAd");
     console.log({form});
-    const videoData =new FormData();
-      const title=form.title;
-      const location=form.location;
-      localStorage.setItem('loc',JSON.stringify(location));
-      const description=form.describtion;
+      const sender=localStorage.getItem('saved').replace(/"/g, '');
+      const reciever=form.reciever;
+      const message=form.message;
 
       try{
-        const res=await axios.post("http://localhost:8000/api/exercises/Upload",{title,location,description,email})
+        const res=await axios.post("http://localhost:8000/api/messages/Message",{params:{sender,reciever,message}})
         
         
         if((res?.data?.success===true)){
               console.log("successful")
-              handleClickUploadNewEx()
+              navigate(`/TraineeMessage/${email}`);
         }
         else{
           console.log("error",res.error)
@@ -59,20 +54,20 @@ export default function Upload() {
   return (
     <div>
       <div className='backgroundcol'>
-      <h1 Style="color: Black">Upload Youtube Video</h1>
+      <h1 Style="color: Black">To Whom You wish to write to?</h1>
       <center>
       <form action="" onSubmit={handleSubmit}>
         <div>
-          <input Style="color: Black;background-color: transparent;border-radius: 12px;" onChange={handleChange} type="text" name="title" autoComplete='off' placeholder='Title'/>
+          <input Style="color: Black;background-color: transparent;border-radius: 12px;" onChange={handleChange} type="text" name="sender" autoComplete='off' value={localStorage.getItem('saved').replace(/"/g, '')}/>
         </div>
         <div>
-          <input Style="color: Black;background-color: transparent;border-radius: 12px;" onChange={handleChange} type="text" name="location" autoComplete='off' placeholder='Location'/>
+          <input Style="color: Black;background-color: transparent;border-radius: 12px;" onChange={handleChange} type="text" name="reciever" autoComplete='off' placeholder='Reciever'/>
         </div>
         <div>
-          <textarea Style="color: Black;background-color: transparent;border-radius: 12px;" onChange={handleChange} type="text" name="description" autoComplete='off' placeholder='Description'/>
+          <textarea Style="color: Black;background-color: transparent;border-radius: 12px;" onChange={handleChange} type="text" name="message" autoComplete='off' placeholder='Message'/>
         </div>
        
-        <button Style="color: Black;border-radius: 12px;" type='submit' className="about-us">Upload Video</button>
+        <button Style="color: Black;border-radius: 12px;" type='submit' className="about-us">Send</button>
       </form>
       </center>
     </div>

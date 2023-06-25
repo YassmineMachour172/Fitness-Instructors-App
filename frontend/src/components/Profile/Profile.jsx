@@ -96,7 +96,7 @@ const Profile = () => {
                                                     </div>
                                                     <div className='row'>
                                                     <input Style="color: Black;background-color: transparent;border-radius: 12px;"type="text" name="firstName" onChange={setname}
-                                                id='fname' placeholder={fname} {...register('fname')}/>
+                                                id='fname' value={fname} {...register('fname')}/>
                                                 {errors.fName ? <p className='error-msg'>{errors.fName?.message}</p> : <br/>} {/* display error message if the first name is not valid */}
                                                     
                                                   </div>
@@ -116,7 +116,7 @@ const Profile = () => {
                                                   </div>
                                                   <div className='row'>
                                                   <input Style="color: Black;background-color: transparent;border-radius: 12px;" type="text" name="phone" id='phone' onChange={setPhone}
-                                                placeholder={phone} {...register('phone')}/>
+                                                value={phone} {...register('phone')}/>
                                                 {errors.phone ? <p className='error-msg'>{errors.phone?.message}</p> : <br/>} {/* display error message if the phone number is not valid */}
                                                    
                                                  
@@ -127,7 +127,7 @@ const Profile = () => {
                                                   </div>
                                                   <div className='row'>
                                                   <input Style="color: Black;background-color: transparent;border-radius: 12px;"type="password" id='password1' 
-                                                   name="password" placeholder="Password" {...register('password')}disabled/>
+                                                   name="password" value="Password" {...register('password')}disabled/>
                                                   {errors.password ? <p className='error-msg'>{errors.password?.message}</p> : <br/>} {/* display error message if the password is not valid */}
                                                   
                                                   
@@ -138,7 +138,7 @@ const Profile = () => {
                                                   </div>
                                                   <div className='row'> 
                                                   <input Style="color: Black;background-color: transparent;border-radius: 12px;" type="password"  id='password2'
-                                                  name="repeatPassword" placeholder="Repeat Password" {...register('repeatPassword')} disabled/>
+                                                  name="repeatPassword" value="Repeat Password" {...register('repeatPassword')} disabled/>
                                                   {errors.repeatPassword ? <p className='error-msg'>errors.repeatPassword.message</p> : <p className='space2'>{'.'}</p>} {/* display error message if the repeat password is not valid */}
                             
                                                  
@@ -154,7 +154,7 @@ const Profile = () => {
                                                    <div className='row'>
                                                    <div className='text' Style="color:Black;">Gender:</div>
       
-                                                   <select Style="color: Black;background-color: transparent;border-radius: 12px;" id="gender"value={gender}{...register("gender")} onChange={handleOptionChange}>
+                                                   <select Style="color: Black;background-color: transparent;border-radius: 12px;" id="gender"placeholder={gender}{...register("gender")} onChange={handleOptionChange}>
                                                    <option value="female">female</option>
                                                    <option value="male">male</option>
                                                    <option value="other">other</option>
@@ -162,11 +162,11 @@ const Profile = () => {
                                                    </div>
                                                    <div className='row'>
                                                   <div className='text' Style="color:Black;">Height in cm:</div>
-                                                  <input Style="color: Black;background-color: transparent;border-radius: 12px;"type="number" id="height"placeholder={height} onChange={setHeight} className='form-control form-control-user' {...register("height", { min: 100, max: 200 })} />
+                                                  <input Style="color: Black;background-color: transparent;border-radius: 12px;"type="number" id="height" placeholder={height} onChange={setHeight} className='form-control form-control-user' {...register("height", { min: 100, max: 200 })} />
                                                   </div>
                                                   <div className='row'>
                                                   <div className='text' Style="color:Black;">weight in kilograms:</div>
-                                                  <input Style="color: Black;background-color: transparent;border-radius: 12px;"type="number" id="weight" placeholder={weight} onChange={setWeight} className='form-control form-control-user' {...register("weight", { min: 30, max: 200 })} />
+                                                  <input Style="color: Black;background-color: transparent;border-radius: 12px;"type="number" id="weight" placeholder={weight} onChange={setWeight}  className='form-control form-control-user' {...register("weight", { min: 30, max: 200 })} />
                                                   </div>
                                                   <center>
                                                   <div className='row'>

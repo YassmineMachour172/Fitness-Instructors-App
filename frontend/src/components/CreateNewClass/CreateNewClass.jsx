@@ -178,8 +178,9 @@ const CreateNewClass = () => {
                                                 </div>
                                                 
                                                 <div className='row'>
-                                                    <button type="button" onClick={()=>{navigate('/TrainersLibSelect')}} placeholder='first' ></button>
-                                                   
+                                                    <div className='row' style={{flexDirection: 'row', height:50, width: 100}}><div className="btn-group">
+                            <button className="btn btn-primary" onClick={()=>{navigate('/TrainersLibSelect')}}>Select Exercise</button>
+                            </div>
                                                     
                                                 </div>
                                                 <div className='row'>
@@ -192,7 +193,8 @@ const CreateNewClass = () => {
                                                   </div>
                                                 </div>
                                                   
-                                                  </div>
+                                                </div>
+                                                </div>
                                                  </form>
                
 

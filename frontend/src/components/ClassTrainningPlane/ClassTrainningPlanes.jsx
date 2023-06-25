@@ -11,13 +11,17 @@ import {useEffect} from 'react'
 import axios from 'axios';
 import imageStart from '../../images/play.png'
 import ReactTable from '../ReactTable/ReactTable';
+import HomeIc from '../../images/home1.png'
+import info1 from '../../images/info1.png'
+import profile from '../../images/profile.png'
+import goback from '../../images/return.png'
 
-import Description from '../Description/Description';
+
 const ClassTrainningPlanes=()=> {
     const [TableData, setTableData] = useState([]);
     const [descriptionData, setDescriptionData] = useState('');
     const navigate = useNavigate();
-    const { register, handleSubmit, formState: { errors }} = useForm({
+    const {  formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
         mode: "onChange" /* validate the form on change */
     });
@@ -44,12 +48,10 @@ const ClassTrainningPlanes=()=> {
             console.log("before")
             //get the training plan list
             const response = await axios.get('http://localhost:8000/api/trainingPlans/ClassTrainningPlanes',{params:{className}} );
-            console.log("after", response.data.NewClass.user)
-            setTableData(response.data.NewClass.description);
+            setTableData(response.data.NewClass.user);
             //get the classDetails
-            //const response1 = await axios.get('http://localhost:8000/api/classes/ClassTrainningPlanes',{params:{className} });
-            //console.log("after", response1.data.NewClass.user)
-            //setDescriptionData(response1.data.NewClass.user.description);
+            const response1 = await axios.get('http://localhost:8000/api/classes/ClassTrainningPlanes',{params:{className} });
+            setDescriptionData(response1.data.NewClass.user.description);
 
           } catch (error) {
             console.error("catch ",error);
@@ -123,10 +125,17 @@ const ClassTrainningPlanes=()=> {
             
             <div className="down-buttons">
             
-              <div className='row'style={{flexDirection: 'row', height:200, width: 400}}><center>
-              <button  className='home5' onClick={() => navigate('/')}>Home</button>
-              <button className='home5' onClick={() => navigate('/SignIn')}>Sign In</button>
-              <button className='home5' onClick={() => navigate('/about')}>About Us</button>
+            <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
+                <center>
+                <div class="btn-group">
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={()=>navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={()=>navigate('/main-trainee/:email')}><img src={goback} className="ProfileBbox"/></button>
+                              </div>
+                             
+                              </center>
+                              </div></div></div>
               </center>
               </div>
                                 
@@ -137,18 +146,7 @@ const ClassTrainningPlanes=()=> {
                               
                                         </div>
                                         </center>
-                                            
-                            </div>
-                
-                <center>
-                
-                              </center>
-                             
-                      
-            
-            </div>
-            </div>
-            </center>
+                                       
   )
 }
 export default ClassTrainningPlanes ;

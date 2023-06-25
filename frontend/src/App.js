@@ -4,7 +4,7 @@ import { HashRouter as Router, Routes , Route } from 'react-router-dom';
 import React, { useState, useEffect, Component } from "react";
 import Home from './components/Home/home'
 import AppM from './components/ApplicationManual/AppM'
-import Upload from './components/Upload/Upload'
+import Message from './components/Message/Message'
 import About from './components/AboutUs/AboutUs'
 import SignIn from './components/SignIn/SignIn'
 import Forgot from './components/ForgotPassword/Forgot'
@@ -18,7 +18,6 @@ import NewClass from './components/NewClassTrainee/NewClass'
 import MainTrainer from './components/MainTrainer/MainTrainer'
 import Statics from './components/Statics/Statics'
 import StartVideo from './components/StartVideo/StartVideo'
-import Description from './components/Description/Description'
 import TrainerMessage from './components/TrainerMessage/TrainerMessage'
 import MyClassesTrainer from './components/MyClassesTrainer/MyClassesTrainer'
 import CreateNewClass from './components/CreateNewClass/CreateNewClass'
@@ -89,7 +88,6 @@ function App() {
                 <Route path="MainTrainer" element={<MainTrainer/>}/>
                 <Route path="Statics" element={<Statics/>}/>
                 <Route path="StartVideo" element={<StartVideo/>}/>
-                <Route path="Description" element={<Description/>}/>
                 <Route path="TraineeMessage/:email" element={<TraineeMessage/>}/>
                 <Route path="TrainerMessage/:email" elemnt={<TrainerMessage/>}/>
                 <Route path="MyClassesTrainer/:email" element={<MyClassesTrainer/>}/>
@@ -99,7 +97,7 @@ function App() {
                 <Route path="UploadeNewEx" element={<UploadeNewEx/>}/>
                 <Route path="TrainningPlanes" element={<TrainningPlanes/>}/>
                 <Route path="MainTrainer/:email" element={<MainTrainer/>}/>
-                <Route path="Upload" element={<Upload/>}/>
+                <Route path="Message" element={<Message/>}/>
                 <Route path="TrainersLibSelect" element={<TrainersLibSelect/>}/>
                 <Route path='ClassTrainningPlanes' element={<ClassTrainningPlanes/>}/>
             </Routes> 

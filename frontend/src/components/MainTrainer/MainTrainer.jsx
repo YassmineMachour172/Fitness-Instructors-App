@@ -40,9 +40,8 @@ const MainTrainer = () =>  {
     };
     /* function that navigates to the message/ feedback page */
     const handleClickMessage = () => {
-    
-        <TrainerMessage email={email} />
-        navigate(`/TrainerMessage/${email}`);
+        const email=localStorage.getItem('saved').replace(/"/g, '');
+        navigate(`/TraineeMessage/${email}`);
     };
     
     /* function that navigates to the New class page */

@@ -68,9 +68,13 @@ router.get('/MyClassesTrainee',async(req,res)=>{
 router.post('/MyClassesTrainee',async(req,res)=>{
 
     const className= req.body.params.className;
+    const traineeEmail= req.body.params.traineeEmail;
+
     console.log(req.body.params)
     try {
-            const user = await TraineeclassModel.deleteOne({className:className});
+            const user = await TraineeclassModel.deleteOne({
+                $or: [{className:className},{traineeEmail:traineeEmail}]
+              });
             console.log("HELOOOOOOOOOOOOOOO",user)
         if(user){
             res.send({ success: true, error: null, MyClassesTrainee: { user } });

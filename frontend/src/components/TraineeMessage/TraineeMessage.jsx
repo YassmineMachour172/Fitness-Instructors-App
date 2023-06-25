@@ -16,36 +16,54 @@ import axios from 'axios';
 import Mess from './Mess';
 import { useParams } from 'react-router-dom';
 import goback from '../../images/return.png'
+import ReactTable from '../ReactTable/ReactTable';
+
 const TraineeMessage=()=> {
   const [U,setU]=useState([]);
     const { email } = useParams();
+    const [TableData, setTableData] = useState([]);
+
+    
     const [mail, setMail]=useState('');/*define state for the email */
     const [Messages, setMessages]=useState();/*define state for the message modal box */
     console.log("main",{email})
     /*the follwoing will display the messages foe the trainee imedatlly after accessing this page */
-    useEffect(() => {
-        const fetchUser = async () => {
+   
+      useEffect(() => {
+        const email = localStorage.getItem('saved').replace(/"/g, '');
+        async function fetchData() {
           try {
-            console.log(email);
-            console.log("before axios", email);
-            const response = await axios.get('http://localhost:8000/api/messages/TraineeMessage', {email});
-            if (response.data.success === true) {
-              const dataTable= response.json();
-                console.log(dataTable);
-                if(dataTable.length>0)
-                {
-                  setMessages(dataTable);
-                }
-            } else {
-              console.log(response.data.error);
-            }
-            console.log("requesting");
-            console.log(response.data);
+            console.log("before")
+            const response = await axios.get('http://localhost:8000/api/messages/TraineeMessage',{email} );
+            console.log("after", response.data.MyMessagesTrainer.user)
+            setTableData(response.data.MyMessagesTrainer.user);
           } catch (error) {
-            console.error(error);
+            console.error("catch ",error);
           }
-        };fetchUser();
+        }
+    
+        fetchData();
       }, []);
+      function handleClick  () {
+        navigate('/Message');
+      };
+      const tableColumns = React.useMemo(
+        () => [
+          {
+            Header: 'Sender',
+            accessor: 'sender',
+          },
+          {
+            Header: 'Reciever',
+            accessor: 'reciever',
+          },
+          {
+            Header: 'Message',
+            accessor: 'message',
+          }
+        ],
+        []
+      );
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -71,25 +89,18 @@ const TraineeMessage=()=> {
                        My Messages 
                 </div>
                 <br/>
-                <div style={{ color: 'black' }}>Your Trainers To Talk To:</div>
+                <div style={{ color: 'black' }}>Your messages list</div>
                 </center>
                 </div>
                
                 <div className='row' style={{flexDirection: 'row', height:400, width: 500}}>
                 <center>
                 <div className='col'>
-                           
-                <table className='table3' Style="color:Black;text-align: center;margin: auto;">
-                <tbody>
-                <tr Style="color: #D66850;">
-                <   th>Class's Name</th>
-                    <th>Trainee's Name</th>
-                    <th>Chat</th>
-                </tr>
-                
-                  <Mess Messages={Messages}></Mess>
-                </tbody>
-            </table> 
+                <div className="table-responsive">
+                                    <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <ReactTable columns={tableColumns} data={TableData} />
+                                    </table>
+                                </div>
                                         
                 
                                         
@@ -97,10 +108,12 @@ const TraineeMessage=()=> {
                                         </center>
                                             
                             </div>
-                 
+                            <div className='row' style={{flexDirection: 'row', height:50, width: 100}}><div className="btn-group">
+                            <button className="btn btn-primary" onClick={handleClick}>Write New</button>
+                            </div></div>
                             <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
                 <center>
-                             <div class="btn-group">
+                             <div className="btn-group">
                                 <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"/></button>
                                 <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
                                 <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={()=>navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>

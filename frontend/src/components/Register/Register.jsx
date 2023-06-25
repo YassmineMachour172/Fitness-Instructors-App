@@ -25,10 +25,11 @@ const Register = () => {
     /* function that navigates to the home page */
     const handleClickHome = () => {
         navigate('/');
-    };
+    }; 
  /* function that navigates to the MainTrainee page */
  const handleClickMainTrainee = () => {
-    navigate('/MainTrainee');
+    const email = signUpForm.querySelector('#emailin').value;
+    navigate(`/main-trainee/${email}`);
 };
 
     /* function that navigates to the log in page */
@@ -69,6 +70,7 @@ const Register = () => {
             }
            if((res?.data?.info===null)){
                 console.log("successful")
+                localStorage.setItem('saved',email)
                 handleClickMainTrainee()
            }
            else{
