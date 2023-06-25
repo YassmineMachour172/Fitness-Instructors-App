@@ -30,7 +30,7 @@ const CreateNewClass = () => {
         navigate(`/TrainersLib/${email}`);
     };
     const navigate = useNavigate();/* define hook to navigate to other pages */
-    const { register, handleSubmit, formState: { errors }} = useForm({
+    const { formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
         mode: "onChange" /* validate the form on change */
     });
@@ -90,11 +90,8 @@ const CreateNewClass = () => {
       }) 
 
    
-    const navigate = useNavigate();
-    const {  formState: { errors }} = useForm({
-        resolver: yupResolver(logInSchema), /* validate the form with the schema */
-        mode: "onChange" /* validate the form on change */
-    });
+    
+   
     function handleChange(event){
         const inputValue =event.target.value;
         

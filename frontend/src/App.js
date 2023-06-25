@@ -27,7 +27,6 @@ import TrainersLib from './components/TrainersLib/TrainersLib'
 import UploadeNewEx from './components/UploadNewEx/UploadeNewEx';
 import TrainningPlanes from './components/TrainningPlanes/TrainningPlanes'
 import ResetPassword from './components/ResetPassword/ResetPassword'
-import NewCLassAfterSearch from './components/NewClassAfterSearch/NewClassAfterSearch'
 import TrainersLibSelect from'./components/TrainersLibSelect/TrainersLibSelect'
 
 import './App.css';
