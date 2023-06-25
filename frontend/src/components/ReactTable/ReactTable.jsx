@@ -50,7 +50,7 @@ const ReactTable = ({
     }, [filterString, data]);
 
     return (
-        <div className="table-container">
+        <div className="tabelcontainer">
         {data.length === 0 ? (
             placeholder
         ) : (

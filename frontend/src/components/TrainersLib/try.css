@@ -22,3 +22,14 @@
     text-decoration: underline;
     color: red;
 }
+.tableWrapper {
+    border-spacing: 0;
+   
+    width: 100%;
+    border:1px solid black;
+}
+.tabelcontainer {
+    table-layout: fixed;
+    width: 700px;
+    border: 1px solid red;
+ }

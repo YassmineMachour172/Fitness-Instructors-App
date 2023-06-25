@@ -6,6 +6,11 @@ import './try.css';
 import imageDelete from'../../images/delete.png';
 import imageEdit from '../../images/edit.png';
 import { useNavigate  } from 'react-router-dom';
+import HomeIc from '../../images/home1.png'
+import info1 from '../../images/info1.png';
+import profile from '../../images/profile.png'
+import menu from '../../images/menue.png'
+import logo from '../../images/logo.png'
 const TrainersLib = () => {
   const [carsTableData, setCarsTableData] = useState([]);
   const navigate = useNavigate();
@@ -76,56 +81,58 @@ const onClickDelete = async (row) => {
   );
 
   return (
-    <div className='container'>
-    <div id="page-top">
-
-        {/* Page Wrapper */}
-        <div id="wrapper">
-
-            {/* Content Wrapper */}
-            <div id="content-wrapper" className="d-flex flex-column">
-
-                {/* Main Content */}
-                <div id="content">
-
-                    
-
-                    {/* Begin Page Content */}
-                    <div className="container-fluid">
-                        <div className="row">
-                                                  {/* Page Heading */}
-                        <div className='row' style={{flexDirection: 'row', height:300, width: 500}}>
-                        <div style={{ color: 'black', fontSize: 20 ,textAlign: "center"}} > My Library  </div>
-                        </div>
-                        </div><div className="row"  style={{flexDirection: 'row', height:300, width: 500}}>
-                        <div className="card shadow mb-4">
-                            <div className="card-body">
-                                <div className="table-responsive">
-                                  <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
-                                    <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <ReactTable columns={tableColumns} data={carsTableData} />
-                                    </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div></div>
-                    </div>
-                                        {/* /.container-fluid */}
+    <div className="container-fluid">
+      <center>
+      <div className="col">
+            <div className="row" style={{flexDirection: 'row', height:50, width: 500}}>
+                
+                 <div Style="color:Black;" >
+                 <img src={menu} className="infoInfo"/>
+                       My Library 
                 </div>
-                {/* End of Main Content */}
+                <br/>
+                
+                </div>
+                <center>
+                <div className="row"  style={{flexDirection: 'row', height:50, width: 500}}>
+                <button onClick={() => navigate('/UploadeNewEx')}  className='about-us'>Uplode New Exercise</button>
+                </div>
+                </center>
+                       <div className="row"  style={{flexDirection: 'row', height:800, width: 500}}>
+                       
+                            <center>
+                                <div className="table-responsive" style={{ color: 'black',width: 800, minWidth: 100, maxWidth: 800}}>
+                                  
+                                    <table className="table table-bordered" id="dataTable" width="200%" cellspacing="3">
+                                        <ReactTable columns={tableColumns}  data={carsTableData} />
+                                    </table>
+                                    
+                                </div>
+                                </center>
+                            
+                        </div>
+                        <div className='row' style={{flexDirection: 'row', height:50, width: 500}}>
+                <center>
+                             <div class="btn-group">
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"  onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={()=>navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                              </div>
+                              </center>
+                              </div>
+                              <div className="row">
+                            <center>
+                        <img src={logo} className="logo"/>
+                        </center>
+                    </div>
+                    </div>                     
+                    </center>
+       
 
-            </div>
-                       {/* End of Content Wrapper */}
-
-        </div>
-        {/* End of Page Wrapper */}
-
-        {/* Scroll to Top Button*/}
-        <a className="scroll-to-top rounded" href="#page-top">
-            <i className="fas fa-angle-up"></i>
-        </a>
+      
+       
 </div>
-</div>
+
   );
 };
 
