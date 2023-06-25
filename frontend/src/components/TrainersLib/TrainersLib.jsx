@@ -103,7 +103,7 @@ const onClickDelete = async (row) => {
                             <center>
                                 <div className="table-responsive" style={{ color: 'black',width: 800, minWidth: 100, maxWidth: 800}}>
                                   
-                                    <table className="table table-bordered" id="dataTable" width="200%" cellspacing="3">
+                                    <table className="table table-bordered" id="dataTable" width="200%" cellspacing="3" style={{ color: 'black',}}>
                                         <ReactTable columns={tableColumns}  data={carsTableData} />
                                     </table>
                                     
