@@ -31,11 +31,11 @@ const CreateNewClass = () => {
    useEffect(() => {
     async function fetchData() {
       try {
-        const trainingNum = localStorage.getItem('trainingNum').replace(/"/g, '');
+        const className = localStorage.getItem('className').replace(/"/g, '');
         console.log("before")
-        const response = await axios.get('http://localhost:8000/api/trainingPlans/CreateNewClass', { params: { trainingNum } });
+        const response = await axios.get('http://localhost:8000/api/trainingPlans/CreateNewClass', { params: { className } });
         console.log("after")
-        setTableData(response.data.TrainersLib.user);
+        setTableData(response.data.CreateNewClass.user);
       } catch (error) {
         console.error("catch ",error);
       }

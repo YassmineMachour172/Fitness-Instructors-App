@@ -13,7 +13,7 @@ router.post("/TrainersLibSelect", async function (req, res) {
     const {exercisetitle,className,description,trainerEmail }  = req?.body;
     console.log(req.body)
     try {
-                    const user = await TrainingPlansModel.insertMany([{trainingNum:count,exercisetitle,className,description,trainerEmail}])
+                    const user = await TrainingPlansModel.insertMany([{exercisetitle,className,description,trainerEmail}])
                         console.log("save  training to DB");
                         increase();
                     res.send({ success: true, error: null, info: user. trainingNum});
@@ -24,11 +24,11 @@ router.post("/TrainersLibSelect", async function (req, res) {
 });
 
 router.get('/CreateNewClass',async(req,res)=>{
-    console.log(req?.query.trainingNum)
-    const trainingNum = req.query.trainingNum;
+    console.log(req?.query.className)
+    const className = req.query.className;
     try {
         
-        const user =await TrainingPlansModel.find({trainingNum:trainingNum});
+        const user =await TrainingPlansModel.find({className:className});
         if(user){
             console.log(user);
             res.send({ success: true, error: null, TrainersLib: { user } });
