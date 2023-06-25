@@ -23,6 +23,13 @@ import imageDelete from'../../images/delete.png';
 import MyClassesTrainee from '../MyClassesTrainee/MyClassesTrainee';
 import Classes from '../../components/MyClassesTrainee/Classes';
 const MainTrainee = () => {
+    localStorage.removeItem('location');
+    localStorage.removeItem('class');
+    localStorage.removeItem('className');
+    localStorage.removeItem('description');
+    localStorage.removeItem('trainingNum');
+
+
     const [U,setU]=useState([]);
     const { email } = useParams();
     const [mail, setMail]=useState('');

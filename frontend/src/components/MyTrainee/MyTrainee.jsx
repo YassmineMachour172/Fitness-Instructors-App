@@ -16,34 +16,49 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import {useEffect} from 'react'
 import goback from '../../images/return.png'
+import ReactTable from '../ReactTable/ReactTable';
 const MyTrainee=()=> {
-    const { email } = useParams();
+    const { email } = useParams(); 
+    const [TableData, setTableData] = useState([]);
+
     const [Trainer, setTrainer]=useState();
     console.log("main",{email})
     /* define what will disappear imeditally on the screen once the trainer log in  */
     useEffect(() => {
-        const fetchUser = async () => {
+        
+            const trainerEmail=localStorage.getItem('saved').replace(/"/g, '');
+            
+        async function fetchData() {
           try {
-            console.log(email);
-            console.log("before axios", email);
-            const response = await axios.get('http://localhost:8000/api/myTrainees/MyTrainee', {email});
-            if (response?.data.success === true) {
-              const dataTable= response.json();
-                console.log(dataTable);
-                if(dataTable.length>0)
-                {
-                  setTrainer(dataTable);
-                }
-            } else {
-              console.log(response.data.error);
-            }
-            console.log("requesting");
-            console.log(response.data);
+            console.log("before")
+            const response = await axios.get('http://localhost:8000/api/traineesClass/MyTrainee', {params:{trainerEmail}});
+            console.log("after", response.data)
+            setTableData(response.data.TraineesClass.user);
           } catch (error) {
-            console.error(error);
+            console.error("catch ",error);
           }
-        };
+        }
+    
+        fetchData();
       }, []);
+
+      const tableColumns = React.useMemo(
+        () => [
+          {
+            Header: 'Class Name',
+            accessor: 'className',
+          },
+          {
+            Header: 'Type',
+            accessor: 'cType',
+          },
+          {
+            Header: 'traineeEmail',
+            accessor: 'traineeEmail',
+          }
+        ],
+        []
+      );
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -69,19 +84,11 @@ const MyTrainee=()=> {
                 <div className='row' style={{flexDirection: 'row', height:800, width: 500}}>
                 <center>
                 <div className='col'>
-                            
-                <table className='table3' Style="color:Black;text-align: center;margin: auto;">
-                <tbody>
-                <tr Style="color: #D66850;">
-                 <th>Name</th>
-                    <th>Class Name</th>
-                    <th>State</th>
-                    
-                </tr>
-                
-                  <Trainees Trainer={Trainer}></Trainees>
-                </tbody>
-            </table>              
+                <div className="table-responsive">
+                                    <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <ReactTable columns={tableColumns} data={TableData} />
+                                    </table>
+                                </div>       
                 
                                         
                                         </div>

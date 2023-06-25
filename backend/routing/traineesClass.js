@@ -83,4 +83,24 @@ router.post('/MyClassesTrainee',async(req,res)=>{
         res.status(500).send({ success: false, error: 'An error occurred', info: null });
       }
 })
+router.get('/MyTrainee',async(req,res)=>{
+    console.log(req?.query)
+    const trainerEmail = req.query.trainerEmail;
+    try {
+        
+        const user =await TraineeclassModel.find({trainerEmail:trainerEmail});
+        if(user){
+            console.log(user);
+            res.send({ success: true, error: null, TraineesClass: { user } });
+        } else{
+            console.error(error);
+            res.status(500).send({ success: false, error: 'no results found', info: null });
+            }
+        
+        
+      } catch (error) {
+        console.error(error);
+        res.status(500).send({ success: false, error: 'An error occurred', info: null });
+      }
+})
 module.exports = router;
