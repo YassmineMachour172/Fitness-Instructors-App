@@ -16,6 +16,7 @@ const classSchema = new mongoose.Schema({
         default: 'saved',
       },
     trainerEmail: String,
+    traineeEmail:String,
     keywords:String
 });
 { _id: false }

@@ -8,7 +8,7 @@ const myTraineeModel = mongoose.model("myTrainees", myTraineeSchema);
 
 
 
-router.get('/MyTrainee',async(req,res)=>{
+/*router.get('/MyTrainee',async(req,res)=>{
 
     const email = req.query.email;
 
@@ -29,7 +29,8 @@ router.get('/MyTrainee',async(req,res)=>{
         console.error(error);
         res.status(500).send({ success: false, error: 'An error occurred', info: null });
       }
-})
+})*/
+
 
 
 module.exports = router;

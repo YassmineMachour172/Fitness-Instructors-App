@@ -13,7 +13,7 @@ const classesSch= require("../db/classSchema");
 const classesModel=mongoose.model("Classes",classesSch);
 
 
-router.get('/MainTrainee',async(req,res)=>{
+/*router.get('/MainTrainee',async(req,res)=>{
 
     const email = req.query.email;
 
@@ -26,7 +26,6 @@ router.get('/MainTrainee',async(req,res)=>{
             
         } 
         else{
-            console.error(error);
             res.status(500).send({ success: false, error: 'no results found', info: null });
             }
        
@@ -34,43 +33,8 @@ router.get('/MainTrainee',async(req,res)=>{
         console.error(error);
         res.status(500).send({ success: false, error: 'An error occurred', info: null });
       }
-})
-router.post('/NewClass',async(req,res)=>{
+})*/
 
-    const name= req.query.ClassName;
-    const keywords= req.query.Keywords;
-
-    try {
-        if(name!=null){
-            const classN = await classesTrainersModel.findOne({ class: name }).exec();
-        
-        if(classN){
-            res.send({ success: true, error: null, NewClass: { classN } });
-        } else{
-            console.error(error);
-            res.status(500).send({ success: false, error: 'no results found', info: null });
-            }
-        }
-        if(Keywords!=null)
-        {
-            const key = await KeywordModel.findOne({ keyword: keywords }).exec();
-            
-            if(key){
-                res.send({ success: true, error: null, NewClass: { user } });
-            }
-            else{
-            console.error(error);
-            res.status(500).send({ success: false, error: 'no results found', info: null });
-            }
-        }
-        
-        
-       
-      } catch (error) {
-        console.error(error);
-        res.status(500).send({ success: false, error: 'An error occurred', info: null });
-      }
-})
 router.get("/MyClassesTrainer",async function (req, res) {
     const trainerEmail = req.query.email;
     console.log("heeeeeeeeeeeeere",trainerEmail)
@@ -108,5 +72,24 @@ router.post("/CreateNewClass", async function (req, res) {
         console.log(err)
     }
 });
+
+router.get("/NewClass",async function (req, res) {
+    try {
+        const user = await classesModel.find({}).exec();
+        console.log(user)
+        if(user){
+            res.send({ success: true, error: null, NewClass: { user } });
+            
+        } 
+        else{
+            res.status(500).send({ success: false, error: 'no results found', info: null });
+            }
+       
+      } catch (error) {
+        console.error(error);
+        res.status(500).send({ success: false, error: 'An error occurred', info: null });
+      }
+});
+
 
 module.exports = router;

@@ -13,6 +13,7 @@ const userTrainer = require("./routing/trainers");
 const userMyTrainee = require("./routing/myTrainees");
 const userMessages = require("./routing/messages");
 const usertrainingPlans = require("./routing/trainingPlans");
+const userclassTrainee = require("./routing/traineesClass");
 
 const app = express(); // Create express app
 const port = process.env.PORT || 8000; // Port to listen on
@@ -42,7 +43,7 @@ app.use("/api/trainers", userTrainer);
 app.use("/api/myTrainees",userMyTrainee);
 app.use("/api/messages",userMessages)
 app.use("/api/trainingPlans",usertrainingPlans)
-
+app.use("/api/traineesClass",userclassTrainee)
 /* listen to port */
 app.listen(port, () => {
     console.log(
