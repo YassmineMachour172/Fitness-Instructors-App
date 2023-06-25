@@ -15,34 +15,49 @@ import {useEffect} from 'react'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import MyClasses from './MyClasses';
+import ReactTable from '../ReactTable/ReactTable';
 const MyClassesTrainer=()=> {
   const { email } = useParams();
   const [classes, setClasses]=useState();
+  const [TableData, setTableData] = useState([]);
   /* define what will disappear imeditally on the screen once the trainer log in  */
   useEffect(() => {
-    const fetchUser = async () => {
+    async function fetchData() {
       try {
-        
-        console.log(email);
-        console.log("before axios", email);
-        const response = await axios.get('http://localhost:8000/api/classes/MyClassesTrainer', {email});
-        if (response.data.success === true) {
-          const dataTable= response.json();
-            console.log(dataTable);
-            if(dataTable.length>0)
-            {
-              setClasses(dataTable);
-            }
-        } else {
-          console.log(response.data.error);
-        }
-        console.log("requesting");
-        console.log(response.data);
+        const email = localStorage.getItem('saved').replace(/"/g, '');
+        console.log("before")
+        const response = await axios.get('http://localhost:8000/api/classes/MyClassesTrainer',  { params: { email } });
+        console.log("after", response.data.MyClassesTrainee.user)
+        setTableData(response.data.MyClassesTrainee.user);
       } catch (error) {
-        console.error(error);
+        console.error("catch ",error);
       }
-    };
+    }
+
+    fetchData();
   }, []);
+  
+  const tableColumns = React.useMemo(
+    () => [
+      {
+        Header: 'Class Name',
+        accessor: 'className',
+      },
+      {
+        Header: 'Type',
+        accessor: 'cType',
+      },
+      {
+        Header: 'Description',
+        accessor: 'description',
+      },
+      {
+        Header: 'Keywords',
+        accessor: 'keywords',
+      }
+    ],
+    []
+  );
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
@@ -73,23 +88,11 @@ const MyClassesTrainer=()=> {
                
                 <div className='row' style={{flexDirection: 'row', height:500, width: 500}}>
                 <center>
-                <div className='col'>
-                            
-                <table className='table2' Style="color:Black;text-align: center;margin: auto;">
-                <tbody>
-                <tr Style="color: #D66850;">
-                    <th>Class's Name</th>
-                    <th>list Of Trainees</th>
-                    <th>Cancele Class</th>
-                    <th>Edit Class</th>
-                    <th>Publish Class</th>
-                </tr>
-                
-                  <MyClasses classes={classes}></MyClasses>
-                </tbody>
-                </table>
-                                        
-                                        </div>
+                <div className="table-responsive">
+                                    <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <ReactTable columns={tableColumns} data={TableData} />
+                                    </table>
+                                </div>
                                         </center>
                                             
                             </div>

@@ -11,7 +11,6 @@ router.post("/TrainersLibSelect", async function (req, res) {
     const {exercisetitle,className,description,trainerEmail }  = req?.body?.params;
     try {
                     const user = await TrainingPlansModel.insertMany([{trainingName:className,exercisetitle,className,description,trainerEmail}])
-                        console.log("save  training to DB",{trainingName:className,exercisetitle,className,description,trainerEmail});
                     res.send({ success: true, error: null, info: null});
     } catch (err) {
         res.send({ success: false, info: null, error: "Server error" });
