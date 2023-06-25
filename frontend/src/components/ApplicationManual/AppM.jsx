@@ -11,7 +11,7 @@ const AppM = () => {
     /*in the follwoing section the application manual will be displayed which is the text thst explains how the application works */
     return (
         <div className="container-fluid">
-            <div id='ApplicationManual' className='backgroundcol'>
+            <div id='ApplicationManual' className='col'>
                 
                 <div className="path">
                     <h5 className='pa'>Home--{">"}Application Manual</h5>
