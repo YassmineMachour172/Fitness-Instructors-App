@@ -24,7 +24,7 @@ const TrainningPlanes=()=> {
   return (
     <center>
         <div className="container-fluid">
-        <div className='backgroundcol'>
+        <div className='col'>
             <div className="row" >
                 <center>
                 <div className="row">
@@ -67,13 +67,10 @@ const TrainningPlanes=()=> {
             
             <div className="down-buttons">
             
-              <div className='row'><center>
-              <button  className='home2' onClick={() => navigate('http://localhost:3000/')}>Home</button>
-                                <button className='sign-in2' onClick={() => navigate('/SignIn')}>Sign In</button>
-                                </center>
-              </div>
-              <div className='row'> <center>
-              <button className='about-us' onClick={() => navigate('/about')}>About Us</button>
+              <div className='row'style={{flexDirection: 'row', height:200, width: 400}}><center>
+              <button  className='home5' onClick={() => navigate('/')}>Home</button>
+              <button className='home5' onClick={() => navigate('/SignIn')}>Sign In</button>
+              <button className='home5' onClick={() => navigate('/about')}>About Us</button>
               </center>
               </div>
                                 

@@ -15,6 +15,7 @@ import { Modal, Button } from "react-bootstrap";
 import axios from 'axios';
 import  { useEffect} from 'react';
 import ReactTable from '../ReactTable/ReactTable';
+import goback from '../../images/return.png'
 
 
 const CreateNewClass = () => {
@@ -193,17 +194,7 @@ const CreateNewClass = () => {
                                                   
                                                   </div>
                                                  </form>
-                </div>
-            {/* Page Wrapper */}
-            <div id="wrapper">
-
-                {/* Content Wrapper */}
-                <div id="content-wrapper" className="d-flex flex-column">
-
-                    {/* Main Content */}
-                    <div id="content">
-                    
-                        
+               
 
                         {/* Begin Page Content */}
                         <div className="container-fluid">
@@ -227,13 +218,16 @@ const CreateNewClass = () => {
                     </div>
                     {/* End of Main Content */}
 
-                </div>
-                {/* End of Content Wrapper */}
-
-            </div>
-            {/* End of Page Wrapper */}
-
-            {/* Scroll to Top Button*/}
+                    <div className='row' style={{flexDirection: 'row', height:100, width: 500}}>
+                <center>
+                             <div class="btn-group">
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"  /></button>
+                                <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={()=>navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={()=>navigate('/MainTrainer')}><img src={goback} className="ProfileBbox"/></button> 
+                              </div>
+                              </center>
+                              </div>
             <a className="scroll-to-top rounded" href="#page-top">
                 <i className="fas fa-angle-up"></i>
             </a>
