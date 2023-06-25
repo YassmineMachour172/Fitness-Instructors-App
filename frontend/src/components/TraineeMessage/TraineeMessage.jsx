@@ -15,6 +15,7 @@ import {useEffect} from 'react'
 import axios from 'axios';
 import Mess from './Mess';
 import { useParams } from 'react-router-dom';
+import goback from '../../images/return.png'
 const TraineeMessage=()=> {
   const [U,setU]=useState([]);
     const { email } = useParams();
@@ -103,6 +104,7 @@ const TraineeMessage=()=> {
                                 <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={() => navigate('/')}><img src={HomeIc} className="HomBbox"/></button>
                                 <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={() => navigate('/Info')}><img src={info1} className="InfoBbox"/></button>
                                 <button  Style="border: none;color: Black;background-color: transparent;border-radius: 12px;"onClick={()=>navigate('/Profile')}><img src={profile} className="ProfileBbox"/></button>
+                                <button Style="border: none;color: Black;background-color: transparent;border-radius: 12px;" onClick={()=>navigate('/main-trainee/:email')}><img src={goback} className="ProfileBbox"/></button> 
                               </div>
                               </center>
                               </div>
