@@ -13,27 +13,6 @@ const classesSch= require("../db/classSchema");
 const classesModel=mongoose.model("Classes",classesSch);
 
 
-/*router.get('/MainTrainee',async(req,res)=>{
-
-    const email = req.query.email;
-
-    try {
-        
-        const user = await classesTraineesModel.findOne({ email: email }).exec();
-        
-        if(user){
-            res.send({ success: true, error: null, MyClassesTrainee: { user } });
-            
-        } 
-        else{
-            res.status(500).send({ success: false, error: 'no results found', info: null });
-            }
-       
-      } catch (error) {
-        console.error(error);
-        res.status(500).send({ success: false, error: 'An error occurred', info: null });
-      }
-})*/
 
 router.get("/MyClassesTrainer",async function (req, res) {
     const trainerEmail = req.query.email;
@@ -90,6 +69,24 @@ router.get("/NewClass",async function (req, res) {
         res.status(500).send({ success: false, error: 'An error occurred', info: null });
       }
 });
-
+router.get("/ClassTrainningPlanes",async function (req, res) {
+   const className=req.query.className;
+    console.log(req.query.className)
+    try {
+        const user = await classesModel.find({className:className}).exec();
+        console.log(user)
+        if(user){
+            res.send({ success: true, error: null, NewClass: { user } });
+            
+        } 
+        else{
+            res.status(500).send({ success: false, error: 'no results found', info: null });
+            }
+       
+      } catch (error) {
+        console.error(error);
+        res.status(500).send({ success: false, error: 'An error occurred', info: null });
+      }
+});
 
 module.exports = router;

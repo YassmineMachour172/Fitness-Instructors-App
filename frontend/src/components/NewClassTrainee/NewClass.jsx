@@ -45,7 +45,6 @@ const NewClass=()=> {
       if((res?.data?.success===true)){
         console.log("successful")
         /*IT RETURNS THE TRAINING NUMBER*/
-        render();
   }
   else{
     console.log("error",res.error)

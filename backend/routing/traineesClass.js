@@ -25,5 +25,62 @@ router.post('/NewClass',async(req,res)=>{
       }
 })
 
+router.get('/MainTrainee',async(req,res)=>{
+    console.log(req?.query.traineeEmail)
+    const traineeEmail = req.query.traineeEmail;
+    try {
+        
+        const user =await TraineeclassModel.find({traineeEmail:traineeEmail});
+        if(user){
+            console.log(user);
+            res.send({ success: true, error: null, TraineesClass: { user } });
+        } else{
+            console.error(error);
+            res.status(500).send({ success: false, error: 'no results found', info: null });
+            }
+        
+        
+      } catch (error) {
+        console.error(error);
+        res.status(500).send({ success: false, error: 'An error occurred', info: null });
+      }
+})
+router.get('/MyClassesTrainee',async(req,res)=>{
+    console.log(req?.query.traineeEmail)
+    const traineeEmail = req.query.traineeEmail;
+    try {
+        
+        const user =await TraineeclassModel.find({traineeEmail:traineeEmail});
+        if(user){
+            console.log(user);
+            res.send({ success: true, error: null, TraineesClass: { user } });
+        } else{
+            console.error(error);
+            res.status(500).send({ success: false, error: 'no results found', info: null });
+            }
+        
+        
+      } catch (error) {
+        console.error(error);
+        res.status(500).send({ success: false, error: 'An error occurred', info: null });
+      }
+})
+router.post('/MyClassesTrainee',async(req,res)=>{
 
+    const className= req.body.params.className;
+    console.log(req.body.params)
+    try {
+            const user = await TraineeclassModel.deleteOne({className:className});
+            console.log("HELOOOOOOOOOOOOOOO",user)
+        if(user){
+            res.send({ success: true, error: null, MyClassesTrainee: { user } });
+        } else{
+            res.status(500).send({ success: false, error: 'no results found', info: null });
+            }
+        
+      } catch (error) {
+        console.error(error);
+        res.status(500).send({ success: false, error: 'An error occurred', info: null });
+      }
+})
 module.exports = router;

@@ -15,39 +15,99 @@ import axios from 'axios';
 import Classes from './Classes';
 import { useParams } from 'react-router-dom';
 import goback from '../../images/return.png'
+import ReactTable from '../ReactTable/ReactTable';
+import imageDelete from'../../images/delete.png';
+import imageStart from'../../images/play.png';
+
 const MyClassesTrainee=()=> {
   const { email } = useParams();
   const [classes, setClasses]=useState();
+  const [TableData, setTableData] = useState([]);
    /* define what will disappear imeditally on the screen once the trainee log in  */
-  useEffect(() => {
-    const fetchUser = async () => {
+   useEffect(() => {
+    async function fetchData() {
       try {
-        console.log(email);
-        console.log("before axios", email);
-        const response = await axios.get('http://localhost:8000/api/classes/MyClassesTrainee', {email});
-        if (response.data.success === true) {
-          const dataTable= response.json();
-            console.log(dataTable);
-            if(dataTable.length>0)
-            {
-              setClasses(dataTable);
-            }
-        } else {
-          console.log(response.data.error);
-        }
-        console.log("requesting");
-        console.log(response.data);
+        const traineeEmail=localStorage.getItem('saved').replace(/"/g, '');
+        console.log("before")
+        const response = await axios.get('http://localhost:8000/api/traineesClass/MyClassesTrainee', {params:{traineeEmail}} );
+        console.log("after", response.data.TraineesClass.user )
+      setTableData(response.data.TraineesClass.user);
       } catch (error) {
-        console.error(error);
+        console.error("catch ",error);
       }
-    };fetchUser();
+    }
+
+    fetchData();
   }, []);
-  
+  const onClickStart = async (row) => {
+      const traineeEmail =  localStorage.getItem('saved').replace(/"/g, '');
+      const className =  row.original.className;
+      const cType=row.original.cType;
+      const description =  row.original.description;
+      const keywords =  row.original.keywords;
+      const trainerEmail =  row.original.trainerEmail;
+      console.log({traineeEmail,className,cType,description,keywords,trainerEmail})
+    localStorage.setItem('className',className);
+    navigate('/ClassTrainningPlanes')
+        
+  }
+  const onClickDelete = async (row) => {
+      const className =  row.original.className;
+      const res = await axios.post('http://localhost:8000/api/traineesClass/MyClassesTrainee', { params: {className } });
+      if((res?.data?.success===true)){
+        console.log("successful")
+  }
+  else{
+    console.log("error",res.error)
+  }
+      
+  }
   const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(logInSchema), /* validate the form with the schema */
         mode: "onChange" /* validate the form on change */
     });
+    const tableColumns = React.useMemo(
+      () => [
+        {
+          Header: 'Class Name',
+          accessor: 'className',
+        },
+        {
+          Header: 'Type',
+          accessor: 'cType',
+        },
+        {
+          Header: 'Description',
+          accessor: 'description',
+        },
+        {
+          Header: 'Keywords',
+          accessor: 'keywords',
+        },
+        {
+          Header: 'trainerEmail',
+          accessor: 'trainerEmail',
+        },
+        {
+          Header: 'traineeEmail',
+          accessor: 'traineeEmail',
+        },
+        {
+          Header:'Action',
+          accessor:'action',
+          Cell: row => (
+            <div>
+                <button onClick={(e) => onClickDelete(row.row)} className='button-image' >  <img src={imageDelete} alt="image-button" style={{ width: '30px', height: '30px' }}/>
+                </button>
+                <button onClick={(e) => onClickStart(row.row)} className='button-image' >  <img src={imageStart} alt="image-button" style={{ width: '30px', height: '30px' }}/>
+                </button>
+            </div>     
+        )
+        }
+      ],
+      []
+    );
     /*define what the My classes trainee page will contain, a table of all the classes that the trainee has registered to and down buttons */
   return (
     <center>
@@ -77,19 +137,11 @@ const MyClassesTrainee=()=> {
                                         
                 
                  <center>                  
-                <table className='table3' Style="color:Black;text-align: center;margin: auto;">
-                <tbody>
-                <tr Style="color: #D66850;">
-                    <th>Class's Name</th>
-                    <th>Trainer's Name</th>
-                    <th>Class's Description</th>
-                    <th>Feedback</th>
-                    <th>Start Class</th>
-                </tr>
-                
-                  <Classes classes={classes}></Classes>
-                </tbody>
-            </table>
+                 <div className="table-responsive">
+                                    <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <ReactTable columns={tableColumns} data={TableData} />
+                                    </table>
+                                </div>
             </center> 
                                         
                                         </div>

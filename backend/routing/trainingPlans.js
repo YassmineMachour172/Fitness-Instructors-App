@@ -39,7 +39,26 @@ router.get('/CreateNewClass',async(req,res)=>{
       }
 });
 
-
+router.get('/ClassTrainningPlanes',async(req,res)=>{
+    console.log(req?.query.className)
+    const className = req.query.className;
+    try {
+        
+        const user =await TrainingPlansModel.find({className:className});
+        if(user){
+            console.log(user);
+            res.send({ success: true, error: null, NewClass: { user } });
+        } else{
+            console.error(error);
+            res.status(500).send({ success: false, error: 'no results found', info: null });
+            }
+        
+        
+      } catch (error) {
+        console.error(error);
+        res.status(500).send({ success: false, error: 'An error occurred', info: null });
+      }
+});
 module.exports = router;
 
 

@@ -19,6 +19,7 @@ import ReactTable from '../ReactTable/ReactTable';
 import goback from '../../images/return.png'
 const MyClassesTrainer=()=> {
   const { email } = useParams();
+  
   const [classes, setClasses]=useState();
   const [TableData, setTableData] = useState([]);
   /* define what will disappear imeditally on the screen once the trainer log in  */

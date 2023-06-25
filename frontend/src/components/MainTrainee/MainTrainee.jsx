@@ -18,42 +18,42 @@ import MainTrainer from '../MainTrainer/MainTrainer';
 import NewClass from '../NewClassTrainee/NewClass';
 import TraineeMessage from '../TraineeMessage/TraineeMessage';
 import axios from 'axios';
+import ReactTable from '../ReactTable/ReactTable';
+import imageDelete from'../../images/delete.png';
 import MyClassesTrainee from '../MyClassesTrainee/MyClassesTrainee';
 import Classes from '../../components/MyClassesTrainee/Classes';
 const MainTrainee = () => {
     const [U,setU]=useState([]);
     const { email } = useParams();
     const [mail, setMail]=useState('');
-    const [classes, setClasses]=useState();
+    const [classes, setClasses]=useState();  
+    const [TableData, setTableData] = useState([]);
+    const onClickSelect = async (row) => {
+    /*  console.log('select button clicked for class: ', row.original.className);
+      const exercisetitle=row.original.title
+      const traineeEmail =  localStorage.getItem('saved').replace(/"/g, '');
+      const className =  row.original.className;
+      const cType=row.original.cType;
+      const description =  row.original.description;
+      const keywords =  row.original.keywords;
+      const trainerEmail =  row.original.trainerEmail;
+
+
+      /*insert the exercise to the db to that trainer*/ 
+    /*  const res = await axios.post('http://localhost:8000/api/traineesClass/NewClass', { params: { exercisetitle,traineeEmail,className,cType,description,keywords,trainerEmail } });
+      if((res?.data?.success===true)){
+        console.log("successful")
+        /*IT RETURNS THE TRAINING NUMBER*/
+        /*
+  }
+  else{
+    console.log("error",res.error)
+  }
+      */
+  }
     console.log("main",{email})
     /* define what will disappear imeditally on the screen once the trainee log in  */
-    useEffect(() => {
-        const fetchUser = async () => {
-          try {
-            console.log(email);
-            console.log("before axios", email);
-            const response = await axios.get('http://localhost:8000/api/classes/MainTrainee', {email});
-            if (response.data.success === true) {
-              const dataTable= response.json();
-                console.log(dataTable);
-                if(dataTable.length>0)
-                {
-                  setClasses(dataTable);
-                }
-            } else {
-              console.log(response.data.error);
-            }
-            console.log("requesting");
-            console.log(response.data);
-          } catch (error) {
-            console.error(error);
-          }
-        };fetchUser();
-        const storedSession = localStorage.getItem('session');
-        //print the session
-        const session = JSON.parse(storedSession);
-        console.log({session});
-      }, []);
+    
    
     console.log( "Main")
    
@@ -75,6 +75,21 @@ const MainTrainee = () => {
         <TraineeMessage email={email} />
         navigate(`/Traineemessage/${email}`);
     };
+    useEffect(() => {
+      async function fetchData() {
+        try {
+          const traineeEmail=localStorage.getItem('saved').replace(/"/g, '');
+          console.log("before")
+          const response = await axios.get('http://localhost:8000/api/traineesClass/MainTrainee', {params:{traineeEmail}} );
+          console.log("after", response.data.TraineesClass.user )
+        setTableData(response.data.TraineesClass.user);
+        } catch (error) {
+          console.error("catch ",error);
+        }
+      }
+  
+      fetchData();
+    }, []);
   
     /* function that navigates to the New class page */
     const handleClickNewClass = () => {
@@ -88,7 +103,35 @@ const MainTrainee = () => {
         navigate(`/MainTrainer/${email}`);
     };
     
-    
+    const tableColumns = React.useMemo(
+      () => [
+        {
+          Header: 'Class Name',
+          accessor: 'className',
+        },
+        {
+          Header: 'Type',
+          accessor: 'cType',
+        },
+        {
+          Header: 'Description',
+          accessor: 'description',
+        },
+        {
+          Header: 'Keywords',
+          accessor: 'keywords',
+        },
+        {
+          Header: 'trainerEmail',
+          accessor: 'trainerEmail',
+        },
+        {
+          Header: 'traineeEmail',
+          accessor: 'traineeEmail',
+        }
+      ],
+      []
+    );
 /* define the maintrainee contant that contains : upper buttons and four main buttons and the list of the registered class */
     return (
         <div className="container-fluid " >
@@ -147,19 +190,11 @@ const MainTrainee = () => {
                                              
                                     </div>
                                
-                                    <table className='table5' Style="color:Black;text-align: center;margin: auto;">
-                <tbody>
-                <tr Style="color: #63456b;">
-                    <th>Class's Name</th>
-                    <th>Trainer's Name</th>
-                    <th>Class's Description</th>
-                    <th>Feedback</th>
-                    <th>Start Class</th>
-                </tr>
-                
-                  <Classes classes={classes}></Classes>
-                </tbody>
-            </table>
+                                    <div className="table-responsive">
+                                    <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <ReactTable columns={tableColumns} data={TableData} />
+                                    </table>
+                                </div>
                                     
                              
                               

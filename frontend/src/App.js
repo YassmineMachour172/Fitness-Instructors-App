@@ -28,7 +28,7 @@ import UploadeNewEx from './components/UploadNewEx/UploadeNewEx';
 import TrainningPlanes from './components/TrainningPlanes/TrainningPlanes'
 import ResetPassword from './components/ResetPassword/ResetPassword'
 import TrainersLibSelect from'./components/TrainersLibSelect/TrainersLibSelect'
-
+import ClassTrainningPlanes from './components/ClassTrainningPlane/ClassTrainningPlanes'
 import './App.css';
 import { SIGN_IN } from './actions';
 import { useSelector,useDispatch } from 'react-redux';
@@ -101,7 +101,7 @@ function App() {
                 <Route path="MainTrainer/:email" element={<MainTrainer/>}/>
                 <Route path="Upload" element={<Upload/>}/>
                 <Route path="TrainersLibSelect" element={<TrainersLibSelect/>}/>
-                
+                <Route path='ClassTrainningPlanes' element={<ClassTrainningPlanes/>}/>
             </Routes> 
         </Router>  
         
